@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 750" width="1200" height="750">
+  <defs>
+    <radialGradient id="bg-alryadh-3" cx="50%" cy="50%" r="60%">
+      <stop offset="0%" stop-color="#111827" />
+      <stop offset="100%" stop-color="#030712" />
+    </radialGradient>
+  </defs>
+  <rect width="1200" height="750" fill="url(#bg-alryadh-3)" />
+  <rect x="40" y="40" width="1120" height="670" rx="16" fill="#090d16" stroke="#1f2937" stroke-width="2" />
+  
+  <rect x="40" y="40" width="1120" height="48" rx="16" fill="#1f2937" />
+  <text x="70" y="68" font-family="system-ui, sans-serif" font-size="13" font-weight="600" fill="#f3f4f6">Patient Self-Service & Appointment Booking Hub</text>
+
+  <rect x="100" y="120" width="480" height="540" rx="12" fill="#111827" stroke="#374151" stroke-width="1" />
+  <text x="130" y="165" font-family="system-ui, sans-serif" font-size="18" font-weight="700" fill="#f9fafb">حجز المواعيد والاستشارات الطبية</text>
+  <rect x="130" y="195" width="420" height="80" rx="8" fill="#1f2937" />
+  <text x="150" y="240" font-family="system-ui, sans-serif" font-size="14" fill="#93c5fd">التقويم التفاعلي واختيار الطبيب والوقت المناسب</text>
+
+  <rect x="130" y="295" width="420" height="80" rx="8" fill="#1f2937" />
+  <text x="150" y="340" font-family="system-ui, sans-serif" font-size="14" fill="#a7f3d0">الدفع الإلكتروني الفوري وتأكيد الحجز التلقائي</text>
+
+  <rect x="130" y="395" width="420" height="80" rx="8" fill="#1f2937" />
+  <text x="150" y="440" font-family="system-ui, sans-serif" font-size="14" fill="#fde68a">دخول الجلسة الافتراضية بضغطة زر دون برامج</text>
+
+  <!-- Records side -->
+  <rect x="610" y="120" width="490" height="540" rx="12" fill="#111827" stroke="#374151" stroke-width="1" />
+  <text x="640" y="165" font-family="system-ui, sans-serif" font-size="18" font-weight="700" fill="#f9fafb">سجل الفحوصات والوصفات الطبية</text>
+  <rect x="640" y="195" width="430" height="180" rx="8" fill="#1f2937" />
+  <text x="660" y="240" font-family="system-ui, sans-serif" font-size="14" font-weight="600" fill="#e5e7eb">أحدث تقرير طبي مشفر</text>
+  <text x="660" y="270" font-family="system-ui, sans-serif" font-size="12" fill="#9ca3af">تم اعتماده وتوقيعه رقمياً من الطبيب المعالج</text>
+  <text x="660" y="310" font-family="system-ui, sans-serif" font-size="12" fill="#3b82f6">تحميل كملف PDF موثق مع QR Code</text>
+</svg>

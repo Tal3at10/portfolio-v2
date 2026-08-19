@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 750" width="1200" height="750">
+  <defs>
+    <radialGradient id="bg-bortselite" cx="50%" cy="50%" r="60%">
+      <stop offset="0%" stop-color="#064e3b" />
+      <stop offset="100%" stop-color="#022c22" />
+    </radialGradient>
+  </defs>
+  <rect width="1200" height="750" fill="url(#bg-bortselite)" />
+  <rect x="40" y="40" width="1120" height="670" rx="16" fill="#041f18" stroke="#065f46" stroke-width="2" />
+  
+  <rect x="40" y="40" width="1120" height="48" rx="16" fill="#064e3b" />
+  <text x="70" y="68" font-family="system-ui, sans-serif" font-size="13" font-weight="600" fill="#34d399">Bortselite Customs Brokerage Automation Bot (.NET 9 & WhatsApp/Telegram API)</text>
+
+  <rect x="80" y="110" width="1040" height="560" rx="12" fill="#063228" stroke="#065f46" stroke-width="1" />
+  <text x="120" y="160" font-family="system-ui, sans-serif" font-size="20" font-weight="700" fill="#f8fafc">منظومة أتمتة التخليص الجمركي وتتبع الحاويات</text>
+  <text x="120" y="190" font-family="system-ui, sans-serif" font-size="14" fill="#a7f3d0">.NET 9 Web API • WhatsApp Cloud API • Telegram Bot • Container Tracking Engine</text>
+
+  <rect x="120" y="230" width="460" height="180" rx="8" fill="#04261f" />
+  <text x="145" y="275" font-family="system-ui, sans-serif" font-size="16" font-weight="600" fill="#34d399">أتمتة الاستفسارات اللحظية</text>
+  <text x="145" y="310" font-family="system-ui, sans-serif" font-size="13" fill="#cbd5e1">رد فوري على أصحاب الشحنات بحالة الفسح الجمركي والبيان</text>
+  <text x="145" y="350" font-family="system-ui, sans-serif" font-size="22" font-weight="700" fill="#34d399">80% تقليص الاستفسارات اليدوية</text>
+
+  <rect x="600" y="230" width="460" height="180" rx="8" fill="#04261f" />
+  <text x="625" y="275" font-family="system-ui, sans-serif" font-size="16" font-weight="600" fill="#6ee7b7">إشعارات الحاويات المباشرة</text>
+  <text x="625" y="310" font-family="system-ui, sans-serif" font-size="13" fill="#cbd5e1">ربط الموانئ والمخلصين عبر Webhooks مشفرة بحاوية Docker</text>
+  <text x="625" y="350" font-family="system-ui, sans-serif" font-size="22" font-weight="700" fill="#6ee7b7">24/7 Uptime</text>
+</svg>

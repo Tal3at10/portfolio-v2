@@ -1,0 +1,442 @@
+{
+  "architect": "Mahmoud Talaat",
+  "title": "Systems Architect & AI Solutions Engineer",
+  "total_systems": 22,
+  "stats": {
+    "enterprise_systems": "30+",
+    "gov_schools": "990+",
+    "daily_tenders": "10,000+",
+    "monthly_bookings": "1,200+",
+    "proposal_acceleration": "90%",
+    "uptime_reliability": "99.9%"
+  },
+  "systems": [
+    {
+      "id": 1,
+      "slug": "almulhim-travel",
+      "name_ar": "منظومة سفريات الملحم المؤسسية الذكية",
+      "name_en": "AlMulhim Travel Enterprise AI Ecosystem",
+      "tagline_ar": "محرك حجز متعدد المزودين (GDS) وبوت ذكاء اصطناعي للواتساب وأتمتة شاملة لـ 40+ موظف",
+      "tagline_en": "Multi-GDS Booking Engine, WhatsApp RAG AI Bot & Complete Operational Automation for 40+ Staff",
+      "category": "TravelTech & AI",
+      "category_ar": "تكنولوجيا السفر والذكاء الاصطناعي",
+      "domain": "Travel & Tourism",
+      "complexity": "Tier-1 Enterprise",
+      "client_type": "Enterprise Travel Agency (Saudi Arabia)",
+      "featured": true,
+      "rating": 5,
+      "year": "2025",
+      "image": "/projects/almulhim-travel/almulhim1.png",
+      "sub_projects": [
+        "B2C Multi-GDS Booking Portal",
+        "SignalR Live Agent Dashboard",
+        "Clean Architecture .NET 8 API",
+        "Voucher Pro B2B Encrypted Vouchers",
+        "WhatsApp AI Sales Bot (RAG Embeddings)",
+        "4000+ Conversation Analysis Engine",
+        "PDF Package Catalog Extraction Pipeline",
+        "Playwright Headless Admin Automation"
+      ],
+      "tech_stack": [
+        "React 19",
+        "C# .NET 8",
+        "EF Core 8",
+        "SQL Server",
+        "SignalR",
+        "Duffel API",
+        "Amadeus GDS",
+        "RateHawk",
+        "Hotelbeds",
+        "Gemini Multi-LLM",
+        "Vector DB",
+        "QuestPDF",
+        "Tailwind CSS v4"
+      ],
+      "business_metrics": [
+        { "label_ar": "حجز مؤكد شهرياً", "label_en": "Monthly Bookings", "value": "1,200+" },
+        { "label_ar": "محادثة تم تحليلها", "label_en": "Chats Analyzed", "value": "4,000+" },
+        { "label_ar": "سرعة إصدار الفواتشر", "label_en": "Voucher Gen Speed", "value": "10s (من 45 دقيقة)" },
+        { "label_ar": "نسبة استقرار النظام", "label_en": "Uptime", "value": "99.4%" }
+      ],
+      "live_url": "https://mahmoudtalaat.vercel.app/projects/almulhim"
+    },
+    {
+      "id": 2,
+      "slug": "admin-sa",
+      "name_ar": "منصة إداري لمناقصات اعتماد الحكومية",
+      "name_en": "Etimad Intelligence SaaS (admin.sa)",
+      "tagline_ar": "أتمتة كشط وتصنيف المناقصات وتوليد العروض الفنية والمالية بالذكاء الاصطناعي ونماذج التنبؤ",
+      "tagline_en": "Automated Gov Tender Scraping, AI Proposal Generation & LightGBM Win Prediction",
+      "category": "GovTech & SaaS",
+      "category_ar": "تكنولوجيا حكومية وبرمجيات SaaS",
+      "domain": "FinTech / Procurement",
+      "complexity": "Critical / Distributed Batch",
+      "client_type": "B2B Contractors & Suppliers (Saudi Arabia)",
+      "featured": true,
+      "rating": 5,
+      "year": "2025",
+      "image": "/projects/admin.sa/admin1.png",
+      "sub_projects": [
+        "Multi-Tenant SaaS Engine",
+        "Government Tender Scraper (curl-cffi & Playwright)",
+        "Celery + Redis + Gemini Batch Proposal Generator",
+        "WhatsApp Live Tender Alerts",
+        "LightGBM Bid Win-Prediction Model",
+        "MyFatoorah Billing & Subscriptions",
+        ".NET 9 Worker Background Service"
+      ],
+      "tech_stack": [
+        "Python",
+        "Django 4.2+",
+        "DRF",
+        "Celery",
+        "Redis",
+        "PostgreSQL",
+        "C# .NET 9",
+        "Playwright",
+        "Google Gemini Batch",
+        "LightGBM",
+        "MyFatoorah",
+        "React 19",
+        "Tailwind CSS v4"
+      ],
+      "business_metrics": [
+        { "label_ar": "تسريع كتابة العروض", "label_en": "Proposal Time Reduction", "value": "90% (14 يوم → 4 س)" },
+        { "label_ar": "مناقصة مفهرسة يومياً", "label_en": "Daily Scraped Tenders", "value": "10,000+" },
+        { "label_ar": "دقة توقع الفوز", "label_en": "Win Prediction Accuracy", "value": "85%+" },
+        { "label_ar": "توفير العمالة", "label_en": "Staff Hours Saved", "value": "40h/week" }
+      ],
+      "live_url": "https://mahmoudtalaat.vercel.app/projects/admin-sa"
+    },
+    {
+      "id": 3,
+      "slug": "alryadh-therapy",
+      "name_ar": "منظومة مركز الرياض للعلاج النفسي والعيادة الافتراضية",
+      "name_en": "Al-Riyadh Psychiatric EMR & Telehealth Suite",
+      "tagline_ar": "نظام سجلات طبية متقدم بـ 7 بوابات تشغيلية وعيادات فيديو مشفرة بتقنية WebRTC",
+      "tagline_en": "7-Portal Enterprise Psychiatric EMR with Encrypted WebRTC Virtual Telemedicine",
+      "category": "HealthTech & Telehealth",
+      "category_ar": "تكنولوجيا الرعاية الصحية والتطبيب عن بعد",
+      "domain": "Healthcare / EMR",
+      "complexity": "Medical Grade / CQRS",
+      "client_type": "Specialized Medical Hospital (Saudi Arabia)",
+      "featured": true,
+      "rating": 5,
+      "year": "2025",
+      "image": "/projects/almulhim-travel/almulhim2.png",
+      "sub_projects": [
+        "7 Specialized Portals (Doctor, Patient, Nurse, Admin, Reception, Billing, EMR)",
+        "MediatR CQRS .NET 9 Backend",
+        "Daily.co Encrypted WebRTC Video Rooms",
+        "SignalR Live Chat & Clinical Alerts",
+        "Hangfire Background Appointment Dispatcher",
+        "HIPAA-Compliant Prescription Audit Engine"
+      ],
+      "tech_stack": [
+        "React 19",
+        "TypeScript",
+        "Vite",
+        "Tailwind CSS v4",
+        "HeroUI",
+        "Zustand",
+        "C# .NET 9",
+        "MediatR CQRS",
+        "EF Core 9",
+        "SQL Server",
+        "SignalR",
+        "Daily.co WebRTC",
+        "Hangfire"
+      ],
+      "business_metrics": [
+        { "label_ar": "بوابات تشغيلية معزولة", "label_en": "Isolated Portals", "value": "7 بوابات" },
+        { "label_ar": "زمن استرجاع السجل الطبي", "label_en": "Record Retrieval", "value": "< 200ms" },
+        { "label_ar": "جلسات افتراضية مشفرة", "label_en": "Encrypted Sessions", "value": "100%" },
+        { "label_ar": "تحول رقمي كامل", "label_en": "Paperless Ops", "value": "100%" }
+      ],
+      "live_url": ""
+    },
+    {
+      "id": 4,
+      "slug": "ok-cloud",
+      "name_ar": "منظومة التخزين السحابي والمزامنة المكتبية Ok.Cloud",
+      "name_en": "Ok.Cloud Enterprise Storage & Native Desktop Sync",
+      "tagline_ar": "بديل Google Drive المؤسسي مع تطبيق Windows أصلي للمزامنة التلقائية والرفع المقسم",
+      "tagline_en": "Private Enterprise Cloud Storage with Native Windows Background Sync & Chunked Uploads",
+      "category": "Cloud Infrastructure",
+      "category_ar": "البنية التحتية السحابية وتطبيقات سطح المكتب",
+      "domain": "Cloud / Native Desktop",
+      "complexity": "High / File System I/O",
+      "client_type": "Enterprise Cloud SaaS",
+      "featured": true,
+      "rating": 5,
+      "year": "2025",
+      "image": "/projects/ok.cloud/ok1.png",
+      "sub_projects": [
+        "Multi-Cloud Web SaaS (S3/SFTP/WebDAV)",
+        "Native Windows Sync Client (.NET 8 MAUI)",
+        "Silent Background Sync Windows Service",
+        "Offline-First SQLite Local Cache",
+        "Win32 Installers & System Tray Daemon"
+      ],
+      "tech_stack": [
+        "Laravel 12",
+        "PHP 8.2+",
+        "React 19",
+        "TypeScript",
+        "Tailwind CSS",
+        "C# .NET 8 MAUI",
+        "SQLite",
+        "FileSystemWatcher",
+        "AWS S3",
+        "Stripe",
+        "PayPal"
+      ],
+      "business_metrics": [
+        { "label_ar": "حجم الرفع المقسم", "label_en": "Chunked Uploads", "value": "10GB+" },
+        { "label_ar": "زمن اكتشاف تعديل الملفات", "label_en": "File Detection Latency", "value": "< 200ms" },
+        { "label_ar": "توفير التكاليف مقارنة بـ Drive", "label_en": "Cost Savings vs Drive", "value": "75%" },
+        { "label_ar": "العمل بدون إنترنت", "label_en": "Offline Reliability", "value": "100%" }
+      ],
+      "live_url": "https://mahmoudtalaat.vercel.app/projects/ok-cloud"
+    },
+    {
+      "id": 5,
+      "slug": "nexgo",
+      "name_ar": "سوق نيكسجو فائق التطبيقات (Super App Marketplace)",
+      "name_en": "NexGo Multi-Sector Marketplace & Fleet Engine",
+      "tagline_ar": "منصة واحدة لـ 6 قطاعات مع 3 تطبيقات Flutter موحدة وتتبع جيومكاني لحظي",
+      "tagline_en": "Unified 6-Sector Super App with 3 Flutter Apps & Real-Time Geospatial Fleet Engine",
+      "category": "Marketplace & Logistics",
+      "category_ar": "الأسواق المتعددة والخدمات اللوجستية",
+      "domain": "E-Commerce / Delivery",
+      "complexity": "Critical / High-Concurrency",
+      "client_type": "Commercial Super App Marketplace",
+      "featured": true,
+      "rating": 5,
+      "year": "2025",
+      "image": "/projects/snabbfood/snabbfood1.png",
+      "sub_projects": [
+        "SuperAdmin Central Dispatch Panel",
+        "Next.js 15 SSR Customer Web Storefront",
+        "Flutter Customer Mobile App",
+        "Flutter Driver App (Real-time GPS Tracking)",
+        "Flutter Vendor POS App (Bluetooth Thermal Printing)",
+        "Geofencing & AI Item Auto-Tagging Engine"
+      ],
+      "tech_stack": [
+        "PHP Laravel 12",
+        "MySQL Spatial",
+        "Redis",
+        "Laravel Reverb",
+        "Next.js 15",
+        "React 19",
+        "Redux Toolkit",
+        "Flutter 3.x",
+        "Google Maps API",
+        "Bluetooth ESC/POS"
+      ],
+      "business_metrics": [
+        { "label_ar": "قطاعات تجارية مدعومة", "label_en": "Supported Sectors", "value": "6 قطاعات" },
+        { "label_ar": "تحديث موقع السائق اللحظي", "label_en": "Driver GPS Stream", "value": "1 ثانية" },
+        { "label_ar": "تطبيقات موبايل متزامنة", "label_en": "Cross-Platform Apps", "value": "3 تطبيقات" },
+        { "label_ar": "سرعة معالجة الطلبات", "label_en": "Dispatch Latency", "value": "< 100ms" }
+      ],
+      "live_url": ""
+    },
+    {
+      "id": 6,
+      "slug": "injaz",
+      "name_ar": "منصة إنجاز للاعتماد والتدقيق المدرسي الوطني",
+      "name_en": "Injaz National School Accreditation Platform",
+      "tagline_ar": "منظومة سحابية لاعتماد شواهد 990+ مدرسة وفرز 25,000+ وثيقة بدون توقف",
+      "tagline_en": "Serverless Platform Auditing 990+ Schools & Processing 25,000+ Evidences with Zero Downtime",
+      "category": "EdTech & Gov Compliance",
+      "category_ar": "تكنولوجيا التعليم والامتثال الحكومي",
+      "domain": "Education / Gov",
+      "complexity": "Medium-High / Serverless",
+      "client_type": "Ministry of Education - Al-Ahsa",
+      "featured": true,
+      "rating": 5,
+      "year": "2024",
+      "image": "/projects/admin.sa/admin2.png",
+      "sub_projects": [
+        "School Evidence Upload Portal (8 Core Standards)",
+        "Arbitrator & Audit Review Panel",
+        "Automated Accreditation Certificate & PDF Generator",
+        "Serverless Microservices (.NET 8 Azure Functions)",
+        "Direct-to-Cloud SAS Token Upload Engine"
+      ],
+      "tech_stack": [
+        "Azure Functions .NET 8",
+        "Azure Blob Storage",
+        "Supabase",
+        "PostgreSQL",
+        "Python",
+        "Vanilla JS",
+        "CSS3 RTL"
+      ],
+      "business_metrics": [
+        { "label_ar": "مدارس تم تدقيقها", "label_en": "Audited Schools", "value": "990+ مدرسة" },
+        { "label_ar": "وثائق ومستندات مرفوعة", "label_en": "Uploaded Documents", "value": "25,000+" },
+        { "label_ar": "استقرار وموثوقية النظام", "label_en": "Uptime", "value": "100%" },
+        { "label_ar": "نسبة الأخطاء البشرية", "label_en": "Human Error Rate", "value": "0%" }
+      ],
+      "live_url": ""
+    },
+    {
+      "id": 7,
+      "slug": "snabbfood",
+      "name_ar": "منظومة مطاعم كارينديريا السويدية وبوابات الدفع النوردية",
+      "name_en": "Karenderia Swedish Restaurant Ecosystem & POS",
+      "tagline_ar": "منصة طلبات مطاعم وشاشات رقمية تفاعلية مدمجة مع Klarna و Swish في السويد",
+      "tagline_en": "Multi-chain Restaurant Platform, TV Signage & Nordic Payment Hub (Klarna & Swish)",
+      "category": "FoodTech & Nordic FinTech",
+      "category_ar": "تكنولوجيا المطاعم والمدفوعات الأوروبية",
+      "domain": "Food & Retail",
+      "complexity": "High / Multi-tenant",
+      "client_type": "Hospitality & Restaurant Chains (Sweden)",
+      "featured": true,
+      "rating": 5,
+      "year": "2024",
+      "image": "/projects/snabbfood/snabbfood2.png",
+      "sub_projects": [
+        "Vue 3 / Quasar Mobile App (Capacitor 7)",
+        "Multi-Store Web Ordering Platform",
+        "TV-Menu Digital Signage PWA",
+        "Kitchen POS Terminal & Audio Notes",
+        "Nordic Payment Gateway Hub (Klarna, Swish, Revolut, Stripe)"
+      ],
+      "tech_stack": [
+        "Vue 3",
+        "Quasar 2",
+        "Capacitor 7",
+        "Pinia",
+        "Vite",
+        "PHP",
+        "MySQL",
+        "Klarna",
+        "Swish",
+        "Revolut",
+        "Firebase"
+      ],
+      "business_metrics": [
+        { "label_ar": "سلاسل مطاعم في السويد", "label_en": "Swedish Chains", "value": "4 سلاسل" },
+        { "label_ar": "تزامن القوائم عبر الشاشات", "label_en": "Menu Synchronization", "value": "100%" },
+        { "label_ar": "تعدد بوابات الدفع المحلية", "label_en": "Nordic Gateways", "value": "4 بوابات" },
+        { "label_ar": "تقليل زمن الانتظار", "label_en": "Order Queue Reduction", "value": "35%" }
+      ],
+      "live_url": "https://mahmoudtalaat.vercel.app/projects/snabbfood"
+    },
+    {
+      "id": 8,
+      "slug": "dietbox",
+      "name_ar": "نظام الاشتراكات الغذائية وحساب السعرات DietBox",
+      "name_en": "DietBox Nutritional Subscription & Labeling Engine",
+      "tagline_ar": "معمارية نظيفة (.NET 8 Clean Architecture) لإدارة الوجبات وتوليد خطط التغذية وطباعة الملصقات",
+      "tagline_en": "Clean Architecture .NET 8 Meal Subscription Platform with QuestPDF Nutritional Labeling",
+      "category": "Health & Subscription SaaS",
+      "category_ar": "الصحة واشتراكات الأغذية",
+      "domain": "Health & Nutrition",
+      "complexity": "Medium / Domain Logic",
+      "client_type": "Nutritional Catering Companies",
+      "featured": true,
+      "rating": 5,
+      "year": "2024",
+      "image": "/projects/DietBox/dietbox1.png",
+      "sub_projects": [
+        "Clean Architecture .NET 8 Web API",
+        "Nutritional Macro Calculator",
+        "QuestPDF Dynamic Meal Plan Generator",
+        "Kitchen Label Printing Engine",
+        "Subscriber Management Portal"
+      ],
+      "tech_stack": [
+        "C# .NET 8",
+        "Clean Architecture",
+        "EF Core",
+        "SQL Server",
+        "QuestPDF",
+        "Tailwind CSS"
+      ],
+      "business_metrics": [
+        { "label_ar": "مشترك نشط", "label_en": "Active Subscribers", "value": "1,000+" },
+        { "label_ar": "أخطاء في الملصقات والبيانات", "label_en": "Labeling Error Rate", "value": "0%" },
+        { "label_ar": "توفير وقت التحضير يومياً", "label_en": "Daily Kitchen Time Saved", "value": "3 ساعات" }
+      ],
+      "live_url": "https://mahmoudtalaat.vercel.app/projects/dietbox"
+    },
+    {
+      "id": 9,
+      "slug": "ai-legal",
+      "name_ar": "المساعد القانوني الذكي ومحلل العقود (مُعين)",
+      "name_en": "Moeen AI Legal Assistant & Contract Auditor",
+      "tagline_ar": "روبوت ذكي لتحليل مخاطر العقود وصياغة الاتفاقيات القانونية ثنائية اللغة في ثوانٍ",
+      "tagline_en": "AI Legal Assistant for Contract Risk Evaluation & Dynamic Bilingual Agreement Generation",
+      "category": "LegalTech & GenAI",
+      "category_ar": "التكنولوجيا القانونية والذكاء التوليدي",
+      "domain": "Legal / AI",
+      "complexity": "Medium / Legal Knowledge",
+      "client_type": "Law Firms & Corporate Legal Departments",
+      "featured": true,
+      "rating": 5,
+      "year": "2025",
+      "image": "/projects/almulhim-travel/almulhim3.png",
+      "sub_projects": [
+        "Legal Contract Risk Scanner",
+        "Interactive Legal Consultant Chatbot",
+        "Dynamic Bilingual Contract Generator",
+        "Glassmorphism Modern RTL Interface"
+      ],
+      "tech_stack": [
+        "JavaScript",
+        "CSS3 Glassmorphism",
+        "HTML5 RTL",
+        "Google Gemini API",
+        "Vector Embeddings"
+      ],
+      "business_metrics": [
+        { "label_ar": "سرعة كشف البنود الخطرة", "label_en": "Risk Detection Latency", "value": "< 5 ثوانٍ" },
+        { "label_ar": "زمن صياغة العقد بالكامل", "label_en": "Contract Generation", "value": "دقيقتان" },
+        { "label_ar": "دقة استخراج القوانين", "label_en": "Law Retrieval Accuracy", "value": "95%" }
+      ],
+      "live_url": ""
+    },
+    {
+      "id": 10,
+      "slug": "cinema-reservation",
+      "name_ar": "نظام حجز تذاكر السينما البرمجي الوظيفي (F#)",
+      "name_en": "Cinema Booking Engine in Functional F#",
+      "tagline_ar": "محرك حجز مقاعد فائق السرعة مبني بلغة F# الوظيفية مع منع تزامن الحجوزات (Zero Race Conditions)",
+      "tagline_en": "High-Throughput Seat Booking Engine Built with Functional F# Giraffe & Dapper",
+      "category": "Functional Programming",
+      "category_ar": "البرمجة الوظيفية عالية الأداء",
+      "domain": "Entertainment",
+      "complexity": "High / Functional Paradigm",
+      "client_type": "Cinema Chains & Event Organizers",
+      "featured": false,
+      "rating": 5,
+      "year": "2024",
+      "image": "/Foodpapaer.png",
+      "sub_projects": [
+        "F# Giraffe Micro-Framework API",
+        "Interactive SVG Seat Selection Map",
+        "Microsecond Dapper Data Access Layer",
+        "Client-Side PDF Ticket Generator"
+      ],
+      "tech_stack": [
+        "F# .NET 8",
+        "Giraffe",
+        "Dapper",
+        "SQLite",
+        "Tailwind CSS",
+        "jsPDF"
+      ],
+      "business_metrics": [
+        { "label_ar": "أخطاء التزامن والتضارب", "label_en": "Race Conditions", "value": "0%" },
+        { "label_ar": "استهلاك ذاكرة الخادم", "label_en": "RAM Footprint", "value": "< 35MB" },
+        { "label_ar": "قدرة معالجة الطلبات", "label_en": "Request Throughput", "value": "10,000+ req/s" }
+      ],
+      "live_url": ""
+    }
+  ]
+}

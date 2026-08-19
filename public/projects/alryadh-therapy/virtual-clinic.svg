@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 750" width="1200" height="750">
+  <defs>
+    <radialGradient id="bg-alryadh-2" cx="50%" cy="50%" r="60%">
+      <stop offset="0%" stop-color="#0e1726" />
+      <stop offset="100%" stop-color="#020617" />
+    </radialGradient>
+    <linearGradient id="glow-alryadh-2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#10b981" stop-opacity="0.3" />
+      <stop offset="100%" stop-color="#059669" stop-opacity="0.05" />
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="750" fill="url(#bg-alryadh-2)" />
+  <rect x="40" y="40" width="1120" height="670" rx="16" fill="#090d16" stroke="url(#glow-alryadh-2)" stroke-width="2" />
+  
+  <!-- Header -->
+  <rect x="40" y="40" width="1120" height="48" rx="16" fill="#0f172a" />
+  <text x="70" y="68" font-family="system-ui, sans-serif" font-size="13" font-weight="600" fill="#10b981">Encrypted WebRTC Virtual Consultation Suite</text>
+  <text x="1000" y="68" font-family="system-ui, sans-serif" font-size="12" fill="#94a3b8">End-to-End Encrypted</text>
+
+  <!-- Video Call Area -->
+  <rect x="70" y="110" width="750" height="560" rx="16" fill="#1e293b" />
+  <circle cx="445" cy="360" r="70" fill="#334155" />
+  <text x="445" y="375" font-family="system-ui, sans-serif" font-size="40" fill="#94a3b8" text-anchor="middle">👨‍⚕️</text>
+  <text x="445" y="465" font-family="system-ui, sans-serif" font-size="18" font-weight="600" fill="#f8fafc" text-anchor="middle">العيادة الافتراضية المباشرة — استشارة سريرية خاصة</text>
+  <text x="445" y="495" font-family="system-ui, sans-serif" font-size="13" fill="#10b981" text-anchor="middle">Daily.co WebRTC Video Stream • Sub-100ms Latency</text>
+
+  <!-- Notes & Live Rx Panel -->
+  <rect x="840" y="110" width="290" height="560" rx="16" fill="#0f172a" stroke="#1e293b" stroke-width="1" />
+  <text x="865" y="150" font-family="system-ui, sans-serif" font-size="15" font-weight="700" fill="#f8fafc">الوصفة والتشخيص اللحظي</text>
+  <rect x="865" y="175" width="240" height="120" rx="8" fill="#1e293b" opacity="0.6" />
+  <text x="880" y="210" font-family="system-ui, sans-serif" font-size="13" fill="#cbd5e1">كتابة الملاحظات الطبية</text>
+  <text x="880" y="235" font-family="system-ui, sans-serif" font-size="12" fill="#64748b">تشفير وحفظ تلقائي في الـ EMR</text>
+
+  <rect x="865" y="315" width="240" height="180" rx="8" fill="#1e293b" opacity="0.6" />
+  <text x="880" y="350" font-family="system-ui, sans-serif" font-size="13" font-weight="600" fill="#38bdf8">الوصفات الإلكترونية المعتمدة</text>
+  <text x="880" y="380" font-family="system-ui, sans-serif" font-size="12" fill="#94a3b8">• صرف الدواء المباشر</text>
+  <text x="880" y="405" font-family="system-ui, sans-serif" font-size="12" fill="#94a3b8">• إشعار الصيدلية اللحظي</text>
+  <text x="880" y="430" font-family="system-ui, sans-serif" font-size="12" fill="#94a3b8">• توثيق آمن في ملف المريض</text>
+</svg>

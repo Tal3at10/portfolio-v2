@@ -1,0 +1,137 @@
+"use client";
+
+import React from "react";
+import { motion } from "framer-motion";
+import { useLocale } from "next-intl";
+import {
+  IconCpu,
+  IconClockHour4,
+  IconWorld,
+  IconSchool,
+  IconBolt,
+  IconShieldCheck,
+} from "@tabler/icons-react";
+
+interface MetricItem {
+  value: string;
+  labelAr: string;
+  labelEn: string;
+  descriptionAr: string;
+  descriptionEn: string;
+  icon: React.ElementType;
+}
+
+const metrics: MetricItem[] = [
+  {
+    value: "30+",
+    labelAr: "نظام برمجـي متكامل",
+    labelEn: "Enterprise Systems Built",
+    descriptionAr: "منصات SaaS ومنظومات سحابية وتطبيقات حية في بيئات الإنتاج.",
+    descriptionEn: "High-throughput SaaS platforms, cloud engines, and mobile ecosystems.",
+    icon: IconCpu,
+  },
+  {
+    value: "5+",
+    labelAr: "سنوات في هندسة النظم والـ AI",
+    labelEn: "Years of Systems Engineering",
+    descriptionAr: "خبرة متقدمة في الـ Clean Architecture والذكاء الاصطناعي المؤسسي.",
+    descriptionEn: "Focused on high-concurrency architecture, .NET, and enterprise AI/RAG.",
+    icon: IconClockHour4,
+  },
+  {
+    value: "6",
+    labelAr: "دول تم تنفيذ مشاريع بها",
+    labelEn: "Countries with Live Deployments",
+    descriptionAr: "السعودية، مصر، قطر، الأردن، السويد، وفلسطين.",
+    descriptionEn: "Saudi Arabia, Egypt, Qatar, Jordan, Sweden, and Palestine.",
+    icon: IconWorld,
+  },
+  {
+    value: "990+",
+    labelAr: "جهة ومدرسة حكومية",
+    labelEn: "Government Entities Served",
+    descriptionAr: "تم تدقيق شواهدها وأتمتة تقاريرها دون توقف أو أخطاء حسابية.",
+    descriptionEn: "Accredited, audited, and scored with 100% data integrity.",
+    icon: IconSchool,
+  },
+  {
+    value: "10k+",
+    labelAr: "عملية مؤتمتة يومياً",
+    labelEn: "Daily Automated Transactions",
+    descriptionAr: "مناقصات، حجوزات سياحية، واستعلامات لحظية عبر الروبوتات.",
+    descriptionEn: "Government tenders, travel GDS bookings, and instant ChatOps.",
+    icon: IconBolt,
+  },
+  {
+    value: "99.9%",
+    labelAr: "استقرار وجاهزية الخوادم",
+    labelEn: "Production Uptime",
+    descriptionAr: "تشغيل آمن ومستمر للأنظمة الحيوية تحت أعلى معدلات الضغط.",
+    descriptionEn: "Zero-compromise reliability engineered for mission-critical uptime.",
+    icon: IconShieldCheck,
+  },
+];
+
+export function GlobalArchitectMetrics() {
+  const locale = useLocale();
+  const isAr = locale === "ar";
+
+  return (
+    <section className="relative z-20 bg-[#000000] text-white py-24 px-6 sm:px-12 max-w-6xl mx-auto border-t border-white/[0.08]">
+      {/* Section Header */}
+      <div className="mb-16 text-center">
+        <h2 className="text-3xl sm:text-5xl font-bold tracking-tight text-white">
+          {isAr ? "أثر هندسي ملموس بالأرقام" : "Engineering Impact in Numbers"}
+        </h2>
+        <p className="text-sm sm:text-base text-zinc-400 mt-3 max-w-2xl mx-auto font-normal leading-relaxed">
+          {isAr
+            ? "مؤشرات كمية حقيقية تلخص سنوات من بناء المنظومات عالية الأداء واستقرار بيئات الإنتاج."
+            : "Verifiable quantitative benchmarks summarizing years of architecting mission-critical platforms."}
+        </p>
+      </div>
+
+      {/* Metrics Grid */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {metrics.map((metric, idx) => {
+          const Icon = metric.icon;
+
+          return (
+            <motion.div
+              key={metric.value + idx}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-40px" }}
+              transition={{ duration: 0.4, delay: idx * 0.08, ease: "easeOut" }}
+              className="group relative rounded-2xl bg-[#09090d] border border-white/[0.08] hover:border-[#dfcba9]/40 p-6 sm:p-8 flex flex-col justify-between transition-all duration-300 shadow-2xl overflow-hidden"
+            >
+              {/* Top Accent Icon & Badge */}
+              <div className="flex items-center justify-between mb-6">
+                <div className="w-12 h-12 rounded-xl bg-white/[0.03] border border-white/[0.08] group-hover:border-[#dfcba9]/30 flex items-center justify-center text-[#dfcba9] transition-colors duration-300">
+                  <Icon className="w-6 h-6" />
+                </div>
+                <span className="text-[10px] font-mono uppercase text-zinc-400 tracking-wider">
+                  0{idx + 1}
+                </span>
+              </div>
+
+              {/* Number Value */}
+              <div>
+                <div className="text-4xl sm:text-5xl font-black text-white group-hover:text-[#dfcba9] tracking-tight font-mono transition-colors duration-300">
+                  {metric.value}
+                </div>
+
+                <h3 className="text-base sm:text-lg font-bold text-white tracking-tight mt-2 mb-2">
+                  {isAr ? metric.labelAr : metric.labelEn}
+                </h3>
+
+                <p className="text-xs sm:text-sm text-zinc-300 leading-relaxed font-normal">
+                  {isAr ? metric.descriptionAr : metric.descriptionEn}
+                </p>
+              </div>
+            </motion.div>
+          );
+        })}
+      </div>
+    </section>
+  );
+}

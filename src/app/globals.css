@@ -1,0 +1,119 @@
+@import "tailwindcss";
+
+@theme {
+  --font-fredoka: var(--font-fredoka);
+  --font-rubik: var(--font-rubik);
+}
+
+@layer base {
+  html {
+    background-color: #000000;
+    color: #ffffff;
+  }
+  body {
+    margin: 0;
+    padding: 0;
+    background-color: #000000;
+    color: #ffffff;
+    overflow-x: clip;
+    width: 100%;
+  }
+}
+
+/* 100% Exact Osmo Supply Parallax CSS */
+.parallax {
+  position: relative;
+  width: 100%;
+  background-color: #000000;
+  color: #ffffff;
+  margin: 0;
+  padding: 0;
+}
+
+.parallax__header {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+}
+
+.parallax__visuals {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+}
+
+.parallax__black-line-overflow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: #000000;
+  z-index: 10;
+}
+
+.parallax__layers {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.parallax__layer-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+  pointer-events: none;
+}
+
+.parallax__layer-img[data-parallax-layer="1"] {
+  z-index: 1;
+}
+
+.parallax__layer-img[data-parallax-layer="2"] {
+  z-index: 2;
+}
+
+.parallax__layer-title {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 27vh;
+  z-index: 3;
+  pointer-events: none;
+}
+
+.parallax__title {
+  font-size: clamp(1.6rem, 4.8vw, 5.8rem);
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: -0.03em;
+  line-height: 0.92;
+  color: #ffffff;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  user-select: none;
+}
+
+.parallax__layer-img[data-parallax-layer="4"] {
+  z-index: 4;
+}
+
+.parallax__fade {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 20vh;
+  background: linear-gradient(to bottom, transparent 0%, #000000 100%);
+  z-index: 5;
+  pointer-events: none;
+}

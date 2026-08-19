@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 750" width="1200" height="750">
+  <defs>
+    <radialGradient id="bg-injaz-3" cx="50%" cy="50%" r="60%">
+      <stop offset="0%" stop-color="#141d2f" />
+      <stop offset="100%" stop-color="#050a14" />
+    </radialGradient>
+  </defs>
+  <rect width="1200" height="750" fill="url(#bg-injaz-3)" />
+  <rect x="40" y="40" width="1120" height="670" rx="16" fill="#0a101d" stroke="#1e293b" stroke-width="2" />
+  
+  <rect x="40" y="40" width="1120" height="48" rx="16" fill="#141d2f" />
+  <text x="70" y="68" font-family="system-ui, sans-serif" font-size="13" font-weight="600" fill="#10b981">Injaz Automated Analytics & Reporting Hub</text>
+
+  <rect x="100" y="120" width="1000" height="540" rx="12" fill="#131c2e" stroke="#1e293b" stroke-width="1" />
+  <text x="140" y="170" font-family="system-ui, sans-serif" font-size="20" font-weight="700" fill="#f8fafc">لوحة التقارير والتحليلات لمديرية تعليم الأحساء</text>
+  <text x="140" y="200" font-family="system-ui, sans-serif" font-size="14" fill="#94a3b8">تحليل شامل لأداء 990 مدرسة بنقرة زر واحدة عبر خوارزميات بايثون السحابية</text>
+
+  <rect x="140" y="240" width="440" height="160" rx="8" fill="#1e293b" />
+  <text x="170" y="285" font-family="system-ui, sans-serif" font-size="16" font-weight="600" fill="#f59e0b">مؤشرات الجودة والالتزام بالمعايير</text>
+  <text x="170" y="320" font-family="system-ui, sans-serif" font-size="13" fill="#cbd5e1">نسبة إنجاز المدارس الحكومية والأهلية</text>
+  <text x="170" y="355" font-family="system-ui, sans-serif" font-size="24" font-weight="700" fill="#10b981">99.8% معدل الاعتماد</text>
+
+  <rect x="620" y="240" width="440" height="160" rx="8" fill="#1e293b" />
+  <text x="650" y="285" font-family="system-ui, sans-serif" font-size="16" font-weight="600" fill="#38bdf8">حماية وسلامة الوثائق السحابية</text>
+  <text x="650" y="320" font-family="system-ui, sans-serif" font-size="13" fill="#cbd5e1">تخزين آمن ومشفر بنظام Azure Blob Storage</text>
+  <text x="650" y="355" font-family="system-ui, sans-serif" font-size="24" font-weight="700" fill="#38bdf8">25,000+ ملف آمن</text>
+</svg>

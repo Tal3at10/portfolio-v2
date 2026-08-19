@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 750" width="1200" height="750">
+  <defs>
+    <radialGradient id="bg-nexgo-3" cx="50%" cy="50%" r="60%">
+      <stop offset="0%" stop-color="#18181b" />
+      <stop offset="100%" stop-color="#09090b" />
+    </radialGradient>
+  </defs>
+  <rect width="1200" height="750" fill="url(#bg-nexgo-3)" />
+  <rect x="40" y="40" width="1120" height="670" rx="16" fill="#09090b" stroke="#27272a" stroke-width="2" />
+  
+  <rect x="40" y="40" width="1120" height="48" rx="16" fill="#18181b" />
+  <text x="70" y="68" font-family="system-ui, sans-serif" font-size="13" font-weight="600" fill="#06b6d4">NexGo Vendor App & Thermal POS Printing</text>
+
+  <rect x="100" y="120" width="1000" height="540" rx="12" fill="#18181b" stroke="#27272a" stroke-width="1" />
+  <text x="140" y="170" font-family="system-ui, sans-serif" font-size="20" font-weight="700" fill="#f8fafc">تطبيق التاجر والطباعة الحرارية المباشرة (Vendor POS)</text>
+  <text x="140" y="200" font-family="system-ui, sans-serif" font-size="14" fill="#a1a1aa">تطبيق Flutter مخصص للمطاعم والمتاجر متصل بطابعات الفواتير عبر البلوتوث ESC/POS</text>
+
+  <rect x="140" y="240" width="440" height="160" rx="8" fill="#27272a" />
+  <text x="170" y="285" font-family="system-ui, sans-serif" font-size="16" font-weight="600" fill="#06b6d4">الطباعة التلقائية عند وصول الطلب</text>
+  <text x="170" y="320" font-family="system-ui, sans-serif" font-size="13" fill="#cbd5e1">طباعة فورية في المطبخ دون أي تدخل يدوي</text>
+  <text x="170" y="355" font-family="system-ui, sans-serif" font-size="24" font-weight="700" fill="#10b981">Zero-Latency POS</text>
+
+  <rect x="620" y="240" width="440" height="160" rx="8" fill="#27272a" />
+  <text x="650" y="285" font-family="system-ui, sans-serif" font-size="16" font-weight="600" fill="#ec4899">إدارة القوائم والعناصر بالذكاء الاصطناعي</text>
+  <text x="650" y="320" font-family="system-ui, sans-serif" font-size="13" fill="#cbd5e1">تصنيف الصور وتوليد وسوم المنتجات آلياً</text>
+  <text x="650" y="355" font-family="system-ui, sans-serif" font-size="24" font-weight="700" fill="#ec4899">AI Auto-Tagging</text>
+</svg>

@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 750" width="1200" height="750">
+  <defs>
+    <radialGradient id="bg-injaz-1" cx="50%" cy="50%" r="60%">
+      <stop offset="0%" stop-color="#141d2f" />
+      <stop offset="100%" stop-color="#050a14" />
+    </radialGradient>
+    <linearGradient id="glow-injaz" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f59e0b" stop-opacity="0.3" />
+      <stop offset="100%" stop-color="#d97706" stop-opacity="0.05" />
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="750" fill="url(#bg-injaz-1)" />
+  <rect x="40" y="40" width="1120" height="670" rx="16" fill="#0a101d" stroke="url(#glow-injaz)" stroke-width="2" />
+  
+  <rect x="40" y="40" width="1120" height="48" rx="16" fill="#141d2f" />
+  <circle cx="70" cy="64" r="6" fill="#ef4444" opacity="0.8" />
+  <circle cx="90" cy="64" r="6" fill="#f59e0b" opacity="0.8" />
+  <circle cx="110" cy="64" r="6" fill="#10b981" opacity="0.8" />
+  <text x="150" y="68" font-family="system-ui, sans-serif" font-size="12" fill="#cbd5e1">injaz.moe.gov.sa/schools/standards-verification</text>
+
+  <!-- Metrics row -->
+  <rect x="80" y="110" width="310" height="110" rx="12" fill="#131c2e" stroke="#1e293b" stroke-width="1" />
+  <text x="100" y="145" font-family="system-ui, sans-serif" font-size="12" fill="#94a3b8">إجمالي المدارس المعتمدة</text>
+  <text x="100" y="185" font-family="system-ui, sans-serif" font-size="32" font-weight="700" fill="#f59e0b">990+ مدرسة</text>
+
+  <rect x="420" y="110" width="310" height="110" rx="12" fill="#131c2e" stroke="#1e293b" stroke-width="1" />
+  <text x="440" y="145" font-family="system-ui, sans-serif" font-size="12" fill="#94a3b8">وثائق الشواهد المرفوعة</text>
+  <text x="440" y="185" font-family="system-ui, sans-serif" font-size="32" font-weight="700" fill="#10b981">25,000+ وثيقة</text>
+
+  <rect x="760" y="110" width="360" height="110" rx="12" fill="#131c2e" stroke="#1e293b" stroke-width="1" />
+  <text x="780" y="145" font-family="system-ui, sans-serif" font-size="12" fill="#94a3b8">البنية التحتية</text>
+  <text x="780" y="185" font-family="system-ui, sans-serif" font-size="24" font-weight="700" fill="#38bdf8">Azure Serverless (.NET 8)</text>
+
+  <!-- Central Table -->
+  <rect x="80" y="245" width="1040" height="435" rx="12" fill="#131c2e" stroke="#1e293b" stroke-width="1" />
+  <text x="110" y="285" font-family="system-ui, sans-serif" font-size="16" font-weight="700" fill="#f8fafc">بوابة رفع وتدقيق الشواهد المدرسية — المعايير الوطنية الـ 8</text>
+  <text x="110" y="310" font-family="system-ui, sans-serif" font-size="13" fill="#64748b">Direct Cloud SAS Token Upload • Supabase PostgreSQL • 100% Zero-Crash Architecture</text>
+
+  <rect x="110" y="340" width="980" height="60" rx="8" fill="#1e293b" opacity="0.6" />
+  <text x="130" y="375" font-family="system-ui, sans-serif" font-size="14" fill="#e2e8f0">معيار القيادة المدرسية — تم تدقيق 4 شواهد ومطابقتها</text>
+  <text x="960" y="375" font-family="system-ui, sans-serif" font-size="13" font-weight="600" fill="#10b981">معتمد 100%</text>
+
+  <rect x="110" y="415" width="980" height="60" rx="8" fill="#1e293b" opacity="0.4" />
+  <text x="130" y="450" font-family="system-ui, sans-serif" font-size="14" fill="#e2e8f0">معيار التعليم والتعلم — جاري المراجعة اللحظية من المحكم</text>
+  <text x="960" y="450" font-family="system-ui, sans-serif" font-size="13" font-weight="600" fill="#f59e0b">قيد التدقيق</text>
+
+  <rect x="110" y="490" width="980" height="60" rx="8" fill="#1e293b" opacity="0.4" />
+  <text x="130" y="525" font-family="system-ui, sans-serif" font-size="14" fill="#e2e8f0">معيار البيئة المدرسية — تم رفع ملفات PDF عالية الدقة بنظام SAS Token</text>
+  <text x="960" y="525" font-family="system-ui, sans-serif" font-size="13" font-weight="600" fill="#38bdf8">مرفوع بنجاح</text>
+</svg>
