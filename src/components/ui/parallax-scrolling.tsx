@@ -4,9 +4,13 @@ import React, { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Lenis from "lenis";
+import { IconCpu, IconArrowUpRight } from "@tabler/icons-react";
+import { useLocale } from "next-intl";
 
 export function ParallaxComponent() {
   const parallaxRef = useRef<HTMLDivElement>(null);
+  const locale = useLocale();
+  const isAr = locale === "ar";
 
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
@@ -96,8 +100,8 @@ export function ParallaxComponent() {
             {/* Layer 3: Clean English-Only Headline */}
             <div data-parallax-layer="3" className="parallax__layer-title">
               <h1 dir="ltr" className="parallax__title leading-[0.88] text-center">
-                <span className="block">BUILT FOR THE CLIMB.</span>
-                <span className="block">ENGINEERED FOR THE TOP.</span>
+                <span className="block">BUILT FOR SCALE.</span>
+                <span className="block">ENGINEERED FOR ZERO FAILURE.</span>
               </h1>
             </div>
 
