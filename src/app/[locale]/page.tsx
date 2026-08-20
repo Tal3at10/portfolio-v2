@@ -1,4 +1,5 @@
 import { ParallaxComponent } from "@/components/ui/parallax-scrolling";
+import { ClientLogosStrip } from "@/components/ui/client-logos-strip";
 import { CaseStudySticky } from "@/components/ui/case-study-sticky";
 import { SystemsBento } from "@/components/ui/systems-bento";
 import { ClientTestimonials } from "@/components/ui/client-testimonials";
@@ -21,8 +22,12 @@ export default function LocalePage() {
       {/* 1. Hero Layered Parallax */}
       <ParallaxComponent />
 
-      {/* 2. Deep-Dive Case Studies (Sticky Transformation) */}
+      {/* 2. Client Logos Trust Strip */}
+      <ClientLogosStrip />
+
+      {/* 3. Deep-Dive Case Studies (Sticky Transformation) */}
       <CaseStudySticky />
+
 
       {/* 3. Systems Catalog (Bento Grid) */}
       <SystemsBento />

@@ -11,9 +11,12 @@ import {
   IconBolt,
   IconShieldCheck,
 } from "@tabler/icons-react";
+import { AnimatedCounter } from "@/components/ui/animated-counter";
 
 interface MetricItem {
-  value: string;
+  numValue: number;
+  decimals?: number;
+  suffix?: string;
   labelAr: string;
   labelEn: string;
   descriptionAr: string;
@@ -23,7 +26,8 @@ interface MetricItem {
 
 const metrics: MetricItem[] = [
   {
-    value: "30+",
+    numValue: 30,
+    suffix: "+",
     labelAr: "نظام برمجـي متكامل",
     labelEn: "Enterprise Systems Built",
     descriptionAr: "منصات SaaS ومنظومات سحابية وتطبيقات حية في بيئات الإنتاج.",
@@ -31,7 +35,8 @@ const metrics: MetricItem[] = [
     icon: IconCpu,
   },
   {
-    value: "5+",
+    numValue: 5,
+    suffix: "+",
     labelAr: "سنوات في هندسة النظم والـ AI",
     labelEn: "Years of Systems Engineering",
     descriptionAr: "خبرة متقدمة في الـ Clean Architecture والذكاء الاصطناعي المؤسسي.",
@@ -39,7 +44,8 @@ const metrics: MetricItem[] = [
     icon: IconClockHour4,
   },
   {
-    value: "6",
+    numValue: 6,
+    suffix: "",
     labelAr: "دول تم تنفيذ مشاريع بها",
     labelEn: "Countries with Live Deployments",
     descriptionAr: "السعودية، مصر، قطر، الأردن، السويد، وفلسطين.",
@@ -47,7 +53,8 @@ const metrics: MetricItem[] = [
     icon: IconWorld,
   },
   {
-    value: "990+",
+    numValue: 990,
+    suffix: "+",
     labelAr: "جهة ومدرسة حكومية",
     labelEn: "Government Entities Served",
     descriptionAr: "تم تدقيق شواهدها وأتمتة تقاريرها دون توقف أو أخطاء حسابية.",
@@ -55,7 +62,8 @@ const metrics: MetricItem[] = [
     icon: IconSchool,
   },
   {
-    value: "10k+",
+    numValue: 10,
+    suffix: "k+",
     labelAr: "عملية مؤتمتة يومياً",
     labelEn: "Daily Automated Transactions",
     descriptionAr: "مناقصات، حجوزات سياحية، واستعلامات لحظية عبر الروبوتات.",
@@ -63,7 +71,9 @@ const metrics: MetricItem[] = [
     icon: IconBolt,
   },
   {
-    value: "99.9%",
+    numValue: 99.9,
+    decimals: 1,
+    suffix: "%",
     labelAr: "استقرار وجاهزية الخوادم",
     labelEn: "Production Uptime",
     descriptionAr: "تشغيل آمن ومستمر للأنظمة الحيوية تحت أعلى معدلات الضغط.",
@@ -78,7 +88,7 @@ export function GlobalArchitectMetrics() {
 
   return (
     <section className="relative z-20 w-full bg-[#09090b] text-white border-t border-white/[0.08]">
-      <div className="max-w-6xl mx-auto py-24 px-6 sm:px-12">
+      <div className="max-w-6xl mx-auto py-20 sm:py-28 px-6 sm:px-12">
       {/* Section Header */}
       <div className="mb-16 text-center">
         <p className="text-[10px] sm:text-xs font-mono uppercase tracking-[0.25em] text-[#dfcba9] mb-3 font-medium">
@@ -101,7 +111,7 @@ export function GlobalArchitectMetrics() {
 
           return (
             <motion.div
-              key={metric.value + idx}
+              key={metric.labelEn + idx}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-40px" }}
@@ -121,7 +131,12 @@ export function GlobalArchitectMetrics() {
               {/* Number Value */}
               <div>
                 <div className="text-4xl sm:text-5xl font-black text-white group-hover:text-[#dfcba9] tracking-tight font-mono transition-colors duration-300">
-                  {metric.value}
+                  <AnimatedCounter
+                    value={metric.numValue}
+                    decimals={metric.decimals || 0}
+                    suffix={metric.suffix || ""}
+                    duration={1.8}
+                  />
                 </div>
 
                 <h3 className="text-base sm:text-lg font-bold text-white tracking-tight mt-2 mb-2">

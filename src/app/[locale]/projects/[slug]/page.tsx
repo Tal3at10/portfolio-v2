@@ -29,6 +29,57 @@ export function generateStaticParams() {
   return params;
 }
 
+const projectMetaDescriptions: Record<string, { ar: string; en: string }> = {
+  "almulhim-travel": {
+    ar: "منظومة حجوزات وأتمتة سفر متكاملة: بوت مبيعات ذكي، ربط مباشر مع خطوط الطيران والفنادق، وقسائم مشفرة بمعالجة +1,200 حجز شهرياً وتوفير 70% من وقت التشغيل.",
+    en: "Enterprise travel booking engine with automated sales bot, global flight/hotel distribution, and tamper-proof vouchers — processing 1,200+ monthly bookings with 70% operational savings.",
+  },
+  "admin-sa": {
+    ar: "منصة ذكاء اصطناعي للمناقصات الحكومية: سحب وتحليل كراسات الشروط وتوليد العروض الفنية المعتمدة في 90 ثانية بنسبة فوز 85%.",
+    en: "AI-driven government procurement platform: automated tender intelligence and instant technical proposal generation in under 90 seconds with an 85% win rate.",
+  },
+  "alryadh-therapy": {
+    ar: "سجل طبي إلكتروني وعيادات افتراضية مشفرة: 7 بوابات إدارية وطبية، عيادات فيديو فورية، واستقرار تام بنسبة 100% بدون أي أوراق.",
+    en: "Zero-install clinical EMR and encrypted telehealth suite: 7 dedicated medical portals, instant virtual clinic, and 100% paperless clinical workflows.",
+  },
+  "injaz": {
+    ar: "بنية سحابية لاعتماد 990+ مدرسة حكومية: تدقيق وأتمتة 25,000+ وثيقة وشاهد اعتماد لوزارة التعليم دون توقف أو انهيار للخوادم.",
+    en: "High-capacity cloud infrastructure for 990+ schools: automated compliance audit and evaluation for 25,000+ educational dossiers with 100% uptime.",
+  },
+  "snabbfood": {
+    ar: "شبكة متكاملة لإدارة سلاسل المطاعم وشاشات العرض الذكية: معالجة أكثر من 50,000 طلب شهرياً عبر 15 فرعاً في السويد مع بوابات دفع معتمدة.",
+    en: "Multi-restaurant delivery ecosystem and digital menu signage: processing 50,000+ monthly orders across 15 locations in Sweden with certified Nordic payment flows.",
+  },
+  "ok-cloud": {
+    ar: "منظومة تخزين سحابي ومزامنة مكتبية خاصة: توفير 75% من تكاليف التخزين السحابي مع دعم رفع ومزامنة الملفات الضخمة لحظياً.",
+    en: "Private cloud storage infrastructure with native desktop background sync — cutting enterprise storage costs by 75% with multi-gigabyte stream handling.",
+  },
+  "dietbox": {
+    ar: "منصة إدارة اشتراكات الوجبات الصحية وتوليد ملصقات التغذية الفورية لأكثر من 1,000 مشترك بدقة حسابية متكاملة.",
+    en: "Meal subscription operations platform with automated nutritional label rendering and kitchen dispatch serving 1,000+ active subscribers.",
+  },
+  "nexgo": {
+    ar: "منصة سوبر آب متعددة القطاعات (مطاعم، بقالة، صيدليات، شحنات، وتوصيل) مع تتبع لحظي للسائقين عبر الخرائط في أجزاء من الثانية.",
+    en: "Multi-vertical SuperApp marketplace covering 6 commercial sectors with sub-second driver GPS telemetry and multi-vendor dispatch.",
+  },
+  "keylicense": {
+    ar: "نظام تشفير وإدارة تراخيص البرمجيات المؤسسية: حماية متقدمة بتشفير عالي وتحقق فوري في أقل من 50ms دون اتصال بالإنترنت.",
+    en: "Enterprise cryptographic software licensing engine with advanced digital signatures and sub-50ms offline activation verification.",
+  },
+  "bortselite": {
+    ar: "روبوت أتمتة الإجراءات الجمركية: تخليص جمركي آلي فائق السرعة عبر واتساب وتليجرام دون تدخل بشري.",
+    en: "Automated customs clearance bot and RPA engine delivering instant manifest processing via automated ChatOps.",
+  },
+  "sakani-bot": {
+    ar: "روبوت أتمتة وحجز الأراضي السكنية في أجزاء من الثانية (Sub-450ms) فور فتح البوابة مع إشعارات تليجرام فورية.",
+    en: "Sub-450ms high-speed land reservation RPA bot with instant telemetry and automated booking verification.",
+  },
+  "ai-legal": {
+    ar: "مساعد ذكاء اصطناعي قانوني متخصص: تحليل وفحص مخاطر العقود والإجابة الدقيقة على الاستشارات القانونية بالاسترجاع الدلالي.",
+    en: "Legal intelligence assistant and contract risk assessment engine powered by semantic knowledge retrieval.",
+  },
+};
+
 export async function generateMetadata({
   params,
 }: {
@@ -39,9 +90,36 @@ export async function generateMetadata({
   if (!project) return {};
 
   const isAr = locale === "ar";
+  const customMeta = projectMetaDescriptions[slug];
+  const description = customMeta
+    ? isAr
+      ? customMeta.ar
+      : customMeta.en
+    : isAr
+    ? project.solution_ar
+    : project.solution_en;
+
+  const title = `${isAr ? project.title_ar : project.title_en} | Mahmoud Talaat`;
+
   return {
-    title: `${isAr ? project.title_ar : project.title_en} | Mahmoud Talaat`,
-    description: isAr ? project.problem_ar : project.problem_en,
+    title,
+    description,
+    openGraph: {
+      title,
+      description,
+      images: [
+        {
+          url: project.hero_image,
+          alt: isAr ? project.title_ar : project.title_en,
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+      images: [project.hero_image],
+    },
   };
 }
 

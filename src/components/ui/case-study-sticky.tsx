@@ -21,6 +21,8 @@ interface ProjectCase {
   projectNameEn: string;
   clientAr: string;
   clientEn: string;
+  deployedAr: string;
+  deployedEn: string;
   steps: CaseStep[];
 }
 
@@ -32,6 +34,8 @@ const caseStudies: ProjectCase[] = [
     projectNameEn: "Almulhim Travel Group",
     clientAr: "منصة حجوزات ونظام ERP لشركات السياحة",
     clientEn: "Global OTA & VoucherPro ERP",
+    deployedAr: "تشغيل فعلي منذ 2025",
+    deployedEn: "Live since 2025",
     steps: [
       {
         titleAr: "فقدان آلاف العملاء وتأخر عروض الأسعار",
@@ -71,6 +75,8 @@ const caseStudies: ProjectCase[] = [
     projectNameEn: "Injaz National School Accreditation",
     clientAr: "مديرية التعليم — اعتماد 990+ مدرسة حكومية",
     clientEn: "Ministry of Education — 990+ Schools Quality QA",
+    deployedAr: "تشغيل فعلي منذ 2026",
+    deployedEn: "Live since 2026",
     steps: [
       {
         titleAr: "استغراق 6 أشهر لفحص وثائق 990 مدرسة يدوياً",
@@ -83,12 +89,12 @@ const caseStudies: ProjectCase[] = [
         imageAlt: "Injaz School Upload Portal",
       },
       {
-        titleAr: "رفع سحابي مباشر بـ SAS Tokens دون إجهاد السيرفر",
-        titleEn: "Serverless Direct-to-Cloud SAS Tokens",
+        titleAr: "بنية سحابية استوعبت 25,000 وثيقة دون توقف أو انهيار",
+        titleEn: "Cloud Infrastructure That Handled 25,000 Files Without a Single Crash",
         descriptionAr:
-          "تصميم بنية سحابية قائمة على Azure Functions وآلية رفع مباشر إلى مساحة التخزين عبر SAS Tokens دون إجهاد السيرفر، لاستيعاب أكثر من 25,000 وثيقة بنسبة استقرار 100%.",
+          "تصميم بنية سحابية قائمة على Azure Functions وآلية رفع مباشر إلى مساحة التخزين دون إجهاد السيرفر، لاستيعاب أكثر من 25,000 وثيقة بنسبة استقرار 100%.",
         descriptionEn:
-          "Architected Azure Functions with SAS Token direct-to-blob uploads, effortlessly ingesting 25,000+ documents with zero downtime.",
+          "Architected a serverless Azure Functions pipeline with direct-to-blob uploads — effortlessly ingesting 25,000+ documents with zero downtime.",
         imageSrc: "/projects/injaz/audit-panel.png",
         imageAlt: "Injaz Arbitrator Evaluation Panel",
       },
@@ -110,6 +116,8 @@ const caseStudies: ProjectCase[] = [
     projectNameEn: "Snabbfood Sweden",
     clientAr: "نظام إدارة مطاعم وشاشات ديجيتال",
     clientEn: "Enterprise Restaurant & Delivery Ecosystem",
+    deployedAr: "تشغيل فعلي منذ 2023",
+    deployedEn: "Live since 2023",
     steps: [
       {
         titleAr: "تشتت قوائم 15 فرعاً وعمولات التوصيل الباهظة",
@@ -151,7 +159,7 @@ export function CaseStudySticky() {
 
   return (
     <section id="case-studies" className="relative z-20 w-full bg-[#09090b] text-white">
-      <div className="max-w-7xl mx-auto pt-32 pb-24 px-6 sm:px-12">
+      <div className="max-w-7xl mx-auto pt-20 pb-20 sm:pt-28 sm:pb-28 px-6 sm:px-12">
       
       {/* Global Section Title */}
       <div className="mb-20 text-center">
@@ -206,6 +214,12 @@ function ProjectStickySection({ project, isAr }: { project: ProjectCase; isAr: b
       {/* Project Label Header */}
       <div className="mb-8 border-b border-white/10 pb-4 flex flex-col sm:flex-row sm:items-end justify-between gap-4">
         <div>
+          <div className="flex items-center gap-3 mb-2">
+            <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[10px] font-mono bg-[#dfcba9]/10 border border-[#dfcba9]/30 text-[#dfcba9] font-medium">
+              <span className="size-1.5 rounded-full bg-[#dfcba9] animate-pulse" />
+              {isAr ? project.deployedAr : project.deployedEn}
+            </span>
+          </div>
           <h3 className="text-2xl sm:text-4xl font-bold tracking-tight text-white">
             {isAr ? project.projectNameAr : project.projectNameEn}
           </h3>
@@ -284,7 +298,7 @@ function ProjectStickySection({ project, isAr }: { project: ProjectCase; isAr: b
                 <h4 className="text-lg sm:text-xl font-bold text-white tracking-tight leading-snug mb-3">
                   {isAr ? step.titleAr : step.titleEn}
                 </h4>
-                <p dir="auto" className="text-sm sm:text-base text-zinc-300 leading-[1.8] font-normal max-w-xl">
+                <p dir="auto" className="text-sm sm:text-base text-zinc-300 leading-[1.85] font-normal max-w-xl">
                   {isAr ? step.descriptionAr : step.descriptionEn}
                 </p>
               </div>

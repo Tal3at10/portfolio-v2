@@ -4,12 +4,15 @@ import React, { useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { useLocale } from "next-intl";
-import { motion, useMotionValue, useSpring } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
+
+type CategoryGroup = "all" | "govtech" | "enterprise" | "automation";
 
 interface ProjectCard {
   slug: string;
   nameAr: string;
   nameEn: string;
+  group: CategoryGroup;
   categoryAr: string;
   categoryEn: string;
   metricAr: string;
@@ -23,6 +26,7 @@ const projects: ProjectCard[] = [
     slug: "almulhim-travel",
     nameAr: "مجموعة الملحم للسياحة",
     nameEn: "AlMulhim Travel Group",
+    group: "enterprise",
     categoryAr: "منظومة حجوزات · ERP سياحي",
     categoryEn: "Tourism OTA · VoucherPro ERP",
     metricAr: "1,200+ حجز شهرياً · 40+ موظف",
@@ -34,6 +38,7 @@ const projects: ProjectCard[] = [
     slug: "admin-sa",
     nameAr: "منصة Admin.sa للمناقصات",
     nameEn: "Admin.sa GovTech SaaS",
+    group: "govtech",
     categoryAr: "ذكاء اصطناعي · SaaS حكومي",
     categoryEn: "AI Procurement · GovTech SaaS",
     metricAr: "عروض فنية في 90 ثانية · دقة 85%",
@@ -45,6 +50,7 @@ const projects: ProjectCard[] = [
     slug: "alryadh-therapy",
     nameAr: "مركز الرياض للعلاج النفسي",
     nameEn: "Al-Riyadh Psychiatric EMR",
+    group: "govtech",
     categoryAr: "سجلات طبية · تطبيب عن بعد",
     categoryEn: "Clinical EMR · WebRTC Telehealth",
     metricAr: "100% رقمي · 7 بوابات · استجابة < 200ms",
@@ -56,6 +62,7 @@ const projects: ProjectCard[] = [
     slug: "ok-cloud",
     nameAr: "Ok.Cloud — التخزين السحابي",
     nameEn: "Ok.Cloud Infrastructure",
+    group: "enterprise",
     categoryAr: "سحابة خاصة · مزامنة مكتبية",
     categoryEn: "Private Cloud · Native Desktop Sync",
     metricAr: "توفير 75% تكاليف · رفع ملفات +10GB",
@@ -67,6 +74,7 @@ const projects: ProjectCard[] = [
     slug: "injaz",
     nameAr: "منصة إنجاز لاعتماد المدارس",
     nameEn: "Injaz School Accreditation",
+    group: "govtech",
     categoryAr: "تقنية تعليم · امتثال حكومي",
     categoryEn: "EdTech · Government Quality Audit",
     metricAr: "25,000+ وثيقة · 990 مدرسة",
@@ -78,6 +86,7 @@ const projects: ProjectCard[] = [
     slug: "snabbfood",
     nameAr: "شبكة Snabbfood السويد",
     nameEn: "Snabbfood Sweden Network",
+    group: "enterprise",
     categoryAr: "توصيل طعام · شاشات رقمية",
     categoryEn: "Food Delivery · Digital Signage PWA",
     metricAr: "50,000+ طلب شهرياً · 15 فرعاً",
@@ -89,6 +98,7 @@ const projects: ProjectCard[] = [
     slug: "dietbox",
     nameAr: "منظومة DietBox الغذائية",
     nameEn: "DietBox Nutrition Platform",
+    group: "enterprise",
     categoryAr: "اشتراكات صحية · توليد PDF",
     categoryEn: "Meal Subscriptions · PDF Engine",
     metricAr: "1,000+ مشترك · ملصقات في < 100ms",
@@ -100,6 +110,7 @@ const projects: ProjectCard[] = [
     slug: "nexgo",
     nameAr: "تطبيق NexGo — الـ Super App",
     nameEn: "NexGo Super App",
+    group: "enterprise",
     categoryAr: "سوبر آب · 6 قطاعات تجارية",
     categoryEn: "Super App · 6-Sector Marketplace",
     metricAr: "6 قطاعات · تتبع GPS كل ثانية",
@@ -111,6 +122,7 @@ const projects: ProjectCard[] = [
     slug: "keylicense",
     nameAr: "KeyLicense — نظام التراخيص المشفرة",
     nameEn: "KeyLicense Cryptographic Engine",
+    group: "automation",
     categoryAr: "أمن سيبراني · تشفير متقدم",
     categoryEn: "Cybersecurity · Software Licensing",
     metricAr: "RSA 4096-bit · تحقق أوفلاين < 50ms",
@@ -122,6 +134,7 @@ const projects: ProjectCard[] = [
     slug: "bortselite",
     nameAr: "بوت بورتسيليت الجمركي",
     nameEn: "Bortselite Customs Bot",
+    group: "automation",
     categoryAr: "أتمتة جمركية · RPA",
     categoryEn: "Customs Clearance Automation · RPA",
     metricAr: "تخليص جمركي آلي · .NET 9 + nodriver",
@@ -133,6 +146,7 @@ const projects: ProjectCard[] = [
     slug: "sakani-bot",
     nameAr: "بوت سكني لحجز الأراضي",
     nameEn: "Sakani Land Reservation Bot",
+    group: "automation",
     categoryAr: "أتمتة متصفح · RPA فائق السرعة",
     categoryEn: "Browser RPA · Sub-450ms Execution",
     metricAr: "تنفيذ < 450ms · حجز أراضي آلي",
@@ -144,6 +158,7 @@ const projects: ProjectCard[] = [
     slug: "ai-legal",
     nameAr: "معين — المساعد القانوني الذكي",
     nameEn: "Moeen Legal AI Assistant",
+    group: "automation",
     categoryAr: "ذكاء اصطناعي قانوني · RAG",
     categoryEn: "LegalTech AI · RAG System",
     metricAr: "استشارات قانونية فورية · محرك RAG",
@@ -151,6 +166,13 @@ const projects: ProjectCard[] = [
     techStack: ["Python", "RAG", "Gemini API", "FastAPI"],
     imageSrc: "/images/architecture/ai-rag-vector-graph.jpg",
   },
+];
+
+const filterTabs = [
+  { id: "all" as CategoryGroup, labelEn: "All Systems", labelAr: "كل الأنظمة", count: 12 },
+  { id: "govtech" as CategoryGroup, labelEn: "Government & GovTech", labelAr: "المشاريع الحكومية والاعتماد", count: 3 },
+  { id: "enterprise" as CategoryGroup, labelEn: "Enterprise Platforms", labelAr: "المنصات المؤسسية والسياحة", count: 5 },
+  { id: "automation" as CategoryGroup, labelEn: "Automation & AI", labelAr: "الذكاء الاصطناعي والأتمتة", count: 4 },
 ];
 
 // ─── Individual Project Card ──────────────────────────────────────────────────
@@ -169,141 +191,206 @@ function ProjectCard({
   const cardRef = useRef<HTMLDivElement>(null);
 
   const indexLabel = String(index + 1).padStart(2, "0");
+  const visibleTags = project.techStack.slice(0, 3);
+  const hiddenCount = project.techStack.length - visibleTags.length;
 
   return (
-    <Link
-      href={`/${locale}/projects/${project.slug}`}
-      className="block group"
-      onMouseEnter={() => setHovered(true)}
-      onMouseLeave={() => setHovered(false)}
+    <motion.div
+      layout
+      initial={{ opacity: 0, scale: 0.96 }}
+      animate={{ opacity: 1, scale: 1 }}
+      exit={{ opacity: 0, scale: 0.96 }}
+      transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
     >
-      <div
-        ref={cardRef}
-        className="relative overflow-hidden rounded-2xl bg-[#0d0d11] border border-white/[0.07] transition-all duration-500 group-hover:border-[#dfcba9]/25 group-hover:shadow-[0_0_40px_rgba(223,203,169,0.05)]"
+      <Link
+        href={`/${locale}/projects/${project.slug}`}
+        className="block group h-full"
+        onMouseEnter={() => setHovered(true)}
+        onMouseLeave={() => setHovered(false)}
       >
-        {/* ── Gold sweep line on hover ── */}
-        <span
-          className="absolute top-0 left-0 h-[1.5px] bg-gradient-to-r from-[#dfcba9] via-[#dfcba9]/60 to-transparent z-20 transition-all duration-[600ms] ease-out"
-          style={{ width: hovered ? "100%" : "0%" }}
-        />
-
-        {/* ── Cover Image ── */}
-        <div className="relative w-full aspect-[16/9] overflow-hidden bg-zinc-950">
-          <Image
-            src={project.imageSrc}
-            alt={isAr ? project.nameAr : project.nameEn}
-            fill
-            unoptimized={project.imageSrc.endsWith(".svg")}
-            className="object-cover object-top transition-transform duration-700 ease-[cubic-bezier(0.25,1,0.5,1)] group-hover:scale-[1.04]"
-            sizes="(max-width: 768px) 100vw, 50vw"
-          />
-          {/* Bottom gradient fade into card bg */}
-          <div className="absolute inset-0 bg-gradient-to-t from-[#0d0d11] via-[#0d0d11]/10 to-transparent" />
-
-          {/* Ghost index number */}
+        <div
+          ref={cardRef}
+          className="relative h-full flex flex-col justify-between overflow-hidden rounded-2xl bg-[#121216] border border-white/[0.08] shadow-[inset_0_1px_0_0_rgba(255,255,255,0.06),0_12px_36px_rgba(0,0,0,0.5)] transition-all duration-500 group-hover:border-[#dfcba9]/35 group-hover:shadow-[0_0_40px_rgba(223,203,169,0.08)]"
+        >
+          {/* ── Top Highlight Sweep ── */}
           <span
-            className="absolute bottom-3 right-4 text-[64px] font-black text-white/[0.06] font-mono leading-none select-none pointer-events-none"
-            aria-hidden
-          >
-            {indexLabel}
-          </span>
+            className="absolute top-0 left-0 h-[1.5px] bg-gradient-to-r from-[#dfcba9] via-[#dfcba9]/70 to-transparent z-20 transition-all duration-[600ms] ease-out"
+            style={{ width: hovered ? "100%" : "0%" }}
+          />
 
-          {/* Category pill */}
-          <span className="absolute top-3 left-3 text-[9px] font-mono uppercase tracking-[0.12em] bg-black/55 backdrop-blur-sm text-[#dfcba9]/90 px-2.5 py-1 rounded-full border border-[#dfcba9]/15">
-            {isAr ? project.categoryAr : project.categoryEn}
-          </span>
-        </div>
+          {/* ── Top Section: Cover Image ── */}
+          <div className="relative w-full aspect-[16/9] overflow-hidden bg-zinc-950">
+            <Image
+              src={project.imageSrc}
+              alt={isAr ? project.nameAr : project.nameEn}
+              fill
+              unoptimized={project.imageSrc.endsWith(".svg")}
+              className="object-cover object-top transition-transform duration-700 ease-[cubic-bezier(0.25,1,0.5,1)] group-hover:scale-[1.04]"
+              sizes="(max-width: 768px) 100vw, 50vw"
+            />
+            {/* Bottom gradient fade into card bg */}
+            <div className="absolute inset-0 bg-gradient-to-t from-[#121216] via-[#121216]/15 to-transparent" />
 
-        {/* ── Content ── */}
-        <div className="p-5 pt-4">
-          {/* Name */}
-          <h3 className="text-base sm:text-lg font-bold text-white tracking-tight leading-snug mb-1.5 group-hover:text-white transition-colors duration-300">
-            {isAr ? project.nameAr : project.nameEn}
-          </h3>
+            {/* Ghost index number */}
+            <span
+              className="absolute bottom-2 right-4 text-[60px] font-black text-white/[0.07] font-mono leading-none select-none pointer-events-none"
+              aria-hidden
+            >
+              {indexLabel}
+            </span>
 
-          {/* Metric */}
-          <p className="text-xs text-[#dfcba9] font-mono mb-3">
-            {isAr ? project.metricAr : project.metricEn}
-          </p>
+            {/* Category pill */}
+            <span className="absolute top-3 left-3 text-[9px] font-mono uppercase tracking-[0.12em] bg-black/65 backdrop-blur-md text-[#dfcba9] px-2.5 py-1 rounded-full border border-[#dfcba9]/25 shadow-sm font-medium">
+              {isAr ? project.categoryAr : project.categoryEn}
+            </span>
+          </div>
 
-          {/* Tech tags */}
-          <div className="flex flex-wrap gap-1.5 mb-4">
-            {project.techStack.map((tech) => (
-              <span
-                key={tech}
-                className="text-[10px] font-mono text-zinc-300 bg-white/[0.05] border border-white/[0.08] px-2 py-0.5 rounded"
-              >
-                {tech}
+          {/* ── Bottom Section: Content ── */}
+          <div className="p-5 pt-4 flex flex-col flex-1 justify-between">
+            <div>
+              {/* Name */}
+              <h3 className="text-base sm:text-lg font-bold text-white tracking-tight leading-snug mb-1.5 group-hover:text-[#dfcba9] transition-colors duration-300">
+                {isAr ? project.nameAr : project.nameEn}
+              </h3>
+
+              {/* Metric */}
+              <p className="text-xs text-zinc-300 font-mono mb-3.5 flex items-center gap-1.5">
+                <span className="size-1 rounded-full bg-[#dfcba9]" />
+                <span>{isAr ? project.metricAr : project.metricEn}</span>
+              </p>
+
+              {/* Tech tags — responsive & compact */}
+              <div className="flex flex-wrap items-center gap-1.5 mb-4">
+                {visibleTags.map((tech) => (
+                  <span
+                    key={tech}
+                    className="text-[10px] font-mono text-zinc-300 bg-white/[0.04] border border-white/[0.08] px-2 py-0.5 rounded font-normal"
+                  >
+                    {tech}
+                  </span>
+                ))}
+                {hiddenCount > 0 && (
+                  <span className="text-[9px] font-mono text-[#dfcba9]/70 bg-[#dfcba9]/10 border border-[#dfcba9]/20 px-1.5 py-0.5 rounded">
+                    +{hiddenCount}
+                  </span>
+                )}
+              </div>
+            </div>
+
+            {/* Action row */}
+            <div className="flex items-center justify-between pt-3 border-t border-white/[0.06] text-xs font-mono text-zinc-400 group-hover:text-white transition-colors duration-300">
+              <span className="uppercase tracking-widest text-[9px] text-[#dfcba9] font-medium">
+                {isAr ? "عرض الملف المعماري" : "View Architecture Dossier"}
               </span>
-            ))}
-          </div>
-
-          {/* Action row */}
-          <div className="flex items-center justify-between pt-3 border-t border-white/[0.06] text-xs font-mono text-zinc-400 group-hover:text-white transition-colors duration-300">
-            <span className="uppercase tracking-widest text-[9px] text-[#dfcba9]">
-              {isAr ? "عرض المعمارية" : "View Architecture"}
-            </span>
-            <span className="transition-transform duration-300 group-hover:translate-x-1">
-              {isAr ? "←" : "→"}
-            </span>
+              <span className="transition-transform duration-300 group-hover:translate-x-1 font-bold">
+                {isAr ? "←" : "→"}
+              </span>
+            </div>
           </div>
         </div>
-      </div>
-    </Link>
+      </Link>
+    </motion.div>
   );
 }
 
 // ─── Main Section ─────────────────────────────────────────────────────────────
 export function SystemsBento() {
+  const [activeTab, setActiveTab] = useState<CategoryGroup>("all");
   const locale = useLocale();
   const isAr = locale === "ar";
+
+  const filteredProjects =
+    activeTab === "all"
+      ? projects
+      : projects.filter((p) => p.group === activeTab);
 
   return (
     <section
       id="systems"
-      className="relative z-20 bg-[#09090b] text-white py-28 px-6 sm:px-12 border-t border-white/[0.06]"
+      className="relative z-20 w-full bg-[#09090b] text-white py-28 border-t border-white/[0.06]"
     >
-      <div className="max-w-7xl mx-auto">
+      <div className="max-w-7xl mx-auto px-6 sm:px-12">
         {/* ── Section Header ── */}
-        <div className="mb-16 flex flex-col sm:flex-row sm:items-end justify-between gap-6 border-b border-white/[0.08] pb-10">
+        <div className="mb-12 flex flex-col md:flex-row md:items-end justify-between gap-6 border-b border-white/[0.08] pb-8">
           <div>
             <p className="text-[10px] sm:text-xs font-mono uppercase tracking-[0.25em] text-[#dfcba9] mb-3 font-medium">
-              {isAr ? "سجل الأعمال الكاملة" : "Complete Architecture Registry"}
+              {isAr ? "سجل الأنظمة والمعماريات" : "Architecture Registry & Systems"}
             </p>
             <h2 className="text-3xl sm:text-5xl font-black tracking-tight text-white leading-tight">
-              {isAr ? "كل الأعمال" : "All Work"}
+              {isAr ? "كافة المنظومات المنجزة" : "Engineered Systems Catalog"}
             </h2>
           </div>
-          <div className="text-right shrink-0">
+          <div className="text-left md:text-right shrink-0">
             <p className="text-[10px] font-mono text-zinc-400 uppercase tracking-widest font-medium">
-              {isAr ? "إجمالي المشاريع" : "Total Projects"}
+              {isAr ? "الأنظمة المعروضة" : "Filtered Systems"}
             </p>
-            <p className="text-4xl font-black text-white/30 font-mono mt-0.5">
-              {String(projects.length).padStart(2, "0")}
+            <p className="text-4xl font-black text-[#dfcba9]/40 font-mono mt-0.5">
+              {String(filteredProjects.length).padStart(2, "0")}{" "}
+              <span className="text-xs text-zinc-500 font-normal">/ {projects.length}</span>
             </p>
           </div>
         </div>
 
-        {/* ── 2-Column Project Grid ── */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-          {projects.map((project, index) => (
-            <ProjectCard
-              key={project.slug}
-              project={project}
-              index={index}
-              isAr={isAr}
-              locale={locale}
-            />
-          ))}
+        {/* ── Interactive Category Tab Filter ── */}
+        <div className="mb-10 flex flex-wrap items-center gap-2 sm:gap-3">
+          {filterTabs.map((tab) => {
+            const isActive = activeTab === tab.id;
+
+            return (
+              <button
+                key={tab.id}
+                onClick={() => setActiveTab(tab.id)}
+                className={`relative px-4 py-2 rounded-full text-xs font-mono transition-all duration-300 flex items-center gap-2 cursor-pointer border ${
+                  isActive
+                    ? "text-white border-[#dfcba9]/60 shadow-[0_0_20px_rgba(223,203,169,0.15)] bg-white/[0.08]"
+                    : "text-zinc-400 border-white/[0.07] bg-white/[0.02] hover:text-zinc-200 hover:border-white/20 hover:bg-white/[0.05]"
+                }`}
+              >
+                {isActive && (
+                  <motion.span
+                    layoutId="bento-tab-indicator"
+                    className="absolute inset-0 rounded-full bg-[#dfcba9]/10 -z-10"
+                    transition={{ type: "spring", stiffness: 350, damping: 30 }}
+                  />
+                )}
+                <span>{isAr ? tab.labelAr : tab.labelEn}</span>
+                <span
+                  className={`text-[10px] px-1.5 py-0.2 rounded-full ${
+                    isActive
+                      ? "bg-[#dfcba9] text-black font-bold"
+                      : "bg-white/[0.06] text-zinc-500"
+                  }`}
+                >
+                  {tab.count}
+                </span>
+              </button>
+            );
+          })}
         </div>
 
+        {/* ── 2-Column Responsive Project Grid with AnimatePresence ── */}
+        <motion.div layout className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <AnimatePresence mode="popLayout">
+            {filteredProjects.map((project, index) => (
+              <ProjectCard
+                key={project.slug}
+                project={project}
+                index={index}
+                isAr={isAr}
+                locale={locale}
+              />
+            ))}
+          </AnimatePresence>
+        </motion.div>
+
         {/* ── Footer note ── */}
-        <p className="text-center text-[10px] font-mono text-zinc-700 mt-14 tracking-widest uppercase">
+        <p className="text-center text-[10px] font-mono text-zinc-600 mt-14 tracking-widest uppercase">
           {isAr
-            ? "كل مشروع يتضمن تحليلاً معمارياً كاملاً"
-            : "Every project includes a full architectural dossier"}
+            ? "كل منظومة موثقة بملف معماري كامل وتحليل للأثر التشغيلي"
+            : "Every system includes an architectural blueprint & benchmark dossier"}
         </p>
       </div>
     </section>
   );
 }
+
