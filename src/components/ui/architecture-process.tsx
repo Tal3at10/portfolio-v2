@@ -18,8 +18,8 @@ export function ArchitectureProcess() {
         </h2>
         <p className="text-sm sm:text-base text-zinc-400 mt-3 max-w-2xl mx-auto font-normal leading-relaxed">
           {isAr
-            ? "من تحليل نطاق العمل وتصميم المعمارية النظيفة، حتى إطلاق منظومات سحابية عالية التحمل ومدمجة مع الذكاء الاصطناعي."
-            : "From domain decomposition to high-concurrency event-driven backends and autonomous AI orchestration."}
+            ? "كيف أبني الأنظمة — من فهم المشكلة إلى إطلاق المنصة."
+            : "How I architect solutions — from discovery to launch."}
         </p>
       </div>
 

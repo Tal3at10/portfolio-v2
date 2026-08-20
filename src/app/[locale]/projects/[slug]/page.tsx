@@ -178,24 +178,10 @@ export default async function ProjectDetailPage({
             </div>
           </div>
 
-          {/* Browser Mockup Column */}
+          {/* Showcase Display Frame */}
           <div className="lg:col-span-6 w-full">
-            <div className="relative rounded-3xl overflow-hidden border border-white/15 bg-zinc-950 shadow-[0_20px_60px_rgba(0,0,0,0.9)]">
-              {/* Browser Window Header */}
-              <div className="flex items-center justify-between px-4 py-3 border-b border-white/10 bg-zinc-900/90">
-                <div className="flex items-center gap-2">
-                  <div className="w-2.5 h-2.5 rounded-full bg-[#ff5f56]" />
-                  <div className="w-2.5 h-2.5 rounded-full bg-[#ffbd2e]" />
-                  <div className="w-2.5 h-2.5 rounded-full bg-[#27c93f]" />
-                </div>
-                <div className="px-4 py-0.5 rounded-md bg-black/60 border border-white/5 text-[11px] font-mono text-zinc-400">
-                  {slug}.production.cloud
-                </div>
-                <div className="w-10" />
-              </div>
-
-              {/* Image Preview */}
-              <div className="relative aspect-[16/10] w-full bg-zinc-900">
+            <div className="relative rounded-2xl sm:rounded-3xl p-1.5 sm:p-2 border border-white/[0.12] bg-gradient-to-b from-white/[0.08] to-white/[0.02] shadow-[0_24px_70px_rgba(0,0,0,0.9)] backdrop-blur-xl">
+              <div className="relative aspect-[16/10] w-full rounded-xl sm:rounded-2xl overflow-hidden bg-zinc-950 border border-black/40">
                 <Image
                   src={heroImage}
                   alt={isAr ? project.title_ar : project.title_en}

@@ -89,15 +89,37 @@ export const AnimatedTestimonials = ({
                   }}
                   className="absolute inset-0 origin-bottom rounded-2xl overflow-hidden bg-[#0a0a0f] border border-white/10 shadow-2xl"
                 >
-                  <Image
-                    src={testimonial.src}
-                    alt={testimonial.name}
-                    width={500}
-                    height={500}
-                    unoptimized={testimonial.src.endsWith('.svg')}
-                    draggable={false}
-                    className="h-full w-full object-cover object-center"
-                  />
+                  {!testimonial.src.endsWith('.svg') ? (
+                    <Image
+                      src={testimonial.src}
+                      alt={testimonial.name}
+                      width={500}
+                      height={500}
+                      draggable={false}
+                      className="h-full w-full object-cover object-center"
+                    />
+                  ) : (
+                    <div className="h-full w-full flex flex-col items-center justify-center bg-gradient-to-br from-[#1c1a17] via-[#0c0c0e] to-[#050505] p-6 relative select-none">
+                      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(223,203,169,0.12)_0%,transparent_70%)] pointer-events-none" />
+                      
+                      {/* Monogram Circle Badge */}
+                      <div className="w-28 h-28 sm:w-32 sm:h-32 rounded-full border border-[#dfcba9]/30 bg-black/60 shadow-[0_0_40px_rgba(223,203,169,0.15)] flex items-center justify-center relative z-10">
+                        <span className="text-3xl sm:text-4xl font-black tracking-tight text-transparent bg-clip-text bg-gradient-to-b from-white via-zinc-200 to-[#dfcba9]">
+                          {(() => {
+                            const parts = testimonial.name.trim().split(/\s+/);
+                            if (parts.length === 1) return parts[0].slice(0, 2);
+                            return `${parts[0][0]}.${parts[parts.length - 1][0]}`;
+                          })()}
+                        </span>
+                      </div>
+
+                      {/* Verified Client Badge */}
+                      <div className="mt-4 flex items-center gap-1.5 px-3 py-1 rounded-full border border-white/10 bg-white/[0.04] text-[11px] font-mono text-zinc-400 z-10">
+                        <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+                        <span>عميل معتمد • Verified Partner</span>
+                      </div>
+                    </div>
+                  )}
                 </motion.div>
               ))}
             </AnimatePresence>

@@ -33,18 +33,18 @@ const caseStudies: ProjectCase[] = [
     clientEn: "Global OTA & VoucherPro ERP",
     steps: [
       {
-        titleAr: "الأنظمة اليدوية القديمة",
-        titleEn: "Legacy Fragmentation",
+        titleAr: "فقدان آلاف العملاء وتأخر عروض الأسعار",
+        titleEn: "4,000 Customers Lost to WhatsApp Chaos",
         descriptionAr:
           "أدى الاعتماد على الواتساب وجداول البيانات إلى فقدان آلاف العملاء وتأخر عروض الأسعار لأكثر من 45 دقيقة للحجز الواحد، مع حدوث أخطاء مستمرة في مزامنة أسعار الطيران والفنادق عبر منصات GDS.",
         descriptionEn:
-          "Manual booking processes across WhatsApp and spreadsheets caused over 4,000 unhandled customer drop-offs and 12-minute quote preparation delays with frequent GDS rate sync failures.",
+          "Manual booking processes across WhatsApp and spreadsheets caused over 4,000 unhandled customer drop-offs and 45-minute quote preparation delays with frequent GDS rate sync failures.",
         imageSrc: "/projects/almulhim-travel/main website.png",
         imageAlt: "Almulhim Travel B2C Platform",
       },
       {
-        titleAr: "المعمارية والذكاء الاصطناعي",
-        titleEn: "Clean Architecture & AI Engine",
+        titleAr: "معمارية .NET 8 وبوت مبيعات ذكي",
+        titleEn: "Unified .NET 8 Core & RAG Sales Bot",
         descriptionAr:
           "بناء معمارية نظيفة متكاملة بـ .NET 8 وفق نمط MediatR CQRS، مدعومة بقاعدة بيانات شعاعية للبحث الدلالي RAG، والربط المباشر مع مزودي الطيران والفنادق (Amadeus و Duffel)، مع روبوت مبيعات ذكي عبر واتساب.",
         descriptionEn:
@@ -53,8 +53,8 @@ const caseStudies: ProjectCase[] = [
         imageAlt: "Almulhim Central Admin Dashboard",
       },
       {
-        titleAr: "الإصدار الآلي للقسائم",
-        titleEn: "VoucherPro & Instant Issuance",
+        titleAr: "توفير 70% وقت تشغيل لـ 40 موظفاً و 1,200 حجز شهرياً",
+        titleEn: "70% Less Operational Work & 1,200 Monthly Bookings",
         descriptionAr:
           "أتمتة توليد قسائم السفر المشفرة بصيغة PDF مع رموز QR لمنع التزوير، مما وفر 70% من وقت التشغيل لأكثر من 40 موظفاً ومعالجة ما يزيد عن 1,200 حجز شهرياً بأمان تام.",
         descriptionEn:
@@ -72,18 +72,18 @@ const caseStudies: ProjectCase[] = [
     clientEn: "Saudi B2B GovTech SaaS",
     steps: [
       {
-        titleAr: "البحث اليدوي بالمناقصات",
-        titleEn: "Manual Tender Discovery",
+        titleAr: "تفويت 60% من المناقصات وتأخر إعداد العروض 14 يوماً",
+        titleEn: "60% Tenders Missed & 14-Day Drafting Delays",
         descriptionAr:
           "كانت شركات المقاولات تفقد أكثر من 60% من المناقصات الحكومية المناسبة بسبب صعوبة البحث اليدوي اليومي واستغراق ما يصل إلى 14 يوماً لتجهيز كراسات الشروط والعروض الفنية المعقدة.",
         descriptionEn:
-          "Contractors missed 60%+ of relevant government tenders due to tedious manual searches and 3-day delays in drafting complex 40-page technical compliance proposals.",
+          "Contractors missed 60%+ of relevant government tenders due to tedious manual searches and 14-day delays in drafting complex technical proposals.",
         imageSrc: "/projects/admin.sa/curated/01-etimad-discovery-portal.png",
         imageAlt: "Admin.sa Tender Discovery Landing",
       },
       {
-        titleAr: "أتمتة توليد العروض",
-        titleEn: "Scraping Pipeline & Batch AI",
+        titleAr: "أتمتة الكشط وتوليد العروض بالذكاء الاصطناعي",
+        titleEn: "Automated Scraping & Batch AI Proposals",
         descriptionAr:
           "تطوير مسار كشط متقدم باستخدام curl-cffi وطوابير Celery/Redis، مع دمج Gemini Batch API لتوليد عروض فنية تفصيلية بصيغة Word في أقل من 90 ثانية وبدقة تتجاوز 95%.",
         descriptionEn:
@@ -92,8 +92,8 @@ const caseStudies: ProjectCase[] = [
         imageAlt: "Admin.sa AI Tender Automation Dashboard",
       },
       {
-        titleAr: "تحليل فرص الفوز",
-        titleEn: "Predictive Win Probability",
+        titleAr: "توليد العرض الفني في 90 ثانية ونموذج تنبؤ بنسبة 85%",
+        titleEn: "AI Proposals in 90s & 85% Win Probability",
         descriptionAr:
           "تدريب نموذج تعلم آلي LightGBM لتقدير احتمالية الفوز بالمناقصة بدقة 85%، مع ربط نظام تنبيهات واتساب فوري وبوابة دفع MyFatoorah لإدارة وتجديد الاشتراكات الدورية.",
         descriptionEn:
@@ -111,8 +111,8 @@ const caseStudies: ProjectCase[] = [
     clientEn: "Clinical EMR & HIPAA Telemedicine",
     steps: [
       {
-        titleAr: "فوضى السجلات الورقية",
-        titleEn: "Fragmented Clinical Records",
+        titleAr: "بطء السجلات الورقية وغياب العيادة الافتراضية",
+        titleEn: "Paper Record Bottlenecks & No Telehealth",
         descriptionAr:
           "تسبب الاعتماد على الملفات الورقية في بطء شديد في متابعة المرضى، مع غياب عيادة افتراضية مشفرة ومتوافقة مع المعايير الصحية تغني عن التطبيقات الخارجية غير الآمنة.",
         descriptionEn:
@@ -121,8 +121,8 @@ const caseStudies: ProjectCase[] = [
         imageAlt: "Al-Riyadh EMR Clinical Portal",
       },
       {
-        titleAr: "معمارية CQRS",
-        titleEn: "CQRS Pattern & 7 Portals",
+        titleAr: "معمارية CQRS و 7 بوابات مستقلة",
+        titleEn: ".NET 9 CQRS & 7 Isolated Workspaces",
         descriptionAr:
           "تصميم بنية تحتية بـ .NET 9 ونمط MediatR CQRS تفصل بين القراءة والكتابة، مع عزل كامل للصلاحيات عبر 7 بوابات مخصصة لضمان استرجاع السجلات الطبية في أقل من 200 ملي ثانية.",
         descriptionEn:
@@ -131,8 +131,8 @@ const caseStudies: ProjectCase[] = [
         imageAlt: "Al-Riyadh Telehealth Suite",
       },
       {
-        titleAr: "عيادة افتراضية مشفرة",
-        titleEn: "Zero-Install WebRTC Clinic",
+        titleAr: "عيادة رقمية 100% بدون أوراق واستدعاء في أقل من 200ms",
+        titleEn: "100% Paperless Clinic & Sub-200ms EMR Lookups",
         descriptionAr:
           "دمج غرف فيديو مشفرة تعمل مباشرة عبر المتصفح عبر WebRTC دون الحاجة لتثبيت برامج، مع نظام إشعارات طوارئ لحظية بـ SignalR لتحويل المركز إلى بيئة رقمية بنسبة 100%.",
         descriptionEn:
@@ -150,8 +150,8 @@ const caseStudies: ProjectCase[] = [
     clientEn: "Private Multi-Cloud & Native Desktop Sync",
     steps: [
       {
-        titleAr: "تكاليف التخزين الباهظة",
-        titleEn: "Prohibitive Cloud Storage Costs",
+        titleAr: "تكاليف التخزين السحابي التجاري الباهظة",
+        titleEn: "Prohibitive Commercial Cloud Storage Bills",
         descriptionAr:
           "واجهت الشركات تكاليف اشتراك باهظة في خدمات التخزين السحابي التجارية عند إدارة ومشاركة ملفات الوسائط الضخمة التي تتجاوز 10GB، مع فقدان السيطرة الكاملة على البيانات.",
         descriptionEn:
@@ -160,8 +160,8 @@ const caseStudies: ProjectCase[] = [
         imageAlt: "Ok.Cloud Storage Web Hub",
       },
       {
-        titleAr: "بنية سحابية متعددة",
-        titleEn: "Multi-Cloud Storage Abstraction",
+        titleAr: "تخزين سحابي مرن ورفع مجزأ لملفات 10GB+",
+        titleEn: "Multi-Cloud Storage & 10GB+ Chunked Stream",
         descriptionAr:
           "تطوير طبقة تخزين سحابية مرنة تدعم بروتوكولات S3 و SFTP و WebDAV بحرية تامة، مع محرك رفع مجزأ فائق السرعة للتعامل مع الملفات الضخمة دون انقطاع.",
         descriptionEn:
@@ -170,8 +170,8 @@ const caseStudies: ProjectCase[] = [
         imageAlt: "Ok.Cloud File Browser",
       },
       {
-        titleAr: "تطبيق مزامنة مكتبي",
-        titleEn: "Native Windows Sync Client",
+        titleAr: "تطبيق مزامنة مكتبي بـ SQLite محلي وتوفير 75% تكاليف",
+        titleEn: "Native Sync Daemon & 75% Cloud Cost Savings",
         descriptionAr:
           "بناء تطبيق مكتبي أصلي بنظام .NET 8 MAUI يعمل في الخلفية باستهلاك ذاكرة أقل من 40MB، مزود بفهرسة SQLite محلية تتيح تصفح الملفات والبحث فيها دون اتصال بالإنترنت.",
         descriptionEn:
@@ -189,8 +189,8 @@ const caseStudies: ProjectCase[] = [
     clientEn: "Ministry of Education — 990+ Schools Quality QA",
     steps: [
       {
-        titleAr: "صعوبة المعالجة اليدوية",
-        titleEn: "Manual Document Bottlenecks",
+        titleAr: "استغراق 6 أشهر لفحص وثائق 990 مدرسة يدوياً",
+        titleEn: "6-Month Manual Audits for 990 Schools",
         descriptionAr:
           "استغرقت لجان التحكيم أكثر من 6 أشهر لفحص وتدقيق الوثائق الورقية لـ 990 مدرسة، مع تكرار انهيار خوادم الاستلام التقليدية تحت وطأة أحجام الملفات الكبيرة.",
         descriptionEn:
@@ -199,8 +199,8 @@ const caseStudies: ProjectCase[] = [
         imageAlt: "Injaz School Upload Portal",
       },
       {
-        titleAr: "بنية Azure السحابية",
-        titleEn: "Serverless Direct-to-Cloud Uploads",
+        titleAr: "رفع سحابي مباشر بـ SAS Tokens دون إجهاد السيرفر",
+        titleEn: "Serverless Direct-to-Cloud SAS Tokens",
         descriptionAr:
           "تصميم بنية سحابية قائمة على Azure Functions وآلية رفع مباشر إلى مساحة التخزين عبر SAS Tokens دون إجهاد السيرفر، لاستيعاب أكثر من 25,000 وثيقة بنسبة استقرار 100%.",
         descriptionEn:
@@ -209,8 +209,8 @@ const caseStudies: ProjectCase[] = [
         imageAlt: "Injaz Arbitrator Evaluation Panel",
       },
       {
-        titleAr: "أتمتة إصدار الاعتمادات",
-        titleEn: "Automated Scorecards & Reports",
+        titleAr: "تدقيق آلي لـ 25,000 وثيقة واستقرار 100% بدون توقف",
+        titleEn: "Automated 25,000 File Audit with Zero Downtime",
         descriptionAr:
           "أتمتة حساب درجات المطابقة لـ 8 معايير وطنية بدقة خالية من الأخطاء البشرية، مع توليد فوري للشهادات وبطاقات الاعتماد الرسمية الموثقة برمز QR.",
         descriptionEn:
@@ -228,8 +228,8 @@ const caseStudies: ProjectCase[] = [
     clientEn: "Enterprise Restaurant & Delivery Ecosystem",
     steps: [
       {
-        titleAr: "تحديات إدارة الفروع",
-        titleEn: "Multi-Chain Restaurant Challenges",
+        titleAr: "تشتت قوائم 15 فرعاً وعمولات التوصيل الباهظة",
+        titleEn: "15-Branch Menu Chaos & 30% Platform Fees",
         descriptionAr:
           "واجهت سلاسل المطاعم صعوبة في توحيد قوائم الطعام ومزامنة الأسعار عبر 15 فرعاً، وتكبدت عمولات باهظة لتطبيقات التوصيل الخارجية مع غياب شاشات عرض ذكية متزامنة.",
         descriptionEn:
@@ -238,8 +238,8 @@ const caseStudies: ProjectCase[] = [
         imageAlt: "Snabbfood Sweden Platform",
       },
       {
-        titleAr: "نظام الفروع والشاشات",
-        titleEn: "Multi-Tenant Core & Smart TV Signage",
+        titleAr: "نواة متعددة المستأجرين وشاشات تلفزيون ذكية",
+        titleEn: "Multi-Tenant Core & Smart TV Menu PWA",
         descriptionAr:
           "بناء نواة متعددة المستأجرين بـ Laravel 12 مع تطبيق ويب سريع للطلبات، وتطوير تطبيق PWA مخصص للشاشات الذكية لعرض القوائم وتحديث أسعارها لحظياً من لوحة التحكم.",
         descriptionEn:
@@ -248,8 +248,8 @@ const caseStudies: ProjectCase[] = [
         imageAlt: "Snabbfood Smart TV Menu App",
       },
       {
-        titleAr: "التوسع في السوق السويدي",
-        titleEn: "Nordic Payments & Scale",
+        titleAr: "دفع نورديك (Klarna & Swish) ومعالجة 50,000 طلب شهرياً",
+        titleEn: "Nordic Payments & 50,000 Monthly Orders",
         descriptionAr:
           "الربط مع بوابات الدفع النوردية المعتمدة (Klarna, Swish, Stripe) مع بناء نظام تتبع جغرافي حي للسائقين عبر الخرائط لمعالجة أكثر من 50,000 طلب شهرياً.",
         descriptionEn:
@@ -267,8 +267,8 @@ const caseStudies: ProjectCase[] = [
     clientEn: "Meal Subscriptions & Dynamic PDF Generation",
     steps: [
       {
-        titleAr: "حساب السعرات يدوياً",
-        titleEn: "Manual Nutrition Calculations",
+        titleAr: "هدر 3 ساعات يومياً في حساب السعرات والملصقات",
+        titleEn: "3+ Hours Daily on Manual Nutrition Slips",
         descriptionAr:
           "استغرق حساب السعرات والماكروز وتجهيز ملصقات الوجبات المخصصة لأكثر من 1,000 مشترك أكثر من 3 ساعات يومياً من طاقم العمل، مع تكرار أخطاء التوزيع بالمطبخ.",
         descriptionEn:
@@ -277,8 +277,8 @@ const caseStudies: ProjectCase[] = [
         imageAlt: "DietBox Subscription Dashboard",
       },
       {
-        titleAr: "أتمتة توليد الملصقات",
-        titleEn: "Sub-100ms QuestPDF Engine",
+        titleAr: "توليد ملصقات QuestPDF فائقة السرعة في 100ms",
+        titleEn: "Sub-100ms QuestPDF Label Generation",
         descriptionAr:
           "تطوير محرك فائق السرعة عبر QuestPDF لتوليد مئات الملصقات الحرارية وجداول التغذية التفصيلية بصيغة PDF في أقل من 100 ملي ثانية لكل دفعة.",
         descriptionEn:
@@ -287,8 +287,8 @@ const caseStudies: ProjectCase[] = [
         imageAlt: "DietBox PDF Generation",
       },
       {
-        titleAr: "معمارية .NET 8 النظيفة",
-        titleEn: ".NET 8 Clean Architecture Core",
+        titleAr: "أتمتة اشتراكات 1,000+ عميل وصفر أخطاء في المطبخ",
+        titleEn: "1,000+ Automated Subscribers & Zero Errors",
         descriptionAr:
           "هيكلة المنظومة وفق المعمارية النظيفة بـ .NET 8 لإدارة الاشتراكات الشهرية وجدولة التوصيل اليومي للمطابخ بدقة متناهية ونسبة خطأ 0%.",
         descriptionEn:
@@ -306,8 +306,8 @@ const caseStudies: ProjectCase[] = [
     clientEn: "6-Sector Quick-Commerce & Live GPS Logistics",
     steps: [
       {
-        titleAr: "تشتت قطاعات الأعمال",
-        titleEn: "Fragmented Marketplace Apps",
+        titleAr: "تشتت 6 قطاعات تجارية في تطبيقات منفصلة",
+        titleEn: "6 Disconnected Vertical Systems",
         descriptionAr:
           "الحاجة لبناء تطبيق فائق (Super App) يدمج 6 قطاعات تجارية وخدمية متفرقة (مطاعم، بقالة، صيدلية، طرود، تأجير، رحلات) في تجربة مستخدم واحدة سلسة وسريعة.",
         descriptionEn:
@@ -316,8 +316,8 @@ const caseStudies: ProjectCase[] = [
         imageAlt: "NexGo SuperApp Storefront",
       },
       {
-        titleAr: "تطبيقات بتتبع لحظي",
-        titleEn: "3 Flutter Apps & 1-Sec Telemetry",
+        titleAr: "سوبر آب موحد و 3 تطبيقات فلاتر بتتبع لحظي",
+        titleEn: "Unified Super App & 1-Sec Driver Telemetry",
         descriptionAr:
           "تطوير 3 تطبيقات هاتف هجينة بـ Flutter مدعومة ببث لحظي لموقع السائق عبر WebSockets كل ثانية واحدة، مع خريطة تفاعلية للعميل وإدارة شاملة للأسطول.",
         descriptionEn:
@@ -326,8 +326,8 @@ const caseStudies: ProjectCase[] = [
         imageAlt: "NexGo Driver Flutter Telemetry",
       },
       {
-        titleAr: "طباعة الفواتير المباشرة",
-        titleEn: "Thermal Bluetooth POS Receipts",
+        titleAr: "طباعة بلوتوث حرارية بالمطبخ وتسريع التوصيل 85%",
+        titleEn: "Instant Bluetooth POS Tickets & 0% Fees",
         descriptionAr:
           "ربط مباشر بين تطبيق التاجر وطابعات الفواتير الحرارية عبر البلوتوث لطباعة إيصالات وتذاكر الطلبات فور ورودها تلقائياً بدون تدخل يدوي.",
         descriptionEn:
@@ -353,8 +353,8 @@ export function CaseStudySticky() {
         </h2>
         <p className="text-sm sm:text-base text-zinc-400 mt-3 max-w-2xl mx-auto font-normal leading-relaxed">
           {isAr
-            ? "منصات ضخمة ومنظومات مؤسسية تم تصميمها وهندستها وفق أعلى المعايير العالمية."
-            : "Large-scale platforms and enterprise ecosystems engineered to highest software standards."}
+            ? "ثمانية أنظمة. مشاكل حقيقية. نتائج قابلة للقياس."
+            : "Eight platforms. Real problems solved. Measurable outcomes."}
         </p>
       </div>
 
@@ -454,11 +454,23 @@ function ProjectStickySection({ project, isAr }: { project: ProjectCase; isAr: b
                   isActive ? "opacity-100" : "opacity-25 lg:opacity-20"
                 }`}
               >
-                <div className="inline-flex items-center gap-2 text-xs font-mono text-zinc-400 mb-2">
-                  <span className="w-1.5 h-1.5 rounded-full bg-white" />
-                  <span>{isAr ? `مرحلة ${idx + 1} من ${project.steps.length}` : `Phase ${idx + 1} of ${project.steps.length}`}</span>
+                <div className="inline-flex items-center gap-2 text-xs font-mono mb-2">
+                  <span className={`w-2 h-2 rounded-full ${idx === 2 ? "bg-emerald-400 animate-pulse" : "bg-[#dfcba9]"}`} />
+                  <span className={idx === 2 ? "text-emerald-400 font-bold" : "text-[#dfcba9] font-medium"}>
+                    {idx === 0
+                      ? isAr
+                        ? "01. المشكلة والتحدي"
+                        : "01. The Challenge"
+                      : idx === 1
+                      ? isAr
+                        ? "02. بناء المنظومة والمعمارية"
+                        : "02. The Architecture"
+                      : isAr
+                      ? "03. الأثر والنتائج بالأرقام"
+                      : "03. The Business Outcome"}
+                  </span>
                 </div>
-                <h4 className="text-lg sm:text-xl font-bold text-white tracking-tight whitespace-nowrap mb-3">
+                <h4 className="text-lg sm:text-xl font-bold text-white tracking-tight leading-snug mb-3">
                   {isAr ? step.titleAr : step.titleEn}
                 </h4>
                 <p dir="auto" className="text-sm sm:text-base text-zinc-300 leading-[1.8] font-normal max-w-xl">

@@ -4,8 +4,9 @@ import React, { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Lenis from "lenis";
-import { IconCpu, IconArrowUpRight } from "@tabler/icons-react";
 import { useLocale } from "next-intl";
+import { ShimmerButton } from "@/components/ui/shimmer-button";
+import { IconArrowDown, IconCalendarEvent } from "@tabler/icons-react";
 
 export function ParallaxComponent() {
   const parallaxRef = useRef<HTMLDivElement>(null);
@@ -71,6 +72,25 @@ export function ParallaxComponent() {
     };
   }, []);
 
+  const scrollToCaseStudies = () => {
+    window.scrollTo({
+      top: window.innerHeight * 0.95,
+      behavior: "smooth",
+    });
+  };
+
+  const scrollToContact = () => {
+    const contactSection = document.getElementById("contact") || document.querySelector("footer");
+    if (contactSection) {
+      contactSection.scrollIntoView({ behavior: "smooth" });
+    } else {
+      window.scrollTo({
+        top: document.body.scrollHeight,
+        behavior: "smooth",
+      });
+    }
+  };
+
   return (
     <div className="parallax bg-[#000000]" ref={parallaxRef}>
       <section className="parallax__header relative h-[100vh] w-full">
@@ -97,12 +117,66 @@ export function ParallaxComponent() {
               className="parallax__layer-img"
             />
 
-            {/* Layer 3: Clean English-Only Headline */}
+            {/* Layer 3: Main Bold Headline, Subtitle & Interactive CTAs in Sky */}
             <div data-parallax-layer="3" className="parallax__layer-title">
-              <h1 dir="ltr" className="parallax__title leading-[0.88] text-center">
-                <span className="block">BUILT FOR SCALE.</span>
-                <span className="block">ENGINEERED FOR ZERO FAILURE.</span>
-              </h1>
+              <div className="flex flex-col items-center justify-center text-center px-4 max-w-4xl mx-auto pointer-events-auto">
+                <h1
+                  dir={isAr ? "rtl" : "ltr"}
+                  className="parallax__title drop-shadow-[0_4px_24px_rgba(0,0,0,0.9)] max-w-4xl mx-auto"
+                >
+                  {isAr ? (
+                    <>
+                      <span className="block text-white font-black">
+                        أبني المنظومات البرمجية المعقدة
+                      </span>
+                      <span className="block text-[#dfcba9] font-black mt-1">
+                        التي تعجز عنها الحلول الجاهزة.
+                      </span>
+                    </>
+                  ) : (
+                    <>
+                      <span className="block text-white font-black tracking-tight">
+                        CUSTOM ENTERPRISE SYSTEMS
+                      </span>
+                      <span className="block text-[#dfcba9] font-black tracking-tight mt-1">
+                        OFF-THE-SHELF CODE CANNOT HANDLE.
+                      </span>
+                    </>
+                  )}
+                </h1>
+
+                <p
+                  dir={isAr ? "rtl" : "ltr"}
+                  className="text-xs sm:text-sm md:text-base text-zinc-200 font-medium max-w-2xl mt-2.5 sm:mt-3 leading-relaxed drop-shadow-[0_2px_12px_rgba(0,0,0,0.95)]"
+                >
+                  {isAr
+                    ? "من محركات السفر ومناقصات اعتماد إلى السجلات الطبية والذكاء الاصطناعي — مبنية لخدمة أهداف البيزنس في السوق الخليجي."
+                    : "From travel engines and GovTech AI to clinical EMRs and SuperApps — engineered for scale in the Gulf."}
+                </p>
+
+                {/* Interactive Action Dock - Compact Equal Dimensions */}
+                <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-16 md:gap-28 lg:gap-40 mt-10 sm:mt-20 md:mt-32 lg:mt-40 w-full">
+                  <ShimmerButton
+                    onClick={scrollToCaseStudies}
+                    className="w-48 sm:w-52 md:w-56 h-10 sm:h-11 shadow-[0_0_20px_rgba(223,203,169,0.25)] text-xs sm:text-[13px] font-bold cursor-pointer px-0"
+                  >
+                    <span className="flex items-center justify-center gap-1.5 text-white">
+                      <span>
+                        {isAr ? "استكشف المنظومات والمشاريع" : "Explore Enterprise Systems"}
+                      </span>
+                      <IconArrowDown className="size-3.5 animate-bounce" />
+                    </span>
+                  </ShimmerButton>
+
+                  <button
+                    onClick={scrollToContact}
+                    className="w-48 sm:w-52 md:w-56 h-10 sm:h-11 flex items-center justify-center gap-1.5 text-xs sm:text-[13px] font-bold rounded-full border border-white/25 bg-black/50 hover:bg-black/80 hover:border-white/50 text-zinc-200 hover:text-white backdrop-blur-md transition-all duration-300 shadow-xl cursor-pointer"
+                  >
+                    <IconCalendarEvent className="size-4 text-[#dfcba9]" />
+                    <span>{isAr ? "احجز استشارة مجانية" : "Book Strategy Call"}</span>
+                  </button>
+                </div>
+              </div>
             </div>
 
             {/* Layer 4: Person Foreground */}
@@ -122,3 +196,4 @@ export function ParallaxComponent() {
     </div>
   );
 }
+

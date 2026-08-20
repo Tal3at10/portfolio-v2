@@ -218,19 +218,21 @@ export function SystemsBento() {
                 </div>
               </div>
 
-              {/* Dedicated Preview Window */}
+              {/* Minimalist High-End Preview Frame */}
               <Link
                 href={item.id === "ai-bots" ? `/${locale}/projects/sakani-bot` : `/${locale}/projects/${item.id}`}
-                className="relative w-full aspect-[16/9] rounded-xl overflow-hidden border border-white/[0.08] bg-black mt-2 group-hover:border-white/20 transition-colors duration-300 block cursor-pointer"
+                className="relative w-full rounded-xl overflow-hidden border border-white/[0.08] bg-zinc-950 p-1 group-hover:border-[#dfcba9]/30 transition-all duration-300 block cursor-pointer mt-2"
               >
-                <Image
-                  src={item.imageSrc}
-                  alt={isAr ? item.nameAr : item.nameEn}
-                  fill
-                  unoptimized={item.imageSrc.endsWith('.svg')}
-                  className="object-cover object-top filter brightness-90 group-hover:scale-105 group-hover:brightness-100 transition-all duration-500"
-                  sizes="(max-width: 1024px) 100vw, 60vw"
-                />
+                <div className="relative w-full aspect-[16/10] rounded-lg overflow-hidden bg-black">
+                  <Image
+                    src={item.imageSrc}
+                    alt={isAr ? item.nameAr : item.nameEn}
+                    fill
+                    unoptimized={item.imageSrc.endsWith('.svg')}
+                    className="object-cover object-top filter brightness-90 group-hover:scale-[1.03] group-hover:brightness-100 transition-all duration-500"
+                    sizes="(max-width: 1024px) 100vw, 60vw"
+                  />
+                </div>
               </Link>
             </div>
           );

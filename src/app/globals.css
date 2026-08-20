@@ -81,24 +81,27 @@
 
 .parallax__layer-title {
   position: absolute;
-  inset: 0;
+  top: 0;
+  left: 0;
+  right: 0;
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  padding-bottom: 27vh;
-  z-index: 3;
+  justify-content: flex-start;
+  padding-top: max(130px, 15vh);
+  z-index: 10;
   pointer-events: none;
 }
 
 .parallax__title {
-  font-size: clamp(1.6rem, 4.8vw, 5.8rem);
+  font-size: clamp(1.4rem, 2.8vw, 3.2rem);
   font-weight: 900;
   text-transform: uppercase;
-  letter-spacing: -0.03em;
-  line-height: 0.92;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
   color: #ffffff;
   margin: 0;
-  padding: 0;
+  padding: 0 1rem;
   text-align: center;
   user-select: none;
 }
@@ -117,3 +120,33 @@
   z-index: 5;
   pointer-events: none;
 }
+
+@keyframes spin-around {
+  0% {
+    transform: translateZ(0) rotate(0);
+  }
+  15%, 35% {
+    transform: translateZ(0) rotate(90deg);
+  }
+  65%, 85% {
+    transform: translateZ(0) rotate(270deg);
+  }
+  100% {
+    transform: translateZ(0) rotate(360deg);
+  }
+}
+
+@keyframes shimmer-slide {
+  to {
+    transform: translate(calc(100cqw - 100%), 0);
+  }
+}
+
+.animate-spin-around {
+  animation: spin-around calc(var(--speed) * 2) infinite linear;
+}
+
+.animate-shimmer-slide {
+  animation: shimmer-slide var(--speed) ease-in-out infinite alternate;
+}
+

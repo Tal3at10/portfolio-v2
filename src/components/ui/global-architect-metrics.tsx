@@ -85,8 +85,8 @@ export function GlobalArchitectMetrics() {
         </h2>
         <p className="text-sm sm:text-base text-zinc-400 mt-3 max-w-2xl mx-auto font-normal leading-relaxed">
           {isAr
-            ? "مؤشرات كمية حقيقية تلخص سنوات من بناء المنظومات عالية الأداء واستقرار بيئات الإنتاج."
-            : "Verifiable quantitative benchmarks summarizing years of architecting mission-critical platforms."}
+            ? "أرقام حقيقية من مشاريع حقيقية."
+            : "The numbers behind the work."}
         </p>
       </div>
 

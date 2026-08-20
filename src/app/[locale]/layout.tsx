@@ -2,12 +2,13 @@ import { NextIntlClientProvider } from "next-intl";
 import { getMessages, setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
 import { routing } from "@/i18n/routing";
-import { Rubik, Fredoka, JetBrains_Mono } from "next/font/google";
+import { Tajawal, Fredoka, JetBrains_Mono } from "next/font/google";
+import type { Metadata } from "next";
 
-const rubik = Rubik({
+const tajawal = Tajawal({
   subsets: ["arabic", "latin"],
-  weight: ["300", "400", "500", "600", "700", "800"],
-  variable: "--font-rubik",
+  weight: ["300", "400", "500", "700", "800"],
+  variable: "--font-tajawal",
   display: "swap",
 });
 
@@ -27,6 +28,43 @@ const jetbrainsMono = JetBrains_Mono({
 
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  const isRtl = locale === "ar";
+
+  if (isRtl) {
+    return {
+      title: "محمود طلعت — أبني أنظمة السفر والمنظومات المؤسسية للشركات والخليج",
+      description:
+        "مهندس معمارية نظم برمجية وحلول ذكاء اصطناعي متخصص في قطاع السفر ومنصات الأعمال للشركات الخليجية والعربية.",
+      openGraph: {
+        title: "محمود طلعت — أبني أنظمة السفر والمنظومات المؤسسية",
+        description:
+          "مهندس معمارية نظم برمجية وحلول ذكاء اصطناعي متخصص في قطاع السفر ومنصات الأعمال للشركات الخليجية والعربية.",
+        locale: "ar_SA",
+        type: "website",
+      },
+    };
+  }
+
+  return {
+    title: "Mahmoud Talaat — Travel Technology & Enterprise Systems Architect",
+    description:
+      "Architecting mission-critical travel platforms, GDS booking engines, and enterprise AI ecosystems for the Gulf and Arab markets.",
+    openGraph: {
+      title: "Mahmoud Talaat — Travel Technology & Enterprise Systems Architect",
+      description:
+        "Architecting mission-critical travel platforms, GDS booking engines, and enterprise AI ecosystems for the Gulf and Arab markets.",
+      locale: "en_US",
+      type: "website",
+    },
+  };
 }
 
 export default async function LocaleLayout({
@@ -53,12 +91,14 @@ export default async function LocaleLayout({
     alternateName: "محمود طلعت",
     url: "https://mahmoudtalaat.com",
     jobTitle: isRtl
-      ? "معماري برمجيات ومطور أنظمة أول"
-      : "Systems Architect & Lead Software Engineer",
+      ? "مهندس معماري برمجيات وأنظمة سفر مؤسسية"
+      : "Travel Technology & Enterprise Systems Architect",
     description: isRtl
       ? "مهندس معماري برمجيات متخصص في بناء المنظومات المؤسسية، ربط أنظمة السفر GDS، وتطوير محركات الذكاء الاصطناعي RAG."
-      : "Systems Architect & Senior Software Engineer specializing in enterprise platforms, GDS travel systems, and AI RAG ecosystems.",
+      : "Systems Architect specializing in enterprise platforms, GDS travel systems, and AI RAG ecosystems.",
     knowsAbout: [
+      "Travel Technology",
+      "GDS Systems",
       "Software Architecture",
       "Clean Architecture",
       ".NET 8",
@@ -78,10 +118,10 @@ export default async function LocaleLayout({
     <html
       lang={locale}
       dir={isRtl ? "rtl" : "ltr"}
-      className={`${rubik.variable} ${fredoka.variable} ${jetbrainsMono.variable}`}
+      className={`${tajawal.variable} ${fredoka.variable} ${jetbrainsMono.variable}`}
       style={{
         fontFamily: isRtl
-          ? "var(--font-rubik), system-ui, sans-serif"
+          ? "var(--font-tajawal), system-ui, sans-serif"
           : "var(--font-fredoka), system-ui, sans-serif",
       }}
     >
@@ -92,7 +132,7 @@ export default async function LocaleLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body className="bg-[#000000] text-[#f4f4f5] antialiased selection:bg-[#dfcba9] selection:text-black overflow-x-hidden">
+      <body className={`bg-[#000000] text-[#f4f4f5] antialiased selection:bg-[#dfcba9] selection:text-black overflow-x-hidden ${isRtl ? "leading-[1.85]" : "leading-relaxed"}`}>
         <NextIntlClientProvider messages={messages}>
           {children}
         </NextIntlClientProvider>
