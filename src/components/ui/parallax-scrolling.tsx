@@ -119,50 +119,58 @@ export function ParallaxComponent() {
 
             {/* Layer 3: Main Bold Headline, Subtitle & Interactive CTAs in Sky */}
             <div data-parallax-layer="3" className="parallax__layer-title">
-              <div className="flex flex-col items-center justify-center text-center px-4 max-w-4xl mx-auto pointer-events-auto">
+              <div className="flex flex-col items-center justify-center text-center px-5 sm:px-6 max-w-4xl mx-auto pointer-events-auto w-full">
+
+                {/* ── Eyebrow label ── */}
+                <span className="inline-block text-[9px] sm:text-[10px] font-mono uppercase tracking-[0.22em] text-[#dfcba9]/70 mb-3 sm:mb-4 drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]">
+                  {isAr ? "مهندس أنظمة مؤسسية" : "Enterprise Systems Engineer"}
+                </span>
+
+                {/* ── Main Headline ── */}
                 <h1
                   dir={isAr ? "rtl" : "ltr"}
-                  className="parallax__title drop-shadow-[0_4px_24px_rgba(0,0,0,0.9)] max-w-4xl mx-auto"
+                  className="parallax__title drop-shadow-[0_4px_32px_rgba(0,0,0,0.95)] w-full"
                 >
                   {isAr ? (
                     <>
-                      <span className="block text-white font-black">
-                        أبني المنظومات البرمجية المعقدة
+                      <span className="block text-white font-black leading-tight">
+                        أبني الأنظمة التي
                       </span>
-                      <span className="block text-[#dfcba9] font-black mt-1">
-                        التي تعجز عنها الحلول الجاهزة.
+                      <span className="block text-[#dfcba9] font-black leading-tight mt-0.5 sm:mt-1">
+                        يقوم عليها عملك الفعلي.
                       </span>
                     </>
                   ) : (
                     <>
-                      <span className="block text-white font-black tracking-tight">
-                        CUSTOM ENTERPRISE SYSTEMS
+                      <span className="block text-white font-black tracking-tight leading-tight normal-case">
+                        I build the systems
                       </span>
-                      <span className="block text-[#dfcba9] font-black tracking-tight mt-1">
-                        OFF-THE-SHELF CODE CANNOT HANDLE.
+                      <span className="block text-[#dfcba9] font-black tracking-tight leading-tight normal-case mt-0.5 sm:mt-1">
+                        your business actually runs on.
                       </span>
                     </>
                   )}
                 </h1>
 
+                {/* ── Subtitle ── */}
                 <p
                   dir={isAr ? "rtl" : "ltr"}
-                  className="text-xs sm:text-sm md:text-base text-zinc-200 font-medium max-w-2xl mt-2.5 sm:mt-3 leading-relaxed drop-shadow-[0_2px_12px_rgba(0,0,0,0.95)]"
+                  className="text-[11px] sm:text-sm md:text-[15px] text-zinc-300 font-normal max-w-xl sm:max-w-2xl mt-3 sm:mt-4 leading-relaxed drop-shadow-[0_2px_12px_rgba(0,0,0,0.95)] px-2"
                 >
                   {isAr
-                    ? "من محركات السفر ومناقصات اعتماد إلى السجلات الطبية والذكاء الاصطناعي — مبنية لخدمة أهداف البيزنس في السوق الخليجي."
-                    : "From travel engines and GovTech AI to clinical EMRs and SuperApps — engineered for scale in the Gulf."}
+                    ? "من محركات السفر ومناقصات الاعتماد الحكومي، إلى السجلات الطبية والذكاء الاصطناعي — منصات شُغِّلت في الخليج وأوروبا الشمالية."
+                    : "From GovTech platforms and travel engines to clinical EMRs and AI automation — shipped across the Gulf and Northern Europe."}
                 </p>
 
-                {/* Interactive Action Dock - Compact Equal Dimensions */}
-                <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-16 md:gap-28 lg:gap-40 mt-10 sm:mt-20 md:mt-32 lg:mt-40 w-full">
+                {/* ── CTA Buttons (Wide gap to flank center character) ── */}
+                <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-28 md:gap-44 lg:gap-60 mt-8 sm:mt-16 md:mt-24 lg:mt-32 w-full">
                   <ShimmerButton
                     onClick={scrollToCaseStudies}
-                    className="w-48 sm:w-52 md:w-56 h-10 sm:h-11 shadow-[0_0_20px_rgba(223,203,169,0.25)] text-xs sm:text-[13px] font-bold cursor-pointer px-0"
+                    className="w-52 sm:w-52 md:w-56 h-10 sm:h-11 shadow-[0_0_20px_rgba(223,203,169,0.25)] text-xs sm:text-[13px] font-bold cursor-pointer px-0 shrink-0"
                   >
                     <span className="flex items-center justify-center gap-1.5 text-white">
                       <span>
-                        {isAr ? "استكشف المنظومات والمشاريع" : "Explore Enterprise Systems"}
+                        {isAr ? "استكشف المشاريع" : "Explore My Work"}
                       </span>
                       <IconArrowDown className="size-3.5 animate-bounce" />
                     </span>
@@ -170,12 +178,13 @@ export function ParallaxComponent() {
 
                   <button
                     onClick={scrollToContact}
-                    className="w-48 sm:w-52 md:w-56 h-10 sm:h-11 flex items-center justify-center gap-1.5 text-xs sm:text-[13px] font-bold rounded-full border border-white/25 bg-black/50 hover:bg-black/80 hover:border-white/50 text-zinc-200 hover:text-white backdrop-blur-md transition-all duration-300 shadow-xl cursor-pointer"
+                    className="w-52 sm:w-52 md:w-56 h-10 sm:h-11 flex items-center justify-center gap-1.5 text-xs sm:text-[13px] font-bold rounded-full border border-white/25 bg-black/50 hover:bg-black/80 hover:border-white/50 text-zinc-200 hover:text-white backdrop-blur-md transition-all duration-300 shadow-xl cursor-pointer shrink-0"
                   >
                     <IconCalendarEvent className="size-4 text-[#dfcba9]" />
-                    <span>{isAr ? "احجز استشارة مجانية" : "Book Strategy Call"}</span>
+                    <span>{isAr ? "احجز استشارة مجانية" : "Book a Free Call"}</span>
                   </button>
                 </div>
+
               </div>
             </div>
 

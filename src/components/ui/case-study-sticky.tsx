@@ -24,6 +24,7 @@ interface ProjectCase {
   steps: CaseStep[];
 }
 
+// Featured top 3 — the flagship case studies shown in the deep-dive sticky section
 const caseStudies: ProjectCase[] = [
   {
     id: "almulhim-travel",
@@ -65,123 +66,6 @@ const caseStudies: ProjectCase[] = [
     ],
   },
   {
-    id: "admin-sa",
-    projectNameAr: "منصة Admin.sa لمناقصات اعتماد",
-    projectNameEn: "Admin.sa (Etimad Procurement)",
-    clientAr: "منصة SaaS للسوق السعودي",
-    clientEn: "Saudi B2B GovTech SaaS",
-    steps: [
-      {
-        titleAr: "تفويت 60% من المناقصات وتأخر إعداد العروض 14 يوماً",
-        titleEn: "60% Tenders Missed & 14-Day Drafting Delays",
-        descriptionAr:
-          "كانت شركات المقاولات تفقد أكثر من 60% من المناقصات الحكومية المناسبة بسبب صعوبة البحث اليدوي اليومي واستغراق ما يصل إلى 14 يوماً لتجهيز كراسات الشروط والعروض الفنية المعقدة.",
-        descriptionEn:
-          "Contractors missed 60%+ of relevant government tenders due to tedious manual searches and 14-day delays in drafting complex technical proposals.",
-        imageSrc: "/projects/admin.sa/curated/01-etimad-discovery-portal.png",
-        imageAlt: "Admin.sa Tender Discovery Landing",
-      },
-      {
-        titleAr: "أتمتة الكشط وتوليد العروض بالذكاء الاصطناعي",
-        titleEn: "Automated Scraping & Batch AI Proposals",
-        descriptionAr:
-          "تطوير مسار كشط متقدم باستخدام curl-cffi وطوابير Celery/Redis، مع دمج Gemini Batch API لتوليد عروض فنية تفصيلية بصيغة Word في أقل من 90 ثانية وبدقة تتجاوز 95%.",
-        descriptionEn:
-          "Designed a resilient scraping pipeline with curl-cffi and Celery/Redis queue, integrating Gemini Batch API to auto-generate formatted technical Word proposals in under 90 seconds.",
-        imageSrc: "/projects/admin.sa/curated/02-tenders-scraping-queue.png",
-        imageAlt: "Admin.sa AI Tender Automation Dashboard",
-      },
-      {
-        titleAr: "توليد العرض الفني في 90 ثانية ونموذج تنبؤ بنسبة 85%",
-        titleEn: "AI Proposals in 90s & 85% Win Probability",
-        descriptionAr:
-          "تدريب نموذج تعلم آلي LightGBM لتقدير احتمالية الفوز بالمناقصة بدقة 85%، مع ربط نظام تنبيهات واتساب فوري وبوابة دفع MyFatoorah لإدارة وتجديد الاشتراكات الدورية.",
-        descriptionEn:
-          "Trained a LightGBM classification model for bid win probability scoring, integrated Evolution WhatsApp alerts, and MyFatoorah payment gateway for recurring subscriptions.",
-        imageSrc: "/projects/admin.sa/curated/04-ai-proposal-word-generator.png",
-        imageAlt: "Admin.sa Analytics Overview",
-      },
-    ],
-  },
-  {
-    id: "alryadh-therapy",
-    projectNameAr: "مركز الرياض للعلاج النفسي والـ EMR",
-    projectNameEn: "Al-Riyadh Psychiatric EMR & Telehealth",
-    clientAr: "سجلات طبية وعيادة افتراضية مشفرة",
-    clientEn: "Clinical EMR & HIPAA Telemedicine",
-    steps: [
-      {
-        titleAr: "بطء السجلات الورقية وغياب العيادة الافتراضية",
-        titleEn: "Paper Record Bottlenecks & No Telehealth",
-        descriptionAr:
-          "تسبب الاعتماد على الملفات الورقية في بطء شديد في متابعة المرضى، مع غياب عيادة افتراضية مشفرة ومتوافقة مع المعايير الصحية تغني عن التطبيقات الخارجية غير الآمنة.",
-        descriptionEn:
-          "Managing physical paper records created massive bottlenecks in patient tracking and lacked a HIPAA-compliant encrypted telemedicine suite.",
-        imageSrc: "/projects/alryadh-therapy/curated/01-clinical-emr-gateway.png",
-        imageAlt: "Al-Riyadh EMR Clinical Portal",
-      },
-      {
-        titleAr: "معمارية CQRS و 7 بوابات مستقلة",
-        titleEn: ".NET 9 CQRS & 7 Isolated Workspaces",
-        descriptionAr:
-          "تصميم بنية تحتية بـ .NET 9 ونمط MediatR CQRS تفصل بين القراءة والكتابة، مع عزل كامل للصلاحيات عبر 7 بوابات مخصصة لضمان استرجاع السجلات الطبية في أقل من 200 ملي ثانية.",
-        descriptionEn:
-          "Architected on .NET 9 utilizing MediatR CQRS, segregating workflows across 7 isolated portals for sub-200ms medical chart queries.",
-        imageSrc: "/projects/alryadh-therapy/curated/03-encrypted-webrtc-telehealth.png",
-        imageAlt: "Al-Riyadh Telehealth Suite",
-      },
-      {
-        titleAr: "عيادة رقمية 100% بدون أوراق واستدعاء في أقل من 200ms",
-        titleEn: "100% Paperless Clinic & Sub-200ms EMR Lookups",
-        descriptionAr:
-          "دمج غرف فيديو مشفرة تعمل مباشرة عبر المتصفح عبر WebRTC دون الحاجة لتثبيت برامج، مع نظام إشعارات طوارئ لحظية بـ SignalR لتحويل المركز إلى بيئة رقمية بنسبة 100%.",
-        descriptionEn:
-          "Embedded browser-native encrypted video rooms via Daily.co WebRTC paired with SignalR triage alerts, achieving 100% paperless workflows.",
-        imageSrc: "/projects/alryadh-therapy/curated/04-patient-booking-portal.png",
-        imageAlt: "Al-Riyadh Patient Booking Hub",
-      },
-    ],
-  },
-  {
-    id: "ok-cloud",
-    projectNameAr: "سحابة Ok.Cloud وتطبيق المزامنة المكتبي",
-    projectNameEn: "Ok.Cloud Enterprise Storage & Desktop Sync",
-    clientAr: "تخزين سحابي خاص ومزامنة ملفات ضخمة",
-    clientEn: "Private Multi-Cloud & Native Desktop Sync",
-    steps: [
-      {
-        titleAr: "تكاليف التخزين السحابي التجاري الباهظة",
-        titleEn: "Prohibitive Commercial Cloud Storage Bills",
-        descriptionAr:
-          "واجهت الشركات تكاليف اشتراك باهظة في خدمات التخزين السحابي التجارية عند إدارة ومشاركة ملفات الوسائط الضخمة التي تتجاوز 10GB، مع فقدان السيطرة الكاملة على البيانات.",
-        descriptionEn:
-          "Media enterprises faced massive monthly bills on commercial cloud drives when handling large 10GB+ video archives without storage freedom.",
-        imageSrc: "/projects/ok.cloud/Screenshot 2025-12-15 221828.png",
-        imageAlt: "Ok.Cloud Storage Web Hub",
-      },
-      {
-        titleAr: "تخزين سحابي مرن ورفع مجزأ لملفات 10GB+",
-        titleEn: "Multi-Cloud Storage & 10GB+ Chunked Stream",
-        descriptionAr:
-          "تطوير طبقة تخزين سحابية مرنة تدعم بروتوكولات S3 و SFTP و WebDAV بحرية تامة، مع محرك رفع مجزأ فائق السرعة للتعامل مع الملفات الضخمة دون انقطاع.",
-        descriptionEn:
-          "Engineered a multi-cloud storage driver layer supporting S3, SFTP, and WebDAV with resilient chunked upload streams.",
-        imageSrc: "/projects/ok.cloud/Screenshot 2025-12-15 222158.png",
-        imageAlt: "Ok.Cloud File Browser",
-      },
-      {
-        titleAr: "تطبيق مزامنة مكتبي بـ SQLite محلي وتوفير 75% تكاليف",
-        titleEn: "Native Sync Daemon & 75% Cloud Cost Savings",
-        descriptionAr:
-          "بناء تطبيق مكتبي أصلي بنظام .NET 8 MAUI يعمل في الخلفية باستهلاك ذاكرة أقل من 40MB، مزود بفهرسة SQLite محلية تتيح تصفح الملفات والبحث فيها دون اتصال بالإنترنت.",
-        descriptionEn:
-          "Built a native .NET 8 MAUI Windows background sync daemon consuming <40MB RAM with local SQLite offline indexing.",
-        imageSrc: "/projects/ok.cloud/Screenshot 2025-12-15 232447.png",
-        imageAlt: "Ok.Cloud Desktop Sync Daemon",
-      },
-    ],
-  },
-  {
     id: "injaz",
     projectNameAr: "منصة إنجاز الوطنية لاعتماد المدارس",
     projectNameEn: "Injaz National School Accreditation",
@@ -209,7 +93,7 @@ const caseStudies: ProjectCase[] = [
         imageAlt: "Injaz Arbitrator Evaluation Panel",
       },
       {
-        titleAr: "تدقيق آلي لـ 25,000 وثيقة واستقرار 100% بدون توقف",
+        titleAr: "تدقيق آلي لـ 25,000 وثيقة واستقرار تام بدون توقف",
         titleEn: "Automated 25,000 File Audit with Zero Downtime",
         descriptionAr:
           "أتمتة حساب درجات المطابقة لـ 8 معايير وطنية بدقة خالية من الأخطاء البشرية، مع توليد فوري للشهادات وبطاقات الاعتماد الرسمية الموثقة برمز QR.",
@@ -259,84 +143,6 @@ const caseStudies: ProjectCase[] = [
       },
     ],
   },
-  {
-    id: "dietbox",
-    projectNameAr: "منظومة دايت بوكس (DietBox) الغذائية",
-    projectNameEn: "DietBox Clinical Nutrition Operations",
-    clientAr: "اشتراكات صحية وتوليد جداول الـ PDF",
-    clientEn: "Meal Subscriptions & Dynamic PDF Generation",
-    steps: [
-      {
-        titleAr: "هدر 3 ساعات يومياً في حساب السعرات والملصقات",
-        titleEn: "3+ Hours Daily on Manual Nutrition Slips",
-        descriptionAr:
-          "استغرق حساب السعرات والماكروز وتجهيز ملصقات الوجبات المخصصة لأكثر من 1,000 مشترك أكثر من 3 ساعات يومياً من طاقم العمل، مع تكرار أخطاء التوزيع بالمطبخ.",
-        descriptionEn:
-          "Calculating calories and preparing custom meal box labels took 3+ hours daily with recurring kitchen mix-ups.",
-        imageSrc: "/projects/DietBox/Screenshot 2026-05-02 215152.png",
-        imageAlt: "DietBox Subscription Dashboard",
-      },
-      {
-        titleAr: "توليد ملصقات QuestPDF فائقة السرعة في 100ms",
-        titleEn: "Sub-100ms QuestPDF Label Generation",
-        descriptionAr:
-          "تطوير محرك فائق السرعة عبر QuestPDF لتوليد مئات الملصقات الحرارية وجداول التغذية التفصيلية بصيغة PDF في أقل من 100 ملي ثانية لكل دفعة.",
-        descriptionEn:
-          "Engineered a high-speed QuestPDF vector engine rendering hundreds of meal labels and diet plans in sub-100ms.",
-        imageSrc: "/projects/DietBox/Screenshot 2026-05-02 215207.png",
-        imageAlt: "DietBox PDF Generation",
-      },
-      {
-        titleAr: "أتمتة اشتراكات 1,000+ عميل وصفر أخطاء في المطبخ",
-        titleEn: "1,000+ Automated Subscribers & Zero Errors",
-        descriptionAr:
-          "هيكلة المنظومة وفق المعمارية النظيفة بـ .NET 8 لإدارة الاشتراكات الشهرية وجدولة التوصيل اليومي للمطابخ بدقة متناهية ونسبة خطأ 0%.",
-        descriptionEn:
-          "Architected on .NET 8 Clean Architecture, handling recurring renewals and automated daily kitchen fulfillment with 0% error rate.",
-        imageSrc: "/projects/DietBox/Screenshot 2026-05-02 215222.png",
-        imageAlt: "DietBox Meal Labels",
-      },
-    ],
-  },
-  {
-    id: "nexgo",
-    projectNameAr: "سوق نكست جو (NexGo) — الـ Super App",
-    projectNameEn: "NexGo Super App & Multi-Vendor Marketplace",
-    clientAr: "تطبيق شامل لـ 6 قطاعات مع تتبع لحظي",
-    clientEn: "6-Sector Quick-Commerce & Live GPS Logistics",
-    steps: [
-      {
-        titleAr: "تشتت 6 قطاعات تجارية في تطبيقات منفصلة",
-        titleEn: "6 Disconnected Vertical Systems",
-        descriptionAr:
-          "الحاجة لبناء تطبيق فائق (Super App) يدمج 6 قطاعات تجارية وخدمية متفرقة (مطاعم، بقالة، صيدلية، طرود، تأجير، رحلات) في تجربة مستخدم واحدة سلسة وسريعة.",
-        descriptionEn:
-          "Need for a unified Super App unifying 6 commercial verticals (Food, Grocery, Pharmacy, Parcels, Rentals, Rides) seamlessly.",
-        imageSrc: "/projects/nexgo/superapp-storefront.png",
-        imageAlt: "NexGo SuperApp Storefront",
-      },
-      {
-        titleAr: "سوبر آب موحد و 3 تطبيقات فلاتر بتتبع لحظي",
-        titleEn: "Unified Super App & 1-Sec Driver Telemetry",
-        descriptionAr:
-          "تطوير 3 تطبيقات هاتف هجينة بـ Flutter مدعومة ببث لحظي لموقع السائق عبر WebSockets كل ثانية واحدة، مع خريطة تفاعلية للعميل وإدارة شاملة للأسطول.",
-        descriptionEn:
-          "Built 3 dedicated Flutter apps (Customer, Driver, Vendor) with sub-second driver GPS telemetry over WebSockets.",
-        imageSrc: "/projects/nexgo/flutter-driver.jpeg",
-        imageAlt: "NexGo Driver Flutter Telemetry",
-      },
-      {
-        titleAr: "طباعة بلوتوث حرارية بالمطبخ وتسريع التوصيل 85%",
-        titleEn: "Instant Bluetooth POS Tickets & 0% Fees",
-        descriptionAr:
-          "ربط مباشر بين تطبيق التاجر وطابعات الفواتير الحرارية عبر البلوتوث لطباعة إيصالات وتذاكر الطلبات فور ورودها تلقائياً بدون تدخل يدوي.",
-        descriptionEn:
-          "Integrated Bluetooth ESC/POS thermal printing for zero-latency kitchen ticket dispatch upon customer checkout.",
-        imageSrc: "/projects/nexgo/pos-bluetooth.jpeg",
-        imageAlt: "NexGo Vendor POS Printing",
-      },
-    ],
-  },
 ];
 
 export function CaseStudySticky() {
@@ -344,17 +150,20 @@ export function CaseStudySticky() {
   const isAr = locale === "ar";
 
   return (
-    <section id="case-studies" className="relative z-20 bg-[#000000] text-white pt-32 pb-24 px-6 sm:px-12 max-w-6xl mx-auto">
+    <section id="case-studies" className="relative z-20 bg-[#090909] text-white pt-32 pb-24 px-6 sm:px-12 max-w-7xl mx-auto">
       
       {/* Global Section Title */}
       <div className="mb-20 text-center">
+        <p className="text-[10px] font-mono uppercase tracking-[0.2em] text-[#dfcba9]/60 mb-4">
+          {isAr ? "أعمق الحالات المعمارية" : "Deep-Dive Case Studies"}
+        </p>
         <h2 className="text-3xl sm:text-5xl font-bold tracking-tight text-white">
           {isAr ? "دراسات الحالة المعمارية" : "Architectural Case Studies"}
         </h2>
         <p className="text-sm sm:text-base text-zinc-400 mt-3 max-w-2xl mx-auto font-normal leading-relaxed">
           {isAr
-            ? "ثمانية أنظمة. مشاكل حقيقية. نتائج قابلة للقياس."
-            : "Eight platforms. Real problems solved. Measurable outcomes."}
+            ? "ثلاثة أنظمة. مشاكل حقيقية. نتائج قابلة للقياس."
+            : "Three flagship platforms. Real problems solved. Measurable outcomes."}
         </p>
       </div>
 

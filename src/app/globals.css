@@ -7,13 +7,13 @@
 
 @layer base {
   html {
-    background-color: #000000;
+    background-color: #090909;
     color: #ffffff;
   }
   body {
     margin: 0;
     padding: 0;
-    background-color: #000000;
+    background-color: #090909;
     color: #ffffff;
     overflow-x: clip;
     width: 100%;
@@ -24,7 +24,7 @@
 .parallax {
   position: relative;
   width: 100%;
-  background-color: #000000;
+  background-color: #090909;
   color: #ffffff;
   margin: 0;
   padding: 0;
@@ -49,7 +49,7 @@
   left: 0;
   right: 0;
   height: 2px;
-  background: #000000;
+  background: #090909;
   z-index: 10;
 }
 
@@ -88,20 +88,21 @@
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  padding-top: max(130px, 15vh);
+  padding-top: max(110px, 13vh);
   z-index: 10;
   pointer-events: none;
 }
 
 .parallax__title {
-  font-size: clamp(1.4rem, 2.8vw, 3.2rem);
+  /* fluid: 1.5rem on mobile → 3rem on desktop */
+  font-size: clamp(1.5rem, 3.5vw, 3.4rem);
   font-weight: 900;
-  text-transform: uppercase;
+  /* NO text-transform — case is set per-span in JSX */
   letter-spacing: -0.02em;
-  line-height: 1.15;
+  line-height: 1.12;
   color: #ffffff;
   margin: 0;
-  padding: 0 1rem;
+  padding: 0 0.5rem;
   text-align: center;
   user-select: none;
 }
@@ -115,11 +116,12 @@
   bottom: 0;
   left: 0;
   right: 0;
-  height: 20vh;
-  background: linear-gradient(to bottom, transparent 0%, #000000 100%);
+  height: 22vh;
+  background: linear-gradient(to bottom, transparent 0%, #090909 100%);
   z-index: 5;
   pointer-events: none;
 }
+
 
 @keyframes spin-around {
   0% {
