@@ -9,7 +9,7 @@ import LumaBar from "@/components/ui/futuristic-nav";
 
 export default function LocalePage() {
   return (
-    <main className="min-h-screen bg-[#090909] relative selection:bg-[#dfcba9] selection:text-black">
+    <main className="min-h-screen bg-[#09090b] relative selection:bg-[#dfcba9] selection:text-black">
       {/* Subtle noise texture — breaks flat dead feel */}
       <div
         className="fixed inset-0 pointer-events-none z-[1]"

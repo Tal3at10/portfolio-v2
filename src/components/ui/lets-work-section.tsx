@@ -43,7 +43,7 @@ export function LetsWorkTogether() {
   };
 
   return (
-    <footer id="contact" role="contentinfo" className="relative z-20 bg-[#000000] text-white min-h-[90vh] flex flex-col justify-between pt-32 pb-12 px-6 border-t border-white/[0.08]">
+    <footer id="contact" role="contentinfo" className="relative z-20 bg-[#09090b] text-white min-h-[90vh] flex flex-col justify-between pt-32 pb-12 px-6 border-t border-white/[0.08]">
       
       {/* Main Interactive Center Area */}
       <div className="relative flex flex-col items-center justify-center flex-1 max-w-4xl mx-auto w-full my-auto">
@@ -59,10 +59,10 @@ export function LetsWorkTogether() {
         >
           {/* Heading */}
           <div className="flex flex-col items-center gap-2 text-center">
-            <h3 className="text-3xl sm:text-5xl font-light tracking-tight text-white">
+            <h3 className="text-3xl sm:text-5xl font-bold tracking-tight text-white">
               {isAr ? "تواصل مباشر لبدء العمل" : "Let's talk"}
             </h3>
-            <p className="text-sm sm:text-base text-zinc-400 max-w-2xl mx-auto mt-3 font-normal leading-relaxed">
+            <p className="text-sm sm:text-base text-zinc-300 max-w-2xl mx-auto mt-3 font-normal leading-relaxed">
               {isAr
                 ? "إن كان لديك مشروع يتطلب معمارية متينة أو فكرة تحتاج تنفيذاً احترافياً، اختر الطريقة المناسبة لبدء الحوار."
                 : "Choose your preferred channel to discuss your system architecture, requirements, or schedule a direct consultation."}

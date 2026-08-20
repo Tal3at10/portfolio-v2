@@ -150,17 +150,18 @@ export function CaseStudySticky() {
   const isAr = locale === "ar";
 
   return (
-    <section id="case-studies" className="relative z-20 bg-[#090909] text-white pt-32 pb-24 px-6 sm:px-12 max-w-7xl mx-auto">
+    <section id="case-studies" className="relative z-20 w-full bg-[#09090b] text-white">
+      <div className="max-w-7xl mx-auto pt-32 pb-24 px-6 sm:px-12">
       
       {/* Global Section Title */}
       <div className="mb-20 text-center">
-        <p className="text-[10px] font-mono uppercase tracking-[0.2em] text-[#dfcba9]/60 mb-4">
+        <p className="text-[10px] sm:text-xs font-mono uppercase tracking-[0.25em] text-[#dfcba9] mb-4 font-medium">
           {isAr ? "أعمق الحالات المعمارية" : "Deep-Dive Case Studies"}
         </p>
-        <h2 className="text-3xl sm:text-5xl font-bold tracking-tight text-white">
+        <h2 className="text-3xl sm:text-5xl font-black tracking-tight text-white">
           {isAr ? "دراسات الحالة المعمارية" : "Architectural Case Studies"}
         </h2>
-        <p className="text-sm sm:text-base text-zinc-400 mt-3 max-w-2xl mx-auto font-normal leading-relaxed">
+        <p className="text-sm sm:text-base text-zinc-300 mt-3 max-w-2xl mx-auto font-normal leading-relaxed">
           {isAr
             ? "ثلاثة أنظمة. مشاكل حقيقية. نتائج قابلة للقياس."
             : "Three flagship platforms. Real problems solved. Measurable outcomes."}
@@ -172,6 +173,7 @@ export function CaseStudySticky() {
         {caseStudies.map((project) => (
           <ProjectStickySection key={project.id} project={project} isAr={isAr} />
         ))}
+      </div>
       </div>
     </section>
   );

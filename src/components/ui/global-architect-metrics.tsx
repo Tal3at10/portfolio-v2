@@ -77,13 +77,17 @@ export function GlobalArchitectMetrics() {
   const isAr = locale === "ar";
 
   return (
-    <section className="relative z-20 bg-[#000000] text-white py-24 px-6 sm:px-12 max-w-6xl mx-auto border-t border-white/[0.08]">
+    <section className="relative z-20 w-full bg-[#09090b] text-white border-t border-white/[0.08]">
+      <div className="max-w-6xl mx-auto py-24 px-6 sm:px-12">
       {/* Section Header */}
       <div className="mb-16 text-center">
-        <h2 className="text-3xl sm:text-5xl font-bold tracking-tight text-white">
+        <p className="text-[10px] sm:text-xs font-mono uppercase tracking-[0.25em] text-[#dfcba9] mb-3 font-medium">
+          {isAr ? "مؤشرات وأرقام الإنجاز" : "Measurable Architecture Metrics"}
+        </p>
+        <h2 className="text-3xl sm:text-5xl font-black tracking-tight text-white">
           {isAr ? "أثر هندسي ملموس بالأرقام" : "Engineering Impact in Numbers"}
         </h2>
-        <p className="text-sm sm:text-base text-zinc-400 mt-3 max-w-2xl mx-auto font-normal leading-relaxed">
+        <p className="text-sm sm:text-base text-zinc-300 mt-3 max-w-2xl mx-auto font-normal leading-relaxed">
           {isAr
             ? "أرقام حقيقية من مشاريع حقيقية."
             : "The numbers behind the work."}
@@ -102,7 +106,7 @@ export function GlobalArchitectMetrics() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-40px" }}
               transition={{ duration: 0.4, delay: idx * 0.08, ease: "easeOut" }}
-              className="group relative rounded-2xl bg-[#09090d] border border-white/[0.08] hover:border-[#dfcba9]/40 p-6 sm:p-8 flex flex-col justify-between transition-all duration-300 shadow-2xl overflow-hidden"
+              className="group relative rounded-2xl bg-[#121216] border border-white/[0.08] hover:border-[#dfcba9]/40 p-6 sm:p-8 flex flex-col justify-between transition-all duration-300 shadow-2xl overflow-hidden"
             >
               {/* Top Accent Icon & Badge */}
               <div className="flex items-center justify-between mb-6">
@@ -131,6 +135,7 @@ export function GlobalArchitectMetrics() {
             </motion.div>
           );
         })}
+      </div>
       </div>
     </section>
   );

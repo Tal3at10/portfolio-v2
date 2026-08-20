@@ -84,9 +84,9 @@ export default async function ProjectDetailPage({
   const showcaseItems = projectShowcaseMap[slug] || [];
 
   return (
-    <main className="min-h-screen bg-[#000000] text-white selection:bg-[#dfcba9] selection:text-black">
+    <main className="min-h-screen bg-[#09090b] text-white selection:bg-[#dfcba9] selection:text-black">
       {/* Top Header */}
-      <nav className="sticky top-0 z-40 bg-[#000000]/80 backdrop-blur-xl border-b border-white/[0.08] px-6 sm:px-12 py-4">
+      <nav className="sticky top-0 z-40 bg-[#09090b]/85 backdrop-blur-xl border-b border-white/[0.08] px-6 sm:px-12 py-4">
         <div className="max-w-7xl mx-auto flex items-center justify-between">
           <Link
             href={`/${locale}`}

@@ -161,19 +161,24 @@ export function ClientTestimonials() {
   }));
 
   return (
-    <section id="testimonials" className="relative z-20 bg-[#000000] text-white py-28 px-6 sm:px-12 max-w-6xl mx-auto border-t border-white/[0.08]">
-      <div className="mb-12 text-center">
-        <h2 className="text-3xl sm:text-5xl font-bold tracking-tight text-white">
-          {isAr ? "آراء العملاء والشركاء" : "Client & Buyer Reviews"}
-        </h2>
-        <p className="text-sm sm:text-base text-zinc-400 mt-3 max-w-2xl mx-auto font-normal leading-relaxed">
-          {isAr
-            ? "آراء وتقييمات واقعية من مسؤولين تنفيذيين ومؤسسي شركات اعتمدوا على منظوماتنا في قطاعات حيوية."
-            : "Real feedback and ratings from enterprise executives, founders, and verified clients."}
-        </p>
-      </div>
+    <section id="testimonials" className="relative z-20 w-full bg-[#09090b] text-white border-t border-white/[0.08]">
+      <div className="max-w-6xl mx-auto py-28 px-6 sm:px-12">
+        <div className="mb-12 text-center">
+          <p className="text-[10px] sm:text-xs font-mono uppercase tracking-[0.25em] text-[#dfcba9] mb-3 font-medium">
+            {isAr ? "ثقة وشهادات حية" : "Verified Client Reviews"}
+          </p>
+          <h2 className="text-3xl sm:text-5xl font-black tracking-tight text-white">
+            {isAr ? "آراء العملاء والشركاء" : "Client & Buyer Reviews"}
+          </h2>
+          <p className="text-sm sm:text-base text-zinc-300 mt-3 max-w-2xl mx-auto font-normal leading-relaxed">
+            {isAr
+              ? "آراء وتقييمات واقعية من مسؤولين تنفيذيين ومؤسسي شركات اعتمدوا على منظوماتنا في قطاعات حيوية."
+              : "Real feedback and ratings from enterprise executives, founders, and verified clients."}
+          </p>
+        </div>
 
-      <AnimatedTestimonials testimonials={formattedTestimonials} autoplay={true} />
+        <AnimatedTestimonials testimonials={formattedTestimonials} autoplay={true} />
+      </div>
     </section>
   );
 }

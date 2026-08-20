@@ -221,29 +221,29 @@ function ProjectCard({
             {isAr ? project.nameAr : project.nameEn}
           </h3>
 
-          {/* Key metric — the differentiator */}
-          <p className="text-[11px] font-mono text-[#dfcba9]/75 mb-4 leading-relaxed">
+          {/* Metric */}
+          <p className="text-xs text-[#dfcba9] font-mono mb-3">
             {isAr ? project.metricAr : project.metricEn}
           </p>
 
           {/* Tech tags */}
-          <div className="flex flex-wrap gap-1.5 mb-5">
+          <div className="flex flex-wrap gap-1.5 mb-4">
             {project.techStack.map((tech) => (
               <span
                 key={tech}
-                className="text-[9px] font-mono text-zinc-500 bg-white/[0.03] border border-white/[0.05] px-2 py-0.5 rounded"
+                className="text-[10px] font-mono text-zinc-300 bg-white/[0.05] border border-white/[0.08] px-2 py-0.5 rounded"
               >
                 {tech}
               </span>
             ))}
           </div>
 
-          {/* CTA */}
-          <div className="flex items-center justify-between pt-3 border-t border-white/[0.06]">
-            <span className="text-[10px] font-mono uppercase tracking-widest text-zinc-600 group-hover:text-zinc-400 transition-colors duration-300">
-              {isAr ? "عرض الملف المعماري" : "View Architecture"}
+          {/* Action row */}
+          <div className="flex items-center justify-between pt-3 border-t border-white/[0.06] text-xs font-mono text-zinc-400 group-hover:text-white transition-colors duration-300">
+            <span className="uppercase tracking-widest text-[9px] text-[#dfcba9]">
+              {isAr ? "عرض المعمارية" : "View Architecture"}
             </span>
-            <span className="text-[#dfcba9]/60 text-sm group-hover:text-[#dfcba9] group-hover:translate-x-1 transition-all duration-300 inline-block">
+            <span className="transition-transform duration-300 group-hover:translate-x-1">
               {isAr ? "←" : "→"}
             </span>
           </div>
@@ -261,24 +261,24 @@ export function SystemsBento() {
   return (
     <section
       id="systems"
-      className="relative z-20 bg-[#090909] text-white py-28 px-6 sm:px-12 border-t border-white/[0.06]"
+      className="relative z-20 bg-[#09090b] text-white py-28 px-6 sm:px-12 border-t border-white/[0.06]"
     >
       <div className="max-w-7xl mx-auto">
         {/* ── Section Header ── */}
         <div className="mb-16 flex flex-col sm:flex-row sm:items-end justify-between gap-6 border-b border-white/[0.08] pb-10">
           <div>
-            <p className="text-[10px] font-mono uppercase tracking-[0.2em] text-[#dfcba9]/60 mb-3">
+            <p className="text-[10px] sm:text-xs font-mono uppercase tracking-[0.25em] text-[#dfcba9] mb-3 font-medium">
               {isAr ? "سجل الأعمال الكاملة" : "Complete Architecture Registry"}
             </p>
-            <h2 className="text-3xl sm:text-5xl font-bold tracking-tight text-white leading-tight">
+            <h2 className="text-3xl sm:text-5xl font-black tracking-tight text-white leading-tight">
               {isAr ? "كل الأعمال" : "All Work"}
             </h2>
           </div>
           <div className="text-right shrink-0">
-            <p className="text-[10px] font-mono text-zinc-600 uppercase tracking-widest">
+            <p className="text-[10px] font-mono text-zinc-400 uppercase tracking-widest font-medium">
               {isAr ? "إجمالي المشاريع" : "Total Projects"}
             </p>
-            <p className="text-4xl font-black text-white/10 font-mono mt-0.5">
+            <p className="text-4xl font-black text-white/30 font-mono mt-0.5">
               {String(projects.length).padStart(2, "0")}
             </p>
           </div>

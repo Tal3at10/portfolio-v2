@@ -2,7 +2,7 @@ import { NextIntlClientProvider } from "next-intl";
 import { getMessages, setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
 import { routing } from "@/i18n/routing";
-import { Tajawal, Fredoka, JetBrains_Mono } from "next/font/google";
+import { Tajawal, Plus_Jakarta_Sans, JetBrains_Mono } from "next/font/google";
 import type { Metadata } from "next";
 
 const tajawal = Tajawal({
@@ -12,10 +12,10 @@ const tajawal = Tajawal({
   display: "swap",
 });
 
-const fredoka = Fredoka({
+const plusJakarta = Plus_Jakarta_Sans({
   subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700"],
-  variable: "--font-fredoka",
+  weight: ["300", "400", "500", "600", "700", "800"],
+  variable: "--font-sans",
   display: "swap",
 });
 
@@ -118,11 +118,11 @@ export default async function LocaleLayout({
     <html
       lang={locale}
       dir={isRtl ? "rtl" : "ltr"}
-      className={`${tajawal.variable} ${fredoka.variable} ${jetbrainsMono.variable}`}
+      className={`${tajawal.variable} ${plusJakarta.variable} ${jetbrainsMono.variable}`}
       style={{
         fontFamily: isRtl
-          ? "var(--font-tajawal), system-ui, sans-serif"
-          : "var(--font-fredoka), system-ui, sans-serif",
+          ? "var(--font-tajawal), system-ui, -apple-system, sans-serif"
+          : "var(--font-sans), system-ui, -apple-system, sans-serif",
       }}
     >
       <head>
@@ -132,7 +132,7 @@ export default async function LocaleLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body className={`bg-[#000000] text-[#f4f4f5] antialiased selection:bg-[#dfcba9] selection:text-black overflow-x-hidden ${isRtl ? "leading-[1.85]" : "leading-relaxed"}`}>
+      <body className={`bg-[#09090b] text-[#f4f4f5] antialiased selection:bg-[#dfcba9] selection:text-black overflow-x-hidden ${isRtl ? "leading-[1.85]" : "leading-relaxed"}`}>
         <NextIntlClientProvider messages={messages}>
           {children}
         </NextIntlClientProvider>

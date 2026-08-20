@@ -1,127 +1,25 @@
 @import "tailwindcss";
 
 @theme {
-  --font-fredoka: var(--font-fredoka);
-  --font-rubik: var(--font-rubik);
+  --font-sans: var(--font-sans);
+  --font-tajawal: var(--font-tajawal);
+  --font-mono: var(--font-mono);
 }
 
 @layer base {
   html {
-    background-color: #090909;
-    color: #ffffff;
+    background-color: #09090b;
+    color: #f4f4f5;
   }
   body {
     margin: 0;
     padding: 0;
-    background-color: #090909;
-    color: #ffffff;
+    background-color: #09090b;
+    color: #f4f4f5;
     overflow-x: clip;
     width: 100%;
   }
 }
-
-/* 100% Exact Osmo Supply Parallax CSS */
-.parallax {
-  position: relative;
-  width: 100%;
-  background-color: #090909;
-  color: #ffffff;
-  margin: 0;
-  padding: 0;
-}
-
-.parallax__header {
-  position: relative;
-  height: 100vh;
-  width: 100%;
-}
-
-.parallax__visuals {
-  position: relative;
-  height: 100vh;
-  width: 100%;
-  overflow: hidden;
-}
-
-.parallax__black-line-overflow {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 2px;
-  background: #090909;
-  z-index: 10;
-}
-
-.parallax__layers {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-}
-
-.parallax__layer-img {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center center;
-  pointer-events: none;
-}
-
-.parallax__layer-img[data-parallax-layer="1"] {
-  z-index: 1;
-}
-
-.parallax__layer-img[data-parallax-layer="2"] {
-  z-index: 2;
-}
-
-.parallax__layer-title {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
-  padding-top: max(110px, 13vh);
-  z-index: 10;
-  pointer-events: none;
-}
-
-.parallax__title {
-  /* fluid: 1.5rem on mobile → 3rem on desktop */
-  font-size: clamp(1.5rem, 3.5vw, 3.4rem);
-  font-weight: 900;
-  /* NO text-transform — case is set per-span in JSX */
-  letter-spacing: -0.02em;
-  line-height: 1.12;
-  color: #ffffff;
-  margin: 0;
-  padding: 0 0.5rem;
-  text-align: center;
-  user-select: none;
-}
-
-.parallax__layer-img[data-parallax-layer="4"] {
-  z-index: 4;
-}
-
-.parallax__fade {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 22vh;
-  background: linear-gradient(to bottom, transparent 0%, #090909 100%);
-  z-index: 5;
-  pointer-events: none;
-}
-
 
 @keyframes spin-around {
   0% {
@@ -151,4 +49,3 @@
 .animate-shimmer-slide {
   animation: shimmer-slide var(--speed) ease-in-out infinite alternate;
 }
-
