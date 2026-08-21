@@ -3,7 +3,7 @@ import { caseStudies } from "@/data/case-studies";
 import { routing } from "@/i18n/routing";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://mahmoudtalaat.com";
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://tam-systems.com";
   const lastModified = new Date();
 
   const entries: MetadataRoute.Sitemap = [];

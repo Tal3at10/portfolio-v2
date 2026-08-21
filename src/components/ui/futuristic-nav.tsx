@@ -61,6 +61,10 @@ export const LumaBar = () => {
         aria-label="Main Navigation" 
         className="relative flex items-center justify-center gap-2 sm:gap-2.5 md:gap-3 bg-[#0a0a0d]/70 backdrop-blur-2xl rounded-full px-4 sm:px-5 py-1.5 shadow-[0_12px_32px_rgba(0,0,0,0.45)] border border-white/[0.16]"
       >
+        {/* TAM Systems Brand Mark */}
+        <span className="hidden md:flex items-center gap-1.5 text-[11px] font-mono font-semibold text-[#dfcba9] tracking-widest uppercase pr-2 border-r border-white/10 mr-1">
+          {isAr ? "تَـمّ" : "TAM"}
+        </span>
         {items.map((item, index) => {
           const isActive = index === active;
           const label = isAr ? item.labelAr : item.labelEn;

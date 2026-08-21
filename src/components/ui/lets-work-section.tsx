@@ -331,8 +331,8 @@ export function LetsWorkTogether() {
         <div className="w-full flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono text-zinc-500 border-t border-white/10 pt-6">
           <p>
             {isAr
-              ? `© ${new Date().getFullYear()} محمود طلعت. مهندس معمارية نظم ومطور Full-Stack.`
-              : `© ${new Date().getFullYear()} Mahmoud Talaat. Systems Architect & Full-Stack Engineer.`}
+              ? `© ${new Date().getFullYear()} تَـمّ | TAM Systems. استوديو هندسة الأنظمة المؤسسية.`
+              : `© ${new Date().getFullYear()} TAM Systems | تَـمّ. Enterprise Software Engineering Studio.`}
           </p>
           <button
             onClick={scrollToTop}

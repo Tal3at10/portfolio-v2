@@ -40,29 +40,43 @@ export async function generateMetadata({
 
   if (isRtl) {
     return {
-      title: "محمود طلعت — أبني أنظمة السفر والمنظومات المؤسسية للشركات والخليج",
+      title: "تَـمّ | TAM Systems — هندسة الأنظمة السحابية والمنظومات المؤسسية",
       description:
-        "مهندس معمارية نظم برمجية وحلول ذكاء اصطناعي متخصص في قطاع السفر ومنصات الأعمال للشركات الخليجية والعربية.",
+        "تَـمّ (TAM Systems) — استوديو هندسي متخصص في بناء الأنظمة السحابية المعقدة، منصات الأعمال المؤسسية، والتطبيقات الذكية للشركات والمؤسسات في السعودية والخليج.",
       openGraph: {
-        title: "محمود طلعت — أبني أنظمة السفر والمنظومات المؤسسية",
+        title: "تَـمّ | TAM Systems — أنظمة تُنجز.. ورؤى تكتمل",
         description:
-          "مهندس معمارية نظم برمجية وحلول ذكاء اصطناعي متخصص في قطاع السفر ومنصات الأعمال للشركات الخليجية والعربية.",
+          "استوديو هندسي متخصص في بناء الأنظمة السحابية المعقدة، منصات الأعمال المؤسسية، والتطبيقات الذكية للشركات والمؤسسات.",
         locale: "ar_SA",
         type: "website",
+        images: [{ url: "/tam-logo.jpg", width: 1200, height: 630, alt: "TAM Systems — تَـمّ للأنظمة البرمجية" }],
+      },
+      twitter: {
+        card: "summary_large_image",
+        title: "تَـمّ | TAM Systems",
+        description: "أنظمة تُنجز.. ورؤى تكتمل",
+        images: ["/tam-logo.jpg"],
       },
     };
   }
 
   return {
-    title: "Mahmoud Talaat — Travel Technology & Enterprise Systems Architect",
+    title: "TAM Systems | تَـمّ — Enterprise Software Engineering Studio",
     description:
-      "Architecting mission-critical travel platforms, GDS booking engines, and enterprise AI ecosystems for the Gulf and Arab markets.",
+      "TAM Systems is an enterprise software engineering studio architecting mission-critical platforms, SaaS infrastructure, and bespoke cloud ecosystems for organizations across Saudi Arabia and the Gulf.",
     openGraph: {
-      title: "Mahmoud Talaat — Travel Technology & Enterprise Systems Architect",
+      title: "TAM Systems | تَـمّ — Systems Delivered. Vision Realized.",
       description:
-        "Architecting mission-critical travel platforms, GDS booking engines, and enterprise AI ecosystems for the Gulf and Arab markets.",
+        "Enterprise software engineering studio architecting mission-critical platforms, SaaS infrastructure, and cloud ecosystems for Saudi Arabia and the Gulf.",
       locale: "en_US",
       type: "website",
+      images: [{ url: "/tam-logo.jpg", width: 1200, height: 630, alt: "TAM Systems — Enterprise Software Engineering" }],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: "TAM Systems | تَـمّ",
+      description: "Systems Delivered. Vision Realized.",
+      images: ["/tam-logo.jpg"],
     },
   };
 }
@@ -86,27 +100,34 @@ export default async function LocaleLayout({
 
   const jsonLd = {
     "@context": "https://schema.org",
-    "@type": "Person",
-    name: "Mahmoud Talaat",
-    alternateName: "محمود طلعت",
-    url: "https://mahmoudtalaat.com",
-    jobTitle: isRtl
-      ? "مهندس معماري برمجيات وأنظمة سفر مؤسسية"
-      : "Travel Technology & Enterprise Systems Architect",
+    "@type": "Organization",
+    name: "TAM Systems",
+    alternateName: "تَـمّ للأنظمة البرمجية",
+    url: "https://tam-systems.com",
+    logo: "https://tam-systems.com/tam-logo.jpg",
+    founder: {
+      "@type": "Person",
+      name: "Mahmoud Talaat",
+      alternateName: "محمود طلعت",
+      jobTitle: isRtl
+        ? "مؤسس ومهندس معمارية الأنظمة"
+        : "Founder & Lead Systems Architect",
+    },
     description: isRtl
-      ? "مهندس معماري برمجيات متخصص في بناء المنظومات المؤسسية، ربط أنظمة السفر GDS، وتطوير محركات الذكاء الاصطناعي RAG."
-      : "Systems Architect specializing in enterprise platforms, GDS travel systems, and AI RAG ecosystems.",
+      ? "تَـمّ (TAM Systems) — استوديو هندسي متخصص في بناء الأنظمة السحابية المعقدة، منصات الأعمال المؤسسية، والتطبيقات الذكية."
+      : "TAM Systems is an enterprise software engineering studio architecting mission-critical platforms, SaaS infrastructure, and cloud ecosystems.",
+    areaServed: ["SA", "AE", "KW", "QA", "BH", "EG", "SE"],
     knowsAbout: [
-      "Travel Technology",
-      "GDS Systems",
-      "Software Architecture",
-      "Clean Architecture",
+      "Enterprise Software Architecture",
+      "Cloud Systems",
+      "GDS Travel Systems",
+      "SaaS Platforms",
+      "AI & RAG Systems",
       ".NET 8",
       "React 19",
       "Next.js",
-      "Python Django",
-      "Artificial Intelligence",
-      "Distributed Systems",
+      "Python",
+      "Flutter",
     ],
     sameAs: [
       "https://github.com/MahmoudTalaat4",

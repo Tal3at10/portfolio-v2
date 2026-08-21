@@ -61,11 +61,18 @@ export function ExecutiveBio() {
           {/* 2. Text & Identity Content */}
           <div className={`flex-1 w-full text-center ${isAr ? "lg:text-right" : "lg:text-left"}`} dir={isAr ? "rtl" : "ltr"}>
             
-            {/* Role Header Badge */}
-            <div className="inline-flex items-center gap-2 px-3 sm:px-3.5 py-1 sm:py-1.5 rounded-full bg-[#dfcba9]/10 border border-[#dfcba9]/25 mb-4 sm:mb-5">
+            {/* Agency Badge */}
+            <div className="inline-flex items-center gap-2 px-3 sm:px-3.5 py-1 sm:py-1.5 rounded-full bg-[#dfcba9]/10 border border-[#dfcba9]/25 mb-2">
               <Sparkles className="w-3.5 h-3.5 text-[#dfcba9]" />
               <span className="text-[11px] sm:text-xs font-mono font-medium text-[#dfcba9] uppercase tracking-wider">
-                {isAr ? "مهندس برمجيات ونظم سحابية" : "Lead Software & Systems Engineer"}
+                {isAr ? "تَـمّ | TAM Systems" : "TAM Systems | تَـمّ"}
+              </span>
+            </div>
+
+            {/* Role Header Badge */}
+            <div className="inline-flex items-center gap-2 px-3 sm:px-3.5 py-1 sm:py-1.5 rounded-full bg-white/[0.04] border border-white/10 mb-4 sm:mb-5">
+              <span className="text-[11px] sm:text-xs font-mono font-medium text-zinc-300 uppercase tracking-wider">
+                {isAr ? "مؤسس ومهندس معمارية الأنظمة" : "Founder & Lead Systems Architect"}
               </span>
             </div>
 
