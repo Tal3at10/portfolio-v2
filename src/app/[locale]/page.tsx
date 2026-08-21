@@ -1,5 +1,6 @@
 import { ParallaxComponent } from "@/components/ui/parallax-scrolling";
 import { ClientLogosStrip } from "@/components/ui/client-logos-strip";
+import { ExecutiveBio } from "@/components/ui/executive-bio";
 import { CaseStudySticky } from "@/components/ui/case-study-sticky";
 import { SystemsBento } from "@/components/ui/systems-bento";
 import { ClientTestimonials } from "@/components/ui/client-testimonials";
@@ -24,6 +25,9 @@ export default function LocalePage() {
 
       {/* 2. Client Logos Trust Strip */}
       <ClientLogosStrip />
+
+      {/* 2.5 Executive Bio & Engineering Philosophy */}
+      <ExecutiveBio />
 
       {/* 3. Deep-Dive Case Studies (Sticky Transformation) */}
       <CaseStudySticky />
