@@ -11,7 +11,7 @@ import {
   IconWorld,
 } from "@tabler/icons-react";
 import { useLocale } from "next-intl";
-import { usePathname, useRouter } from "next/navigation";
+import { usePathname, useRouter } from "@/i18n/routing";
 
 interface NavItem {
   id: number;
@@ -41,8 +41,7 @@ export const LumaBar = () => {
   const handleClick = (item: NavItem, index: number) => {
     if (item.isLocaleSwitch) {
       const nextLocale = locale === "ar" ? "en" : "ar";
-      const newPath = pathname.replace(`/${locale}`, `/${nextLocale}`) || `/${nextLocale}`;
-      router.push(newPath);
+      router.replace(pathname, { locale: nextLocale });
       return;
     }
 

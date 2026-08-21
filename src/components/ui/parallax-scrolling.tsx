@@ -93,7 +93,7 @@ export function ParallaxComponent() {
         {/* 2. Locale-Pure Main Headline */}
         <h1
           dir={isAr ? "rtl" : "ltr"}
-          className="text-4xl sm:text-6xl md:text-7xl lg:text-[5.25rem] font-black tracking-tight text-white leading-none mb-3 sm:mb-4 drop-shadow-[0_2px_24px_rgba(0,0,0,0.9)]"
+          className="text-3xl sm:text-4xl md:text-5xl lg:text-[4rem] font-black tracking-tight text-white leading-tight mb-3 sm:mb-4 drop-shadow-[0_2px_24px_rgba(0,0,0,0.9)]"
         >
           {isAr ? "تَـمّ للأنظمة البرمجية" : "TAM Systems"}
         </h1>
@@ -101,7 +101,7 @@ export function ParallaxComponent() {
         {/* 3. Emotional Slogan Subtitle */}
         <p
           dir={isAr ? "rtl" : "ltr"}
-          className="text-base sm:text-xl md:text-2xl font-light italic text-[#dfcba9] mb-4 sm:mb-5 tracking-wide drop-shadow-[0_2px_12px_rgba(0,0,0,0.8)]"
+          className="text-base sm:text-lg md:text-xl font-light italic text-[#dfcba9] mb-4 sm:mb-5 tracking-wide drop-shadow-[0_2px_12px_rgba(0,0,0,0.8)]"
         >
           {isAr
             ? "أنظمة تُنجز.. ورؤى تكتمل."
@@ -111,7 +111,7 @@ export function ParallaxComponent() {
         {/* 4. Single Unified Description (Clear Scope + Geo Proof) */}
         <p
           dir={isAr ? "rtl" : "ltr"}
-          className="text-xs sm:text-sm md:text-[15px] text-zinc-300 font-normal max-w-lg sm:max-w-2xl leading-[1.8] mb-7 sm:mb-8 px-2"
+          className="text-xs sm:text-sm md:text-[14px] text-zinc-300 font-normal max-w-lg sm:max-w-xl leading-[1.8] mb-7 sm:mb-8 px-2"
         >
           {isAr
             ? "نبني المنظومات السحابية المعقدة، منصات التقنية الحكومية، ومحركات الذكاء الاصطناعي للشركات في السعودية وأوروبا الشمالية."
@@ -121,18 +121,20 @@ export function ParallaxComponent() {
         {/* 5. Minimal Social Proof Strip */}
         <div
           dir={isAr ? "rtl" : "ltr"}
-          className="flex items-center gap-3 sm:gap-5 mb-8 sm:mb-10"
+          className="flex items-center justify-center gap-3.5 sm:gap-6 mb-8 sm:mb-10 text-xs font-mono"
         >
           {stats.map((stat, i) => (
             <React.Fragment key={stat.labelEn}>
-              <span className="text-[10px] sm:text-[11px] font-mono text-zinc-300 uppercase tracking-widest whitespace-nowrap font-medium flex items-center gap-1.5">
-                <span className="text-white font-bold">
+              <div className="flex items-center gap-1.5 whitespace-nowrap">
+                <span className="text-[#dfcba9] font-black text-sm sm:text-base">
                   <AnimatedCounter value={stat.value} suffix={stat.suffix} duration={1.6} />
                 </span>
-                <span>{isAr ? stat.labelAr : stat.labelEn}</span>
-              </span>
+                <span className="text-zinc-200 font-semibold uppercase tracking-wider text-[11px] sm:text-xs">
+                  {isAr ? stat.labelAr : stat.labelEn}
+                </span>
+              </div>
               {i < stats.length - 1 && (
-                <span className="text-[#dfcba9]/50 text-xs select-none">·</span>
+                <span className="text-zinc-600 font-mono text-xs select-none">·</span>
               )}
             </React.Fragment>
           ))}
