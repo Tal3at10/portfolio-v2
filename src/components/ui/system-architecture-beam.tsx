@@ -18,23 +18,23 @@ const NodeCircle = forwardRef<
   { className?: string; children?: React.ReactNode; label?: string; sublabel?: string }
 >(({ className, children, label, sublabel }, ref) => {
   return (
-    <div className="flex flex-col items-center gap-1.5 z-10">
+    <div className="flex flex-col items-center gap-1 z-10 max-w-[80px] sm:max-w-[120px]">
       <div
         ref={ref}
         className={cn(
-          "z-10 flex size-12 sm:size-14 items-center justify-center rounded-2xl border border-white/20 bg-zinc-900 text-white p-3 shadow-xl transition-transform hover:scale-105",
+          "z-10 flex size-10 sm:size-14 items-center justify-center rounded-xl sm:rounded-2xl border border-white/20 bg-zinc-900 text-white p-2 sm:p-3 shadow-xl transition-transform hover:scale-105",
           className
         )}
       >
         {children}
       </div>
       {label && (
-        <span className="text-xs font-medium text-zinc-200 text-center leading-tight">
+        <span className="text-[10px] sm:text-xs font-medium text-zinc-200 text-center leading-tight break-words line-clamp-2">
           {label}
         </span>
       )}
       {sublabel && (
-        <span className="text-[10px] font-mono text-zinc-500 text-center leading-none">
+        <span className="text-[8px] sm:text-[10px] font-mono text-zinc-500 text-center leading-none hidden sm:inline-block">
           {sublabel}
         </span>
       )}
@@ -60,11 +60,11 @@ export function SystemArchitectureFlow({
 
   return (
     <div
-      className="relative flex h-[380px] sm:h-[420px] w-full items-center justify-center overflow-hidden rounded-3xl border border-white/10 bg-zinc-950 p-6 sm:p-10 shadow-2xl"
+      className="relative flex h-[350px] sm:h-[420px] w-full items-center justify-center overflow-hidden rounded-2xl sm:rounded-3xl border border-white/10 bg-zinc-950 p-3 sm:p-10 shadow-2xl"
       ref={containerRef}
       dir="ltr"
     >
-      <div className="flex size-full flex-col max-w-2xl max-h-[300px] items-stretch justify-between gap-6 z-10">
+      <div className="flex size-full flex-col max-w-2xl max-h-[300px] items-stretch justify-between gap-4 sm:gap-6 z-10 px-1 sm:px-4">
         {/* Top Tier */}
         <div className="flex flex-row items-center justify-between">
           <NodeCircle
@@ -72,7 +72,7 @@ export function SystemArchitectureFlow({
             label={isAr ? "بوابة الحجز (B2C)" : "B2C Web Portal"}
             sublabel="React 19"
           >
-            <IconWorld className="w-6 h-6 text-zinc-100" />
+            <IconWorld className="w-4 h-4 sm:w-6 sm:h-6 text-zinc-100" />
           </NodeCircle>
 
           <NodeCircle
@@ -80,7 +80,7 @@ export function SystemArchitectureFlow({
             label={isAr ? "مزودو الطيران والفنادق" : "Global GDS APIs"}
             sublabel="Duffel / Amadeus"
           >
-            <IconCloudCheck className="w-6 h-6 text-zinc-100" />
+            <IconCloudCheck className="w-4 h-4 sm:w-6 sm:h-6 text-zinc-100" />
           </NodeCircle>
         </div>
 
@@ -88,19 +88,19 @@ export function SystemArchitectureFlow({
         <div className="flex flex-row items-center justify-between">
           <NodeCircle
             ref={botRef}
-            label={isAr ? "بوت مبيعات الواتساب" : "WhatsApp Sales Bot"}
+            label={isAr ? "بوت الواتساب" : "WhatsApp Bot"}
             sublabel="Cloud API"
           >
-            <IconBrandWhatsapp className="w-6 h-6 text-zinc-100" />
+            <IconBrandWhatsapp className="w-4 h-4 sm:w-6 sm:h-6 text-zinc-100" />
           </NodeCircle>
 
           <NodeCircle
             ref={coreRef}
-            className="size-16 sm:size-20 border-white/40 bg-zinc-900/90 text-white shadow-[0_0_40px_rgba(255,255,255,0.1)]"
+            className="size-12 sm:size-20 border-white/40 bg-zinc-900/90 text-white shadow-[0_0_40px_rgba(255,255,255,0.1)] p-2 sm:p-4"
             label={isAr ? "النواة المركزية" : "Central Core API"}
             sublabel=".NET 8 Clean Arch"
           >
-            <IconCpu className="w-8 h-8 text-white" />
+            <IconCpu className="w-6 h-6 sm:w-8 sm:h-8 text-white" />
           </NodeCircle>
 
           <NodeCircle
@@ -108,7 +108,7 @@ export function SystemArchitectureFlow({
             label={isAr ? "البحث الدلالي (RAG)" : "Vector DB (RAG)"}
             sublabel="In-Memory Fast"
           >
-            <IconBrain className="w-6 h-6 text-zinc-100" />
+            <IconBrain className="w-4 h-4 sm:w-6 sm:h-6 text-zinc-100" />
           </NodeCircle>
         </div>
 
@@ -116,10 +116,10 @@ export function SystemArchitectureFlow({
         <div className="flex flex-row items-center justify-between">
           <NodeCircle
             ref={workersRef}
-            label={isAr ? "معالجات الخلفية" : "Async Background Tasks"}
+            label={isAr ? "معالجات الخلفية" : "Background Tasks"}
             sublabel="PDF & Jobs"
           >
-            <IconServer className="w-6 h-6 text-zinc-100" />
+            <IconServer className="w-4 h-4 sm:w-6 sm:h-6 text-zinc-100" />
           </NodeCircle>
 
           <NodeCircle
@@ -127,7 +127,7 @@ export function SystemArchitectureFlow({
             label={isAr ? "قاعدة البيانات" : "Relational Database"}
             sublabel="SQL Server"
           >
-            <IconDatabase className="w-6 h-6 text-zinc-100" />
+            <IconDatabase className="w-4 h-4 sm:w-6 sm:h-6 text-zinc-100" />
           </NodeCircle>
         </div>
       </div>

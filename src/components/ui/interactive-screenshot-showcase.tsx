@@ -104,24 +104,24 @@ export function InteractiveScreenshotShowcase({
             </p>
           </div>
 
-          {/* Categories Filter Tabs */}
-          {categories.length > 2 && (
-            <div className="flex flex-wrap gap-1.5 p-1.5 rounded-2xl bg-zinc-950 border border-white/10 self-start lg:self-auto max-w-full overflow-x-auto">
-              {categories.map((cat) => (
-                <button
-                  key={cat.id}
-                  onClick={() => setSelectedCategory(cat.id)}
-                  className={`px-3.5 py-1.5 sm:px-4 sm:py-2 rounded-xl text-xs font-medium transition-all whitespace-nowrap ${
-                    selectedCategory === cat.id
-                      ? "bg-white text-black font-semibold shadow-lg"
-                      : "text-zinc-400 hover:text-white hover:bg-white/5"
-                  }`}
-                >
-                  {cat.label}
-                </button>
-              ))}
-            </div>
-          )}
+        {/* Categories Filter Tabs */}
+        {categories.length > 2 && (
+          <div className="flex items-center gap-1.5 p-1.5 rounded-xl sm:rounded-2xl bg-zinc-950 border border-white/10 self-start lg:self-auto max-w-full overflow-x-auto no-scrollbar mb-6 sm:mb-8">
+            {categories.map((cat) => (
+              <button
+                key={cat.id}
+                onClick={() => setSelectedCategory(cat.id)}
+                className={`px-3 py-1.5 sm:px-4 sm:py-2 rounded-lg sm:rounded-xl text-xs font-medium transition-all whitespace-nowrap shrink-0 ${
+                  selectedCategory === cat.id
+                    ? "bg-white text-black font-semibold shadow-lg"
+                    : "text-zinc-400 hover:text-white hover:bg-white/5"
+                }`}
+              >
+                {cat.label}
+              </button>
+            ))}
+          </div>
+        )}
         </div>
 
         {/* Screenshots Grid */}
@@ -186,9 +186,9 @@ export function InteractiveScreenshotShowcase({
               </div>
 
               {/* Caption Bar Underneath (Clean spacing & no clipping on mobile) */}
-              <div className="p-5 sm:p-6 flex flex-col justify-between flex-1 bg-[#090b10]">
+              <div className="p-4 sm:p-6 flex flex-col justify-between flex-1 bg-[#090b10]">
                 <div>
-                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-2.5">
+                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1.5 sm:gap-2 mb-2 sm:mb-2.5">
                     <h3 className="text-base sm:text-lg font-bold text-white group-hover:text-[#dfcba9] transition-colors leading-snug">
                       {isAr ? item.nameAr : item.nameEn}
                     </h3>

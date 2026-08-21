@@ -44,7 +44,7 @@ const caseStudies: ProjectCase[] = [
           "أدى الاعتماد على الواتساب وجداول البيانات إلى فقدان آلاف العملاء وتأخر عروض الأسعار لأكثر من 45 دقيقة للحجز الواحد، مع حدوث أخطاء مستمرة في مزامنة أسعار الطيران والفنادق عبر منصات GDS.",
         descriptionEn:
           "Manual booking processes across WhatsApp and spreadsheets caused over 4,000 unhandled customer drop-offs and 45-minute quote preparation delays with frequent GDS rate sync failures.",
-        imageSrc: "/projects/almulhim-travel/main website.png",
+        imageSrc: "/projects/almulhimtravel/01-b2c-hero-slide-1-baku.png",
         imageAlt: "Almulhim Travel B2C Platform",
       },
       {
@@ -54,8 +54,8 @@ const caseStudies: ProjectCase[] = [
           "بناء معمارية نظيفة متكاملة بـ .NET 8 وفق نمط MediatR CQRS، مدعومة بقاعدة بيانات شعاعية للبحث الدلالي RAG، والربط المباشر مع مزودي الطيران والفنادق (Amadeus و Duffel)، مع روبوت مبيعات ذكي عبر واتساب.",
         descriptionEn:
           "Engineered a unified .NET 8 Clean Architecture with MediatR CQRS, In-Memory Vector DB for RAG semantic search, Duffel/Amadeus flight APIs, and an intelligent WhatsApp sales bot.",
-        imageSrc: "/projects/almulhim-travel/admin dashboard.png",
-        imageAlt: "Almulhim Central Admin Dashboard",
+        imageSrc: "/projects/almulhimtravel/36-admin-ai-agent-whatsapp-analytics.png",
+        imageAlt: "Almulhim Central Admin Dashboard & Live Chat",
       },
       {
         titleAr: "توفير 70% وقت تشغيل لـ 40 موظفاً و 1,200 حجز شهرياً",
@@ -64,7 +64,7 @@ const caseStudies: ProjectCase[] = [
           "أتمتة توليد قسائم السفر المشفرة بصيغة PDF مع رموز QR لمنع التزوير، مما وفر 70% من وقت التشغيل لأكثر من 40 موظفاً ومعالجة ما يزيد عن 1,200 حجز شهرياً بأمان تام.",
         descriptionEn:
           "Automated encrypted PDF vouchers with tamper-proof QR verification, saving 70% of operational time for 40+ agency staff handling 1,200+ monthly bookings across 50+ countries.",
-        imageSrc: "/projects/almulhim-travel/voucher dashboard.png",
+        imageSrc: "/projects/almulhimtravel/39-voucherpro-dashboard-kpis.png",
         imageAlt: "Voucher Pro B2B Issuance System",
       },
     ],
@@ -85,7 +85,7 @@ const caseStudies: ProjectCase[] = [
           "استغرقت لجان التحكيم أكثر من 6 أشهر لفحص وتدقيق الوثائق الورقية لـ 990 مدرسة، مع تكرار انهيار خوادم الاستلام التقليدية تحت وطأة أحجام الملفات الكبيرة.",
         descriptionEn:
           "Arbitrators spent 6 months manually evaluating paper dossiers for 990 schools, suffering severe upload server crashes.",
-        imageSrc: "/projects/injaz/school-portal.png",
+        imageSrc: "/projects/injaz-edu/03_injaz_school_upload_wizard_header.png",
         imageAlt: "Injaz School Upload Portal",
       },
       {
@@ -95,7 +95,7 @@ const caseStudies: ProjectCase[] = [
           "تصميم بنية سحابية قائمة على Azure Functions وآلية رفع مباشر إلى مساحة التخزين دون إجهاد السيرفر، لاستيعاب أكثر من 25,000 وثيقة بنسبة استقرار 100%.",
         descriptionEn:
           "Architected a serverless Azure Functions pipeline with direct-to-blob uploads — effortlessly ingesting 25,000+ documents with zero downtime.",
-        imageSrc: "/projects/injaz/audit-panel.png",
+        imageSrc: "/projects/injaz-edu/11_injaz_admin_evidence_registry_and_ai_matching.png",
         imageAlt: "Injaz Arbitrator Evaluation Panel",
       },
       {
@@ -105,7 +105,7 @@ const caseStudies: ProjectCase[] = [
           "أتمتة حساب درجات المطابقة لـ 8 معايير وطنية بدقة خالية من الأخطاء البشرية، مع توليد فوري للشهادات وبطاقات الاعتماد الرسمية الموثقة برمز QR.",
         descriptionEn:
           "Instant algorithmic scoring across 8 national standards with automated certified PDF scorecards.",
-        imageSrc: "/projects/injaz/reports-engine.png",
+        imageSrc: "/projects/injaz-edu/15_injaz_school_scorecard_modal_overview.png",
         imageAlt: "Injaz Reports & Scoring Engine",
       },
     ],
@@ -126,7 +126,7 @@ const caseStudies: ProjectCase[] = [
           "واجهت سلاسل المطاعم صعوبة في توحيد قوائم الطعام ومزامنة الأسعار عبر 15 فرعاً، وتكبدت عمولات باهظة لتطبيقات التوصيل الخارجية مع غياب شاشات عرض ذكية متزامنة.",
         descriptionEn:
           "Managing fragmented POS menus, kitchen order queues, and third-party delivery commissions across 15+ Swedish restaurant locations caused significant margin loss.",
-        imageSrc: "/projects/snabbfood/snabbfood website.png",
+        imageSrc: "/projects/snabbfood/snabbfood-web-hero-landing.png",
         imageAlt: "Snabbfood Sweden Platform",
       },
       {
@@ -136,7 +136,7 @@ const caseStudies: ProjectCase[] = [
           "بناء نواة متعددة المستأجرين بـ Laravel 12 مع تطبيق ويب سريع للطلبات، وتطوير تطبيق PWA مخصص للشاشات الذكية لعرض القوائم وتحديث أسعارها لحظياً من لوحة التحكم.",
         descriptionEn:
           "Built a multi-tenant Laravel 12 backend with clean separation, real-time PWA customer ordering, and automated digital Smart TV menu boards updated instantly from merchant dashboards.",
-        imageSrc: "/projects/snabbfood/tv-app.png",
+        imageSrc: "/projects/snabbfood/snabbfood-restaurant-tv-digital-signage-menu.png",
         imageAlt: "Snabbfood Smart TV Menu App",
       },
       {
@@ -146,7 +146,7 @@ const caseStudies: ProjectCase[] = [
           "الربط مع بوابات الدفع النوردية المعتمدة (Klarna, Swish, Stripe) مع بناء نظام تتبع جغرافي حي للسائقين عبر الخرائط لمعالجة أكثر من 50,000 طلب شهرياً.",
         descriptionEn:
           "Integrated Klarna, Swish, and Stripe payment gateways with real-time driver tracking, processing over 50,000 monthly orders across Swedish restaurant chains.",
-        imageSrc: "/projects/snabbfood/pronto website.png",
+        imageSrc: "/projects/snabbfood/snabbfood-mobile-pwa-home-overview.png",
         imageAlt: "Pronto Restaurant Platform",
       },
     ],

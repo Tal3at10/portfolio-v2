@@ -80,7 +80,7 @@ export const caseStudies: CaseStudy[] = [
     duration_ar: "8 أشهر",
     duration_en: "8 Months",
     complexity: "Tier-1 Enterprise",
-    hero_image: "/projects/almulhim-travel/main website.png",
+    hero_image: "/projects/almulhimtravel/01-b2c-hero-slide-1-baku.png",
     problem_ar: "وكالة سفر كبرى (40+ موظف) كانت تفقد نحو 35% من حجوزات الواتساب بسبب الرد اليدوي وتشتت الموظفين بين شاشات وأنظمة منفصلة (Amadeus و Duffel و RateHawk). قمنا ببناء Core موحد بتقنية .NET 8 يربط أنظمة الطيران والفنادق، ويصدر القسائم المشفرة آلياً في ثوانٍ مع بوت مبيعات ذكي.",
     problem_en: "A premier travel agency with 40+ staff was losing ~35% of inbound WhatsApp leads due to delayed manual responses and fragmented GDS operations. Engineered a unified .NET 8 Core connecting flight/hotel APIs, automated encrypted PDF vouchers, and an intelligent WhatsApp sales bot.",
     challenge_points_ar: [
@@ -169,7 +169,7 @@ export const caseStudies: CaseStudy[] = [
     duration_ar: "6 أشهر",
     duration_en: "6 Months",
     complexity: "Critical / Distributed Batch",
-    hero_image: "/projects/admin.sa/main website hero slide.png",
+    hero_image: "/projects/admin-sa/admin-sa-landing-hero-live-intelligence.png",
     problem_ar: "تستغرق شركات المقاولات نحو 14 يوماً لدراسة كراسات الشروط الحكومية الضخمة (300+ صفحة) وصياغة العروض الفنية والمالية. قمنا ببناء منصة SaaS ذكية تكشط وتفهرس المناقصات يومياً، وتولد مسودة العروض الفنية المطابقة للمواصفات تلقائياً وتتنبأ باحتمالية الفوز.",
     problem_en: "B2B contractors spent ~14 days manually reviewing 300+ page government tender books and drafting proposals. Engineered a distributed SaaS platform scraping daily tenders from Etimad, generating compliant Word proposals automatically, and predicting bid win probabilities.",
     challenge_points_ar: [
@@ -250,7 +250,7 @@ export const caseStudies: CaseStudy[] = [
     duration_ar: "5 أشهر",
     duration_en: "5 Months",
     complexity: "Medical Grade / CQRS",
-    hero_image: "/projects/alryadh-therapy/emr-dashboard.png",
+    hero_image: "/projects/alryadhcenter/01_landing_hero_section.png",
     problem_ar: "حاجة المركز لنظام سجلات طبية إلكترونية (EMR) مخصص لعلاج الإدمان والطب النفسي مع عيادة افتراضية مشفرة بدون برامج خارجية (مثل Zoom)، وفصل كامل للصلاحيات عبر 7 بوابات تشغيلية مع ضمان استرجاع السجلات في أقل من 200ms.",
     problem_en: "The specialized clinic required a dedicated psychiatric & addiction EMR with integrated HIPAA-compliant video consultations (no third-party apps like Zoom), 7 role-isolated portals, and sub-200ms medical chart retrieval.",
     challenge_points_ar: [
@@ -340,7 +340,7 @@ export const caseStudies: CaseStudy[] = [
     duration_ar: "6 أشهر",
     duration_en: "6 Months",
     complexity: "High / File System I/O",
-    hero_image: "/projects/ok.cloud/Screenshot 2025-12-15 221828.png",
+    hero_image: "/projects/ok-cloud/okcloud_web_file_explorer_dark.png",
     problem_ar: "ارتفاع تكاليف Google Drive و Dropbox على الشركات التي تدير ملفات فيديو ضخمة (+10GB)، والحاجة لحل تخزين سحابي خاص يتيح اختيار مزودي التخزين الأرخص (S3, SFTP, WebDAV) مع تطبيق مكتبي يزامن الملفات تلقائياً في الخلفية ويعمل بدون إنترنت (Offline-First).",
     problem_en: "Skyrocketing storage bills on Google Drive/Dropbox for media agencies handling massive (+10GB) files, needing a private multi-cloud storage platform with a native background sync client and robust offline-first caching.",
     challenge_points_ar: [
@@ -429,7 +429,7 @@ export const caseStudies: CaseStudy[] = [
     duration_ar: "4 أشهر",
     duration_en: "4 Months",
     complexity: "Medium-High / Serverless",
-    hero_image: "/projects/injaz/school-portal.png",
+    hero_image: "/projects/injaz-edu/01_injaz_automated_report_ranking_header.png",
     problem_ar: "كانت مديرية التعليم تواجه كابوساً إدارياً سنوياً يتمثل في جمع وفحص الشواهد الورقية والرقمية لـ 990 مدرسة عبر لجان تفتيش يدوية تستغرق 6 أشهر، مع انهيار خوادم البريد والملفات وتكرار الأخطاء البشرية في احتساب درجات الاعتماد.",
     problem_en: "The education directorate faced an administrative bottleneck annually collecting, auditing, and grading accreditation evidence for 990 schools across manual committees lasting 6 months, suffering server crashes and human scoring errors.",
     challenge_points_ar: [
@@ -541,7 +541,7 @@ export const caseStudies: CaseStudy[] = [
     duration_ar: "6 أشهر",
     duration_en: "6 Months",
     complexity: "High / Multi-Tenant",
-    hero_image: "/projects/snabbfood/snabbfood website.png",
+    hero_image: "/projects/snabbfood/snabbfood-web-hero-landing.png",
     problem_ar: "تشتت إدارة القوائم والأسعار بين فروع المطاعم في السويد، والاعتماد على منصات توصيل تقتطع عمولات ضخمة (30%+). قمنا ببناء منظومة متكاملة من تطبيقات الموبايل والشاشات الرقمية المعلقة بالفروع المتصلة بالدفع السويدي المباشر.",
     problem_en: "Fragmented menu and pricing synchronization across Swedish restaurant branches, combined with crippling 30%+ third-party delivery commissions. Engineered an integrated ecosystem of mobile ordering apps, live driver tracking, digital TV menu displays, and Nordic payment integrations.",
     challenge_points_ar: [
@@ -623,7 +623,7 @@ export const caseStudies: CaseStudy[] = [
     duration_ar: "4 أشهر",
     duration_en: "4 Months",
     complexity: "Clean Architecture / QuestPDF",
-    hero_image: "/projects/DietBox/Screenshot 2026-05-02 215152.png",
+    hero_image: "/projects/dietbox/dietbox_landing_hero.png",
     problem_ar: "حساب السعرات والماكروز يدوياً لأكثر من 1,000 مشترك أسبوعياً وتجهيز ملصقات وجداول الوجبات اليومية كان يستغرق 3 ساعات يومياً من طاقم المطبخ مع نسبة أخطاء في الوجبات المخصصة.",
     problem_en: "Calculating calories and macros manually for 1,000+ active subscribers while designing daily kitchen box labels took 3+ hours daily with recurring meal mix-ups. Built an automated .NET 8 subscription engine with sub-100ms QuestPDF label generation.",
     challenge_points_ar: [
@@ -704,7 +704,7 @@ export const caseStudies: CaseStudy[] = [
     duration_ar: "7 أشهر",
     duration_en: "7 Months",
     complexity: "High-Concurrency / Multi-App",
-    hero_image: "/projects/nexgo/superapp-storefront.png",
+    hero_image: "/projects/nexgo/nexgo-web-landing-hero-delivery-search.png",
     problem_ar: "بناء منصة تجارة إلكترونية ولوجستيات تدير 6 قطاعات مختلفة (مطاعم، بقالة، صيدليات، طرود، تأجير سيارات، وتوصيل ركاب) مع 3 تطبيقات موبايل منفصلة وتتبع جغرافي لحظي وطباعة فواتير حرارية للتجار.",
     problem_en: "Engineering a high-throughput multi-sector marketplace spanning 6 commercial verticals (Restaurants, Groceries, Pharmacy, Parcels, Rentals, RideShare) powered by 3 dedicated Flutter mobile apps, real-time GPS dispatch, and thermal POS printing.",
     challenge_points_ar: [
@@ -785,7 +785,7 @@ export const caseStudies: CaseStudy[] = [
     duration_ar: "3 أشهر",
     duration_en: "3 Months",
     complexity: "High / Cryptography",
-    hero_image: "/projects/keylicense/license-dashboard.png",
+    hero_image: "/projects/keylicence/keylicense-applications-management-grid.png",
     problem_ar: "تعرض البرمجيات المكتبية والمؤسسية للقرصنة والتجاوز، وصعوبة إدارة التراخيص الزمنية أو المرتبطة بعتاد الأجهزة (Node-Locked) والتحقق منها دون الحاجة لاتصال إنترنت دائم.",
     problem_en: "Vulnerability of desktop enterprise software to cracking and piracy, lacking robust node-locking hardware fingerprinting and secure offline cryptographic lease tokens.",
     challenge_points_ar: [
@@ -866,7 +866,7 @@ export const caseStudies: CaseStudy[] = [
     duration_ar: "2 أشهر",
     duration_en: "2 Months",
     complexity: "Medium / Webhooks",
-    hero_image: "/projects/bortselite/customs-bot.jpeg",
+    hero_image: "/projects/bortselite/bortselite-whatsapp-main-service-menu.jpeg",
     problem_ar: "استقبال مكاتب التخليص الجمركي لمئات المكالمات والاستفسارات اليومية المتكررة من التجار وأصحاب البضائع حول حالة الحاويات والفسح الجمركي ورسوم الموانئ مما يعطل طاقم العمل.",
     problem_en: "Customs brokers overwhelmed by hundreds of daily repetitive phone calls from cargo owners inquiring about container tracking, customs clearance stages, and port fee status.",
     challenge_points_ar: [
@@ -947,7 +947,7 @@ export const caseStudies: CaseStudy[] = [
     duration_ar: "2 أشهر",
     duration_en: "2 Months",
     complexity: "High / Evasive RPA",
-    hero_image: "/projects/sakanibot/Screenshot 2026-05-02 215448.png",
+    hero_image: "/projects/sakanibot/sakanibot-desktop-control-gui.png",
     problem_ar: "تطرح وزارة الإسكان السعودية مخططات أراضٍ مجانية تنفد بالكامل في أجزاء من الثانية فور فتح الحجز، مما يجعل الحجز اليدوي عبر المتصفح مستحيلاً للمستفيدين بسبب ضغط السيرفرات.",
     problem_en: "Government housing land grant releases sell out in fractions of a second upon opening. Manual browser reservation was humanly impossible under intense national server concurrency.",
     challenge_points_ar: [

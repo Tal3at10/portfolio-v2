@@ -164,7 +164,7 @@ export default async function ProjectDetailPage({
   return (
     <main className="min-h-screen bg-[#09090b] text-white selection:bg-[#dfcba9] selection:text-black">
       {/* Top Header */}
-      <nav className="sticky top-0 z-40 bg-[#09090b]/85 backdrop-blur-xl border-b border-white/[0.08] px-6 sm:px-12 py-4">
+      <nav className="sticky top-0 z-40 bg-[#09090b]/85 backdrop-blur-xl border-b border-white/[0.08] px-4 sm:px-12 py-3.5 sm:py-4">
         <div className="max-w-7xl mx-auto flex items-center justify-between">
           <Link
             href={`/${locale}`}
@@ -183,7 +183,7 @@ export default async function ProjectDetailPage({
             )}
           </Link>
 
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-2 sm:gap-3">
             <span className="hidden sm:inline-block px-3 py-1 rounded-full bg-white/5 border border-white/10 text-[11px] font-mono text-zinc-300">
               {project.complexity}
             </span>
@@ -198,31 +198,31 @@ export default async function ProjectDetailPage({
       </nav>
 
       {/* 1. HERO SECTION: 2 COLUMNS (Text + Browser Frame) */}
-      <header className="pt-16 pb-20 px-6 sm:px-12 max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+      <header className="pt-10 sm:pt-16 pb-14 sm:pb-20 px-4 sm:px-12 max-w-7xl mx-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-12 lg:gap-16 items-center">
           {/* Text Column */}
           <div className="lg:col-span-6 flex flex-col items-start">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/[0.04] border border-white/10 text-xs font-mono text-zinc-300 mb-6">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/[0.04] border border-white/10 text-xs font-mono text-zinc-300 mb-4 sm:mb-6">
               <IconShieldCheck className="w-3.5 h-3.5 text-zinc-400" />
               <span>{isAr ? project.client_ar : project.client_en}</span>
             </div>
 
-            <h1 className={cn("font-bold tracking-tight text-white leading-[1.25] mb-6", isAr ? "text-2xl sm:text-3xl lg:text-4xl" : "text-3xl sm:text-5xl")}>
+            <h1 className={cn("font-bold tracking-tight text-white leading-[1.25] mb-4 sm:mb-6", isAr ? "text-2xl sm:text-3xl lg:text-4xl" : "text-3xl sm:text-5xl")}>
               {isAr ? project.title_ar : project.title_en}
             </h1>
 
-            <p dir="auto" className="text-sm sm:text-base text-zinc-300 leading-[1.8] font-normal mb-8 max-w-xl">
+            <p dir="auto" className="text-sm sm:text-base text-zinc-300 leading-[1.8] font-normal mb-6 sm:mb-8 max-w-xl">
               {isAr ? project.problem_ar : project.problem_en}
             </p>
 
             {/* Live Platform Action Buttons */}
             {project.live_url && (
-              <div className="flex flex-wrap items-center gap-3 mb-8">
+              <div className="flex flex-wrap items-center gap-2.5 sm:gap-3 mb-6 sm:mb-8 w-full sm:w-auto">
                 <a
                   href={project.live_url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#dfcba9] text-black font-semibold text-xs hover:bg-[#ebd9bd] transition-all shadow-lg hover:shadow-[#dfcba9]/20"
+                  className="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-full bg-[#dfcba9] text-black font-semibold text-xs hover:bg-[#ebd9bd] transition-all shadow-lg hover:shadow-[#dfcba9]/20"
                 >
                   <span>{isAr ? "معاينة المنصة الحية" : "Visit Live Platform"}</span>
                   <IconExternalLink className="w-4 h-4" />
@@ -234,7 +234,7 @@ export default async function ProjectDetailPage({
                     href={link.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-white/5 border border-white/10 text-zinc-300 hover:text-white hover:bg-white/10 text-xs font-mono transition-all"
+                    className="inline-flex items-center justify-center gap-1.5 px-4 py-2 rounded-full bg-white/5 border border-white/10 text-zinc-300 hover:text-white hover:bg-white/10 text-xs font-mono transition-all"
                   >
                     <span>{isAr ? link.label_ar : link.label_en}</span>
                     <IconExternalLink className="w-3 h-3" />
@@ -244,11 +244,11 @@ export default async function ProjectDetailPage({
             )}
 
             {/* Tech Stack Pills */}
-            <div className="flex flex-wrap gap-2">
+            <div className="flex flex-wrap gap-1.5 sm:gap-2">
               {project.tech_stack.map((tech) => (
                 <span
                   key={tech}
-                  className="px-3 py-1 rounded-lg text-xs font-mono bg-white/[0.03] border border-white/10 text-zinc-300"
+                  className="px-2.5 py-1 rounded-lg text-[11px] sm:text-xs font-mono bg-white/[0.03] border border-white/10 text-zinc-300"
                 >
                   {tech}
                 </span>
@@ -289,12 +289,12 @@ export default async function ProjectDetailPage({
       </div>
 
       {/* 3. ARCHITECTURE SECTION (Full Width System Architecture Beam) */}
-      <section className="py-20 px-6 sm:px-12 max-w-7xl mx-auto border-t border-white/[0.08]">
-        <div className="mb-12 text-center">
-          <h2 className="text-2xl sm:text-4xl font-bold text-white tracking-tight mb-3">
+      <section className="py-14 sm:py-20 px-4 sm:px-12 max-w-7xl mx-auto border-t border-white/[0.08]">
+        <div className="mb-8 sm:mb-12 text-center">
+          <h2 className="text-xl sm:text-4xl font-bold text-white tracking-tight mb-2 sm:mb-3">
             {isAr ? "تدفق البيانات والربط المركزي" : "Data Flow & Integration Pipeline"}
           </h2>
-          <p className="text-sm text-zinc-400 max-w-xl mx-auto leading-relaxed">
+          <p className="text-xs sm:text-sm text-zinc-400 max-w-xl mx-auto leading-relaxed">
             {isAr
               ? "مخطط يوضح ترابط النواة المركزية مع الذكاء الاصطناعي ومزودي البيانات الخارجية."
               : "Live visual pipeline demonstrating real-time data exchange across services, AI engines, and databases."}
@@ -317,8 +317,8 @@ export default async function ProjectDetailPage({
       )}
 
       {/* 5. FOOTER & CTA */}
-      <footer className="py-20 px-6 sm:px-12 max-w-7xl mx-auto border-t border-white/[0.08]">
-        <div className="flex flex-col sm:flex-row items-center justify-between gap-8">
+      <footer className="py-14 sm:py-20 px-4 sm:px-12 max-w-7xl mx-auto border-t border-white/[0.08]">
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-6 sm:gap-8">
           {prevProject ? (
             <Link
               href={`/${locale}/projects/${prevProject.slug}`}
@@ -330,21 +330,21 @@ export default async function ProjectDetailPage({
             <div />
           )}
 
-          <div className="flex items-center gap-3">
+          <div className="flex flex-col sm:flex-row items-center gap-3 w-full sm:w-auto">
             <a
-              href="https://wa.me/201108745372"
+              href="https://wa.me/201018318042"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 px-5 py-3 rounded-full bg-white text-black font-semibold text-xs hover:bg-zinc-200 transition-all cursor-pointer shadow-lg"
+              className="flex items-center justify-center gap-2 px-5 py-3 rounded-full bg-white text-black font-semibold text-xs hover:bg-zinc-200 transition-all cursor-pointer shadow-lg w-full sm:w-auto"
             >
-              <IconBrandWhatsapp className="w-4 h-4" />
+              <IconBrandWhatsapp className="w-4 h-4 text-emerald-600" />
               <span>{isAr ? "ناقش مشروعك مع المعماري" : "Discuss on WhatsApp"}</span>
             </a>
             <a
-              href="https://calendly.com/mahmoud-talaat-dev/30min"
+              href="https://wa.me/201018318042"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 px-5 py-3 rounded-full border border-white/20 bg-zinc-950 text-white hover:bg-white hover:text-black font-semibold text-xs transition-all cursor-pointer"
+              className="flex items-center justify-center gap-2 px-5 py-3 rounded-full border border-white/20 bg-zinc-950 text-white hover:bg-white hover:text-black font-semibold text-xs transition-all cursor-pointer w-full sm:w-auto"
             >
               <IconCalendarEvent className="w-4 h-4" />
               <span>{isAr ? "حجز استشارة" : "Book Call"}</span>

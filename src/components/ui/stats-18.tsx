@@ -40,12 +40,12 @@ const defaultStats: StatItem[] = [
 
 export function Stats18({ stats = defaultStats, title, subtitle }: Stats18Props) {
   return (
-    <section className="relative w-full bg-[#000000] px-6 py-12 sm:px-8 lg:px-12">
+    <section className="relative w-full bg-[#000000] px-4 sm:px-8 lg:px-12 py-10 sm:py-14">
       <div className="mx-auto max-w-7xl">
         {(title || subtitle) && (
           <div className="mb-8 text-center">
             {title && (
-              <h2 className="text-xl sm:text-2xl font-bold text-white tracking-tight mb-2">
+              <h2 className="text-lg sm:text-2xl font-bold text-white tracking-tight mb-2">
                 {title}
               </h2>
             )}
@@ -57,7 +57,7 @@ export function Stats18({ stats = defaultStats, title, subtitle }: Stats18Props)
           </div>
         )}
 
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-6">
           {stats.map((stat, index) => (
             <motion.div
               key={index}
@@ -65,21 +65,21 @@ export function Stats18({ stats = defaultStats, title, subtitle }: Stats18Props)
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: index * 0.08 }}
-              className="p-6 rounded-2xl bg-zinc-950/80 border border-white/10 flex flex-col justify-between hover:border-white/20 transition-colors"
+              className="p-3.5 sm:p-6 rounded-xl sm:rounded-2xl bg-zinc-950/80 border border-white/10 flex flex-col justify-between hover:border-white/20 transition-colors"
             >
               <div>
                 <span
                   dir="ltr"
-                  className="text-3xl sm:text-4xl lg:text-5xl font-light tracking-tight text-white block mb-2 font-mono whitespace-nowrap"
+                  className="text-xl sm:text-3xl lg:text-4xl font-light tracking-tight text-white block mb-1.5 font-mono whitespace-nowrap overflow-hidden text-ellipsis"
                 >
                   {stat.value}
                 </span>
-                <span className="text-sm font-semibold text-zinc-200 block mb-1">
+                <span className="text-xs sm:text-sm font-semibold text-zinc-200 block mb-1 leading-snug">
                   {stat.label}
                 </span>
               </div>
               {stat.description && (
-                <p className="text-xs text-zinc-400 leading-relaxed mt-2 border-t border-white/5 pt-2">
+                <p className="text-[11px] sm:text-xs text-zinc-400 leading-relaxed mt-2 border-t border-white/5 pt-2">
                   {stat.description}
                 </p>
               )}
