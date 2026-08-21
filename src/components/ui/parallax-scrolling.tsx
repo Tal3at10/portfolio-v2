@@ -90,12 +90,12 @@ export function ParallaxComponent() {
           </span>
         </div>
 
-        {/* 2. Locale-Pure Main Headline */}
+        {/* 2. Main Brand Headline */}
         <h1
           dir={isAr ? "rtl" : "ltr"}
           className="text-3xl sm:text-4xl md:text-5xl lg:text-[4rem] font-black tracking-tight text-white leading-tight mb-3 sm:mb-4 drop-shadow-[0_2px_24px_rgba(0,0,0,0.9)]"
         >
-          {isAr ? "تَـمّ للأنظمة البرمجية" : "TAM Systems"}
+          {isAr ? "تَـمّ للأنظمة" : "TAM Systems"}
         </h1>
 
         {/* 3. Emotional Slogan Subtitle */}
@@ -108,10 +108,10 @@ export function ParallaxComponent() {
             : "Systems Delivered. Vision Realized."}
         </p>
 
-        {/* 4. Single Unified Description (Clear Scope + Geo Proof) */}
+        {/* 4. Single Unified Description (Crisp, High-Contrast & Clear) */}
         <p
           dir={isAr ? "rtl" : "ltr"}
-          className="text-xs sm:text-sm md:text-[14px] text-zinc-300 font-normal max-w-lg sm:max-w-xl leading-[1.8] mb-7 sm:mb-8 px-2"
+          className="text-xs sm:text-sm md:text-[15px] text-zinc-100 font-medium max-w-lg sm:max-w-xl leading-[1.85] mb-7 sm:mb-8 px-2 drop-shadow-sm"
         >
           {isAr
             ? "نبني المنظومات السحابية المعقدة، منصات التقنية الحكومية، ومحركات الذكاء الاصطناعي للشركات في السعودية وأوروبا الشمالية."
