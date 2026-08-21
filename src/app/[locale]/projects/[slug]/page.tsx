@@ -99,7 +99,7 @@ export async function generateMetadata({
     ? project.solution_ar
     : project.solution_en;
 
-  const title = `${isAr ? project.title_ar : project.title_en} | Mahmoud Talaat`;
+  const title = `${isAr ? project.title_ar : project.title_en} | TAM Systems`;
 
   return {
     title,

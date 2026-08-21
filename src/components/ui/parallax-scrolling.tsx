@@ -82,9 +82,14 @@ export function ParallaxComponent() {
       {/* ── Layer 4: Hero Content ── */}
       <div className="relative z-10 h-full flex flex-col items-center justify-center text-center px-6 sm:px-10">
 
-        {/* Eyebrow */}
-        <span className="inline-block text-[10px] sm:text-xs font-mono uppercase tracking-[0.25em] text-[#dfcba9] mb-5 sm:mb-6 font-medium">
-          {isAr ? "مهندس أنظمة مؤسسية" : "Enterprise Systems Engineer"}
+        {/* Agency Eyebrow */}
+        <span className="inline-block text-[10px] sm:text-xs font-mono uppercase tracking-[0.25em] text-[#dfcba9] mb-3 font-semibold">
+          {isAr ? "تَـمّ | TAM Systems" : "TAM Systems | تَـمّ"}
+        </span>
+
+        {/* Role sub-label */}
+        <span className="inline-block text-[9px] sm:text-[10px] font-mono uppercase tracking-[0.2em] text-zinc-400 mb-5 sm:mb-6">
+          {isAr ? "مؤسس ومهندس معمارية الأنظمة" : "Founder & Lead Systems Architect"}
         </span>
 
         {/* ── Name — the anchor ── */}
@@ -95,14 +100,14 @@ export function ParallaxComponent() {
           {isAr ? "محمود طلعت" : "Mahmoud Talaat"}
         </h1>
 
-        {/* ── Italic Tagline ── */}
+        {/* ── TAM Slogan ── */}
         <p
           dir={isAr ? "rtl" : "ltr"}
           className="text-lg sm:text-xl md:text-2xl font-light italic text-[#dfcba9] mb-5 sm:mb-6"
         >
           {isAr
-            ? "أنظمة تصمد أمام التحولات."
-            : "Systems that outlast trends."}
+            ? "أنظمة تُنجز.. ورؤى تكتمل."
+            : "Systems Delivered. Vision Realized."}
         </p>
 
         {/* ── Subtitle ── */}
@@ -114,13 +119,13 @@ export function ParallaxComponent() {
             <>
               تقنية حكومية. سياحة ومحركات OTA. سجلات طبية إلكترونية. ذكاء اصطناعي.
               <br />
-              <span className="text-zinc-400">منظومات مؤسسية تعمل الآن في الخليج وأوروبا الشمالية.</span>
+              <span className="text-zinc-400">منظومات مؤسسية مُشغّلة الآن في الخليج وأوروبا الشمالية.</span>
             </>
           ) : (
             <>
               GovTech. Travel OTA. Clinical EMR. AI Automation.
               <br />
-              <span className="text-zinc-400">Enterprise-grade systems deployed across the Gulf and Northern Europe.</span>
+              <span className="text-zinc-400">Enterprise-grade systems live across the Gulf and Northern Europe.</span>
             </>
           )}
         </p>

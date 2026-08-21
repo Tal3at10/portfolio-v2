@@ -1,49 +1,52 @@
 import type { Metadata } from "next";
 import "./globals.css";
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://mahmoudtalaat.com";
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://tam-systems.com";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "Mahmoud Talaat — Systems Architect & Lead Software Engineer",
-    template: "%s | Mahmoud Talaat",
+    default: "TAM Systems | تَـمّ — Enterprise Software Engineering Studio",
+    template: "%s | TAM Systems",
   },
   description:
-    "Systems Architect & Senior Software Engineer. Architecting mission-critical platforms, high-concurrency engines, GDS travel suites, and custom AI RAG ecosystems.",
+    "TAM Systems (تَـمّ) — Enterprise software engineering studio architecting mission-critical platforms, SaaS infrastructure, cloud ecosystems, and AI systems for organizations in Saudi Arabia and the Gulf.",
   keywords: [
+    "TAM Systems",
+    "تَـمّ للأنظمة",
     "Mahmoud Talaat",
     "محمود طلعت",
-    "Systems Architect",
-    "Software Architect",
-    "Full-Stack Engineer",
-    "Next.js",
-    ".NET 8",
-    "Clean Architecture",
+    "Enterprise Systems",
+    "Software Architecture",
+    "Cloud Systems",
+    "SaaS",
     "AI Engineer",
     "RAG",
-    "Vector Database",
+    "GDS Travel Systems",
     "Saudi Arabia Tech",
-    "Egypt Tech",
+    "Gulf Tech",
+    "هندسة برمجيات",
+    "أنظمة سحابية",
   ],
-  authors: [{ name: "Mahmoud Talaat", url: siteUrl }],
-  creator: "Mahmoud Talaat",
+  authors: [{ name: "Mahmoud Talaat — TAM Systems", url: siteUrl }],
+  creator: "TAM Systems",
   openGraph: {
     type: "website",
     locale: "ar_SA",
     alternateLocale: ["en_US"],
     url: siteUrl,
-    title: "Mahmoud Talaat — Systems Architect & Lead Software Engineer",
+    title: "TAM Systems | تَـمّ — Systems Delivered. Vision Realized.",
     description:
-      "Enterprise Systems Architect & Senior Software Engineer. Mission-critical platforms, GDS travel systems, and custom AI ecosystems.",
-    siteName: "Mahmoud Talaat Portfolio",
+      "Enterprise software engineering studio architecting mission-critical platforms, SaaS infrastructure, and cloud ecosystems for Saudi Arabia and the Gulf.",
+    siteName: "TAM Systems",
+    images: [{ url: "/tam-logo.jpg", width: 1200, height: 630, alt: "TAM Systems — تَـمّ" }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Mahmoud Talaat — Systems Architect",
-    description:
-      "Architecting enterprise platforms, GDS travel integrations, and AI RAG ecosystems.",
-    creator: "@mahmoudtalaat",
+    title: "TAM Systems | تَـمّ",
+    description: "أنظمة تُنجز.. ورؤى تكتمل | Systems Delivered. Vision Realized.",
+    creator: "@TAMSystems",
+    images: ["/tam-logo.jpg"],
   },
   robots: {
     index: true,
