@@ -72,20 +72,21 @@ export const LumaBar = () => {
             <motion.div key={item.id} className="relative flex flex-col items-center group">
               <motion.button
                 onClick={() => handleClick(item, index)}
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.95 }}
-                className={`flex items-center justify-center w-8 h-8 sm:w-9 sm:h-9 rounded-full transition-all duration-200 relative z-10 ${
+                whileHover={{ scale: 1.04 }}
+                whileTap={{ scale: 0.96 }}
+                className={`flex items-center justify-center gap-1.5 px-2.5 md:px-3 h-8 sm:h-8.5 rounded-full transition-all duration-200 relative z-10 ${
                   isActive
                     ? "text-white bg-white/[0.18] border border-white/[0.3] shadow-[inset_0_1px_1px_rgba(255,255,255,0.4)]"
                     : "text-zinc-300 hover:text-white hover:bg-white/[0.08]"
                 }`}
                 aria-label={label}
               >
-                {item.icon}
+                <span className="shrink-0">{item.icon}</span>
+                <span className="hidden md:inline font-medium text-[11px] whitespace-nowrap">{label}</span>
               </motion.button>
 
-              {/* Instant High-Contrast Tooltip */}
-              <span className="absolute bottom-full md:bottom-auto md:top-full mb-2 md:mb-0 md:mt-2.5 px-2.5 py-1 text-[10px] font-mono font-medium tracking-tight rounded-lg bg-[#141419]/95 text-white border border-white/[0.15] shadow-2xl opacity-0 group-hover:opacity-100 transition-all duration-150 pointer-events-none whitespace-nowrap z-50">
+              {/* Instant High-Contrast Tooltip for mobile */}
+              <span className="md:hidden absolute bottom-full mb-2 px-2.5 py-1 text-[10px] font-mono font-medium tracking-tight rounded-lg bg-[#141419]/95 text-white border border-white/[0.15] shadow-2xl opacity-0 group-hover:opacity-100 transition-all duration-150 pointer-events-none whitespace-nowrap z-50">
                 {label}
               </span>
             </motion.div>

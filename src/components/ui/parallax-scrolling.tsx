@@ -11,7 +11,7 @@ import { AnimatedCounter } from "@/components/ui/animated-counter";
 // ─── Social Proof Data ────────────────────────────────────────────────────────
 const stats = [
   { value: 30, suffix: "+", labelEn: "Systems Built", labelAr: "منظومة مُشغّلة" },
-  { value: 990, suffix: "+", labelEn: "Schools Accredited", labelAr: "مدرسة معتمدة" },
+  { value: 6, suffix: "+", labelEn: "Global Markets", labelAr: "أسواق ودول" },
   { value: 5, suffix: "+", labelEn: "Years Exp", labelAr: "سنوات خبرة" },
 ];
 
@@ -83,61 +83,49 @@ export function ParallaxComponent() {
       <div className="relative z-10 h-full flex flex-col items-center justify-center text-center px-6 sm:px-10">
 
         {/* 1. Category Eyebrow Badge */}
-        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#dfcba9]/10 border border-[#dfcba9]/25 mb-5 shadow-[0_0_20px_rgba(223,203,169,0.12)]">
+        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#dfcba9]/10 border border-[#dfcba9]/25 mb-4 sm:mb-5 shadow-[0_0_20px_rgba(223,203,169,0.08)]">
           <IconSparkles className="size-3.5 text-[#dfcba9]" />
           <span className="text-[11px] sm:text-xs font-mono font-medium text-[#dfcba9] uppercase tracking-widest">
             {isAr ? "استوديو هندسة الأنظمة المؤسسية" : "Enterprise Systems Studio"}
           </span>
         </div>
 
-        {/* 2. Iconic Bilingual Brand Headline */}
+        {/* 2. Locale-Pure Main Headline */}
         <h1
-          dir="ltr"
-          className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-black tracking-tight text-white leading-none mb-4 sm:mb-5 drop-shadow-[0_2px_20px_rgba(0,0,0,0.8)]"
+          dir={isAr ? "rtl" : "ltr"}
+          className="text-4xl sm:text-6xl md:text-7xl lg:text-[5.25rem] font-black tracking-tight text-white leading-none mb-3 sm:mb-4 drop-shadow-[0_2px_24px_rgba(0,0,0,0.9)]"
         >
-          <span>TAM SYSTEMS</span>
-          <span className="text-[#dfcba9] font-light mx-2.5 sm:mx-4 opacity-80">|</span>
-          <span className="font-tajawal font-black">تَـمّ</span>
+          {isAr ? "تَـمّ للأنظمة البرمجية" : "TAM Systems"}
         </h1>
 
-        {/* 3. Slogan */}
+        {/* 3. Emotional Slogan Subtitle */}
         <p
           dir={isAr ? "rtl" : "ltr"}
-          className="text-base sm:text-lg md:text-xl font-light italic text-[#dfcba9] mb-5 sm:mb-6"
+          className="text-base sm:text-xl md:text-2xl font-light italic text-[#dfcba9] mb-4 sm:mb-5 tracking-wide drop-shadow-[0_2px_12px_rgba(0,0,0,0.8)]"
         >
           {isAr
             ? "أنظمة تُنجز.. ورؤى تكتمل."
             : "Systems Delivered. Vision Realized."}
         </p>
 
-        {/* 4. Pure Clean Subtitle (No background boxes) */}
+        {/* 4. Single Unified Description (Clear Scope + Geo Proof) */}
         <p
           dir={isAr ? "rtl" : "ltr"}
-          className="text-xs sm:text-sm md:text-[15px] text-zinc-300 font-normal max-w-lg sm:max-w-2xl leading-[1.85] mb-7 sm:mb-8 px-2"
+          className="text-xs sm:text-sm md:text-[15px] text-zinc-300 font-normal max-w-lg sm:max-w-2xl leading-[1.8] mb-7 sm:mb-8 px-2"
         >
-          {isAr ? (
-            <>
-              تقنية حكومية. سياحة ومحركات OTA. سجلات طبية إلكترونية. ذكاء اصطناعي.
-              <br />
-              <span className="text-zinc-400">منظومات مؤسسية مُشغّلة الآن في الخليج وأوروبا الشمالية.</span>
-            </>
-          ) : (
-            <>
-              GovTech. Travel OTA. Clinical EMR. AI Automation.
-              <br />
-              <span className="text-zinc-400">Enterprise-grade systems live across the Gulf and Northern Europe.</span>
-            </>
-          )}
+          {isAr
+            ? "نبني المنظومات السحابية المعقدة، منصات التقنية الحكومية، ومحركات الذكاء الاصطناعي للشركات في السعودية وأوروبا الشمالية."
+            : "Architecting mission-critical platforms, GovTech SaaS, and custom AI ecosystems across Saudi Arabia and Northern Europe."}
         </p>
 
-        {/* 5. Minimal Social Proof Strip with Counting Numbers */}
+        {/* 5. Minimal Social Proof Strip */}
         <div
           dir={isAr ? "rtl" : "ltr"}
-          className="flex items-center gap-3 sm:gap-5 mb-9 sm:mb-10"
+          className="flex items-center gap-3 sm:gap-5 mb-8 sm:mb-10"
         >
           {stats.map((stat, i) => (
             <React.Fragment key={stat.labelEn}>
-              <span className="text-[10px] sm:text-[11px] font-mono text-zinc-300 uppercase tracking-widest whitespace-nowrap font-medium flex items-center gap-1">
+              <span className="text-[10px] sm:text-[11px] font-mono text-zinc-300 uppercase tracking-widest whitespace-nowrap font-medium flex items-center gap-1.5">
                 <span className="text-white font-bold">
                   <AnimatedCounter value={stat.value} suffix={stat.suffix} duration={1.6} />
                 </span>
@@ -150,23 +138,21 @@ export function ParallaxComponent() {
           ))}
         </div>
 
-        {/* 6. CTA Buttons */}
+        {/* 6. High-Contrast Primary vs Secondary CTA Buttons */}
         <div className="flex flex-col sm:flex-row items-center justify-center gap-3.5 sm:gap-4 w-full sm:w-auto">
-          {/* Primary */}
-          <ShimmerButton
+          {/* Primary Solid Gold Button */}
+          <button
             onClick={scrollToCaseStudies}
-            className="w-52 h-11 shadow-[0_0_24px_rgba(223,203,169,0.25)] text-[13px] font-semibold cursor-pointer px-0 shrink-0"
+            className="group relative inline-flex items-center justify-center gap-2.5 px-8 py-3.5 rounded-full bg-[#dfcba9] hover:bg-white text-black font-bold text-xs sm:text-sm tracking-wide transition-all duration-300 hover:scale-105 shadow-[0_0_25px_rgba(223,203,169,0.35)] hover:shadow-[0_0_35px_rgba(255,255,255,0.5)] cursor-pointer w-full sm:w-auto"
           >
-            <span className="flex items-center justify-center gap-1.5 text-white">
-              <span>{isAr ? "استكشف المنظومات" : "Explore Systems"}</span>
-              <IconArrowDown className="size-3.5 animate-bounce" />
-            </span>
-          </ShimmerButton>
+            <span>{isAr ? "استكشف المنظومات" : "Explore Systems"}</span>
+            <IconArrowDown className="size-4 transition-transform duration-200 group-hover:translate-y-0.5" />
+          </button>
 
-          {/* Secondary */}
+          {/* Secondary Ghost Button */}
           <button
             onClick={scrollToContact}
-            className="w-52 h-11 shrink-0 flex items-center justify-center gap-2 text-[12px] font-semibold rounded-full border border-[#dfcba9]/40 bg-white/[0.06] hover:bg-white/[0.12] hover:border-[#dfcba9]/80 text-zinc-100 hover:text-white backdrop-blur-sm transition-all duration-300 cursor-pointer shadow-lg"
+            className="inline-flex items-center justify-center gap-2.5 px-7 py-3.5 rounded-full border border-white/20 hover:border-white/50 bg-white/[0.04] hover:bg-white/[0.09] text-zinc-200 hover:text-white backdrop-blur-md transition-all duration-300 cursor-pointer font-medium text-xs sm:text-sm w-full sm:w-auto"
           >
             <IconCalendarEvent className="size-4 text-[#dfcba9]" />
             <span>{isAr ? "طلب استشارة منظومة" : "Request Consultation"}</span>
