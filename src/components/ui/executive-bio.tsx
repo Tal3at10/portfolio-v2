@@ -61,19 +61,19 @@ export function ExecutiveBio() {
           {/* 2. Text & Identity Content */}
           <div className={`flex-1 w-full text-center ${isAr ? "lg:text-right" : "lg:text-left"}`} dir={isAr ? "rtl" : "ltr"}>
             
-            {/* Agency Badge */}
-            <div className="inline-flex items-center gap-2 px-3 sm:px-3.5 py-1 sm:py-1.5 rounded-full bg-[#dfcba9]/10 border border-[#dfcba9]/25 mb-2">
-              <Sparkles className="w-3.5 h-3.5 text-[#dfcba9]" />
-              <span className="text-[11px] sm:text-xs font-mono font-medium text-[#dfcba9] uppercase tracking-wider">
-                {isAr ? "تَـمّ | TAM Systems" : "TAM Systems | تَـمّ"}
-              </span>
-            </div>
-
-            {/* Role Header Badge */}
-            <div className="inline-flex items-center gap-2 px-3 sm:px-3.5 py-1 sm:py-1.5 rounded-full bg-white/[0.04] border border-white/10 mb-4 sm:mb-5">
-              <span className="text-[11px] sm:text-xs font-mono font-medium text-zinc-300 uppercase tracking-wider">
-                {isAr ? "مؤسس ومهندس معمارية الأنظمة" : "Founder & Lead Systems Architect"}
-              </span>
+            {/* Agency & Leadership Badges (Flex-wrapped with clean gap) */}
+            <div className={`flex flex-wrap items-center justify-center ${isAr ? "lg:justify-start" : "lg:justify-start"} gap-2.5 mb-5 sm:mb-6`}>
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#dfcba9]/10 border border-[#dfcba9]/25 shadow-[0_0_15px_rgba(223,203,169,0.08)]">
+                <Sparkles className="w-3.5 h-3.5 text-[#dfcba9]" />
+                <span className="text-[11px] sm:text-xs font-mono font-bold text-[#dfcba9] uppercase tracking-wider">
+                  {isAr ? "تَـمّ | TAM Systems" : "TAM Systems | تَـمّ"}
+                </span>
+              </div>
+              <div className="inline-flex items-center px-3.5 py-1.5 rounded-full bg-white/[0.05] border border-white/10 text-zinc-300">
+                <span className="text-[10px] sm:text-xs font-mono font-medium uppercase tracking-wider">
+                  {isAr ? "مؤسس وقائد معمارية الأنظمة" : "Founder & Lead Systems Architect"}
+                </span>
+              </div>
             </div>
 
             {/* Main Headline */}

@@ -82,22 +82,23 @@ export function ParallaxComponent() {
       {/* ── Layer 4: Hero Content ── */}
       <div className="relative z-10 h-full flex flex-col items-center justify-center text-center px-6 sm:px-10">
 
-        {/* Agency Eyebrow */}
-        <span className="inline-block text-[10px] sm:text-xs font-mono uppercase tracking-[0.25em] text-[#dfcba9] mb-3 font-semibold">
-          {isAr ? "تَـمّ | TAM Systems" : "TAM Systems | تَـمّ"}
-        </span>
+        {/* Unified Luxury Agency Badge */}
+        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#dfcba9]/10 border border-[#dfcba9]/25 mb-6 shadow-[0_0_20px_rgba(223,203,169,0.1)]">
+          <span className="text-[11px] sm:text-xs font-mono font-bold text-[#dfcba9] uppercase tracking-wider">
+            {isAr ? "تَـمّ | TAM SYSTEMS" : "TAM SYSTEMS | تَـمّ"}
+          </span>
+          <span className="w-1 h-1 rounded-full bg-[#dfcba9]/60" />
+          <span className="text-[10px] sm:text-[11px] font-mono text-zinc-300 uppercase tracking-widest">
+            {isAr ? "استوديو هندسة المنظومات" : "Enterprise Systems Studio"}
+          </span>
+        </div>
 
-        {/* Role sub-label */}
-        <span className="inline-block text-[9px] sm:text-[10px] font-mono uppercase tracking-[0.2em] text-zinc-400 mb-5 sm:mb-6">
-          {isAr ? "مؤسس ومهندس معمارية الأنظمة" : "Founder & Lead Systems Architect"}
-        </span>
-
-        {/* ── Name — the anchor ── */}
+        {/* ── Brand Name Headline ── */}
         <h1
           dir={isAr ? "rtl" : "ltr"}
           className="text-5xl sm:text-6xl md:text-7xl lg:text-[5.5rem] font-black tracking-tight text-white leading-none mb-4 sm:mb-5 drop-shadow-[0_2px_20px_rgba(0,0,0,0.8)]"
         >
-          {isAr ? "محمود طلعت" : "Mahmoud Talaat"}
+          {isAr ? "تَـمّ للأنظمة البرمجية" : "TAM Systems"}
         </h1>
 
         {/* ── TAM Slogan ── */}
@@ -144,7 +145,7 @@ export function ParallaxComponent() {
                 <span>{isAr ? stat.labelAr : stat.labelEn}</span>
               </span>
               {i < stats.length - 1 && (
-                <span className="text-[#dfcba9]/50 text-xs select-none">·</span>
+                <span className="text-zinc-600 font-mono text-xs select-none">•</span>
               )}
             </React.Fragment>
           ))}
@@ -158,7 +159,7 @@ export function ParallaxComponent() {
             className="w-56 h-11 shadow-[0_0_24px_rgba(223,203,169,0.25)] text-[13px] font-semibold cursor-pointer px-0 shrink-0"
           >
             <span className="flex items-center justify-center gap-1.5 text-white">
-              <span>{isAr ? "استكشف المشاريع" : "Explore My Work"}</span>
+              <span>{isAr ? "استكشف المنظومات" : "Explore Systems"}</span>
               <IconArrowDown className="size-3.5 animate-bounce" />
             </span>
           </ShimmerButton>
@@ -169,7 +170,7 @@ export function ParallaxComponent() {
             className="w-56 h-11 shrink-0 flex items-center justify-center gap-2 text-[12px] font-semibold rounded-full border border-[#dfcba9]/40 bg-white/[0.06] hover:bg-white/[0.12] hover:border-[#dfcba9]/80 text-zinc-100 hover:text-white backdrop-blur-sm transition-all duration-300 cursor-pointer shadow-lg"
           >
             <IconCalendarEvent className="size-4 text-[#dfcba9]" />
-            <span>{isAr ? "احجز استشارة معمارية" : "Request Consultation"}</span>
+            <span>{isAr ? "طلب استشارة منظومة" : "Request Consultation"}</span>
           </button>
         </div>
 
