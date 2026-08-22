@@ -40,20 +40,20 @@ export async function generateMetadata({
 
   if (isRtl) {
     return {
-      title: "تَـمّ | TAM Systems — هندسة وتطوير المنظومات المؤسسية والسحابية",
+      title: "تَـمّ للأنظمة | TAM Systems — هندسة البرمجيات والمنظومات المؤسسية",
       description:
-        "تَـمّ (TAM Systems) — بيت خبرة هندسي متخصص في بناء وتطوير المنظومات السحابية المعقدة، منصات الأعمال المؤسسية، والحلول الذكية للشركات في السعودية والخليج.",
+        "تَـمّ للأنظمة (TAM Systems) — بيت خبرة وكيان هندسي متخصص في بناء وتطوير المنظومات المؤسسية المتقدمة، منصات الأعمال، وحلول الذكاء الاصطناعي في السعودية والخليج.",
       openGraph: {
-        title: "تَـمّ | TAM Systems — أنظمة تُنجز.. ورؤى تكتمل",
+        title: "تَـمّ للأنظمة | TAM Systems — أنظمة تُنجز.. ورؤى تكتمل",
         description:
-          "بيت خبرة هندسي متخصص في بناء وتطوير المنظومات السحابية المعقدة، منصات الأعمال المؤسسية، والحلول الذكية للشركات في السعودية والخليج.",
+          "بيت خبرة وكيان هندسي متخصص في بناء وتطوير المنظومات المؤسسية المتقدمة، منصات الأعمال، وحلول الذكاء الاصطناعي في السعودية والخليج.",
         locale: "ar_SA",
         type: "website",
-        images: [{ url: "/tam-logo.jpg", width: 1200, height: 630, alt: "TAM Systems — تَـمّ للأنظمة" }],
+        images: [{ url: "/tam-logo.jpg", width: 1200, height: 630, alt: "تَـمّ للأنظمة | TAM Systems" }],
       },
       twitter: {
         card: "summary_large_image",
-        title: "تَـمّ | TAM Systems",
+        title: "تَـمّ للأنظمة | TAM Systems",
         description: "أنظمة تُنجز.. ورؤى تكتمل",
         images: ["/tam-logo.jpg"],
       },
@@ -61,16 +61,16 @@ export async function generateMetadata({
   }
 
   return {
-    title: "TAM Systems | تَـمّ — Enterprise Software & Cloud Engineering",
+    title: "TAM Systems | تَـمّ — Enterprise Software & Systems Engineering",
     description:
-      "TAM Systems is an enterprise engineering partner architecting mission-critical platforms, SaaS infrastructure, and bespoke cloud ecosystems for organizations across Saudi Arabia and the Gulf.",
+      "TAM Systems is an enterprise engineering partner architecting mission-critical platforms, SaaS infrastructure, and bespoke digital ecosystems for organizations across Saudi Arabia and the Gulf.",
     openGraph: {
       title: "TAM Systems | تَـمّ — Systems Delivered. Vision Realized.",
       description:
-        "Enterprise engineering partner architecting mission-critical platforms, SaaS infrastructure, and cloud ecosystems for Saudi Arabia and the Gulf.",
+        "Enterprise engineering partner architecting mission-critical platforms, SaaS infrastructure, and digital ecosystems for Saudi Arabia and the Gulf.",
       locale: "en_US",
       type: "website",
-      images: [{ url: "/tam-logo.jpg", width: 1200, height: 630, alt: "TAM Systems — Enterprise Software Engineering" }],
+      images: [{ url: "/tam-logo.jpg", width: 1200, height: 630, alt: "TAM Systems — Enterprise Software & Systems Engineering" }],
     },
     twitter: {
       card: "summary_large_image",

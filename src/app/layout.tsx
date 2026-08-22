@@ -6,11 +6,11 @@ const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://tam-systems.com";
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "TAM Systems | تَـمّ — Enterprise Software & Cloud Engineering",
+    default: "تَـمّ للأنظمة | TAM Systems — Enterprise Software & Systems Engineering",
     template: "%s | TAM Systems",
   },
   description:
-    "TAM Systems (تَـمّ) — Enterprise engineering partner architecting mission-critical platforms, SaaS infrastructure, cloud ecosystems, and AI systems for organizations in Saudi Arabia and the Gulf.",
+    "تَـمّ للأنظمة (TAM Systems) — Enterprise engineering partner architecting mission-critical platforms, SaaS infrastructure, and bespoke digital ecosystems for organizations across Saudi Arabia and the Gulf.",
   keywords: [
     "TAM Systems",
     "تَـمّ للأنظمة",

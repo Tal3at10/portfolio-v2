@@ -86,7 +86,7 @@ export function ParallaxComponent() {
         <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#dfcba9]/10 border border-[#dfcba9]/25 mb-4 sm:mb-5 shadow-[0_0_20px_rgba(223,203,169,0.08)]">
           <IconSparkles className="size-3.5 text-[#dfcba9]" />
           <span className="text-[11px] sm:text-xs font-mono font-medium text-[#dfcba9] uppercase tracking-widest">
-            {isAr ? "هندسة وتطوير المنظومات الحيوية" : "Mission-Critical Software & Cloud Engineering"}
+            {isAr ? "هندسة البرمجيات والمنظومات المؤسسية" : "Enterprise Software & Systems Engineering"}
           </span>
         </div>
 
@@ -108,14 +108,14 @@ export function ParallaxComponent() {
             : "Systems Delivered. Vision Realized."}
         </p>
 
-        {/* 4. Single Unified Description (Natural, Authentic & Authoritative) */}
+        {/* 4. Single Unified Description (100% Native, Clean Arabic) */}
         <p
           dir={isAr ? "rtl" : "ltr"}
           className="text-xs sm:text-sm md:text-[15px] text-zinc-100 font-medium max-w-lg sm:max-w-xl leading-[1.85] mb-7 sm:mb-8 px-2 drop-shadow-sm"
         >
           {isAr
-            ? "نطور المنظومات السحابية المتقدمة، منصات التقنية الحكومية، وحلول الذكاء الاصطناعي للشركات والجهات الكبرى في السعودية والخليج."
-            : "Architecting mission-critical platforms, GovTech solutions, and enterprise AI ecosystems across Saudi Arabia and the Gulf."}
+            ? "نطور المنصات الرقمية المتقدمة، أنظمة التقنية الحكومية، ومحركات الذكاء الاصطناعي للشركات والمؤسسات في السعودية والخليج."
+            : "Architecting enterprise platforms, GovTech systems, and custom AI ecosystems across Saudi Arabia and the Gulf."}
         </p>
 
         {/* 5. Minimal Social Proof Strip */}
