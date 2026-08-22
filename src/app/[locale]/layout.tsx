@@ -40,16 +40,16 @@ export async function generateMetadata({
 
   if (isRtl) {
     return {
-      title: "تَـمّ | TAM Systems — هندسة الأنظمة السحابية والمنظومات المؤسسية",
+      title: "تَـمّ | TAM Systems — هندسة وتطوير المنظومات المؤسسية والسحابية",
       description:
-        "تَـمّ (TAM Systems) — استوديو هندسي متخصص في بناء الأنظمة السحابية المعقدة، منصات الأعمال المؤسسية، والتطبيقات الذكية للشركات والمؤسسات في السعودية والخليج.",
+        "تَـمّ (TAM Systems) — بيت خبرة هندسي متخصص في بناء وتطوير المنظومات السحابية المعقدة، منصات الأعمال المؤسسية، والحلول الذكية للشركات في السعودية والخليج.",
       openGraph: {
         title: "تَـمّ | TAM Systems — أنظمة تُنجز.. ورؤى تكتمل",
         description:
-          "استوديو هندسي متخصص في بناء الأنظمة السحابية المعقدة، منصات الأعمال المؤسسية، والتطبيقات الذكية للشركات والمؤسسات.",
+          "بيت خبرة هندسي متخصص في بناء وتطوير المنظومات السحابية المعقدة، منصات الأعمال المؤسسية، والحلول الذكية للشركات في السعودية والخليج.",
         locale: "ar_SA",
         type: "website",
-        images: [{ url: "/tam-logo.jpg", width: 1200, height: 630, alt: "TAM Systems — تَـمّ للأنظمة البرمجية" }],
+        images: [{ url: "/tam-logo.jpg", width: 1200, height: 630, alt: "TAM Systems — تَـمّ للأنظمة" }],
       },
       twitter: {
         card: "summary_large_image",
@@ -61,13 +61,13 @@ export async function generateMetadata({
   }
 
   return {
-    title: "TAM Systems | تَـمّ — Enterprise Software Engineering Studio",
+    title: "TAM Systems | تَـمّ — Enterprise Software & Cloud Engineering",
     description:
-      "TAM Systems is an enterprise software engineering studio architecting mission-critical platforms, SaaS infrastructure, and bespoke cloud ecosystems for organizations across Saudi Arabia and the Gulf.",
+      "TAM Systems is an enterprise engineering partner architecting mission-critical platforms, SaaS infrastructure, and bespoke cloud ecosystems for organizations across Saudi Arabia and the Gulf.",
     openGraph: {
       title: "TAM Systems | تَـمّ — Systems Delivered. Vision Realized.",
       description:
-        "Enterprise software engineering studio architecting mission-critical platforms, SaaS infrastructure, and cloud ecosystems for Saudi Arabia and the Gulf.",
+        "Enterprise engineering partner architecting mission-critical platforms, SaaS infrastructure, and cloud ecosystems for Saudi Arabia and the Gulf.",
       locale: "en_US",
       type: "website",
       images: [{ url: "/tam-logo.jpg", width: 1200, height: 630, alt: "TAM Systems — Enterprise Software Engineering" }],
@@ -102,7 +102,7 @@ export default async function LocaleLayout({
     "@context": "https://schema.org",
     "@type": "Organization",
     name: "TAM Systems",
-    alternateName: "تَـمّ للأنظمة البرمجية",
+    alternateName: "تَـمّ للأنظمة",
     url: "https://tam-systems.com",
     logo: "https://tam-systems.com/tam-logo.jpg",
     founder: {
@@ -110,12 +110,12 @@ export default async function LocaleLayout({
       name: "Mahmoud Talaat",
       alternateName: "محمود طلعت",
       jobTitle: isRtl
-        ? "مؤسس ومهندس معمارية الأنظمة"
+        ? "مؤسس وقائد معمارية الأنظمة"
         : "Founder & Lead Systems Architect",
     },
     description: isRtl
-      ? "تَـمّ (TAM Systems) — استوديو هندسي متخصص في بناء الأنظمة السحابية المعقدة، منصات الأعمال المؤسسية، والتطبيقات الذكية."
-      : "TAM Systems is an enterprise software engineering studio architecting mission-critical platforms, SaaS infrastructure, and cloud ecosystems.",
+      ? "تَـمّ (TAM Systems) — بيت خبرة هندسي متخصص في بناء وتطوير المنظومات السحابية المعقدة، منصات الأعمال المؤسسية، والحلول الذكية."
+      : "TAM Systems is an enterprise engineering partner architecting mission-critical platforms, SaaS infrastructure, and cloud ecosystems.",
     areaServed: ["SA", "AE", "KW", "QA", "BH", "EG", "SE"],
     knowsAbout: [
       "Enterprise Software Architecture",
@@ -147,7 +147,9 @@ export default async function LocaleLayout({
       }}
     >
       <head>
+        <link rel="icon" href="/favicon.ico" sizes="any" />
         <link rel="icon" href="/icon.svg" type="image/svg+xml" />
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}

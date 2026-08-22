@@ -1,1 +1,13 @@
-﻿<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32"><rect width="32" height="32" rx="8" fill="#0a0a0d" /><rect x="1" y="1" width="30" height="30" rx="7" fill="none" stroke="#ffffff" stroke-opacity="0.1" stroke-width="1" /><path d="M7 23V9L12 16L17 9V23" fill="none" stroke="#ffffff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/><path d="M21 11H27M24 11V23" fill="none" stroke="#dfcba9" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <rect width="64" height="64" rx="16" fill="#09090b" />
+  <rect x="1.5" y="1.5" width="61" height="61" rx="14.5" fill="none" stroke="#dfcba9" stroke-opacity="0.25" stroke-width="1.5" />
+  
+  <!-- T Crossbar with Palm Leaf Curve -->
+  <path d="M14 20C22 18.5 42 18.5 50 20" stroke="#dfcba9" stroke-width="5" stroke-linecap="round" fill="none"/>
+  
+  <!-- T Stem + Dynamic Checkmark (تَـمّ) -->
+  <path d="M32 20V46M32 46L22 36" stroke="#dfcba9" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  
+  <!-- Modern Geometric Accent Diamond -->
+  <polygon points="46,30 49,34 46,38 43,34" fill="#dfcba9" opacity="0.85" />
+</svg>
