@@ -10,7 +10,7 @@ import { AnimatedCounter } from "@/components/ui/animated-counter";
 
 // ─── Social Proof Data ────────────────────────────────────────────────────────
 const stats = [
-  { value: 30, suffix: "+", labelEn: "Systems Built", labelAr: "منظومة مُشغّلة" },
+  { value: 30, suffix: "+", labelEn: "Projects Delivered", labelAr: "مشروع منجز" },
   { value: 6, suffix: "+", labelEn: "Global Markets", labelAr: "أسواق ودول" },
   { value: 5, suffix: "+", labelEn: "Years Exp", labelAr: "سنوات خبرة" },
 ];
@@ -147,7 +147,7 @@ export function ParallaxComponent() {
             onClick={scrollToCaseStudies}
             className="group relative inline-flex items-center justify-center gap-2.5 px-8 py-3.5 rounded-full bg-[#dfcba9] hover:bg-white text-black font-bold text-xs sm:text-sm tracking-wide transition-all duration-300 hover:scale-105 shadow-[0_0_25px_rgba(223,203,169,0.35)] hover:shadow-[0_0_35px_rgba(255,255,255,0.5)] cursor-pointer w-full sm:w-auto"
           >
-            <span>{isAr ? "استكشف المنظومات" : "Explore Systems"}</span>
+            <span>{isAr ? "استعرض الأعمال" : "Explore Projects"}</span>
             <IconArrowDown className="size-4 transition-transform duration-200 group-hover:translate-y-0.5" />
           </button>
 
@@ -157,7 +157,7 @@ export function ParallaxComponent() {
             className="inline-flex items-center justify-center gap-2.5 px-7 py-3.5 rounded-full border border-white/20 hover:border-white/50 bg-white/[0.04] hover:bg-white/[0.09] text-zinc-200 hover:text-white backdrop-blur-md transition-all duration-300 cursor-pointer font-medium text-xs sm:text-sm w-full sm:w-auto"
           >
             <IconCalendarEvent className="size-4 text-[#dfcba9]" />
-            <span>{isAr ? "طلب استشارة منظومة" : "Request Consultation"}</span>
+            <span>{isAr ? "طلب استشارة تقنية" : "Request Consultation"}</span>
           </button>
         </div>
 

@@ -314,15 +314,15 @@ export function SystemsBento() {
         <div className="mb-12 flex flex-col md:flex-row md:items-end justify-between gap-6 border-b border-white/[0.08] pb-8">
           <div>
             <p className="text-[10px] sm:text-xs font-mono uppercase tracking-[0.25em] text-[#dfcba9] mb-3 font-medium">
-              {isAr ? "سجل الأنظمة والمعماريات" : "Architecture Registry & Systems"}
+              {isAr ? "سجل الأعمال والمشاريع" : "Project Registry & Systems"}
             </p>
             <h2 className="text-3xl sm:text-5xl font-black tracking-tight text-white leading-tight">
-              {isAr ? "كافة المنظومات المنجزة" : "Engineered Systems Catalog"}
+              {isAr ? "أعمال ومشاريع تم إنجازها" : "Delivered Projects & Systems"}
             </h2>
           </div>
           <div className="text-left md:text-right shrink-0">
             <p className="text-[10px] font-mono text-zinc-400 uppercase tracking-widest font-medium">
-              {isAr ? "الأنظمة المعروضة" : "Filtered Systems"}
+              {isAr ? "المشاريع المعروضة" : "Filtered Projects"}
             </p>
             <p className="text-4xl font-black text-[#dfcba9]/40 font-mono mt-0.5">
               {String(filteredProjects.length).padStart(2, "0")}{" "}

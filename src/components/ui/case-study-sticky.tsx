@@ -288,7 +288,7 @@ function ProjectStickySection({ project, isAr }: { project: ProjectCase; isAr: b
                         : "01. The Challenge"
                       : idx === 1
                       ? isAr
-                        ? "02. بناء المنظومة والمعمارية"
+                        ? "02. الحل التقني والمعمارية"
                         : "02. The Architecture"
                       : isAr
                       ? "03. الأثر والنتائج بالأرقام"

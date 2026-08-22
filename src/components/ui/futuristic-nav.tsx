@@ -32,9 +32,9 @@ export const LumaBar = () => {
   const items: NavItem[] = [
     { id: 0, icon: <IconHome size={19} strokeWidth={1.8} />, labelAr: "الرئيسية", labelEn: "Home", targetId: "hero" },
     { id: 1, icon: <IconCpu size={19} strokeWidth={1.8} />, labelAr: "دراسات الحالة", labelEn: "Case Studies", targetId: "case-studies" },
-    { id: 2, icon: <IconLayersIntersect size={19} strokeWidth={1.8} />, labelAr: "كتالوج المنظومات", labelEn: "Systems", targetId: "systems" },
+    { id: 2, icon: <IconLayersIntersect size={19} strokeWidth={1.8} />, labelAr: "المشاريع", labelEn: "Projects", targetId: "systems" },
     { id: 3, icon: <IconSparkles size={19} strokeWidth={1.8} />, labelAr: "منهجية العمل", labelEn: "Methodology", targetId: "methodology" },
-    { id: 4, icon: <IconSend size={19} strokeWidth={1.8} />, labelAr: "تواصل وحجز", labelEn: "Contact", targetId: "contact" },
+    { id: 4, icon: <IconSend size={19} strokeWidth={1.8} />, labelAr: "تواصل معنا", labelEn: "Contact", targetId: "contact" },
     { id: 5, icon: <IconWorld size={19} strokeWidth={1.8} />, labelAr: "English", labelEn: "عربي", isLocaleSwitch: true },
   ];
 
