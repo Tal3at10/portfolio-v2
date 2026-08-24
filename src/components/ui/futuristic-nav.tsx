@@ -9,6 +9,7 @@ import {
   IconSparkles,
   IconSend,
   IconWorld,
+  IconStar,
 } from "@tabler/icons-react";
 import { useLocale } from "next-intl";
 import { usePathname, useRouter } from "@/i18n/routing";
@@ -34,8 +35,9 @@ export const LumaBar = () => {
     { id: 1, icon: <IconCpu size={19} strokeWidth={1.8} />, labelAr: "دراسات الحالة", labelEn: "Case Studies", targetId: "case-studies" },
     { id: 2, icon: <IconLayersIntersect size={19} strokeWidth={1.8} />, labelAr: "المشاريع", labelEn: "Projects", targetId: "systems" },
     { id: 3, icon: <IconSparkles size={19} strokeWidth={1.8} />, labelAr: "منهجية العمل", labelEn: "Methodology", targetId: "methodology" },
-    { id: 4, icon: <IconSend size={19} strokeWidth={1.8} />, labelAr: "تواصل معنا", labelEn: "Contact", targetId: "contact" },
-    { id: 5, icon: <IconWorld size={19} strokeWidth={1.8} />, labelAr: "English", labelEn: "عربي", isLocaleSwitch: true },
+    { id: 4, icon: <IconStar size={19} strokeWidth={1.8} />, labelAr: "آراء العملاء", labelEn: "Testimonials", targetId: "testimonials" },
+    { id: 5, icon: <IconSend size={19} strokeWidth={1.8} />, labelAr: "تواصل معنا", labelEn: "Contact", targetId: "contact" },
+    { id: 6, icon: <IconWorld size={19} strokeWidth={1.8} />, labelAr: "English", labelEn: "عربي", isLocaleSwitch: true },
   ];
 
   const handleClick = (item: NavItem, index: number) => {

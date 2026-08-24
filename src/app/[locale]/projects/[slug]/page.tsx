@@ -17,6 +17,11 @@ import {
   IconShieldCheck,
   IconCalendarEvent,
   IconExternalLink,
+  IconChevronRight,
+  IconTrendingUp,
+  IconBrain,
+  IconBulb,
+  IconScale,
 } from "@tabler/icons-react";
 
 export function generateStaticParams() {
@@ -288,23 +293,133 @@ export default async function ProjectDetailPage({
         />
       </div>
 
-      {/* 3. ARCHITECTURE SECTION (Full Width System Architecture Beam) */}
-      <section className="py-14 sm:py-20 px-4 sm:px-12 max-w-7xl mx-auto border-t border-white/[0.08]">
-        <div className="mb-8 sm:mb-12 text-center">
-          <h2 className="text-xl sm:text-4xl font-bold text-white tracking-tight mb-2 sm:mb-3">
-            {isAr ? "تدفق البيانات والربط المركزي" : "Data Flow & Integration Pipeline"}
-          </h2>
-          <p className="text-xs sm:text-sm text-zinc-400 max-w-xl mx-auto leading-relaxed">
-            {isAr
-              ? "مخطط يوضح ترابط النواة المركزية مع الذكاء الاصطناعي ومزودي البيانات الخارجية."
-              : "Live visual pipeline demonstrating real-time data exchange across services, AI engines, and databases."}
-          </p>
-        </div>
+      {/* 3. CHALLENGE POINTS + BEFORE/AFTER SECTION */}
+      {(project.challenge_points_ar?.length > 0 || project.before_after?.length > 0) && (
+        <section className="py-14 sm:py-20 px-4 sm:px-12 border-t border-white/[0.08]">
+          <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16">
 
-        <SystemArchitectureFlow isAr={isAr} />
-      </section>
+            {/* Challenge Points */}
+            {project.challenge_points_ar?.length > 0 && (
+              <div>
+                <div className="flex items-center gap-2 mb-5 sm:mb-7">
+                  <div className="w-8 h-8 rounded-lg bg-red-400/10 border border-red-400/20 flex items-center justify-center">
+                    <IconScale className="w-4 h-4 text-red-400" />
+                  </div>
+                  <h2 className="text-lg sm:text-2xl font-bold text-white">
+                    {isAr ? "التحديات التشغيلية" : "Operational Challenges"}
+                  </h2>
+                </div>
+                <ul className="space-y-3">
+                  {(isAr ? project.challenge_points_ar : project.challenge_points_en).map((point, i) => (
+                    <li key={i} className="flex items-start gap-3 text-sm text-zinc-300 leading-relaxed">
+                      <IconChevronRight className="w-4 h-4 text-red-400 mt-0.5 shrink-0" />
+                      <span dir="auto">{point}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
 
-      {/* 4. INTERACTIVE SCREENSHOT SHOWCASE */}
+            {/* Before / After Table */}
+            {project.before_after?.length > 0 && (
+              <div>
+                <div className="flex items-center gap-2 mb-5 sm:mb-7">
+                  <div className="w-8 h-8 rounded-lg bg-emerald-400/10 border border-emerald-400/20 flex items-center justify-center">
+                    <IconTrendingUp className="w-4 h-4 text-emerald-400" />
+                  </div>
+                  <h2 className="text-lg sm:text-2xl font-bold text-white">
+                    {isAr ? "قبل وبعد التطبيق" : "Before & After"}
+                  </h2>
+                </div>
+                <div className="overflow-hidden rounded-xl border border-white/[0.08]">
+                  <table className="w-full text-xs sm:text-sm">
+                    <thead>
+                      <tr className="border-b border-white/[0.08] bg-white/[0.02]">
+                        <th className={`py-3 px-4 text-zinc-400 font-mono font-medium ${isAr ? "text-right" : "text-left"}`}>
+                          {isAr ? "المقياس" : "Metric"}
+                        </th>
+                        <th className="py-3 px-4 text-red-400 font-mono font-medium text-center">
+                          {isAr ? "قبل" : "Before"}
+                        </th>
+                        <th className="py-3 px-4 text-emerald-400 font-mono font-medium text-center">
+                          {isAr ? "بعد" : "After"}
+                        </th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {project.before_after.map((row, i) => (
+                        <tr key={i} className="border-b border-white/[0.05] last:border-0 hover:bg-white/[0.02] transition-colors">
+                          <td className={`py-3.5 px-4 text-zinc-200 font-medium ${isAr ? "text-right" : "text-left"}`} dir="auto">
+                            {isAr ? row.metric_ar : row.metric_en}
+                          </td>
+                          <td className="py-3.5 px-4 text-red-300/80 text-center" dir="auto">
+                            {isAr ? row.before_ar : row.before_en}
+                          </td>
+                          <td className="py-3.5 px-4 text-emerald-300 text-center font-semibold" dir="auto">
+                            {isAr ? row.after_ar : row.after_en}
+                          </td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            )}
+          </div>
+        </section>
+      )}
+
+      {/* 4. ARCHITECTURAL DECISIONS */}
+      {project.decisions?.length > 0 && (
+        <section className="py-14 sm:py-20 px-4 sm:px-12 border-t border-white/[0.08]">
+          <div className="max-w-7xl mx-auto">
+            <div className="flex items-center gap-2 mb-8 sm:mb-10">
+              <div className="w-8 h-8 rounded-lg bg-[#dfcba9]/10 border border-[#dfcba9]/20 flex items-center justify-center">
+                <IconBrain className="w-4 h-4 text-[#dfcba9]" />
+              </div>
+              <h2 className="text-lg sm:text-2xl font-bold text-white">
+                {isAr ? "القرارات المعمارية والمفاضلات" : "Architectural Decisions & Trade-offs"}
+              </h2>
+            </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5">
+              {project.decisions.map((d, i) => (
+                <div key={i} className="p-5 sm:p-6 rounded-xl bg-white/[0.02] border border-white/[0.08] hover:border-[#dfcba9]/20 transition-all">
+                  <p className="text-sm font-bold text-[#dfcba9] mb-3 leading-snug" dir="auto">
+                    {isAr ? d.decision_ar : d.decision_en}
+                  </p>
+                  <p className="text-xs text-zinc-300 leading-relaxed mb-2" dir="auto">
+                    <span className="text-zinc-500 mr-1">{isAr ? "السبب:" : "Why:"}</span>
+                    {isAr ? d.reason_ar : d.reason_en}
+                  </p>
+                  <p className="text-xs text-zinc-400 leading-relaxed" dir="auto">
+                    <span className="text-zinc-500 mr-1">{isAr ? "المفاضلة:" : "Trade-off:"}</span>
+                    {isAr ? d.tradeoff_ar : d.tradeoff_en}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* 5. ARCHITECTURE FLOW */}
+      {project.architecture_flow?.length > 0 && (
+        <section className="py-14 sm:py-20 px-4 sm:px-12 max-w-7xl mx-auto border-t border-white/[0.08]">
+          <div className="mb-8 sm:mb-12 text-center">
+            <h2 className="text-xl sm:text-4xl font-bold text-white tracking-tight mb-2 sm:mb-3">
+              {isAr ? "تدفق البيانات والربط المركزي" : "Data Flow & Integration Pipeline"}
+            </h2>
+            <p className="text-xs sm:text-sm text-zinc-400 max-w-xl mx-auto leading-relaxed">
+              {isAr
+                ? "مخطط يوضح ترابط النواة المركزية مع الذكاء الاصطناعي ومزودي البيانات الخارجية."
+                : "Live visual pipeline demonstrating real-time data exchange across services, AI engines, and databases."}
+            </p>
+          </div>
+          <SystemArchitectureFlow isAr={isAr} />
+        </section>
+      )}
+
+      {/* 6. INTERACTIVE SCREENSHOT SHOWCASE */}
       {showcaseItems.length > 0 && (
         <InteractiveScreenshotShowcase
           titleAr={`معرض المنظومات والشاشات: ${project.title_ar}`}
@@ -316,7 +431,25 @@ export default async function ProjectDetailPage({
         />
       )}
 
-      {/* 5. FOOTER & CTA */}
+      {/* 7. LESSONS LEARNED */}
+      {(project.lessons_ar || project.lessons_en) && (
+        <section className="py-14 sm:py-20 px-4 sm:px-12 border-t border-white/[0.08]">
+          <div className="max-w-3xl mx-auto text-center">
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-indigo-400/10 border border-indigo-400/20 mb-5">
+              <IconBulb className="w-3.5 h-3.5 text-indigo-400" />
+              <span className="text-[11px] font-mono font-bold text-indigo-400 uppercase tracking-widest">
+                {isAr ? "الدروس المعمارية المستفادة" : "Architectural Lessons Learned"}
+              </span>
+            </div>
+            <blockquote className="text-sm sm:text-base text-zinc-300 leading-[1.9] italic" dir="auto">
+              {isAr ? `"${project.lessons_ar}"` : `"${project.lessons_en}"`}
+            </blockquote>
+            <p className="mt-4 text-xs text-zinc-600 font-mono">— Mahmoud Talaat, Lead Systems Architect</p>
+          </div>
+        </section>
+      )}
+
+      {/* 8. FOOTER & CTA */}
       <footer className="py-14 sm:py-20 px-4 sm:px-12 max-w-7xl mx-auto border-t border-white/[0.08]">
         <div className="flex flex-col sm:flex-row items-center justify-between gap-6 sm:gap-8">
           {prevProject ? (
@@ -332,7 +465,7 @@ export default async function ProjectDetailPage({
 
           <div className="flex flex-col sm:flex-row items-center gap-3 w-full sm:w-auto">
             <a
-              href="https://wa.me/201018318042"
+              href="https://wa.me/201108745372"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center justify-center gap-2 px-5 py-3 rounded-full bg-white text-black font-semibold text-xs hover:bg-zinc-200 transition-all cursor-pointer shadow-lg w-full sm:w-auto"
@@ -341,7 +474,7 @@ export default async function ProjectDetailPage({
               <span>{isAr ? "ناقش مشروعك مع المعماري" : "Discuss on WhatsApp"}</span>
             </a>
             <a
-              href="https://wa.me/201018318042"
+              href="https://wa.me/201108745372"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center justify-center gap-2 px-5 py-3 rounded-full border border-white/20 bg-zinc-950 text-white hover:bg-white hover:text-black font-semibold text-xs transition-all cursor-pointer w-full sm:w-auto"

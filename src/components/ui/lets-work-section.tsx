@@ -230,10 +230,10 @@ export function LetsWorkTogether() {
               : "Have a project in mind? Click above to start a conversation or schedule a consultation."}
           </p>
           <a 
-            href="mailto:mahmoud.talaat.dev@gmail.com"
+            href="mailto:tamsystems.agency@gmail.com"
             className="text-xs font-mono text-[#dfcba9] hover:underline"
           >
-            mahmoud.talaat.dev@gmail.com
+            tamsystems.agency@gmail.com
           </a>
         </div>
 
@@ -289,7 +289,7 @@ export function LetsWorkTogether() {
 
           {/* Email */}
           <a
-            href="mailto:mahmoud.talaat.dev@gmail.com"
+            href="mailto:tamsystems.agency@gmail.com"
             aria-label="Email"
             className="group relative flex items-center justify-center w-11 h-11 rounded-full bg-white/[0.04] hover:bg-[#dfcba9] text-zinc-400 hover:text-black border border-white/5 transition-all duration-300 hover:scale-115"
           >

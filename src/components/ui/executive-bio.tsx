@@ -113,7 +113,7 @@ export function ExecutiveBio() {
             {/* High-Converting CTAs */}
             <div className={`flex flex-col sm:flex-row items-center justify-center ${isAr ? "lg:justify-start" : "lg:justify-start"} gap-3 sm:gap-4 pt-2`}>
               <Link
-                href={`https://wa.me/201018318042?text=${encodeURIComponent(
+                href={`https://wa.me/201108745372?text=${encodeURIComponent(
                   isAr
                     ? "مرحباً مهندس محمود، أود حجز استشارة تقنية لمشروعنا."
                     : "Hello Mahmoud, I'd like to schedule an architecture consultation for our system."
@@ -126,7 +126,7 @@ export function ExecutiveBio() {
               </Link>
 
               <Link
-                href="https://wa.me/201018318042"
+                href="https://wa.me/201108745372"
                 target="_blank"
                 className="inline-flex items-center justify-center gap-2.5 px-6 sm:px-7 py-3 sm:py-4 rounded-full font-semibold text-xs sm:text-sm text-zinc-200 hover:text-white bg-white/[0.04] hover:bg-white/[0.08] border border-white/10 hover:border-white/20 transition-all duration-300 w-full sm:w-auto"
               >

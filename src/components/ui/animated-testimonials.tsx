@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { IconArrowLeft, IconArrowRight } from "@tabler/icons-react";
 import { motion, AnimatePresence } from "framer-motion";
@@ -15,6 +15,9 @@ export type Testimonial = {
 
 // Deterministic SSR-safe rotation angles to prevent hydration mismatches
 const ROTATION_ANGLES = [-6, 5, -4, 6, -5, 4];
+
+// Detect if a string is predominantly RTL (Arabic / Hebrew)
+const isRTLText = (text: string) => /[\u0600-\u06FF]/.test(text);
 
 export const AnimatedTestimonials = ({
   testimonials,
@@ -116,7 +119,7 @@ export const AnimatedTestimonials = ({
                       {/* Verified Client Badge */}
                       <div className="mt-4 flex items-center gap-1.5 px-3 py-1 rounded-full border border-white/10 bg-white/[0.04] text-[11px] font-mono text-zinc-400 z-10">
                         <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-                        <span>عميل معتمد • Verified Partner</span>
+                        <span>Ø¹Ù…ÙŠÙ„ Ù…Ø¹ØªÙ…Ø¯ â€¢ Verified Partner</span>
                       </div>
                     </div>
                   )}
@@ -131,6 +134,7 @@ export const AnimatedTestimonials = ({
           {(() => {
             const current = testimonials[active % testimonials.length] || testimonials[0];
             if (!current) return null;
+            const isRTL = isRTLText(current.quote);
 
             return (
               <motion.div
@@ -159,51 +163,45 @@ export const AnimatedTestimonials = ({
                   {current.designation}
                 </p>
                 
-                <motion.p className="text-base sm:text-lg text-[#a1a1aa] leading-relaxed mt-6 font-normal">
-                  {current.quote.split(" ").map((word, index) => (
-                    <motion.span
-                      key={index}
-                      initial={{
-                        filter: "blur(8px)",
-                        opacity: 0,
-                        y: 5,
-                      }}
-                      animate={{
-                        filter: "blur(0px)",
-                        opacity: 1,
-                        y: 0,
-                      }}
-                      transition={{
-                        duration: 0.2,
-                        ease: "easeInOut",
-                        delay: 0.02 * index,
-                      }}
-                      className="inline-block"
-                    >
-                      {word}&nbsp;
-                    </motion.span>
-                  ))}
+                {/* Quote â€” RTL-aware: render as full paragraph to avoid broken Arabic words */}
+                <motion.p
+                  dir={isRTL ? "rtl" : "ltr"}
+                  className="text-base sm:text-lg text-[#a1a1aa] leading-relaxed mt-6 font-normal"
+                  initial={{ opacity: 0, y: 8 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.35, ease: "easeOut" }}
+                >
+                  {current.quote}
                 </motion.p>
               </motion.div>
             );
           })()}
 
-          <div className="flex gap-4 pt-10">
-            <button
-              onClick={handlePrev}
-              aria-label="Previous testimonial"
-              className="h-10 w-10 rounded-full bg-white/[0.04] border border-white/[0.08] hover:border-[#dfcba9]/40 hover:bg-white/[0.08] flex items-center justify-center transition-all duration-300 group/button cursor-pointer"
-            >
-              <IconArrowLeft className="h-5 w-5 text-[#dfcba9] group-hover/button:-translate-x-0.5 transition-transform duration-300" />
-            </button>
-            <button
-              onClick={handleNext}
-              aria-label="Next testimonial"
-              className="h-10 w-10 rounded-full bg-white/[0.04] border border-white/[0.08] hover:border-[#dfcba9]/40 hover:bg-white/[0.08] flex items-center justify-center transition-all duration-300 group/button cursor-pointer"
-            >
-              <IconArrowRight className="h-5 w-5 text-[#dfcba9] group-hover/button:translate-x-0.5 transition-transform duration-300" />
-            </button>
-          </div>
+          {/* Navigation Arrows â€” flip for RTL */}
+          {(() => {
+            const current = testimonials[active % testimonials.length] || testimonials[0];
+            const isRTL = current ? isRTLText(current.quote) : false;
+            const PrevIcon = isRTL ? IconArrowRight : IconArrowLeft;
+            const NextIcon = isRTL ? IconArrowLeft : IconArrowRight;
+            return (
+              <div className="flex gap-4 pt-10">
+                <button
+                  onClick={handlePrev}
+                  aria-label="Previous testimonial"
+                  className="h-10 w-10 rounded-full bg-white/[0.04] border border-white/[0.08] hover:border-[#dfcba9]/40 hover:bg-white/[0.08] flex items-center justify-center transition-all duration-300 group/button cursor-pointer"
+                >
+                  <PrevIcon className="h-5 w-5 text-[#dfcba9] group-hover/button:-translate-x-0.5 transition-transform duration-300" />
+                </button>
+                <button
+                  onClick={handleNext}
+                  aria-label="Next testimonial"
+                  className="h-10 w-10 rounded-full bg-white/[0.04] border border-white/[0.08] hover:border-[#dfcba9]/40 hover:bg-white/[0.08] flex items-center justify-center transition-all duration-300 group/button cursor-pointer"
+                >
+                  <NextIcon className="h-5 w-5 text-[#dfcba9] group-hover/button:translate-x-0.5 transition-transform duration-300" />
+                </button>
+              </div>
+            );
+          })()}
         </div>
 
       </div>

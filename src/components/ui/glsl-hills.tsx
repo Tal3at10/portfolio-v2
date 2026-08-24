@@ -182,16 +182,29 @@ export function GLSLHills({
     window.addEventListener("resize", handleResize);
 
     // ── Render Loop ───────────────────────────────────────────────────────
+    let isVisible = true;
     const loop = () => {
-      uniforms.time.value += clock.getDelta() * speed;
-      renderer.render(scene, camera);
+      if (isVisible) {
+        uniforms.time.value += clock.getDelta() * speed;
+        renderer.render(scene, camera);
+      }
       animFrameId = requestAnimationFrame(loop);
     };
     loop();
 
+    // ── Pause when not visible (IntersectionObserver) ─────────────────────
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        isVisible = entry.isIntersecting;
+      },
+      { threshold: 0 }
+    );
+    observer.observe(canvas);
+
     // ── Cleanup ───────────────────────────────────────────────────────────
     return () => {
       cancelAnimationFrame(animFrameId);
+      observer.disconnect();
       window.removeEventListener("resize", handleResize);
       renderer.dispose();
       mesh.geometry.dispose();

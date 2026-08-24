@@ -1,6 +1,7 @@
 import { ParallaxComponent } from "@/components/ui/parallax-scrolling";
 import { ClientLogosStrip } from "@/components/ui/client-logos-strip";
 import { ExecutiveBio } from "@/components/ui/executive-bio";
+import { WhyChooseUs } from "@/components/ui/why-choose-us";
 import { CaseStudySticky } from "@/components/ui/case-study-sticky";
 import { SystemsBento } from "@/components/ui/systems-bento";
 import { ClientTestimonials } from "@/components/ui/client-testimonials";
@@ -28,6 +29,9 @@ export default function LocalePage() {
 
       {/* 2.5 Executive Bio & Engineering Philosophy */}
       <ExecutiveBio />
+
+      {/* 2.7 Why Choose Us — Honest & Direct */}
+      <WhyChooseUs />
 
       {/* 3. Deep-Dive Case Studies (Sticky Transformation) */}
       <CaseStudySticky />

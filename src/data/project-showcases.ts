@@ -8485,3 +8485,48 @@ export const projectShowcaseMap: Record<string, ShowcaseItem[]> = {
     },
   ],
 };
+
+// ─── Slug Alias Fixes ─────────────────────────────────────────────────────────
+// The case-studies.ts slugs don't always match the showcase map keys.
+// These aliases ensure each canonical slug resolves to the correct screenshot array.
+
+// admin-sa → was keyed as "admin" / "admin.sa"
+projectShowcaseMap["admin-sa"] = projectShowcaseMap["admin-sa"]?.length
+  ? projectShowcaseMap["admin-sa"]
+  : (projectShowcaseMap["admin"] ?? projectShowcaseMap["admin.sa"] ?? []);
+
+// alryadh-therapy → was keyed as "alryadhcenter" / "alryadh"
+projectShowcaseMap["alryadh-therapy"] = projectShowcaseMap["alryadh-therapy"]?.length
+  ? projectShowcaseMap["alryadh-therapy"]
+  : (projectShowcaseMap["alryadhcenter"] ?? projectShowcaseMap["alryadh"] ?? []);
+
+// ok-cloud → was keyed as "okcloud" / "ok.cloud"
+projectShowcaseMap["ok-cloud"] = projectShowcaseMap["ok-cloud"]?.length
+  ? projectShowcaseMap["ok-cloud"]
+  : (projectShowcaseMap["okcloud"] ?? projectShowcaseMap["ok.cloud"] ?? []);
+
+// injaz → was keyed as "injaz-edu" / "injaz_edu"
+projectShowcaseMap["injaz"] = projectShowcaseMap["injaz"]?.length
+  ? projectShowcaseMap["injaz"]
+  : (projectShowcaseMap["injaz-edu"] ?? projectShowcaseMap["injaz_edu"] ?? []);
+
+// almulhim-travel → was also keyed as "almulhim" / "almulhimtravel"
+projectShowcaseMap["almulhim-travel"] = projectShowcaseMap["almulhim-travel"]?.length
+  ? projectShowcaseMap["almulhim-travel"]
+  : (projectShowcaseMap["almulhim"] ?? projectShowcaseMap["almulhimtravel"] ?? []);
+
+// dietbox canonical casing fix
+projectShowcaseMap["dietbox"] = projectShowcaseMap["dietbox"]?.length
+  ? projectShowcaseMap["dietbox"]
+  : (projectShowcaseMap["DietBox"] ?? []);
+
+// sakani-bot → was keyed as "sakanibot"
+projectShowcaseMap["sakani-bot"] = projectShowcaseMap["sakani-bot"]?.length
+  ? projectShowcaseMap["sakani-bot"]
+  : (projectShowcaseMap["sakanibot"] ?? []);
+
+// keylicense / keylicence spelling normalization
+projectShowcaseMap["keylicense"] = projectShowcaseMap["keylicense"]?.length
+  ? projectShowcaseMap["keylicense"]
+  : (projectShowcaseMap["keylicence"] ?? []);
+
