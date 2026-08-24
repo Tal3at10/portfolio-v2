@@ -169,32 +169,33 @@ export default async function ProjectDetailPage({
   return (
     <main className="min-h-screen bg-[#09090b] text-white selection:bg-[#dfcba9] selection:text-black">
       {/* Top Header */}
-      <nav className="sticky top-0 z-40 bg-[#09090b]/85 backdrop-blur-xl border-b border-white/[0.08] px-4 sm:px-12 py-3.5 sm:py-4">
+      <nav className="sticky top-0 z-40 bg-[#09090b]/90 backdrop-blur-2xl border-b border-white/[0.08] px-4 sm:px-12 py-3.5 sm:py-4">
         <div className="max-w-7xl mx-auto flex items-center justify-between">
           <Link
             href={`/${locale}`}
-            className="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-wider text-zinc-400 hover:text-white transition-colors"
+            className="inline-flex items-center gap-2 text-xs sm:text-sm font-semibold text-zinc-200 hover:text-white bg-white/[0.04] hover:bg-white/[0.08] border border-white/12 hover:border-[#dfcba9]/40 px-3.5 sm:px-4 py-1.5 sm:py-2 rounded-full transition-all"
           >
             {isAr ? (
               <>
-                <IconArrowRight className="w-4 h-4" />
-                العودة للرئيسية
+                <IconArrowRight className="w-4 h-4 text-[#dfcba9]" />
+                <span>العودة للرئيسية</span>
               </>
             ) : (
               <>
-                <IconArrowLeft className="w-4 h-4" />
-                Back to Systems
+                <IconArrowLeft className="w-4 h-4 text-[#dfcba9]" />
+                <span>Back to Systems</span>
               </>
             )}
           </Link>
 
-          <div className="flex items-center gap-2 sm:gap-3">
-            <span className="hidden sm:inline-block px-3 py-1 rounded-full bg-white/5 border border-white/10 text-[11px] font-mono text-zinc-300">
-              {project.complexity}
+          <div className="flex items-center gap-2.5 sm:gap-3">
+            <span className="hidden sm:inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-[#dfcba9]/10 border border-[#dfcba9]/25 text-xs font-semibold text-[#dfcba9] tracking-wide">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#dfcba9] animate-pulse" />
+              <span>{project.complexity}</span>
             </span>
             <Link
               href={isAr ? `/en/projects/${slug}` : `/ar/projects/${slug}`}
-              className="text-xs font-mono px-3 py-1 rounded-full border border-white/10 hover:border-white/30 text-zinc-300 hover:text-white transition-all"
+              className="text-xs font-semibold px-3.5 py-1.5 rounded-full bg-white/[0.04] hover:bg-white/[0.08] border border-white/12 hover:border-[#dfcba9]/40 text-zinc-200 hover:text-white transition-all"
             >
               {isAr ? "English" : "العربية"}
             </Link>
@@ -207,16 +208,16 @@ export default async function ProjectDetailPage({
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-12 lg:gap-16 items-center">
           {/* Text Column */}
           <div className="lg:col-span-6 flex flex-col items-start">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/[0.04] border border-white/10 text-xs font-mono text-zinc-300 mb-4 sm:mb-6">
-              <IconShieldCheck className="w-3.5 h-3.5 text-zinc-400" />
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/[0.05] border border-white/12 text-xs font-semibold text-zinc-200 mb-4 sm:mb-6">
+              <IconShieldCheck className="w-4 h-4 text-[#dfcba9]" />
               <span>{isAr ? project.client_ar : project.client_en}</span>
             </div>
 
-            <h1 className={cn("font-bold tracking-tight text-white leading-[1.25] mb-4 sm:mb-6", isAr ? "text-2xl sm:text-3xl lg:text-4xl" : "text-3xl sm:text-5xl")}>
+            <h1 className={cn("font-extrabold tracking-tight text-white leading-[1.25] mb-4 sm:mb-6", isAr ? "text-2xl sm:text-3xl lg:text-4xl" : "text-3xl sm:text-5xl")}>
               {isAr ? project.title_ar : project.title_en}
             </h1>
 
-            <p dir="auto" className="text-sm sm:text-base text-zinc-300 leading-[1.8] font-normal mb-6 sm:mb-8 max-w-xl">
+            <p dir="auto" className="text-sm sm:text-base text-zinc-300 leading-[1.85] font-normal mb-6 sm:mb-8 max-w-xl">
               {isAr ? project.problem_ar : project.problem_en}
             </p>
 
@@ -227,7 +228,7 @@ export default async function ProjectDetailPage({
                   href={project.live_url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-full bg-[#dfcba9] text-black font-semibold text-xs hover:bg-[#ebd9bd] transition-all shadow-lg hover:shadow-[#dfcba9]/20"
+                  className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-[#dfcba9] hover:bg-white text-black font-bold text-xs sm:text-sm transition-all shadow-[0_0_25px_rgba(223,203,169,0.25)] hover:shadow-[0_0_35px_rgba(255,255,255,0.4)] hover:-translate-y-0.5"
                 >
                   <span>{isAr ? "معاينة المنصة الحية" : "Visit Live Platform"}</span>
                   <IconExternalLink className="w-4 h-4" />
@@ -239,21 +240,21 @@ export default async function ProjectDetailPage({
                     href={link.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center justify-center gap-1.5 px-4 py-2 rounded-full bg-white/5 border border-white/10 text-zinc-300 hover:text-white hover:bg-white/10 text-xs font-mono transition-all"
+                    className="inline-flex items-center justify-center gap-1.5 px-4 py-2.5 rounded-full bg-white/[0.04] hover:bg-white/[0.08] border border-white/12 hover:border-white/25 text-zinc-200 hover:text-white text-xs font-semibold transition-all hover:-translate-y-0.5"
                   >
                     <span>{isAr ? link.label_ar : link.label_en}</span>
-                    <IconExternalLink className="w-3 h-3" />
+                    <IconExternalLink className="w-3.5 h-3.5 text-zinc-400" />
                   </a>
                 ))}
               </div>
             )}
 
             {/* Tech Stack Pills */}
-            <div className="flex flex-wrap gap-1.5 sm:gap-2">
+            <div className="flex flex-wrap gap-2">
               {project.tech_stack.map((tech) => (
                 <span
                   key={tech}
-                  className="px-2.5 py-1 rounded-lg text-[11px] sm:text-xs font-mono bg-white/[0.03] border border-white/10 text-zinc-300"
+                  className="px-3 py-1.5 rounded-lg text-xs font-medium bg-white/[0.04] border border-white/10 text-zinc-200"
                 >
                   {tech}
                 </span>
@@ -263,7 +264,7 @@ export default async function ProjectDetailPage({
 
           {/* Showcase Display Frame */}
           <div className="lg:col-span-6 w-full">
-            <div className="relative rounded-2xl sm:rounded-3xl p-1.5 sm:p-2 border border-white/[0.12] bg-gradient-to-b from-white/[0.08] to-white/[0.02] shadow-[0_24px_70px_rgba(0,0,0,0.9)] backdrop-blur-xl">
+            <div className="relative rounded-2xl sm:rounded-3xl p-2 sm:p-2.5 border border-white/[0.12] bg-gradient-to-b from-white/[0.08] to-white/[0.02] shadow-[0_24px_70px_rgba(0,0,0,0.9)] backdrop-blur-xl">
               <div className="relative aspect-[16/10] w-full rounded-xl sm:rounded-2xl overflow-hidden bg-zinc-950 border border-black/40">
                 <Image
                   src={heroImage}
@@ -295,73 +296,84 @@ export default async function ProjectDetailPage({
 
       {/* 3. CHALLENGE POINTS + BEFORE/AFTER SECTION */}
       {(project.challenge_points_ar?.length > 0 || project.before_after?.length > 0) && (
-        <section className="py-14 sm:py-20 px-4 sm:px-12 border-t border-white/[0.08]">
-          <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16">
+        <section className="py-14 sm:py-24 px-4 sm:px-8 lg:px-12 border-t border-white/[0.08] bg-[#09090b] relative overflow-hidden">
+          <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-start">
 
             {/* Challenge Points */}
             {project.challenge_points_ar?.length > 0 && (
-              <div>
-                <div className="flex items-center gap-2 mb-5 sm:mb-7">
-                  <div className="w-8 h-8 rounded-lg bg-red-400/10 border border-red-400/20 flex items-center justify-center">
-                    <IconScale className="w-4 h-4 text-red-400" />
+              <div className="p-6 sm:p-8 rounded-2xl bg-gradient-to-b from-white/[0.03] to-white/[0.01] border border-white/[0.08]">
+                <div className="flex items-center gap-3 mb-6 sm:mb-8">
+                  <div className="w-10 h-10 rounded-xl bg-[#dfcba9]/10 border border-[#dfcba9]/25 flex items-center justify-center text-[#dfcba9]">
+                    <IconScale className="w-5 h-5" />
                   </div>
-                  <h2 className="text-lg sm:text-2xl font-bold text-white">
-                    {isAr ? "التحديات التشغيلية" : "Operational Challenges"}
-                  </h2>
+                  <div>
+                    <h2 className="text-lg sm:text-2xl font-extrabold text-white tracking-tight">
+                      {isAr ? "التحديات التشغيلية السابقة" : "Operational Challenges"}
+                    </h2>
+                    <p className="text-xs sm:text-sm text-zinc-400 mt-0.5">
+                      {isAr ? "المشاكل التي كان يعاني منها العميل قبل النظام" : "Critical bottlenecks prior to system deployment"}
+                    </p>
+                  </div>
                 </div>
-                <ul className="space-y-3">
+
+                <ul className="space-y-3.5">
                   {(isAr ? project.challenge_points_ar : project.challenge_points_en).map((point, i) => (
-                    <li key={i} className="flex items-start gap-3 text-sm text-zinc-300 leading-relaxed">
-                      <IconChevronRight className="w-4 h-4 text-red-400 mt-0.5 shrink-0" />
-                      <span dir="auto">{point}</span>
+                    <li key={i} className="flex items-start gap-3 p-3.5 rounded-xl bg-white/[0.02] border border-white/[0.05] hover:border-white/10 transition-colors">
+                      <span className="w-2 h-2 rounded-full bg-[#dfcba9] mt-2 shrink-0" />
+                      <span dir="auto" className="text-xs sm:text-sm text-zinc-200 leading-relaxed font-normal">{point}</span>
                     </li>
                   ))}
                 </ul>
               </div>
             )}
 
-            {/* Before / After Table */}
+            {/* Before / After Transformation Cards */}
             {project.before_after?.length > 0 && (
-              <div>
-                <div className="flex items-center gap-2 mb-5 sm:mb-7">
-                  <div className="w-8 h-8 rounded-lg bg-emerald-400/10 border border-emerald-400/20 flex items-center justify-center">
-                    <IconTrendingUp className="w-4 h-4 text-emerald-400" />
+              <div className="p-6 sm:p-8 rounded-2xl bg-gradient-to-b from-white/[0.03] to-white/[0.01] border border-white/[0.08]">
+                <div className="flex items-center gap-3 mb-6 sm:mb-8">
+                  <div className="w-10 h-10 rounded-xl bg-[#dfcba9]/10 border border-[#dfcba9]/25 flex items-center justify-center text-[#dfcba9]">
+                    <IconTrendingUp className="w-5 h-5" />
                   </div>
-                  <h2 className="text-lg sm:text-2xl font-bold text-white">
-                    {isAr ? "قبل وبعد التطبيق" : "Before & After"}
-                  </h2>
+                  <div>
+                    <h2 className="text-lg sm:text-2xl font-extrabold text-white tracking-tight">
+                      {isAr ? "التحول التشغيلي (قبل وبعد)" : "Operational Transformation"}
+                    </h2>
+                    <p className="text-xs sm:text-sm text-zinc-400 mt-0.5">
+                      {isAr ? "مقارنة مباشرة بين الوضع السابق والنتيجة المحققة" : "Direct before vs after production benchmarks"}
+                    </p>
+                  </div>
                 </div>
-                <div className="overflow-hidden rounded-xl border border-white/[0.08]">
-                  <table className="w-full text-xs sm:text-sm">
-                    <thead>
-                      <tr className="border-b border-white/[0.08] bg-white/[0.02]">
-                        <th className={`py-3 px-4 text-zinc-400 font-mono font-medium ${isAr ? "text-right" : "text-left"}`}>
-                          {isAr ? "المقياس" : "Metric"}
-                        </th>
-                        <th className="py-3 px-4 text-red-400 font-mono font-medium text-center">
-                          {isAr ? "قبل" : "Before"}
-                        </th>
-                        <th className="py-3 px-4 text-emerald-400 font-mono font-medium text-center">
-                          {isAr ? "بعد" : "After"}
-                        </th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      {project.before_after.map((row, i) => (
-                        <tr key={i} className="border-b border-white/[0.05] last:border-0 hover:bg-white/[0.02] transition-colors">
-                          <td className={`py-3.5 px-4 text-zinc-200 font-medium ${isAr ? "text-right" : "text-left"}`} dir="auto">
-                            {isAr ? row.metric_ar : row.metric_en}
-                          </td>
-                          <td className="py-3.5 px-4 text-red-300/80 text-center" dir="auto">
+
+                <div className="space-y-3.5">
+                  {project.before_after.map((row, i) => (
+                    <div key={i} className="p-4 sm:p-5 rounded-xl bg-white/[0.02] border border-white/[0.06] hover:border-[#dfcba9]/25 transition-all">
+                      <p className="text-xs sm:text-sm font-bold text-white mb-3" dir="auto">
+                        {isAr ? row.metric_ar : row.metric_en}
+                      </p>
+
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+                        {/* Before Pill */}
+                        <div className="flex items-center gap-2 p-2.5 rounded-lg bg-white/[0.03] border border-white/[0.06]">
+                          <span className="text-[10px] sm:text-xs font-semibold text-zinc-500 uppercase px-1.5 py-0.5 rounded bg-black/40">
+                            {isAr ? "السابق" : "Before"}
+                          </span>
+                          <span className="text-xs sm:text-sm text-zinc-400 line-through decoration-zinc-500/60 truncate" dir="auto">
                             {isAr ? row.before_ar : row.before_en}
-                          </td>
-                          <td className="py-3.5 px-4 text-emerald-300 text-center font-semibold" dir="auto">
+                          </span>
+                        </div>
+
+                        {/* After Pill — Highlighted Gold */}
+                        <div className="flex items-center gap-2 p-2.5 rounded-lg bg-[#dfcba9]/10 border border-[#dfcba9]/25">
+                          <span className="text-[10px] sm:text-xs font-bold text-[#dfcba9] uppercase px-1.5 py-0.5 rounded bg-[#dfcba9]/20">
+                            {isAr ? "الآن" : "Now"}
+                          </span>
+                          <span className="text-xs sm:text-sm text-white font-bold truncate" dir="auto">
                             {isAr ? row.after_ar : row.after_en}
-                          </td>
-                        </tr>
-                      ))}
-                    </tbody>
-                  </table>
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                  ))}
                 </div>
               </div>
             )}
@@ -371,30 +383,57 @@ export default async function ProjectDetailPage({
 
       {/* 4. ARCHITECTURAL DECISIONS */}
       {project.decisions?.length > 0 && (
-        <section className="py-14 sm:py-20 px-4 sm:px-12 border-t border-white/[0.08]">
+        <section className="py-14 sm:py-24 px-4 sm:px-8 lg:px-12 border-t border-white/[0.08] bg-[#09090b] relative">
           <div className="max-w-7xl mx-auto">
-            <div className="flex items-center gap-2 mb-8 sm:mb-10">
-              <div className="w-8 h-8 rounded-lg bg-[#dfcba9]/10 border border-[#dfcba9]/20 flex items-center justify-center">
-                <IconBrain className="w-4 h-4 text-[#dfcba9]" />
+            <div className="flex items-center gap-3 mb-8 sm:mb-12">
+              <div className="w-10 h-10 rounded-xl bg-[#dfcba9]/10 border border-[#dfcba9]/25 flex items-center justify-center text-[#dfcba9]">
+                <IconBrain className="w-5 h-5" />
               </div>
-              <h2 className="text-lg sm:text-2xl font-bold text-white">
-                {isAr ? "القرارات المعمارية والمفاضلات" : "Architectural Decisions & Trade-offs"}
-              </h2>
+              <div>
+                <h2 className="text-xl sm:text-3xl font-extrabold text-white tracking-tight">
+                  {isAr ? "القرارات المعمارية والمفاضلات" : "Architectural Decisions & Trade-offs"}
+                </h2>
+                <p className="text-xs sm:text-sm text-zinc-400 mt-0.5">
+                  {isAr ? "لماذا اتخذنا هذه الخيارات الهندسية وما المقابل المحسوب؟" : "Engineered design choices, technical rationale, and evaluated trade-offs"}
+                </p>
+              </div>
             </div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5">
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
               {project.decisions.map((d, i) => (
-                <div key={i} className="p-5 sm:p-6 rounded-xl bg-white/[0.02] border border-white/[0.08] hover:border-[#dfcba9]/20 transition-all">
-                  <p className="text-sm font-bold text-[#dfcba9] mb-3 leading-snug" dir="auto">
-                    {isAr ? d.decision_ar : d.decision_en}
-                  </p>
-                  <p className="text-xs text-zinc-300 leading-relaxed mb-2" dir="auto">
-                    <span className="text-zinc-500 mr-1">{isAr ? "السبب:" : "Why:"}</span>
-                    {isAr ? d.reason_ar : d.reason_en}
-                  </p>
-                  <p className="text-xs text-zinc-400 leading-relaxed" dir="auto">
-                    <span className="text-zinc-500 mr-1">{isAr ? "المفاضلة:" : "Trade-off:"}</span>
-                    {isAr ? d.tradeoff_ar : d.tradeoff_en}
-                  </p>
+                <div
+                  key={i}
+                  className="p-6 sm:p-7 rounded-2xl bg-gradient-to-b from-white/[0.03] to-white/[0.01] border border-white/[0.08] hover:border-[#dfcba9]/30 transition-all flex flex-col justify-between"
+                >
+                  <div>
+                    {/* Header with index badge */}
+                    <div className="flex items-center gap-2 mb-3">
+                      <span className="text-[10px] font-mono font-bold text-[#dfcba9] px-2 py-0.5 rounded-full bg-[#dfcba9]/10 border border-[#dfcba9]/20">
+                        {String(i + 1).padStart(2, "0")}
+                      </span>
+                      <h3 className="text-base sm:text-lg font-bold text-white leading-snug" dir="auto">
+                        {isAr ? d.decision_ar : d.decision_en}
+                      </h3>
+                    </div>
+
+                    {/* Rationale */}
+                    <div className="mb-4">
+                      <p className="text-xs font-semibold text-[#dfcba9] mb-1">
+                        {isAr ? "الدافع المعماري:" : "Architectural Rationale:"}
+                      </p>
+                      <p className="text-xs sm:text-sm text-zinc-200 leading-[1.8] font-normal" dir="auto">
+                        {isAr ? d.reason_ar : d.reason_en}
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Trade-off Inset */}
+                  <div className="p-3.5 rounded-xl bg-black/40 border border-white/[0.06] text-xs sm:text-sm text-zinc-300 leading-relaxed" dir="auto">
+                    <span className="text-zinc-500 font-semibold ml-1.5 mr-1.5">
+                      {isAr ? "المفاضلة المحسوبة:" : "Calculated Trade-off:"}
+                    </span>
+                    <span>{isAr ? d.tradeoff_ar : d.tradeoff_en}</span>
+                  </div>
                 </div>
               ))}
             </div>
@@ -406,10 +445,10 @@ export default async function ProjectDetailPage({
       {project.architecture_flow?.length > 0 && (
         <section className="py-14 sm:py-20 px-4 sm:px-12 max-w-7xl mx-auto border-t border-white/[0.08]">
           <div className="mb-8 sm:mb-12 text-center">
-            <h2 className="text-xl sm:text-4xl font-bold text-white tracking-tight mb-2 sm:mb-3">
+            <h2 className="text-xl sm:text-4xl font-extrabold text-white tracking-tight mb-2 sm:mb-3">
               {isAr ? "تدفق البيانات والربط المركزي" : "Data Flow & Integration Pipeline"}
             </h2>
-            <p className="text-xs sm:text-sm text-zinc-400 max-w-xl mx-auto leading-relaxed">
+            <p className="text-xs sm:text-sm md:text-base text-zinc-400 max-w-xl mx-auto leading-relaxed font-normal">
               {isAr
                 ? "مخطط يوضح ترابط النواة المركزية مع الذكاء الاصطناعي ومزودي البيانات الخارجية."
                 : "Live visual pipeline demonstrating real-time data exchange across services, AI engines, and databases."}
@@ -433,18 +472,18 @@ export default async function ProjectDetailPage({
 
       {/* 7. LESSONS LEARNED */}
       {(project.lessons_ar || project.lessons_en) && (
-        <section className="py-14 sm:py-20 px-4 sm:px-12 border-t border-white/[0.08]">
+        <section className="py-14 sm:py-20 px-4 sm:px-12 border-t border-white/[0.08] bg-[#09090b]">
           <div className="max-w-3xl mx-auto text-center">
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-indigo-400/10 border border-indigo-400/20 mb-5">
-              <IconBulb className="w-3.5 h-3.5 text-indigo-400" />
-              <span className="text-[11px] font-mono font-bold text-indigo-400 uppercase tracking-widest">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#dfcba9]/10 border border-[#dfcba9]/25 mb-5 shadow-[0_0_20px_rgba(223,203,169,0.06)]">
+              <IconBulb className="w-4 h-4 text-[#dfcba9]" />
+              <span className="text-[11px] sm:text-xs font-mono font-bold text-[#dfcba9] uppercase tracking-widest">
                 {isAr ? "الدروس المعمارية المستفادة" : "Architectural Lessons Learned"}
               </span>
             </div>
-            <blockquote className="text-sm sm:text-base text-zinc-300 leading-[1.9] italic" dir="auto">
+            <blockquote className="text-sm sm:text-base md:text-lg text-zinc-200 leading-[1.9] italic font-normal" dir="auto">
               {isAr ? `"${project.lessons_ar}"` : `"${project.lessons_en}"`}
             </blockquote>
-            <p className="mt-4 text-xs text-zinc-600 font-mono">— Mahmoud Talaat, Lead Systems Architect</p>
+            <p className="mt-4 text-xs font-mono text-[#dfcba9]">— Mahmoud Talaat, Founder & Lead Systems Architect</p>
           </div>
         </section>
       )}
@@ -455,7 +494,7 @@ export default async function ProjectDetailPage({
           {prevProject ? (
             <Link
               href={`/${locale}/projects/${prevProject.slug}`}
-              className="text-xs font-mono text-zinc-400 hover:text-white transition-colors"
+              className="text-xs sm:text-sm font-semibold text-zinc-400 hover:text-white transition-colors"
             >
               {isAr ? `← ${prevProject.title_ar}` : `← ${prevProject.title_en}`}
             </Link>
@@ -468,7 +507,7 @@ export default async function ProjectDetailPage({
               href="https://wa.me/201108745372"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center justify-center gap-2 px-5 py-3 rounded-full bg-white text-black font-semibold text-xs hover:bg-zinc-200 transition-all cursor-pointer shadow-lg w-full sm:w-auto"
+              className="flex items-center justify-center gap-2 px-6 py-3.5 rounded-full bg-white hover:bg-zinc-200 text-black font-bold text-xs sm:text-sm transition-all cursor-pointer shadow-lg w-full sm:w-auto hover:-translate-y-0.5"
             >
               <IconBrandWhatsapp className="w-4 h-4 text-emerald-600" />
               <span>{isAr ? "ناقش مشروعك مع المعماري" : "Discuss on WhatsApp"}</span>
@@ -477,9 +516,9 @@ export default async function ProjectDetailPage({
               href="https://wa.me/201108745372"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center justify-center gap-2 px-5 py-3 rounded-full border border-white/20 bg-zinc-950 text-white hover:bg-white hover:text-black font-semibold text-xs transition-all cursor-pointer w-full sm:w-auto"
+              className="flex items-center justify-center gap-2 px-6 py-3.5 rounded-full border border-white/20 hover:border-[#dfcba9]/40 bg-zinc-950 hover:bg-white hover:text-black text-white font-bold text-xs sm:text-sm transition-all cursor-pointer w-full sm:w-auto hover:-translate-y-0.5"
             >
-              <IconCalendarEvent className="w-4 h-4" />
+              <IconCalendarEvent className="w-4 h-4 text-[#dfcba9]" />
               <span>{isAr ? "حجز استشارة" : "Book Call"}</span>
             </a>
           </div>
@@ -487,7 +526,7 @@ export default async function ProjectDetailPage({
           {nextProject ? (
             <Link
               href={`/${locale}/projects/${nextProject.slug}`}
-              className="text-xs font-mono text-zinc-400 hover:text-white transition-colors"
+              className="text-xs sm:text-sm font-semibold text-zinc-400 hover:text-white transition-colors"
             >
               {isAr ? `${nextProject.title_ar} →` : `${nextProject.title_en} →`}
             </Link>

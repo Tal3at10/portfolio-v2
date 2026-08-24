@@ -65,12 +65,12 @@ export function ExecutiveBio() {
             <div className={`flex flex-wrap items-center justify-center ${isAr ? "lg:justify-start" : "lg:justify-start"} gap-2.5 mb-5 sm:mb-6`}>
               <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#dfcba9]/10 border border-[#dfcba9]/25 shadow-[0_0_15px_rgba(223,203,169,0.08)]">
                 <Sparkles className="w-3.5 h-3.5 text-[#dfcba9]" />
-                <span className="text-[11px] sm:text-xs font-mono font-bold text-[#dfcba9] uppercase tracking-wider">
+                <span className="text-xs font-bold text-[#dfcba9] tracking-wide">
                   {isAr ? "تَـمّ | TAM Systems" : "TAM Systems | تَـمّ"}
                 </span>
               </div>
-              <div className="inline-flex items-center px-3.5 py-1.5 rounded-full bg-white/[0.05] border border-white/10 text-zinc-300">
-                <span className="text-[10px] sm:text-xs font-mono font-medium uppercase tracking-wider">
+              <div className="inline-flex items-center px-3.5 py-1.5 rounded-full bg-white/[0.05] border border-white/12 text-zinc-200">
+                <span className="text-xs font-semibold">
                   {isAr ? "مؤسس وقائد معمارية الأنظمة" : "Founder & Lead Systems Architect"}
                 </span>
               </div>
@@ -128,9 +128,9 @@ export function ExecutiveBio() {
               <Link
                 href="https://wa.me/201108745372"
                 target="_blank"
-                className="inline-flex items-center justify-center gap-2.5 px-6 sm:px-7 py-3 sm:py-4 rounded-full font-semibold text-xs sm:text-sm text-zinc-200 hover:text-white bg-white/[0.04] hover:bg-white/[0.08] border border-white/10 hover:border-white/20 transition-all duration-300 w-full sm:w-auto"
+                className="inline-flex items-center justify-center gap-2.5 px-6 sm:px-7 py-3 sm:py-4 rounded-full font-bold text-xs sm:text-sm text-zinc-200 hover:text-white bg-white/[0.04] hover:bg-white/[0.09] border border-white/15 hover:border-[#dfcba9]/40 transition-all duration-300 w-full sm:w-auto hover:-translate-y-0.5"
               >
-                <MessageCircle className="w-4 h-4 text-[#10B981]" />
+                <MessageCircle className="w-4 h-4 text-[#dfcba9]" />
                 <span>{isAr ? "محادثة واتساب مباشرة" : "WhatsApp Direct"}</span>
               </Link>
             </div>

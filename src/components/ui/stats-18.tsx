@@ -40,46 +40,62 @@ const defaultStats: StatItem[] = [
 
 export function Stats18({ stats = defaultStats, title, subtitle }: Stats18Props) {
   return (
-    <section className="relative w-full bg-[#000000] px-4 sm:px-8 lg:px-12 py-10 sm:py-14">
-      <div className="mx-auto max-w-7xl">
+    <section className="relative w-full bg-[#09090b] px-4 sm:px-8 lg:px-12 py-14 sm:py-20 overflow-hidden">
+      {/* Ambient background glow */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] bg-[#dfcba9]/[0.025] rounded-full blur-[140px] pointer-events-none" />
+
+      <div className="relative mx-auto max-w-7xl">
         {(title || subtitle) && (
-          <div className="mb-8 text-center">
+          <div className="mb-10 sm:mb-14 text-center">
             {title && (
-              <h2 className="text-lg sm:text-2xl font-bold text-white tracking-tight mb-2">
+              <h2 className="text-xl sm:text-3xl lg:text-4xl font-extrabold text-white tracking-tight mb-2.5">
                 {title}
               </h2>
             )}
             {subtitle && (
-              <p className="text-xs sm:text-sm text-zinc-400 max-w-xl mx-auto">
+              <p className="text-xs sm:text-sm md:text-base text-zinc-400 max-w-2xl mx-auto leading-relaxed font-normal">
                 {subtitle}
               </p>
             )}
           </div>
         )}
 
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
           {stats.map((stat, index) => (
             <motion.div
               key={index}
-              initial={{ opacity: 0, y: 15 }}
+              initial={{ opacity: 0, y: 16 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.4, delay: index * 0.08 }}
-              className="p-3.5 sm:p-6 rounded-xl sm:rounded-2xl bg-zinc-950/80 border border-white/10 flex flex-col justify-between hover:border-white/20 transition-colors"
+              viewport={{ once: true, margin: "-40px" }}
+              transition={{ duration: 0.45, delay: index * 0.08 }}
+              className="group relative p-6 sm:p-7 rounded-2xl bg-gradient-to-b from-white/[0.04] to-white/[0.01] border border-white/[0.08] hover:border-[#dfcba9]/35 backdrop-blur-sm transition-all duration-300 flex flex-col justify-between"
             >
+              {/* Subtle hover highlight */}
+              <div
+                className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none rounded-2xl"
+                style={{
+                  background:
+                    "radial-gradient(ellipse 80% 50% at 50% 0%, rgba(223, 203, 169, 0.08), transparent)",
+                }}
+              />
+
               <div>
-                <span
+                {/* Large high-impact metric number */}
+                <div
                   dir="ltr"
-                  className="text-xl sm:text-3xl lg:text-4xl font-light tracking-tight text-white block mb-1.5 font-mono whitespace-nowrap overflow-hidden text-ellipsis"
+                  className="text-3xl sm:text-4xl lg:text-[2.75rem] font-extrabold tracking-tight text-transparent bg-clip-text bg-gradient-to-b from-white via-zinc-100 to-[#dfcba9] mb-2.5 font-sans leading-none"
                 >
                   {stat.value}
-                </span>
-                <span className="text-xs sm:text-sm font-semibold text-zinc-200 block mb-1 leading-snug">
+                </div>
+
+                {/* Metric Label — bold, readable */}
+                <h3 className="text-sm sm:text-base font-bold text-white leading-snug tracking-tight">
                   {stat.label}
-                </span>
+                </h3>
               </div>
+
               {stat.description && (
-                <p className="text-[11px] sm:text-xs text-zinc-400 leading-relaxed mt-2 border-t border-white/5 pt-2">
+                <p className="text-xs text-zinc-400 leading-relaxed mt-4 pt-3 border-t border-white/[0.06]">
                   {stat.description}
                 </p>
               )}
@@ -92,3 +108,4 @@ export function Stats18({ stats = defaultStats, title, subtitle }: Stats18Props)
 }
 
 export default Stats18;
+

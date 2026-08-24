@@ -3,11 +3,17 @@
 import React, { useState } from "react";
 import { useLocale } from "next-intl";
 import { motion } from "framer-motion";
-import { IconSparkles, IconBolt, IconBrain, IconShield, IconArrowUpRight } from "@tabler/icons-react";
+import {
+  IconSparkles,
+  IconBolt,
+  IconBrain,
+  IconShieldCheck,
+  IconArrowUpRight,
+  IconStar,
+} from "@tabler/icons-react";
 
 interface WhyCard {
   icon: React.ReactNode;
-  iconColor: string;
   titleAr: string;
   titleEn: string;
   bodyAr: string;
@@ -16,14 +22,11 @@ interface WhyCard {
   quoteEn: string;
   clientAr: string;
   clientEn: string;
-  accentClass: string;
 }
 
 const cards: WhyCard[] = [
   {
-    icon: <IconBrain size={26} strokeWidth={1.6} />,
-    iconColor: "#dfcba9",
-    accentClass: "from-[#dfcba9]/12 to-transparent border-[#dfcba9]/20",
+    icon: <IconBrain size={24} strokeWidth={1.75} />,
     titleAr: "مش هتحتاج تشرح مرتين.",
     titleEn: "You won't need to explain twice.",
     bodyAr:
@@ -36,9 +39,7 @@ const cards: WhyCard[] = [
     clientEn: "— Ibrahim AlMulhim, Founder of AlMulhim Travel",
   },
   {
-    icon: <IconBolt size={26} strokeWidth={1.6} />,
-    iconColor: "#10B981",
-    accentClass: "from-emerald-400/10 to-transparent border-emerald-400/15",
+    icon: <IconBolt size={24} strokeWidth={1.75} />,
     titleAr: "تنفيذ سريع — وشغل متقن.",
     titleEn: "Fast execution. Zero compromises.",
     bodyAr:
@@ -51,13 +52,11 @@ const cards: WhyCard[] = [
     clientEn: "— Safar AlShahrani, Technical Director",
   },
   {
-    icon: <IconSparkles size={26} strokeWidth={1.6} />,
-    iconColor: "#818cf8",
-    accentClass: "from-indigo-400/10 to-transparent border-indigo-400/15",
+    icon: <IconSparkles size={24} strokeWidth={1.75} />,
     titleAr: "المشاكل الصعبة دي شغلتنا.",
     titleEn: "Hard problems are our specialty.",
     bodyAr:
-      "المشروع اللي الكل قاله «ده معقد ومش ممكن» — ده بالظبط اللي بنقعد فيه ونطلعه صح. مش بنعمل patch وخلاص، بنحل المشكلة من جذورها وبنضمن إنها ما ترجعش.",
+      "المشروع اللي الكل قاله «ده معقد ومش ممكن» — ده بالظبط اللي بنقعد فيه ونطلعه صح. بنحل المشكلة من جذورها وبنضمن استقرارها.",
     bodyEn:
       "The project everyone said 'too complex' — that's exactly where we thrive. We don't patch symptoms; we architect root-cause solutions that hold.",
     quoteAr: "«دايماً عنده حل، حتى لما ما فيش حل واضح»",
@@ -66,9 +65,7 @@ const cards: WhyCard[] = [
     clientEn: "— Eng. Ashraf Abana, Systems Architect",
   },
   {
-    icon: <IconShield size={26} strokeWidth={1.6} />,
-    iconColor: "#f59e0b",
-    accentClass: "from-amber-400/10 to-transparent border-amber-400/15",
+    icon: <IconShieldCheck size={24} strokeWidth={1.75} />,
     titleAr: "مش بس مطور — شريك تقني.",
     titleEn: "Not just a developer — a strategic partner.",
     bodyAr:
@@ -87,28 +84,35 @@ export function WhyChooseUs() {
   const isAr = locale === "ar";
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
+  const scrollToTestimonials = () => {
+    const el = document.getElementById("testimonials");
+    if (el) {
+      el.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
     <section
       id="why-choose-us"
       dir={isAr ? "rtl" : "ltr"}
-      className="relative w-full py-16 sm:py-28 px-4 sm:px-8 lg:px-12 bg-[#09090b] border-t border-white/[0.06] overflow-hidden"
+      className="relative w-full py-16 sm:py-24 px-4 sm:px-8 lg:px-12 bg-[#09090b] border-t border-white/[0.06] overflow-hidden"
     >
-      {/* Ambient glow background */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[400px] bg-[#dfcba9]/[0.03] rounded-full blur-[180px] pointer-events-none" />
+      {/* Ambient warm glow background */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-[#dfcba9]/[0.03] rounded-full blur-[180px] pointer-events-none" />
 
       <div className="relative max-w-7xl mx-auto">
         {/* Section Header */}
-        <div className="mb-10 sm:mb-16 text-center">
-          {/* Section Number */}
-          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#dfcba9]/10 border border-[#dfcba9]/25 mb-4 sm:mb-5">
+        <div className="mb-10 sm:mb-14 text-center">
+          {/* Section Eyebrow */}
+          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#dfcba9]/10 border border-[#dfcba9]/25 mb-4 shadow-[0_0_20px_rgba(223,203,169,0.06)]">
             <IconSparkles className="w-3.5 h-3.5 text-[#dfcba9]" />
             <span className="text-[11px] sm:text-xs font-mono font-bold text-[#dfcba9] uppercase tracking-widest">
               {isAr ? "ليه تختارنا؟" : "Why Choose Us?"}
             </span>
           </div>
 
-          {/* Main Headline */}
-          <h2 className="text-2xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight leading-tight mb-4 sm:mb-5 max-w-3xl mx-auto">
+          {/* Main Headline — Wide max-w and balanced font-size so it stays on a single line */}
+          <h2 className="text-xl sm:text-3xl md:text-4xl lg:text-[2.65rem] font-extrabold text-white tracking-tight leading-normal mb-3 sm:mb-4 max-w-5xl mx-auto px-2">
             {isAr ? (
               <>
                 ليه تختارنا{" "}
@@ -122,72 +126,64 @@ export function WhyChooseUs() {
             )}
           </h2>
 
-          {/* Honest sub-headline */}
-          <p className="text-sm sm:text-base text-zinc-400 max-w-2xl mx-auto leading-relaxed font-normal">
+          {/* Sub-headline */}
+          <p className="text-xs sm:text-sm md:text-base text-zinc-400 max-w-3xl mx-auto leading-relaxed font-normal px-2">
             {isAr
               ? "سؤال منطقي وإجابته واضحة — الحمد لله كل عميل اشتغلنا معاه عرف الإجابة بعد أول محادثة."
               : "Fair question. And the answer becomes clear after your first conversation with us — every single time."}
           </p>
         </div>
 
-        {/* Cards Bento Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5 mb-12 sm:mb-16">
+        {/* Cards Grid — Unified Gold/Zinc Luxury Palette */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 mb-12 sm:mb-14">
           {cards.map((card, index) => (
             <motion.div
               key={index}
-              initial={{ opacity: 0, y: 24 }}
+              initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-60px" }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.45, delay: index * 0.08 }}
               onMouseEnter={() => setHoveredIndex(index)}
               onMouseLeave={() => setHoveredIndex(null)}
-              className={`relative group p-6 sm:p-7 rounded-2xl bg-gradient-to-br ${card.accentClass} border backdrop-blur-sm transition-all duration-500 cursor-default overflow-hidden`}
+              className="relative group p-6 sm:p-7 rounded-2xl bg-white/[0.02] border border-white/[0.08] hover:border-[#dfcba9]/30 backdrop-blur-sm transition-all duration-300 cursor-default overflow-hidden"
               style={{
-                background: hoveredIndex === index
-                  ? "rgba(255,255,255,0.04)"
-                  : "rgba(255,255,255,0.02)",
-                transform: hoveredIndex === index ? "translateY(-2px)" : "translateY(0)",
+                transform: hoveredIndex === index ? "translateY(-3px)" : "translateY(0)",
+                boxShadow:
+                  hoveredIndex === index
+                    ? "0 12px 30px -10px rgba(223, 203, 169, 0.08)"
+                    : "none",
               }}
             >
-              {/* Subtle hover glow */}
+              {/* Subtle hover golden highlight */}
               <div
                 className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none rounded-2xl"
                 style={{
-                  background: `radial-gradient(ellipse 60% 50% at 50% 0%, ${card.iconColor}08, transparent)`,
+                  background:
+                    "radial-gradient(ellipse 70% 50% at 50% 0%, rgba(223, 203, 169, 0.07), transparent)",
                 }}
               />
 
-              {/* Icon */}
-              <div
-                className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl flex items-center justify-center mb-4 sm:mb-5"
-                style={{
-                  color: card.iconColor,
-                  backgroundColor: `${card.iconColor}12`,
-                  border: `1px solid ${card.iconColor}20`,
-                }}
-              >
+              {/* Icon Container — Unified Gold */}
+              <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-xl flex items-center justify-center mb-4 sm:mb-5 text-[#dfcba9] bg-[#dfcba9]/10 border border-[#dfcba9]/20 group-hover:border-[#dfcba9]/40 group-hover:bg-[#dfcba9]/15 transition-colors">
                 {card.icon}
               </div>
 
               {/* Title */}
-              <h3 className="text-lg sm:text-xl font-bold text-white mb-2.5 sm:mb-3 leading-tight tracking-tight">
+              <h3 className="text-base sm:text-lg lg:text-xl font-bold text-white mb-2.5 leading-snug tracking-tight">
                 {isAr ? card.titleAr : card.titleEn}
               </h3>
 
               {/* Body */}
-              <p className="text-sm text-zinc-300 leading-[1.8] mb-5 sm:mb-6 font-normal">
+              <p className="text-xs sm:text-sm text-zinc-300 leading-[1.8] mb-5 font-normal">
                 {isAr ? card.bodyAr : card.bodyEn}
               </p>
 
               {/* Divider */}
-              <div className="h-px bg-white/[0.06] mb-4 sm:mb-5" />
+              <div className="h-px bg-white/[0.06] mb-4" />
 
-              {/* Client Quote */}
+              {/* Client Quote — Unified Gold Tone */}
               <blockquote className="space-y-1">
-                <p
-                  className="text-xs sm:text-sm font-medium italic leading-relaxed"
-                  style={{ color: card.iconColor }}
-                >
+                <p className="text-xs sm:text-sm font-medium italic leading-relaxed text-[#dfcba9]">
                   {isAr ? card.quoteAr : card.quoteEn}
                 </p>
                 <p className="text-[11px] sm:text-xs text-zinc-500 font-mono">
@@ -198,31 +194,45 @@ export function WhyChooseUs() {
           ))}
         </div>
 
-        {/* Bottom Closing Statement + CTA */}
-        <div className="text-center max-w-2xl mx-auto">
-          <p className="text-sm sm:text-base text-zinc-400 leading-relaxed mb-6 sm:mb-8">
+        {/* Bottom Closing Statement + Dual CTAs */}
+        <div className="text-center max-w-3xl mx-auto px-2">
+          <p className="text-xs sm:text-sm md:text-base text-zinc-300 leading-relaxed mb-6 sm:mb-7">
             {isAr
               ? "لو حاسس إنك بتلف في دوايرك مع مطورين تانيين — يمكن حان الوقت تجرب اللي بيفهم."
               : "If you've been going in circles with other developers — maybe it's time to talk to someone who actually gets it."}
           </p>
-          <a
-            href={`https://wa.me/201108745372?text=${encodeURIComponent(
-              isAr
-                ? "مرحباً، قرأت عن تَـمّ للأنظمة وأود بدء محادثة."
-                : "Hello, I read about TAM Systems and would like to start a conversation."
-            )}`}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="group inline-flex items-center gap-2.5 px-6 sm:px-8 py-3.5 sm:py-4 rounded-full bg-[#dfcba9] hover:bg-white text-black font-bold text-sm transition-all duration-300 shadow-[0_0_30px_rgba(223,203,169,0.25)] hover:shadow-[0_0_40px_rgba(255,255,255,0.4)] hover:-translate-y-0.5"
-          >
-            <span>{isAr ? "ابدأ بمحادثة مجانية" : "Start a free conversation"}</span>
-            <IconArrowUpRight
-              size={16}
-              className="transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
-            />
-          </a>
+
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4">
+            {/* Primary Action — WhatsApp Conversation */}
+            <a
+              href={`https://wa.me/201108745372?text=${encodeURIComponent(
+                isAr
+                  ? "مرحباً، قرأت عن تَـمّ للأنظمة وأود بدء محادثة."
+                  : "Hello, I read about TAM Systems and would like to start a conversation."
+              )}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group inline-flex items-center justify-center gap-2 px-6 sm:px-7 py-3 rounded-full bg-[#dfcba9] hover:bg-white text-black font-bold text-xs sm:text-sm transition-all duration-300 shadow-[0_0_25px_rgba(223,203,169,0.25)] hover:shadow-[0_0_35px_rgba(255,255,255,0.4)] hover:-translate-y-0.5 w-full sm:w-auto"
+            >
+              <span>{isAr ? "ابدأ بمحادثة مجانية" : "Start a free conversation"}</span>
+              <IconArrowUpRight
+                size={16}
+                className="transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+              />
+            </a>
+
+            {/* Secondary Action — Scroll to Testimonials */}
+            <button
+              onClick={scrollToTestimonials}
+              className="group inline-flex items-center justify-center gap-2 px-6 sm:px-7 py-3 rounded-full border border-white/15 hover:border-[#dfcba9]/40 bg-white/[0.03] hover:bg-white/[0.07] text-zinc-200 hover:text-white font-medium text-xs sm:text-sm transition-all duration-300 cursor-pointer hover:-translate-y-0.5 w-full sm:w-auto"
+            >
+              <IconStar size={15} className="text-[#dfcba9] group-hover:scale-110 transition-transform" />
+              <span>{isAr ? "شاهد آراء وتجارب عملائنا" : "Explore verified client reviews"}</span>
+            </button>
+          </div>
         </div>
       </div>
     </section>
   );
 }
+
