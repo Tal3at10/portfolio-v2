@@ -10,6 +10,7 @@ import { Stats18, StatItem } from "@/components/ui/stats-18";
 import { InteractiveScreenshotShowcase } from "@/components/ui/interactive-screenshot-showcase";
 import { projectShowcaseMap } from "@/data/project-showcases";
 import { SystemArchitectureFlow } from "@/components/ui/system-architecture-beam";
+import { ScrollReset } from "@/components/ui/scroll-reset";
 import {
   IconArrowLeft,
   IconArrowRight,
@@ -168,6 +169,7 @@ export default async function ProjectDetailPage({
 
   return (
     <main className="min-h-screen bg-[#09090b] text-white selection:bg-[#dfcba9] selection:text-black">
+      <ScrollReset />
       {/* Top Header */}
       <nav className="sticky top-0 z-40 bg-[#09090b]/90 backdrop-blur-2xl border-b border-white/[0.08] px-4 sm:px-12 py-3.5 sm:py-4">
         <div className="max-w-7xl mx-auto flex items-center justify-between">

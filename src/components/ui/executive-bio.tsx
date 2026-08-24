@@ -71,7 +71,7 @@ export function ExecutiveBio() {
               </div>
               <div className="inline-flex items-center px-3.5 py-1.5 rounded-full bg-white/[0.05] border border-white/12 text-zinc-200">
                 <span className="text-xs font-semibold">
-                  {isAr ? "مؤسس وقائد معمارية الأنظمة" : "Founder & Lead Systems Architect"}
+                  {isAr ? "المؤسس ومهندس الأنظمة الرئيسي" : "Founder & Lead Systems Architect"}
                 </span>
               </div>
             </div>
@@ -90,9 +90,9 @@ export function ExecutiveBio() {
             </h2>
 
             {/* Narrative Value Bio */}
-            <p className={`text-sm sm:text-lg text-zinc-300 leading-relaxed sm:leading-[1.85] max-w-2xl mx-auto ${isAr ? "lg:mr-0 lg:ml-auto" : "lg:ml-0 lg:mr-auto"} mb-6 sm:mb-8 font-normal`}>
+            <p className={`text-sm sm:text-base md:text-lg text-zinc-300 leading-relaxed sm:leading-[1.85] max-w-2xl mx-auto ${isAr ? "lg:mr-0 lg:ml-auto" : "lg:ml-0 lg:mr-auto"} mb-6 sm:mb-8 font-normal`}>
               {isAr
-                ? "خبرة 5+ سنوات في بناء وتطوير المنظومات التقنية للجهات الحكومية والشركات الكبرى في السعودية ومصر وأوروبا. أركز على بناء حلول معقدة تعمل بكفاءة تحت الضغط العالي وتقدم قيمة تشغيلية مباشرة ومستدامة."
+                ? "أكثر من 5 سنوات في بناء أنظمة للجهات الحكومية والشركات الكبرى — من البنية السحابية عالية التحمل إلى محركات الأتمتة، في السعودية ومصر وأوروبا. الهدف دايماً: استقرار كامل تحت الضغط، وعائد تشغيلي ملموس من أول تشغيل."
                 : "5+ years engineering high-load cloud architectures, GovTech platforms, and automated business engines across Saudi Arabia, Egypt, and Northern Europe. Focused on zero-downtime scalability and tangible operational ROI."}
             </p>
 
@@ -100,10 +100,10 @@ export function ExecutiveBio() {
             <div className={`grid grid-cols-3 gap-2 sm:gap-6 py-4 sm:py-6 my-4 sm:my-6 border-y border-white/[0.08] max-w-xl mx-auto ${isAr ? "lg:mr-0 lg:ml-auto" : "lg:ml-0 lg:mr-auto"}`}>
               {metrics.map((m, idx) => (
                 <div key={idx} className={`text-center ${isAr ? "lg:text-right" : "lg:text-left"}`}>
-                  <div className="text-2xl sm:text-4xl lg:text-5xl font-black text-[#dfcba9] font-mono tracking-tight">
+                  <div dir="ltr" className="text-2xl sm:text-4xl lg:text-5xl font-black text-[#dfcba9] font-sans tracking-tight">
                     <AnimatedCounter value={m.value} suffix={m.suffix} />
                   </div>
-                  <div className="text-[10px] sm:text-sm text-zinc-400 font-medium mt-1 sm:mt-1.5 leading-tight">
+                  <div className="text-[11px] sm:text-sm text-zinc-300 font-medium mt-1 sm:mt-1.5 leading-tight">
                     {isAr ? m.labelAr : m.labelEn}
                   </div>
                 </div>

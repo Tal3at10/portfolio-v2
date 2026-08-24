@@ -278,11 +278,11 @@ function ProjectCard({
             </div>
 
             {/* Action row */}
-            <div className="flex items-center justify-between pt-3 border-t border-white/[0.06] text-xs font-mono text-zinc-400 group-hover:text-white transition-colors duration-300">
-              <span className="uppercase tracking-widest text-[9px] text-[#dfcba9] font-medium">
+            <div className="flex items-center justify-between pt-3 border-t border-white/[0.08] text-xs transition-colors duration-300">
+              <span className="text-xs sm:text-sm font-bold text-[#dfcba9] group-hover:text-white transition-colors">
                 {isAr ? "عرض الملف المعماري" : "View Architecture Dossier"}
               </span>
-              <span className="transition-transform duration-300 group-hover:translate-x-1 font-bold">
+              <span className="text-sm font-bold text-[#dfcba9] group-hover:text-white transition-transform duration-300 group-hover:translate-x-1">
                 {isAr ? "←" : "→"}
               </span>
             </div>

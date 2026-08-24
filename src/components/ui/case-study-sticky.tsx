@@ -230,7 +230,7 @@ function ProjectStickySection({ project, isAr }: { project: ProjectCase; isAr: b
 
         <Link
           href={`/${locale}/projects/${project.id}`}
-          className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-white/15 hover:border-white/40 bg-white/[0.04] hover:bg-white text-zinc-300 hover:text-black text-xs font-mono transition-all duration-300 w-fit shrink-0 cursor-pointer"
+          className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-white/15 hover:border-[#dfcba9]/50 bg-white/[0.05] hover:bg-[#dfcba9] text-zinc-100 hover:text-black text-xs sm:text-sm font-semibold transition-all duration-300 shadow-sm hover:shadow-[0_0_25px_rgba(223,203,169,0.3)] w-fit shrink-0 cursor-pointer hover:-translate-y-0.5"
         >
           <span>{isAr ? "عرض الملف المعماري الكامل" : "View Architectural Dossier"}</span>
           <span className="font-bold">{isAr ? "←" : "→"}</span>
