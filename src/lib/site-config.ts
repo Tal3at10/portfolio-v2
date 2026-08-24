@@ -6,7 +6,7 @@ export const siteConfig = {
   // ── Brand ──────────────────────────────────────────────────────────────────
   brandAr: "تَـمّ للأنظمة",
   brandEn: "TAM Systems",
-  sloganAr: "أنظمة تُنجز.. ورؤى تكتمل.",
+  sloganAr: "أنظمة تُبنى لتدوم، ورؤية تتحقق بالتنفيذ.",
   sloganEn: "Systems Delivered. Vision Realized.",
   domain: "https://tam-systems.com",
 

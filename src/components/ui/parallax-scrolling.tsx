@@ -10,7 +10,7 @@ import { AnimatedCounter } from "@/components/ui/animated-counter";
 
 // ─── Social Proof Data ────────────────────────────────────────────────────────
 const stats = [
-  { value: 30, suffix: "+", labelEn: "Projects Delivered", labelAr: "مشروع منجز" },
+  { value: 30, suffix: "+", labelEn: "Projects Delivered", labelAr: "مشروعاً منجزاً" },
   { value: 6, suffix: "+", labelEn: "Global Markets", labelAr: "أسواق ودول" },
   { value: 5, suffix: "+", labelEn: "Years Exp", labelAr: "سنوات خبرة" },
 ];
@@ -85,8 +85,8 @@ export function ParallaxComponent() {
         {/* 1. Category Eyebrow Badge */}
         <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#dfcba9]/10 border border-[#dfcba9]/25 mb-4 sm:mb-5 shadow-[0_0_20px_rgba(223,203,169,0.08)]">
           <IconSparkles className="size-3.5 text-[#dfcba9]" />
-          <span className="text-[11px] sm:text-xs font-mono font-medium text-[#dfcba9] uppercase tracking-widest">
-            {isAr ? "هندسة البرمجيات والمنظومات المؤسسية" : "Enterprise Software & Systems Engineering"}
+          <span className="text-[11px] sm:text-xs font-bold text-[#dfcba9] uppercase tracking-wider">
+            {isAr ? "حلول برمجية وأنظمة تقنية للمؤسسات" : "Enterprise Software & Systems Engineering"}
           </span>
         </div>
 
@@ -104,7 +104,7 @@ export function ParallaxComponent() {
           className="text-base sm:text-lg md:text-xl font-light italic text-[#dfcba9] mb-4 sm:mb-5 tracking-wide drop-shadow-[0_2px_12px_rgba(0,0,0,0.8)]"
         >
           {isAr
-            ? "أنظمة تُنجز.. ورؤى تكتمل."
+            ? "أنظمة تُبنى لتدوم، ورؤية تتحقق بالتنفيذ."
             : "Systems Delivered. Vision Realized."}
         </p>
 
@@ -114,22 +114,22 @@ export function ParallaxComponent() {
           className="text-xs sm:text-sm md:text-[15px] text-zinc-100 font-medium max-w-lg sm:max-w-xl leading-[1.85] mb-7 sm:mb-8 px-2 drop-shadow-sm"
         >
           {isAr
-            ? "نطور المنصات الرقمية المتقدمة، أنظمة التقنية الحكومية، ومحركات الذكاء الاصطناعي للشركات والمؤسسات في السعودية والخليج."
+            ? "نصمم منصات رقمية متكاملة وأنظمة تقنية حكومية، وندمج حلول الذكاء الاصطناعي في أعمال الشركات والمؤسسات بالسعودية والخليج."
             : "Architecting enterprise platforms, GovTech systems, and custom AI ecosystems across Saudi Arabia and the Gulf."}
         </p>
 
         {/* 5. Minimal Social Proof Strip */}
         <div
           dir={isAr ? "rtl" : "ltr"}
-          className="flex items-center justify-center gap-3.5 sm:gap-6 mb-8 sm:mb-10 text-xs font-mono"
+          className="flex items-center justify-center gap-3.5 sm:gap-6 mb-7 sm:mb-8 text-xs"
         >
           {stats.map((stat, i) => (
             <React.Fragment key={stat.labelEn}>
               <div className="flex items-center gap-1.5 whitespace-nowrap">
-                <span className="text-[#dfcba9] font-black text-sm sm:text-base">
+                <span dir="ltr" className="text-[#dfcba9] font-black text-sm sm:text-base font-sans">
                   <AnimatedCounter value={stat.value} suffix={stat.suffix} duration={1.6} />
                 </span>
-                <span className="text-zinc-200 font-semibold uppercase tracking-wider text-[11px] sm:text-xs">
+                <span className="text-zinc-200 font-semibold text-[11px] sm:text-xs">
                   {isAr ? stat.labelAr : stat.labelEn}
                 </span>
               </div>
@@ -141,7 +141,7 @@ export function ParallaxComponent() {
         </div>
 
         {/* 5.5 Client Rating Badge */}
-        <div className="flex items-center gap-2 mb-6 sm:mb-8">
+        <div className="flex items-center gap-2.5 mb-7 sm:mb-8" dir={isAr ? "rtl" : "ltr"}>
           <div className="flex items-center gap-0.5">
             {[...Array(5)].map((_, i) => (
               <svg key={i} className="w-3.5 h-3.5 text-[#dfcba9]" fill="currentColor" viewBox="0 0 20 20">
@@ -149,8 +149,8 @@ export function ParallaxComponent() {
               </svg>
             ))}
           </div>
-          <span className="text-[11px] sm:text-xs font-mono text-zinc-300">
-            {isAr ? "5.0 — تقييم عملائنا على Upwork & LinkedIn" : "5.0 — Rated by clients on Upwork & LinkedIn"}
+          <span className="text-xs font-semibold text-zinc-200">
+            {isAr ? "تقييم 5.0 من عملائنا على خمسات ولينكد إن" : "5.0 Rated by clients on Khamsat & LinkedIn"}
           </span>
         </div>
 
@@ -161,17 +161,17 @@ export function ParallaxComponent() {
             onClick={scrollToCaseStudies}
             className="group relative inline-flex items-center justify-center gap-2.5 px-8 py-3.5 rounded-full bg-[#dfcba9] hover:bg-white text-black font-bold text-xs sm:text-sm tracking-wide transition-all duration-300 hover:scale-105 shadow-[0_0_25px_rgba(223,203,169,0.35)] hover:shadow-[0_0_35px_rgba(255,255,255,0.5)] cursor-pointer w-full sm:w-auto"
           >
-            <span>{isAr ? "استعرض الأعمال" : "Explore Projects"}</span>
+            <span>{isAr ? "شاهد أعمالنا" : "Explore Projects"}</span>
             <IconArrowDown className="size-4 transition-transform duration-200 group-hover:translate-y-0.5" />
           </button>
 
           {/* Secondary Ghost Button */}
           <button
             onClick={scrollToContact}
-            className="inline-flex items-center justify-center gap-2.5 px-7 py-3.5 rounded-full border border-white/20 hover:border-white/50 bg-white/[0.04] hover:bg-white/[0.09] text-zinc-200 hover:text-white backdrop-blur-md transition-all duration-300 cursor-pointer font-medium text-xs sm:text-sm w-full sm:w-auto"
+            className="inline-flex items-center justify-center gap-2.5 px-7 py-3.5 rounded-full border border-white/20 hover:border-white/50 bg-white/[0.04] hover:bg-white/[0.09] text-zinc-200 hover:text-white backdrop-blur-md transition-all duration-300 cursor-pointer font-semibold text-xs sm:text-sm w-full sm:w-auto hover:-translate-y-0.5"
           >
             <IconCalendarEvent className="size-4 text-[#dfcba9]" />
-            <span>{isAr ? "طلب استشارة تقنية" : "Request Consultation"}</span>
+            <span>{isAr ? "احجز استشارة تقنية" : "Request Consultation"}</span>
           </button>
         </div>
 
