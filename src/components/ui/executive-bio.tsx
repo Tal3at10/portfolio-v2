@@ -66,7 +66,7 @@ export function ExecutiveBio() {
               <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#dfcba9]/10 border border-[#dfcba9]/25 shadow-[0_0_15px_rgba(223,203,169,0.08)]">
                 <Sparkles className="w-3.5 h-3.5 text-[#dfcba9]" />
                 <span className="text-xs font-bold text-[#dfcba9] tracking-wide">
-                  {isAr ? "تَـمّ للأنظمة • TAM Systems" : "TAM Systems | تَـمّ"}
+                  {isAr ? "تَـمّ • TAM" : "TAM • تَـمّ"}
                 </span>
               </div>
               <div className="inline-flex items-center px-3.5 py-1.5 rounded-full bg-white/[0.05] border border-white/12 text-zinc-200">
@@ -80,11 +80,11 @@ export function ExecutiveBio() {
             <h2 className="text-2xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight leading-tight mb-4 sm:mb-5">
               {isAr ? (
                 <>
-                  رؤية وهندسة <span className="text-[#dfcba9]">تَـمّ للأنظمة</span>
+                  رؤية <span className="text-[#dfcba9]">تَـمّ</span>
                 </>
               ) : (
                 <>
-                  The <span className="text-[#dfcba9]">TAM Systems</span> Standard
+                  The <span className="text-[#dfcba9]">TAM</span> Vision
                 </>
               )}
             </h2>
