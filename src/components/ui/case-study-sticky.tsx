@@ -177,7 +177,8 @@ export function CaseStudySticky() {
       </div>
 
       {/* Projects List */}
-      <div className="space-y-36">
+      {/* Projects List */}
+      <div className="space-y-20 sm:space-y-36">
         {caseStudies.map((project) => (
           <ProjectStickySection key={project.id} project={project} isAr={isAr} />
         ))}
@@ -188,31 +189,42 @@ export function CaseStudySticky() {
 }
 
 function ProjectStickySection({ project, isAr }: { project: ProjectCase; isAr: boolean }) {
-  const containerRef = useRef<HTMLDivElement>(null);
   const [activeStep, setActiveStep] = useState(0);
+  const stepRefs = useRef<(HTMLDivElement | null)[]>([]);
   const locale = useLocale();
 
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start 20%", "end 80%"],
-  });
-
+  // Robust IntersectionObserver for active step synchronization across all browsers
   useEffect(() => {
-    return scrollYProgress.on("change", (latest) => {
-      const stepCount = project.steps.length;
-      const index = Math.min(
-        Math.max(0, Math.floor(latest * stepCount)),
-        stepCount - 1
+    const observers: IntersectionObserver[] = [];
+
+    stepRefs.current.forEach((el, index) => {
+      if (!el) return;
+      const observer = new IntersectionObserver(
+        ([entry]) => {
+          if (entry.isIntersecting) {
+            setActiveStep(index);
+          }
+        },
+        {
+          root: null,
+          rootMargin: "-20% 0px -40% 0px",
+          threshold: 0.2,
+        }
       );
-      setActiveStep(index);
+      observer.observe(el);
+      observers.push(observer);
     });
-  }, [scrollYProgress, project.steps.length]);
+
+    return () => {
+      observers.forEach((obs) => obs.disconnect());
+    };
+  }, [project.steps.length]);
 
   return (
-    <div ref={containerRef} className="relative">
+    <div className="relative">
       
       {/* Project Label Header */}
-      <div className="mb-8 border-b border-white/10 pb-4 flex flex-col sm:flex-row sm:items-end justify-between gap-4">
+      <div className="mb-8 sm:mb-12 border-b border-white/10 pb-4 flex flex-col sm:flex-row sm:items-end justify-between gap-4">
         <div>
           <div className="flex items-center gap-3 mb-2">
             <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[10px] font-mono bg-[#dfcba9]/10 border border-[#dfcba9]/30 text-[#dfcba9] font-medium">
@@ -237,61 +249,11 @@ function ProjectStickySection({ project, isAr }: { project: ProjectCase; isAr: b
         </Link>
       </div>
 
-      {/* ── Mobile Layout (< lg): Structured Cards with Embedded Images ── */}
-      <div className="flex flex-col gap-8 lg:hidden">
-        {project.steps.map((step, idx) => (
-          <div
-            key={step.titleEn}
-            className="p-5 sm:p-6 rounded-2xl bg-white/[0.025] border border-white/[0.08] shadow-lg flex flex-col gap-4"
-          >
-            {/* Step Badge */}
-            <div className="inline-flex items-center gap-2 text-xs font-mono">
-              <span className={`w-2 h-2 rounded-full ${idx === 2 ? "bg-emerald-400 animate-pulse" : "bg-[#dfcba9]"}`} />
-              <span className={idx === 2 ? "text-emerald-400 font-bold" : "text-[#dfcba9] font-medium"}>
-                {idx === 0
-                  ? isAr
-                    ? "01. المشكلة والتحدي"
-                    : "01. The Challenge"
-                  : idx === 1
-                  ? isAr
-                    ? "02. الحل التقني والمعمارية"
-                    : "02. The Architecture"
-                  : isAr
-                  ? "03. الأثر والنتائج بالأرقام"
-                  : "03. The Business Outcome"}
-              </span>
-            </div>
-
-            {/* Step Title */}
-            <h4 className="text-lg sm:text-xl font-bold text-white tracking-tight leading-snug">
-              {isAr ? step.titleAr : step.titleEn}
-            </h4>
-
-            {/* Step Description */}
-            <p dir="auto" className="text-xs sm:text-sm text-zinc-300 leading-[1.85] font-normal">
-              {isAr ? step.descriptionAr : step.descriptionEn}
-            </p>
-
-            {/* Step Image */}
-            <div className="relative w-full aspect-[16/10] rounded-xl overflow-hidden border border-white/10 bg-zinc-950 shadow-md mt-2">
-              <Image
-                src={step.imageSrc}
-                alt={step.imageAlt}
-                fill
-                unoptimized={step.imageSrc.endsWith('.svg')}
-                className="object-cover object-top"
-                sizes="100vw"
-              />
-            </div>
-          </div>
-        ))}
-      </div>
-
-      {/* ── Desktop Layout (lg+): Sticky Pinned Image & Synchronized Text ── */}
-      <div className="hidden lg:grid lg:grid-cols-12 gap-16 items-start relative">
+      {/* Main Sticky Grid (Unified layout with full animation on all screens) */}
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-start relative">
         
-        {/* Sticky Image Column (Pinned in center on desktop) */}
-        <div className="lg:order-2 lg:col-span-7 w-full sticky top-[20vh] z-10">
+        {/* Sticky Pinned Image Card */}
+        <div className="lg:order-2 lg:col-span-7 w-full sticky top-16 sm:top-20 lg:top-[20vh] z-20 mb-6 lg:mb-0">
           <div className="relative w-full aspect-[16/10] rounded-2xl overflow-hidden border border-white/15 bg-zinc-950 shadow-[0_20px_60px_rgba(0,0,0,0.9)] backdrop-blur-md">
             {project.steps.map((step, idx) => (
               <motion.div
@@ -310,7 +272,7 @@ function ProjectStickySection({ project, isAr }: { project: ProjectCase; isAr: b
                   fill
                   unoptimized={step.imageSrc.endsWith('.svg')}
                   className="object-cover object-top"
-                  sizes="60vw"
+                  sizes="(max-width: 1024px) 100vw, 60vw"
                   priority={idx === 0}
                 />
               </motion.div>
@@ -319,14 +281,17 @@ function ProjectStickySection({ project, isAr }: { project: ProjectCase; isAr: b
         </div>
 
         {/* Text Steps Column */}
-        <div className="lg:order-1 lg:col-span-5 space-y-4">
+        <div className="lg:order-1 lg:col-span-5 space-y-8 lg:space-y-4">
           {project.steps.map((step, idx) => {
             const isActive = activeStep === idx;
             return (
               <div
                 key={step.titleEn}
-                className={`min-h-[50vh] flex flex-col justify-center transition-all duration-300 ${
-                  isActive ? "opacity-100" : "opacity-35"
+                ref={(el) => {
+                  stepRefs.current[idx] = el;
+                }}
+                className={`min-h-[45vh] sm:min-h-[50vh] flex flex-col justify-center transition-all duration-300 ${
+                  isActive ? "opacity-100" : "opacity-40"
                 }`}
               >
                 <div className="inline-flex items-center gap-2 text-xs font-mono mb-2">
@@ -345,10 +310,10 @@ function ProjectStickySection({ project, isAr }: { project: ProjectCase; isAr: b
                       : "03. The Business Outcome"}
                   </span>
                 </div>
-                <h4 className="text-xl font-bold text-white tracking-tight leading-snug mb-3">
+                <h4 className="text-lg sm:text-xl font-bold text-white tracking-tight leading-snug mb-3">
                   {isAr ? step.titleAr : step.titleEn}
                 </h4>
-                <p dir="auto" className="text-base text-zinc-300 leading-[1.85] font-normal max-w-xl">
+                <p dir="auto" className="text-xs sm:text-base text-zinc-300 leading-[1.85] font-normal max-w-xl">
                   {isAr ? step.descriptionAr : step.descriptionEn}
                 </p>
               </div>

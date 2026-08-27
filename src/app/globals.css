@@ -13,14 +13,16 @@
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    -webkit-tap-highlight-color: transparent;
   }
   body {
     margin: 0;
     padding: 0;
     background-color: #09090b;
     color: #f4f4f5;
-    overflow-x: clip;
     width: 100%;
+    min-height: 100%;
+    -webkit-font-smoothing: antialiased;
   }
 
   /* Arabic Typography Polish */

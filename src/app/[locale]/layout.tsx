@@ -163,7 +163,7 @@ export default async function LocaleLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body className={`bg-[#09090b] text-[#f4f4f5] antialiased selection:bg-[#dfcba9] selection:text-black overflow-x-hidden ${isRtl ? "leading-[1.85]" : "leading-relaxed"}`}>
+      <body className={`bg-[#09090b] text-[#f4f4f5] antialiased selection:bg-[#dfcba9] selection:text-black ${isRtl ? "leading-[1.85]" : "leading-relaxed"}`}>
         <NextIntlClientProvider messages={messages}>
           {children}
         </NextIntlClientProvider>

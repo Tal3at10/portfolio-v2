@@ -19,11 +19,16 @@ export function ParallaxComponent() {
   const locale = useLocale();
   const isAr = locale === "ar";
 
-  // ── Smooth Scroll (Lenis) ───────────────────────────────────────────────
+  // ── Smooth Scroll (Lenis) — Desktop Only (Preserve Native iOS Momentum Scroll) ──
   useEffect(() => {
+    // On touch devices / Safari iOS, native momentum scroll is hardware-accelerated.
+    const isTouch = "ontouchstart" in window || navigator.maxTouchPoints > 0;
+    if (isTouch) return;
+
     const lenis = new Lenis({
       duration: 1.2,
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+      syncTouch: false,
     });
 
     let rafId: number;
