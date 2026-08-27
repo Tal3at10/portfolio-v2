@@ -193,54 +193,33 @@ function ProjectStickySection({ project, isAr }: { project: ProjectCase; isAr: b
   const stepRefs = useRef<(HTMLDivElement | null)[]>([]);
   const locale = useLocale();
 
-  // Dual-strategy: IntersectionObserver + scroll fallback
-  // The scroll fallback ensures step activation on old iOS Chrome where IO is unreliable
+  // Dual-strategy: Immediate scroll tracking + IntersectionObserver
   useEffect(() => {
-    const observers: IntersectionObserver[] = [];
-    let ioFired = false;
-
-    // Strategy 1: IntersectionObserver
-    stepRefs.current.forEach((el, index) => {
-      if (!el) return;
-      const observer = new IntersectionObserver(
-        ([entry]) => {
-          if (entry.isIntersecting) {
-            ioFired = true;
-            setActiveStep(index);
-          }
-        },
-        { root: null, rootMargin: "0px 0px -15% 0px", threshold: 0.1 }
-      );
-      observer.observe(el);
-      observers.push(observer);
-    });
-
-    // Strategy 2: Scroll-based fallback — activates step whose center is closest to viewport center
     const handleScroll = () => {
-      const viewportCenter = window.scrollY + window.innerHeight / 2;
+      const isMobile = window.innerWidth < 1024;
+      // On mobile with sticky image at top, the text active trigger line is around 60% of viewport
+      const targetY = isMobile ? window.innerHeight * 0.6 : window.innerHeight * 0.5;
+
       let closest = 0;
-      let closestDist = Infinity;
+      let minDistance = Infinity;
+
       stepRefs.current.forEach((el, index) => {
         if (!el) return;
         const rect = el.getBoundingClientRect();
-        const elCenter = window.scrollY + rect.top + rect.height / 2;
-        const dist = Math.abs(elCenter - viewportCenter);
-        if (dist < closestDist) {
-          closestDist = dist;
+        const elCenter = rect.top + rect.height / 2;
+        const distance = Math.abs(elCenter - targetY);
+        if (distance < minDistance) {
+          minDistance = distance;
           closest = index;
         }
       });
       setActiveStep(closest);
     };
 
-    // Start scroll listener after a short delay to let IO fire first
-    const scrollTimer = setTimeout(() => {
-      window.addEventListener("scroll", handleScroll, { passive: true });
-    }, 800);
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    handleScroll(); // run once on mount
 
     return () => {
-      clearTimeout(scrollTimer);
-      observers.forEach((obs) => obs.disconnect());
       window.removeEventListener("scroll", handleScroll);
     };
   }, [project.steps.length]);
@@ -295,7 +274,7 @@ function ProjectStickySection({ project, isAr }: { project: ProjectCase; isAr: b
                   src={step.imageSrc}
                   alt={step.imageAlt}
                   fill
-                  unoptimized={step.imageSrc.endsWith('.svg')}
+                  unoptimized={true}
                   className="object-cover object-top"
                   sizes="(max-width: 1024px) 100vw, 60vw"
                   priority={idx === 0}
