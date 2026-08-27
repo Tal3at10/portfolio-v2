@@ -331,30 +331,25 @@ export function SystemsBento() {
         </div>
 
         {/* ── Interactive Category Tab Filter ── */}
-        <div className="mb-10 flex flex-wrap items-center gap-2 sm:gap-3">
+        <div className="mb-8 sm:mb-10 flex items-center gap-2 sm:gap-3 overflow-x-auto no-scrollbar py-1 -mx-4 px-4 sm:mx-0 sm:px-0 flex-nowrap sm:flex-wrap">
           {filterTabs.map((tab) => {
             const isActive = activeTab === tab.id;
 
             return (
               <button
                 key={tab.id}
+                type="button"
                 onClick={() => setActiveTab(tab.id)}
-                className={`relative px-4 py-2 rounded-full text-xs font-mono transition-all duration-300 flex items-center gap-2 cursor-pointer border ${
+                style={{ touchAction: "manipulation" }}
+                className={`relative px-3.5 py-2 sm:px-4 rounded-full text-xs font-mono transition-all duration-200 flex items-center gap-2 cursor-pointer border shrink-0 whitespace-nowrap active:scale-95 ${
                   isActive
-                    ? "text-white border-[#dfcba9]/60 shadow-[0_0_20px_rgba(223,203,169,0.15)] bg-white/[0.08]"
+                    ? "text-white border-[#dfcba9]/60 shadow-[0_0_20px_rgba(223,203,169,0.15)] bg-white/[0.12] font-semibold"
                     : "text-zinc-400 border-white/[0.07] bg-white/[0.02] hover:text-zinc-200 hover:border-white/20 hover:bg-white/[0.05]"
                 }`}
               >
-                {isActive && (
-                  <motion.span
-                    layoutId="bento-tab-indicator"
-                    className="absolute inset-0 rounded-full bg-[#dfcba9]/10 -z-10"
-                    transition={{ type: "spring", stiffness: 350, damping: 30 }}
-                  />
-                )}
                 <span>{isAr ? tab.labelAr : tab.labelEn}</span>
                 <span
-                  className={`text-[10px] px-1.5 py-0.2 rounded-full ${
+                  className={`text-[10px] px-1.5 py-0.5 rounded-full ${
                     isActive
                       ? "bg-[#dfcba9] text-black font-bold"
                       : "bg-white/[0.06] text-zinc-500"

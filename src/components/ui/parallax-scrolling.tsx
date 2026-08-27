@@ -126,15 +126,15 @@ export function ParallaxComponent() {
         {/* 5. Minimal Social Proof Strip */}
         <div
           dir={isAr ? "rtl" : "ltr"}
-          className="flex flex-wrap items-center justify-center gap-3 sm:gap-8 mb-7 sm:mb-9 text-xs"
+          className="flex items-center justify-center gap-2 sm:gap-6 mb-6 sm:mb-8 text-xs max-w-full px-2"
         >
           {stats.map((stat, i) => (
             <React.Fragment key={stat.labelEn}>
-              <div className="flex items-center gap-1.5 whitespace-nowrap">
-                <span dir="ltr" className="text-[#dfcba9] font-black text-base sm:text-xl font-sans">
+              <div className="flex items-center gap-1 sm:gap-1.5 whitespace-nowrap">
+                <span dir="ltr" className="text-[#dfcba9] font-black text-sm sm:text-lg font-sans">
                   <AnimatedCounter value={stat.value} suffix={stat.suffix} duration={1.6} />
                 </span>
-                <span className="text-zinc-200 font-semibold text-xs sm:text-sm">
+                <span className="text-zinc-300 font-semibold text-[10px] sm:text-xs">
                   {isAr ? stat.labelAr : stat.labelEn}
                 </span>
               </div>

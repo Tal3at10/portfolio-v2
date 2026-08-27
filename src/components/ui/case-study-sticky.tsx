@@ -260,15 +260,11 @@ function ProjectStickySection({ project, isAr }: { project: ProjectCase; isAr: b
         <div className="lg:order-2 lg:col-span-7 w-full sticky top-16 sm:top-20 lg:top-[20vh] z-20 mb-6 lg:mb-0">
           <div className="relative w-full aspect-[16/10] rounded-2xl overflow-hidden border border-white/15 bg-zinc-950 shadow-[0_20px_60px_rgba(0,0,0,0.9)] backdrop-blur-md">
             {project.steps.map((step, idx) => (
-              <motion.div
+              <div
                 key={step.imageSrc}
-                initial={false}
-                animate={{
-                  opacity: activeStep === idx ? 1 : 0,
-                  scale: activeStep === idx ? 1 : 1.02,
-                }}
-                transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-                className="absolute inset-0 w-full h-full"
+                className={`absolute inset-0 w-full h-full transition-opacity duration-500 ease-in-out ${
+                  activeStep === idx ? "opacity-100 z-10" : "opacity-0 z-0 pointer-events-none"
+                }`}
               >
                 <Image
                   src={step.imageSrc}
@@ -279,7 +275,7 @@ function ProjectStickySection({ project, isAr }: { project: ProjectCase; isAr: b
                   sizes="(max-width: 1024px) 100vw, 60vw"
                   priority={idx === 0}
                 />
-              </motion.div>
+              </div>
             ))}
           </div>
         </div>

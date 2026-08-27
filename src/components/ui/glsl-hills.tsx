@@ -35,7 +35,7 @@ export function GLSLHills({
       time: { value: 0 },
     };
 
-    // Vertex Shader
+    // Vertex Shader (Perlin noise hills)
     const vertexShader = `
       #ifdef GL_FRAGMENT_PRECISION_HIGH
       precision highp float;
@@ -142,7 +142,7 @@ export function GLSLHills({
       }
     `;
 
-    // Fragment Shader
+    // Fragment Shader - Crisp warm glow for mobile & desktop
     const fragmentShader = `
       #ifdef GL_FRAGMENT_PRECISION_HIGH
       precision highp float;
@@ -155,8 +155,8 @@ export function GLSLHills({
       varying vec3 vPosition;
 
       void main(void) {
-        float opacity = (96.0 - length(vPosition)) / 256.0 * 0.92;
-        vec3 color = vec3(0.6);
+        float opacity = clamp((120.0 - length(vPosition)) / 220.0 * 1.15, 0.0, 0.85);
+        vec3 color = vec3(0.87, 0.80, 0.67);
         gl_FragColor = vec4(color, opacity);
       }
     `;
@@ -174,23 +174,23 @@ export function GLSLHills({
       return;
     }
 
-    const widthVal = canvas.parentElement?.clientWidth || window.innerWidth;
-    const heightVal = canvas.parentElement?.clientHeight || window.innerHeight;
+    const isMobile = window.innerWidth < 768;
+    const w = window.innerWidth;
+    const h = window.innerHeight;
 
     renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
-    renderer.setSize(widthVal, heightVal);
+    renderer.setSize(w, h, false);
     renderer.setClearColor(0x000000, 0);
 
     const scene = new THREE.Scene();
     const camera = new THREE.PerspectiveCamera(
-      45,
-      widthVal / heightVal,
+      isMobile ? 55 : 45,
+      w / h,
       1,
       10000
     );
     const clock = new THREE.Clock();
 
-    const isMobile = widthVal < 768;
     const effectiveResolution = isMobile ? Math.min(planeSize, 96) : planeSize;
 
     const geometry = new THREE.PlaneGeometry(planeSize, planeSize, effectiveResolution, effectiveResolution);
@@ -203,22 +203,40 @@ export function GLSLHills({
     });
     const mesh = new THREE.Mesh(geometry, material);
 
-    camera.position.set(0, cameraY, cameraZ);
-    camera.lookAt(new THREE.Vector3(0, lookAtY, 0));
+    // Adjusted camera coordinates for mobile portrait vs desktop landscape
+    if (isMobile) {
+      camera.position.set(0, 10, 150);
+      camera.lookAt(new THREE.Vector3(0, 14, 0));
+    } else {
+      camera.position.set(0, cameraY, cameraZ);
+      camera.lookAt(new THREE.Vector3(0, lookAtY, 0));
+    }
+
     scene.add(mesh);
 
     // Resize Handler
     const handleResize = () => {
-      const w = canvas.parentElement?.clientWidth || window.innerWidth;
-      const h = canvas.parentElement?.clientHeight || window.innerHeight;
-      camera.aspect = w / h;
+      const rw = window.innerWidth;
+      const rh = window.innerHeight;
+      const mobile = rw < 768;
+      camera.fov = mobile ? 55 : 45;
+      camera.aspect = rw / rh;
       camera.updateProjectionMatrix();
+
+      if (mobile) {
+        camera.position.set(0, 10, 150);
+        camera.lookAt(new THREE.Vector3(0, 14, 0));
+      } else {
+        camera.position.set(0, cameraY, cameraZ);
+        camera.lookAt(new THREE.Vector3(0, lookAtY, 0));
+      }
+
       renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
-      renderer.setSize(w, h);
+      renderer.setSize(rw, rh, false);
     };
     window.addEventListener("resize", handleResize);
 
-    // WebGL Context Loss Handler
+    // Context loss
     let contextLost = false;
     const handleContextLost = (event: Event) => {
       event.preventDefault();
@@ -230,7 +248,7 @@ export function GLSLHills({
     canvas.addEventListener("webglcontextlost", handleContextLost, false);
     canvas.addEventListener("webglcontextrestored", handleContextRestored, false);
 
-    // Render Loop
+    // Render loop
     let isVisible = true;
     const loop = () => {
       if (isVisible && !contextLost) {
@@ -241,13 +259,11 @@ export function GLSLHills({
     };
     loop();
 
-    // Pause when scrolled far out of view
     const handleScroll = () => {
       isVisible = window.scrollY < window.innerHeight * 1.5;
     };
     window.addEventListener("scroll", handleScroll, { passive: true });
 
-    // Cleanup
     return () => {
       cancelAnimationFrame(animFrameId);
       window.removeEventListener("scroll", handleScroll);
@@ -263,8 +279,8 @@ export function GLSLHills({
   return (
     <canvas
       ref={canvasRef}
-      className="pointer-events-none"
-      style={{ width, height, display: "block" }}
+      className="pointer-events-none absolute inset-0 w-full h-full"
+      style={{ display: "block" }}
     />
   );
 }

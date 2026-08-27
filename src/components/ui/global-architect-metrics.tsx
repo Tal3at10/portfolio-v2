@@ -93,7 +93,7 @@ export function GlobalArchitectMetrics() {
         <p className="text-[10px] sm:text-xs font-mono uppercase tracking-[0.25em] text-[#dfcba9] mb-3 font-medium">
           {isAr ? "مؤشرات وأرقام الإنجاز" : "Measurable Architecture Metrics"}
         </p>
-        <h2 className="text-3xl sm:text-5xl font-black tracking-tight text-white">
+        <h2 className="text-2xl sm:text-4xl lg:text-5xl font-black tracking-tight text-white px-2 [text-wrap:balance]">
           {isAr ? "أثر هندسي ملموس بالأرقام" : "Engineering Impact in Numbers"}
         </h2>
         <p className="text-sm sm:text-base text-zinc-300 mt-3 max-w-2xl mx-auto font-normal leading-relaxed">

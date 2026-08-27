@@ -162,12 +162,12 @@ export function ClientTestimonials() {
 
   return (
     <section id="testimonials" className="relative z-20 w-full bg-[#09090b] text-white border-t border-white/[0.08]">
-      <div className="max-w-6xl mx-auto py-28 px-6 sm:px-12">
-        <div className="mb-12 text-center">
+      <div className="max-w-6xl mx-auto py-16 sm:py-28 px-4 sm:px-12">
+        <div className="mb-8 sm:mb-12 text-center">
           <p className="text-[10px] sm:text-xs font-mono uppercase tracking-[0.25em] text-[#dfcba9] mb-3 font-medium">
             {isAr ? "ثقة وشهادات حية" : "Verified Client Reviews"}
           </p>
-          <h2 className="text-3xl sm:text-5xl font-black tracking-tight text-white">
+          <h2 className="text-2xl sm:text-4xl lg:text-5xl font-black tracking-tight text-white px-2 [text-wrap:balance]">
             {isAr ? "آراء العملاء والشركاء" : "Client & Buyer Reviews"}
           </h2>
           <p className="text-sm sm:text-base text-zinc-300 mt-3 max-w-2xl mx-auto font-normal leading-relaxed">
