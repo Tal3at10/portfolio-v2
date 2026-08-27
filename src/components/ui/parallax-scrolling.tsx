@@ -59,7 +59,7 @@ export function ParallaxComponent() {
   };
 
   return (
-    <div id="hero" className="relative w-full min-h-[100dvh] h-auto bg-[#09090b] overflow-hidden flex flex-col justify-center">
+    <div id="hero" className="relative w-full min-h-screen h-auto bg-[#09090b] bg-[radial-gradient(ellipse_at_top,rgba(223,203,169,0.12)_0%,transparent_60%)] overflow-hidden flex flex-col justify-center">
 
       {/* ── Layer 1: GLSL Hills WebGL Background ── */}
       <div className="absolute inset-0 z-0 pointer-events-none">
@@ -85,7 +85,7 @@ export function ParallaxComponent() {
       />
 
       {/* ── Layer 4: Hero Content ── */}
-      <div className="relative z-10 w-full min-h-[100dvh] py-20 sm:py-24 flex flex-col items-center justify-center text-center px-4 sm:px-8 max-w-6xl mx-auto">
+      <div className="relative z-10 w-full min-h-screen py-20 sm:py-24 flex flex-col items-center justify-center text-center px-4 sm:px-8 max-w-6xl mx-auto">
 
         {/* 1. Category Eyebrow Badge */}
         <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#dfcba9]/10 border border-[#dfcba9]/25 mb-4 sm:mb-5 shadow-[0_0_20px_rgba(223,203,169,0.08)]">

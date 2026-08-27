@@ -184,7 +184,7 @@ export function InteractiveScreenshotShowcase({
               {/* Image Preview Container (High Definition & Uncompressed) */}
               <div
                 onClick={() => setActiveLightboxIndex(index)}
-                className="relative aspect-[16/10] w-full bg-[#05070d] cursor-zoom-in overflow-hidden border-b border-white/5"
+                className="relative aspect-[16/10] min-h-[200px] sm:min-h-[250px] w-full bg-[#05070d] cursor-zoom-in overflow-hidden border-b border-white/5"
               >
                 <Image
                   src={item.image}
