@@ -123,23 +123,23 @@ export function ParallaxComponent() {
             : "Architecting enterprise platforms, GovTech systems, and custom AI ecosystems across Saudi Arabia and the Gulf."}
         </p>
 
-        {/* 5. Minimal Social Proof Strip */}
+        {/* 5. Minimal Social Proof Strip — Guaranteed single line */}
         <div
           dir={isAr ? "rtl" : "ltr"}
-          className="flex items-center justify-center gap-2 sm:gap-6 mb-6 sm:mb-8 text-xs max-w-full px-2"
+          className="flex items-center justify-center gap-1.5 sm:gap-6 mb-6 sm:mb-8 max-w-full px-2 flex-nowrap"
         >
           {stats.map((stat, i) => (
             <React.Fragment key={stat.labelEn}>
-              <div className="flex items-center gap-1 sm:gap-1.5 whitespace-nowrap">
-                <span dir="ltr" className="text-[#dfcba9] font-black text-sm sm:text-lg font-sans">
+              <div className="flex items-center gap-1 whitespace-nowrap shrink-0">
+                <span dir="ltr" className="text-[#dfcba9] font-black text-xs sm:text-lg font-sans">
                   <AnimatedCounter value={stat.value} suffix={stat.suffix} duration={1.6} />
                 </span>
-                <span className="text-zinc-300 font-semibold text-[10px] sm:text-xs">
+                <span className="text-zinc-300 font-medium text-[9px] sm:text-xs">
                   {isAr ? stat.labelAr : stat.labelEn}
                 </span>
               </div>
               {i < stats.length - 1 && (
-                <span className="text-zinc-600 font-mono text-xs select-none">·</span>
+                <span className="text-zinc-600 font-mono text-[9px] sm:text-xs select-none">·</span>
               )}
             </React.Fragment>
           ))}
