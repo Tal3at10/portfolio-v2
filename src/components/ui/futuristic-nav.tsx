@@ -57,13 +57,13 @@ export const LumaBar = () => {
   };
 
   return (
-    <header className="fixed bottom-5 md:bottom-auto md:top-3.5 left-1/2 -translate-x-1/2 z-50 select-none">
+    <header className="fixed bottom-[calc(0.75rem+env(safe-area-inset-bottom,0px))] md:bottom-auto md:top-3.5 left-1/2 -translate-x-1/2 z-50 select-none max-w-[96vw]">
       <nav 
         aria-label="Main Navigation" 
-        className="relative flex items-center justify-center gap-2 sm:gap-2.5 md:gap-3 bg-[#0a0a0d]/70 backdrop-blur-2xl rounded-full px-4 sm:px-5 py-1.5 shadow-[0_12px_32px_rgba(0,0,0,0.45)] border border-white/[0.16]"
+        className="relative flex items-center justify-center gap-1 sm:gap-2 md:gap-3 bg-[#0a0a0d]/80 backdrop-blur-2xl rounded-full px-2.5 sm:px-4 md:px-5 py-1.5 shadow-[0_12px_32px_rgba(0,0,0,0.55)] border border-white/[0.16]"
       >
         {/* TAM Systems Brand Mark */}
-        <span className="hidden md:flex items-center gap-1.5 text-[11px] font-mono font-semibold text-[#dfcba9] tracking-widest uppercase pr-2 border-r border-white/10 mr-1">
+        <span className="hidden md:flex items-center gap-1.5 text-[11px] font-mono font-semibold text-[#dfcba9] tracking-widest uppercase pe-2 border-e border-white/10 me-1">
           {isAr ? "تَـمّ" : "TAM"}
         </span>
         {items.map((item, index) => {
@@ -74,22 +74,17 @@ export const LumaBar = () => {
               <motion.button
                 onClick={() => handleClick(item, index)}
                 whileHover={{ scale: 1.04 }}
-                whileTap={{ scale: 0.96 }}
-                className={`flex items-center justify-center gap-1.5 px-2.5 md:px-3 h-8 sm:h-8.5 rounded-full transition-all duration-200 relative z-10 ${
+                whileTap={{ scale: 0.94 }}
+                className={`flex items-center justify-center gap-1.5 px-2 sm:px-2.5 md:px-3 h-8 rounded-full transition-all duration-200 relative z-10 ${
                   isActive
                     ? "text-white bg-white/[0.18] border border-white/[0.3] shadow-[inset_0_1px_1px_rgba(255,255,255,0.4)]"
                     : "text-zinc-300 hover:text-white hover:bg-white/[0.08]"
                 }`}
                 aria-label={label}
               >
-                <span className="shrink-0">{item.icon}</span>
+                <span className="shrink-0 scale-90 sm:scale-100">{item.icon}</span>
                 <span className="hidden md:inline font-medium text-[11px] whitespace-nowrap">{label}</span>
               </motion.button>
-
-              {/* Instant High-Contrast Tooltip for mobile */}
-              <span className="md:hidden absolute bottom-full mb-2 px-2.5 py-1 text-[10px] font-mono font-medium tracking-tight rounded-lg bg-[#141419]/95 text-white border border-white/[0.15] shadow-2xl opacity-0 group-hover:opacity-100 transition-all duration-150 pointer-events-none whitespace-nowrap z-50">
-                {label}
-              </span>
             </motion.div>
           );
         })}

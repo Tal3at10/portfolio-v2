@@ -282,7 +282,7 @@ function ProjectCard({
               <span className="text-xs sm:text-sm font-bold text-[#dfcba9] group-hover:text-white transition-colors">
                 {isAr ? "عرض الملف المعماري" : "View Architecture Dossier"}
               </span>
-              <span className="text-sm font-bold text-[#dfcba9] group-hover:text-white transition-transform duration-300 group-hover:translate-x-1">
+              <span className="text-sm font-bold text-[#dfcba9] group-hover:text-white transition-transform duration-300 rtl:group-hover:-translate-x-1 ltr:group-hover:translate-x-1">
                 {isAr ? "←" : "→"}
               </span>
             </div>
@@ -307,9 +307,9 @@ export function SystemsBento() {
   return (
     <section
       id="systems"
-      className="relative z-20 w-full bg-[#09090b] text-white py-28 border-t border-white/[0.06]"
+      className="relative z-20 w-full bg-[#09090b] text-white py-16 sm:py-24 border-t border-white/[0.06]"
     >
-      <div className="max-w-7xl mx-auto px-6 sm:px-12">
+      <div className="max-w-7xl mx-auto px-4 sm:px-12">
         {/* ── Section Header ── */}
         <div className="mb-12 flex flex-col md:flex-row md:items-end justify-between gap-6 border-b border-white/[0.08] pb-8">
           <div>

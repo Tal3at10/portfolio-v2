@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import { IconArrowLeft, IconArrowRight } from "@tabler/icons-react";
 import { motion, AnimatePresence } from "framer-motion";
@@ -54,12 +54,12 @@ export const AnimatedTestimonials = ({
   };
 
   return (
-    <div className={cn("max-w-sm md:max-w-5xl mx-auto px-4 md:px-8 lg:px-12 py-20", className)}>
-      <div className="relative grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-20 items-center">
+    <div className={cn("max-w-5xl mx-auto px-4 md:px-8 lg:px-12 py-12 sm:py-20", className)}>
+      <div className="relative grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-12 lg:gap-20 items-center">
         
         {/* Left: Stacked 3D Image Deck */}
         <div>
-          <div className="relative h-80 sm:h-96 w-full">
+          <div className="relative h-64 sm:h-80 md:h-96 w-full">
             <AnimatePresence>
               {testimonials.map((testimonial, index) => (
                 <motion.div
@@ -78,7 +78,7 @@ export const AnimatedTestimonials = ({
                     zIndex: isActive(index)
                       ? 999
                       : testimonials.length + 2 - index,
-                    y: isActive(index) ? [0, -35, 0] : 0,
+                    y: isActive(index) ? [0, -15, 0] : 0,
                   }}
                   exit={{
                     opacity: 0,
@@ -106,8 +106,8 @@ export const AnimatedTestimonials = ({
                       <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(223,203,169,0.12)_0%,transparent_70%)] pointer-events-none" />
                       
                       {/* Monogram Circle Badge */}
-                      <div className="w-28 h-28 sm:w-32 sm:h-32 rounded-full border border-[#dfcba9]/30 bg-black/60 shadow-[0_0_40px_rgba(223,203,169,0.15)] flex items-center justify-center relative z-10">
-                        <span className="text-3xl sm:text-4xl font-black tracking-tight text-transparent bg-clip-text bg-gradient-to-b from-white via-zinc-200 to-[#dfcba9]">
+                      <div className="w-24 h-24 sm:w-32 sm:h-32 rounded-full border border-[#dfcba9]/30 bg-black/60 shadow-[0_0_40px_rgba(223,203,169,0.15)] flex items-center justify-center relative z-10">
+                        <span className="text-2xl sm:text-4xl font-black tracking-tight text-transparent bg-clip-text bg-gradient-to-b from-white via-zinc-200 to-[#dfcba9]">
                           {(() => {
                             const parts = testimonial.name.trim().split(/\s+/);
                             if (parts.length === 1) return parts[0].slice(0, 2);
@@ -119,7 +119,7 @@ export const AnimatedTestimonials = ({
                       {/* Verified Client Badge */}
                       <div className="mt-4 flex items-center gap-1.5 px-3 py-1 rounded-full border border-white/10 bg-white/[0.04] text-[11px] font-mono text-zinc-400 z-10">
                         <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-                        <span>Ø¹Ù…ÙŠÙ„ Ù…Ø¹ØªÙ…Ø¯ â€¢ Verified Partner</span>
+                        <span>عميل معتمد • Verified Partner</span>
                       </div>
                     </div>
                   )}

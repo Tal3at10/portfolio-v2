@@ -10,7 +10,7 @@ export function ArchitectureProcess() {
 
   return (
     <section id="methodology" className="relative z-20 w-full bg-[#09090b] text-white border-t border-white/[0.08]">
-      <div className="max-w-6xl mx-auto py-28 px-6 sm:px-12">
+      <div className="max-w-6xl mx-auto py-16 sm:py-28 px-4 sm:px-12">
       {/* Clean Section Header */}
       <div className="mb-12 text-center">
         <p className="text-[10px] sm:text-xs font-mono uppercase tracking-[0.25em] text-[#dfcba9] mb-3 font-medium">

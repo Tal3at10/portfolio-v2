@@ -45,7 +45,7 @@ export function ExecutiveBio() {
             <div className="absolute -inset-4 sm:-inset-10 rounded-full bg-gradient-to-br from-[#dfcba9] to-[#c5a028] blur-3xl opacity-25 animate-pulse pointer-events-none" />
             
             {/* Crisp Circular Container */}
-            <div className="relative w-64 h-64 sm:w-80 sm:h-80 lg:w-[420px] lg:h-[420px] rounded-full overflow-hidden border-4 border-[#dfcba9] shadow-[0_0_60px_rgba(223,203,169,0.2)] bg-[#121216] transition-transform duration-500 hover:scale-[1.02]">
+            <div className="relative w-44 h-44 sm:w-72 sm:h-72 lg:w-[420px] lg:h-[420px] rounded-full overflow-hidden border-4 border-[#dfcba9] shadow-[0_0_60px_rgba(223,203,169,0.2)] bg-[#121216] transition-transform duration-500 hover:scale-[1.02]">
               <Image
                 src="/tam-logo.jpg"
                 alt="TAM Systems"
@@ -53,7 +53,7 @@ export function ExecutiveBio() {
                 unoptimized={true}
                 priority
                 className="object-cover select-none"
-                sizes="(max-width: 640px) 256px, (max-width: 1024px) 320px, 420px"
+                sizes="(max-width: 640px) 176px, (max-width: 1024px) 288px, 420px"
               />
             </div>
           </div>

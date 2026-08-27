@@ -66,9 +66,9 @@ export function Stats18({ stats = defaultStats, title, subtitle }: Stats18Props)
               key={index}
               initial={{ opacity: 0, y: 16 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-40px" }}
-              transition={{ duration: 0.45, delay: index * 0.08 }}
-              className="group relative p-6 sm:p-7 rounded-2xl bg-gradient-to-b from-white/[0.04] to-white/[0.01] border border-white/[0.08] hover:border-[#dfcba9]/35 backdrop-blur-sm transition-all duration-300 flex flex-col justify-between"
+              viewport={{ once: true, margin: "0px", amount: 0.1 }}
+              transition={{ duration: 0.4, delay: index * 0.06 }}
+              className="group relative p-5 sm:p-7 rounded-2xl bg-gradient-to-b from-white/[0.04] to-white/[0.01] border border-white/[0.08] hover:border-[#dfcba9]/35 backdrop-blur-sm transition-all duration-300 flex flex-col justify-between"
             >
               {/* Subtle hover highlight */}
               <div
@@ -82,7 +82,7 @@ export function Stats18({ stats = defaultStats, title, subtitle }: Stats18Props)
               <div>
                 {/* Large high-impact metric number */}
                 <div
-                  dir="ltr"
+                  dir="auto"
                   className="text-3xl sm:text-4xl lg:text-[2.75rem] font-extrabold tracking-tight text-transparent bg-clip-text bg-gradient-to-b from-white via-zinc-100 to-[#dfcba9] mb-2.5 font-sans leading-none"
                 >
                   {stat.value}

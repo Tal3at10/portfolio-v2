@@ -83,6 +83,17 @@ export function ProjectScreenshotGallery({
     );
   }, [selectedImageIndex, filteredItems.length]);
 
+  // Body scroll lock
+  useEffect(() => {
+    if (selectedImageIndex !== null) {
+      const originalOverflow = document.body.style.overflow;
+      document.body.style.overflow = "hidden";
+      return () => {
+        document.body.style.overflow = originalOverflow;
+      };
+    }
+  }, [selectedImageIndex]);
+
   // Keyboard navigation for lightbox
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -103,7 +114,7 @@ export function ProjectScreenshotGallery({
   }, [selectedImageIndex, isAr, handleNext, handlePrev]);
 
   return (
-    <section className="relative w-full py-16 px-6 sm:px-12 max-w-7xl mx-auto">
+    <section className="relative w-full py-12 sm:py-16 px-4 sm:px-12 max-w-7xl mx-auto">
       {/* Header */}
       <div className="mb-12 text-center">
         <div className="flex items-center justify-center gap-2 mb-3">

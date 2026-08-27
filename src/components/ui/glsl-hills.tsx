@@ -147,7 +147,11 @@ export function GLSLHills({
     `;
 
     // ── Three.js Scene Setup ──────────────────────────────────────────────
-    const renderer = new THREE.WebGLRenderer({ canvas, antialias: false, alpha: true });
+    const renderer = new THREE.WebGLRenderer({ canvas, antialias: false, alpha: true, powerPreference: "high-performance" });
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    renderer.setClearColor(0x000000, 0);
+
     const scene = new THREE.Scene();
     const camera = new THREE.PerspectiveCamera(
       45,
@@ -157,18 +161,18 @@ export function GLSLHills({
     );
     const clock = new THREE.Clock();
 
-    const mesh = new THREE.Mesh(
-      new THREE.PlaneGeometry(planeSize, planeSize, planeSize, planeSize),
-      new THREE.RawShaderMaterial({
-        uniforms,
-        vertexShader,
-        fragmentShader,
-        transparent: true,
-      })
-    );
+    const isMobile = window.innerWidth < 768;
+    const effectiveResolution = isMobile ? Math.min(planeSize, 96) : planeSize;
 
-    renderer.setSize(window.innerWidth, window.innerHeight);
-    renderer.setClearColor(0x000000, 0);
+    const geometry = new THREE.PlaneGeometry(planeSize, planeSize, effectiveResolution, effectiveResolution);
+    const material = new THREE.RawShaderMaterial({
+      uniforms,
+      vertexShader,
+      fragmentShader,
+      transparent: true,
+    });
+    const mesh = new THREE.Mesh(geometry, material);
+
     camera.position.set(0, cameraY, cameraZ);
     camera.lookAt(new THREE.Vector3(0, lookAtY, 0));
     scene.add(mesh);
@@ -177,14 +181,27 @@ export function GLSLHills({
     const handleResize = () => {
       camera.aspect = window.innerWidth / window.innerHeight;
       camera.updateProjectionMatrix();
+      renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
       renderer.setSize(window.innerWidth, window.innerHeight);
     };
     window.addEventListener("resize", handleResize);
 
+    // ── WebGL Context Loss Handler ─────────────────────────────────────────
+    let contextLost = false;
+    const handleContextLost = (event: Event) => {
+      event.preventDefault();
+      contextLost = true;
+    };
+    const handleContextRestored = () => {
+      contextLost = false;
+    };
+    canvas.addEventListener("webglcontextlost", handleContextLost, false);
+    canvas.addEventListener("webglcontextrestored", handleContextRestored, false);
+
     // ── Render Loop ───────────────────────────────────────────────────────
     let isVisible = true;
     const loop = () => {
-      if (isVisible) {
+      if (isVisible && !contextLost) {
         uniforms.time.value += clock.getDelta() * speed;
         renderer.render(scene, camera);
       }
@@ -205,16 +222,19 @@ export function GLSLHills({
     return () => {
       cancelAnimationFrame(animFrameId);
       observer.disconnect();
+      canvas.removeEventListener("webglcontextlost", handleContextLost);
+      canvas.removeEventListener("webglcontextrestored", handleContextRestored);
       window.removeEventListener("resize", handleResize);
       renderer.dispose();
-      mesh.geometry.dispose();
-      (mesh.material as THREE.Material).dispose();
+      geometry.dispose();
+      material.dispose();
     };
   }, [cameraZ, cameraY, lookAtY, planeSize, speed]);
 
   return (
     <canvas
       ref={canvasRef}
+      className="pointer-events-none"
       style={{ width, height, display: "block" }}
     />
   );

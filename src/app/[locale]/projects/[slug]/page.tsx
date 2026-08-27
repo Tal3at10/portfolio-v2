@@ -356,20 +356,20 @@ export default async function ProjectDetailPage({
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
                         {/* Before Pill */}
                         <div className="flex items-center gap-2 p-2.5 rounded-lg bg-white/[0.03] border border-white/[0.06]">
-                          <span className="text-[10px] sm:text-xs font-semibold text-zinc-500 uppercase px-1.5 py-0.5 rounded bg-black/40">
+                          <span className="text-[10px] sm:text-xs font-semibold text-zinc-500 uppercase px-1.5 py-0.5 rounded bg-black/40 shrink-0">
                             {isAr ? "السابق" : "Before"}
                           </span>
-                          <span className="text-xs sm:text-sm text-zinc-400 line-through decoration-zinc-500/60 truncate" dir="auto">
+                          <span className="text-xs sm:text-sm text-zinc-400 line-through decoration-zinc-500/60 break-words leading-relaxed" dir="auto">
                             {isAr ? row.before_ar : row.before_en}
                           </span>
                         </div>
 
                         {/* After Pill — Highlighted Gold */}
                         <div className="flex items-center gap-2 p-2.5 rounded-lg bg-[#dfcba9]/10 border border-[#dfcba9]/25">
-                          <span className="text-[10px] sm:text-xs font-bold text-[#dfcba9] uppercase px-1.5 py-0.5 rounded bg-[#dfcba9]/20">
+                          <span className="text-[10px] sm:text-xs font-bold text-[#dfcba9] uppercase px-1.5 py-0.5 rounded bg-[#dfcba9]/20 shrink-0">
                             {isAr ? "الآن" : "Now"}
                           </span>
-                          <span className="text-xs sm:text-sm text-white font-bold truncate" dir="auto">
+                          <span className="text-xs sm:text-sm text-white font-bold break-words leading-relaxed" dir="auto">
                             {isAr ? row.after_ar : row.after_en}
                           </span>
                         </div>
@@ -498,7 +498,7 @@ export default async function ProjectDetailPage({
               href={`/${locale}/projects/${prevProject.slug}`}
               className="text-xs sm:text-sm font-semibold text-zinc-400 hover:text-white transition-colors"
             >
-              {isAr ? `← ${prevProject.title_ar}` : `← ${prevProject.title_en}`}
+              {isAr ? `${prevProject.title_ar} →` : `← ${prevProject.title_en}`}
             </Link>
           ) : (
             <div />
@@ -530,7 +530,7 @@ export default async function ProjectDetailPage({
               href={`/${locale}/projects/${nextProject.slug}`}
               className="text-xs sm:text-sm font-semibold text-zinc-400 hover:text-white transition-colors"
             >
-              {isAr ? `${nextProject.title_ar} →` : `${nextProject.title_en} →`}
+              {isAr ? `← ${nextProject.title_ar}` : `${nextProject.title_en} →`}
             </Link>
           ) : (
             <div />

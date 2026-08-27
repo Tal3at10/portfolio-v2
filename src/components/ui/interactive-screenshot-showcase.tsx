@@ -10,6 +10,7 @@ import {
   IconChevronRight,
   IconExternalLink,
   IconLayersSubtract,
+  IconSparkles,
 } from "@tabler/icons-react";
 
 export interface ShowcaseItem {
@@ -66,6 +67,17 @@ export function InteractiveScreenshotShowcase({
             : item.categoryEn === selectedCategory
         );
 
+  // Body Scroll Lock for Lightbox
+  useEffect(() => {
+    if (activeLightboxIndex !== null) {
+      const originalOverflow = document.body.style.overflow;
+      document.body.style.overflow = "hidden";
+      return () => {
+        document.body.style.overflow = originalOverflow;
+      };
+    }
+  }, [activeLightboxIndex]);
+
   // Keyboard navigation for Lightbox
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -87,25 +99,35 @@ export function InteractiveScreenshotShowcase({
   }, [activeLightboxIndex, filteredItems.length]);
 
   return (
-    <section className="relative w-full py-16 sm:py-24 px-4 sm:px-8 lg:px-12 bg-[#000000] border-t border-white/[0.08]">
-      <div className="max-w-7xl mx-auto">
+    <section className="relative w-full py-14 sm:py-24 px-4 sm:px-8 lg:px-12 bg-[#000000] border-t border-white/[0.08]">
+      {/* Ambient background studio lighting */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-[#dfcba9]/[0.025] rounded-full blur-[160px] pointer-events-none" />
+
+      <div className="relative max-w-7xl mx-auto">
         {/* Section Header */}
-        <div className="flex flex-col lg:flex-row lg:items-end justify-between mb-10 sm:mb-14 gap-6">
-          <div>
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#dfcba9]/10 border border-[#dfcba9]/20 text-[#dfcba9] text-xs font-mono mb-3">
-              <IconLayersSubtract className="w-3.5 h-3.5" />
-              <span>{isAr ? "توثيق شاشات حية بنسبة 100%" : "100% Production Dashboards"}</span>
-            </div>
-            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white tracking-tight">
-              {isAr ? titleAr : titleEn}
-            </h2>
-            <p className="mt-2 text-xs sm:text-sm lg:text-base text-zinc-400 max-w-2xl leading-relaxed">
-              {isAr ? subtitleAr : subtitleEn}
-            </p>
+        <div className="mb-10 sm:mb-14 text-center">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#dfcba9]/10 border border-[#dfcba9]/25 mb-4 shadow-[0_0_20px_rgba(223,203,169,0.06)]">
+            <IconSparkles className="w-3.5 h-3.5 text-[#dfcba9]" />
+            <span className="text-xs font-mono font-bold text-[#dfcba9] uppercase tracking-widest">
+              {isAr ? "المعاينة الحية والأنظمة الفرعية" : "Live Subsystems & Interfaces"}
+            </span>
           </div>
 
+          <h2 className="text-2xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight leading-tight mb-3 sm:mb-4">
+            {isAr
+              ? "واجهات حقيقية من بيئة الإنتاج"
+              : "Production Interfaces & Modules"}
+          </h2>
+
+          <p className="text-xs sm:text-sm md:text-base text-zinc-400 max-w-2xl mx-auto leading-relaxed font-normal">
+            {isAr
+              ? "استعراض معماري شامل لكافة الشاشات، لوحات التحكم، والمحركات التقنية للأنظمة الفرعية."
+              : "Comprehensive architectural walkthrough of live dashboards, portals, and background engines."}
+          </p>
+        </div>
+
         {/* Categories Filter Tabs */}
-        {categories.length > 2 && (
+        {categories.length > 1 && (
           <div className="flex items-center gap-1.5 p-1.5 rounded-xl sm:rounded-2xl bg-zinc-950 border border-white/10 self-start lg:self-auto max-w-full overflow-x-auto no-scrollbar mb-6 sm:mb-8">
             {categories.map((cat) => (
               <button
@@ -122,7 +144,6 @@ export function InteractiveScreenshotShowcase({
             ))}
           </div>
         )}
-        </div>
 
         {/* Screenshots Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8">
@@ -303,7 +324,7 @@ export function InteractiveScreenshotShowcase({
             )}
 
             {/* Fullscreen Image Presentation (Uncompressed & High Resolution) */}
-            <div className="relative w-full max-w-6xl max-h-[80vh] h-[75vh] flex items-center justify-center my-auto">
+            <div className="relative w-full max-w-6xl max-h-[60vh] sm:max-h-[75vh] h-[55vh] sm:h-[75vh] flex items-center justify-center my-auto">
               <Image
                 src={filteredItems[activeLightboxIndex].image}
                 alt={

@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import React, { useEffect, useRef, useState } from "react";
 import { useInView } from "framer-motion";
@@ -20,9 +20,9 @@ export function AnimatedCounter({
   duration = 1.8,
   className = "",
 }: AnimatedCounterProps) {
-  const [displayValue, setDisplayValue] = useState(0);
+  const [displayValue, setDisplayValue] = useState(value);
   const ref = useRef<HTMLSpanElement>(null);
-  const inView = useInView(ref, { once: true, margin: "-30px" });
+  const inView = useInView(ref, { once: true, margin: "0px", amount: 0.1 });
 
   useEffect(() => {
     if (!inView) return;

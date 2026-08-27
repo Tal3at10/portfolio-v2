@@ -139,15 +139,14 @@ export function WhyChooseUs() {
           {cards.map((card, index) => (
             <motion.div
               key={index}
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 16 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.45, delay: index * 0.08 }}
+              viewport={{ once: true, margin: "0px", amount: 0.1 }}
+              transition={{ duration: 0.4, delay: index * 0.06 }}
               onMouseEnter={() => setHoveredIndex(index)}
               onMouseLeave={() => setHoveredIndex(null)}
               className="relative group p-6 sm:p-7 rounded-2xl bg-white/[0.02] border border-white/[0.08] hover:border-[#dfcba9]/30 backdrop-blur-sm transition-all duration-300 cursor-default overflow-hidden"
               style={{
-                transform: hoveredIndex === index ? "translateY(-3px)" : "translateY(0)",
                 boxShadow:
                   hoveredIndex === index
                     ? "0 12px 30px -10px rgba(223, 203, 169, 0.08)"

@@ -54,16 +54,16 @@ export function ParallaxComponent() {
   };
 
   return (
-    <div id="hero" className="relative w-full h-screen bg-[#09090b] overflow-hidden">
+    <div id="hero" className="relative w-full min-h-[100dvh] h-auto bg-[#09090b] overflow-hidden flex flex-col justify-center">
 
       {/* ── Layer 1: GLSL Hills WebGL Background ── */}
-      <div className="absolute inset-0 z-0">
+      <div className="absolute inset-0 z-0 pointer-events-none">
         <GLSLHills width="100%" height="100%" speed={0.38} cameraZ={100} cameraY={5} lookAtY={8} />
       </div>
 
       {/* ── Layer 2: Subtle Ambient Warm Glow behind name & anchor ── */}
       <div
-        className="absolute top-[38%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-[550px] sm:w-[850px] h-[320px] sm:h-[480px] rounded-full z-[1] pointer-events-none blur-[100px] sm:blur-[140px] opacity-35"
+        className="absolute top-[38%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-[340px] sm:w-[850px] h-[240px] sm:h-[480px] rounded-full z-[1] pointer-events-none blur-[80px] sm:blur-[140px] opacity-35"
         style={{
           background:
             "radial-gradient(ellipse at center, rgba(223, 203, 169, 0.15) 0%, rgba(223, 203, 169, 0.03) 45%, rgba(9, 9, 11, 0) 75%)",
@@ -80,7 +80,7 @@ export function ParallaxComponent() {
       />
 
       {/* ── Layer 4: Hero Content ── */}
-      <div className="relative z-10 h-full flex flex-col items-center justify-center text-center px-6 sm:px-10">
+      <div className="relative z-10 w-full min-h-[100dvh] py-20 sm:py-24 flex flex-col items-center justify-center text-center px-4 sm:px-10 max-w-5xl mx-auto">
 
         {/* 1. Category Eyebrow Badge */}
         <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#dfcba9]/10 border border-[#dfcba9]/25 mb-4 sm:mb-5 shadow-[0_0_20px_rgba(223,203,169,0.08)]">
@@ -101,7 +101,7 @@ export function ParallaxComponent() {
         {/* 3. Emotional Slogan Subtitle */}
         <p
           dir={isAr ? "rtl" : "ltr"}
-          className="text-base sm:text-lg md:text-xl font-light italic text-[#dfcba9] mb-4 sm:mb-5 tracking-wide drop-shadow-[0_2px_12px_rgba(0,0,0,0.8)]"
+          className="text-sm sm:text-lg md:text-xl font-light italic text-[#dfcba9] mb-4 sm:mb-5 tracking-wide drop-shadow-[0_2px_12px_rgba(0,0,0,0.8)] px-2"
         >
           {isAr
             ? "أنظمة تُبنى لتدوم، ورؤية تتحقق بالتنفيذ."
@@ -111,7 +111,7 @@ export function ParallaxComponent() {
         {/* 4. Single Unified Description (100% Native, Clean Arabic) */}
         <p
           dir={isAr ? "rtl" : "ltr"}
-          className="text-xs sm:text-sm md:text-[15px] text-zinc-100 font-medium max-w-lg sm:max-w-xl leading-[1.85] mb-7 sm:mb-8 px-2 drop-shadow-sm"
+          className="text-xs sm:text-sm md:text-[15px] text-zinc-100 font-medium max-w-lg sm:max-w-xl leading-[1.85] mb-6 sm:mb-8 px-2 drop-shadow-sm"
         >
           {isAr
             ? "نصمم منصات رقمية متكاملة وأنظمة تقنية حكومية، وندمج حلول الذكاء الاصطناعي في أعمال الشركات والمؤسسات بالسعودية والخليج."
@@ -121,7 +121,7 @@ export function ParallaxComponent() {
         {/* 5. Minimal Social Proof Strip */}
         <div
           dir={isAr ? "rtl" : "ltr"}
-          className="flex items-center justify-center gap-3.5 sm:gap-6 mb-7 sm:mb-8 text-xs"
+          className="flex flex-wrap items-center justify-center gap-2.5 sm:gap-6 mb-6 sm:mb-8 text-xs max-w-lg mx-auto"
         >
           {stats.map((stat, i) => (
             <React.Fragment key={stat.labelEn}>
@@ -141,7 +141,7 @@ export function ParallaxComponent() {
         </div>
 
         {/* 5.5 Client Rating Badge */}
-        <div className="flex items-center gap-2.5 mb-7 sm:mb-8" dir={isAr ? "rtl" : "ltr"}>
+        <div className="flex items-center gap-2 mb-6 sm:mb-8" dir={isAr ? "rtl" : "ltr"}>
           <div className="flex items-center gap-0.5">
             {[...Array(5)].map((_, i) => (
               <svg key={i} className="w-3.5 h-3.5 text-[#dfcba9]" fill="currentColor" viewBox="0 0 20 20">
@@ -155,7 +155,7 @@ export function ParallaxComponent() {
         </div>
 
         {/* 6. High-Contrast Primary vs Secondary CTA Buttons */}
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-3.5 sm:gap-4 w-full sm:w-auto">
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 w-full sm:w-auto px-4">
           {/* Primary Solid Gold Button */}
           <button
             onClick={scrollToCaseStudies}
@@ -179,7 +179,7 @@ export function ParallaxComponent() {
 
       {/* ── Layer 4: Bottom Fade into page bg ── */}
       <div
-        className="absolute bottom-0 left-0 right-0 h-28 sm:h-36 pointer-events-none z-20"
+        className="absolute bottom-0 left-0 right-0 h-20 sm:h-36 pointer-events-none z-20"
         style={{
           background: "linear-gradient(to bottom, transparent 0%, #09090b 100%)",
         }}

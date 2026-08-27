@@ -149,14 +149,24 @@ export const ConnoisseurStackInteractor = ({
               return (
                 <li
                   key={item.num}
+                  role="button"
+                  tabIndex={0}
+                  onClick={() => handleItemHover(index)}
+                  onTouchStart={() => handleItemHover(index)}
+                  onKeyDown={(e) => {
+                    if (e.key === "Enter" || e.key === " ") {
+                      e.preventDefault();
+                      handleItemHover(index);
+                    }
+                  }}
                   onMouseEnter={() => handleItemHover(index)}
-                  className="group cursor-pointer transition-all duration-300"
+                  className="group cursor-pointer transition-all duration-300 select-none"
                 >
-                  <div className="flex items-start gap-6">
+                  <div className="flex items-start gap-4 sm:gap-6">
                     {/* Number */}
                     <span
                       className={cn(
-                        "text-2xl sm:text-3xl font-mono font-bold transition-all duration-500 mt-1",
+                        "text-2xl sm:text-3xl font-mono font-bold transition-all duration-500 mt-1 shrink-0",
                         isActive
                           ? "text-[#dfcba9] scale-110"
                           : "text-zinc-700 dark:text-zinc-700"
@@ -169,10 +179,10 @@ export const ConnoisseurStackInteractor = ({
                     <div className="flex flex-col">
                       <h3
                         className={cn(
-                          `text-xl sm:text-2xl font-black leading-[1.05] transition-all duration-500 ${isAr ? "tracking-normal" : "uppercase tracking-tight"}`, 
+                          `text-lg sm:text-2xl font-black leading-[1.15] transition-all duration-500 ${isAr ? "tracking-normal" : "uppercase tracking-tight"}`, 
                           isActive
-                            ? "text-white opacity-100 rtl:-translate-x-2 ltr:translate-x-2"
-                            : "text-zinc-600 opacity-40 translate-x-0"
+                            ? "text-white opacity-100 rtl:-translate-x-1 sm:rtl:-translate-x-2 ltr:translate-x-1 sm:ltr:translate-x-2"
+                            : "text-zinc-500 sm:text-zinc-600 opacity-60 sm:opacity-40 translate-x-0"
                         )}
                       >
                         {isAr ? item.titleAr : item.titleEn}
@@ -185,9 +195,9 @@ export const ConnoisseurStackInteractor = ({
                       {/* Description that expands smoothly for active item */}
                       <p dir="auto"
                         className={cn(
-                          "text-xs sm:text-sm text-zinc-300 leading-relaxed max-w-xl mt-4 transition-all duration-500",
+                          "text-xs sm:text-sm text-zinc-300 leading-relaxed max-w-xl mt-3 sm:mt-4 transition-all duration-500",
                           isActive
-                            ? "opacity-100 max-h-40 rtl:-translate-x-2 ltr:translate-x-2"
+                            ? "opacity-100 max-h-96 rtl:-translate-x-1 sm:rtl:-translate-x-2 ltr:translate-x-1 sm:ltr:translate-x-2"
                             : "opacity-0 max-h-0 overflow-hidden"
                         )}
                       >

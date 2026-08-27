@@ -43,14 +43,14 @@ export function LetsWorkTogether() {
   };
 
   return (
-    <footer id="contact" role="contentinfo" className="relative z-20 bg-[#09090b] text-white min-h-[90vh] flex flex-col justify-between pt-32 pb-12 px-6 border-t border-white/[0.08]">
+    <footer id="contact" role="contentinfo" className="relative z-20 bg-[#09090b] text-white min-h-[85vh] flex flex-col justify-between pt-16 sm:pt-28 pb-12 px-4 sm:px-6 border-t border-white/[0.08] overflow-hidden">
       
       {/* Main Interactive Center Area */}
-      <div className="relative flex flex-col items-center justify-center flex-1 max-w-4xl mx-auto w-full my-auto">
+      <div className="relative flex flex-col items-center justify-center flex-1 max-w-4xl mx-auto w-full my-auto min-h-[380px] sm:min-h-[420px]">
         
         {/* REVEALED ACTIONS AFTER CLICK */}
         <div
-          className="absolute inset-0 z-20 flex flex-col items-center justify-center gap-8 transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)]"
+          className="absolute inset-0 z-20 flex flex-col items-center justify-center gap-6 sm:gap-8 transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] px-4"
           style={{
             opacity: showSuccess ? 1 : 0,
             transform: showSuccess ? "translateY(0) scale(1)" : "translateY(20px) scale(0.95)",
@@ -59,10 +59,10 @@ export function LetsWorkTogether() {
         >
           {/* Heading */}
           <div className="flex flex-col items-center gap-2 text-center">
-            <h3 className="text-3xl sm:text-5xl font-bold tracking-tight text-white">
+            <h3 className="text-2xl sm:text-4xl md:text-5xl font-bold tracking-tight text-white">
               {isAr ? "تواصل مباشر لبدء العمل" : "Let's talk"}
             </h3>
-            <p className="text-sm sm:text-base text-zinc-300 max-w-2xl mx-auto mt-3 font-normal leading-relaxed">
+            <p className="text-xs sm:text-sm md:text-base text-zinc-300 max-w-2xl mx-auto mt-2 sm:mt-3 font-normal leading-relaxed">
               {isAr
                 ? "إن كان لديك مشروع يتطلب معمارية متينة أو فكرة تحتاج تنفيذاً احترافياً، اختر الطريقة المناسبة لبدء الحوار."
                 : "Choose your preferred channel to discuss your system architecture, requirements, or schedule a direct consultation."}
@@ -70,12 +70,12 @@ export function LetsWorkTogether() {
           </div>
 
           {/* Action Buttons: WhatsApp & Calendly */}
-          <div className="flex flex-col sm:flex-row items-center gap-4 w-full justify-center mt-2">
+          <div className="flex flex-col sm:flex-row items-center gap-3 sm:gap-4 w-full justify-center mt-2">
             
             {/* 1. Direct WhatsApp Chat Button */}
             <button
               onClick={handleWhatsApp}
-              className="group relative flex items-center gap-3 px-8 py-4 rounded-full bg-[#dfcba9] hover:bg-[#ebd9bd] text-black font-bold text-sm tracking-wide transition-all duration-300 hover:scale-105 shadow-[0_0_25px_rgba(223,203,169,0.25)] cursor-pointer w-full sm:w-auto justify-center"
+              className="group relative flex items-center gap-3 px-7 sm:px-8 py-3.5 sm:py-4 rounded-full bg-[#dfcba9] hover:bg-[#ebd9bd] text-black font-bold text-xs sm:text-sm tracking-wide transition-all duration-300 hover:scale-105 shadow-[0_0_25px_rgba(223,203,169,0.25)] cursor-pointer w-full sm:w-auto justify-center"
             >
               <IconBrandWhatsapp className="w-5 h-5 text-black" />
               <span>{isAr ? "تواصل عبر واتساب" : "Chat on WhatsApp"}</span>
@@ -85,7 +85,7 @@ export function LetsWorkTogether() {
             {/* 2. Calendly 30-Min Strategy Call Button */}
             <button
               onClick={handleBookCall}
-              className="group relative flex items-center gap-3 px-8 py-4 rounded-full border border-white/20 bg-zinc-950 hover:bg-white text-white hover:text-black font-bold text-sm tracking-wide transition-all duration-300 hover:scale-105 shadow-xl cursor-pointer w-full sm:w-auto justify-center"
+              className="group relative flex items-center gap-3 px-7 sm:px-8 py-3.5 sm:py-4 rounded-full border border-white/20 bg-zinc-950 hover:bg-white text-white hover:text-black font-bold text-xs sm:text-sm tracking-wide transition-all duration-300 hover:scale-105 shadow-xl cursor-pointer w-full sm:w-auto justify-center"
             >
               <IconCalendarEvent className="w-5 h-5" />
               <span>{isAr ? "احجز استشارة (30 دقيقة)" : "Book Strategy Call"}</span>
@@ -94,8 +94,8 @@ export function LetsWorkTogether() {
           </div>
 
           {/* Subtle Info Badge */}
-          <div className="flex items-center gap-2 text-xs font-mono text-zinc-500">
-            <span className="w-1.5 h-1.5 rounded-full bg-[#dfcba9] animate-pulse" />
+          <div className="flex items-center gap-2 text-[11px] sm:text-xs font-mono text-zinc-500 text-center">
+            <span className="w-1.5 h-1.5 rounded-full bg-[#dfcba9] animate-pulse shrink-0" />
             <span>
               {isAr
                 ? "استجابة سريعة عبر واتساب • اتفاقية سرية تامة (NDA)"
@@ -243,7 +243,7 @@ export function LetsWorkTogether() {
       <div className="w-full max-w-5xl mx-auto pt-16 flex flex-col items-center gap-8">
         
         {/* Interactive Social Media Dock */}
-        <nav aria-label="Social links" className="flex items-center gap-3 sm:gap-4 p-2 rounded-full border border-white/10 bg-zinc-950/80 backdrop-blur-md shadow-2xl">
+        <nav aria-label="Social links" className="flex flex-wrap items-center justify-center gap-2 sm:gap-3 md:gap-4 p-2 rounded-2xl sm:rounded-full border border-white/10 bg-zinc-950/80 backdrop-blur-md shadow-2xl max-w-full">
           
           {/* WhatsApp */}
           <a
