@@ -111,7 +111,7 @@ export function WhyChooseUs() {
           </div>
 
           {/* Main Headline — Wide max-w and balanced font-size so it stays on a single line */}
-          <h2 className="text-xl sm:text-3xl md:text-4xl lg:text-[2.65rem] font-extrabold text-white tracking-tight leading-normal mb-3 sm:mb-4 max-w-5xl mx-auto px-2 [text-wrap:balance]">
+          <h2 className="text-lg sm:text-3xl md:text-4xl lg:text-[2.65rem] font-extrabold text-white tracking-tight leading-snug mb-3 sm:mb-4 max-w-5xl mx-auto px-2 [text-wrap:balance]">
             {isAr ? (
               <>
                 ليه تختارنا{" "}

@@ -85,20 +85,20 @@ export function ParallaxComponent() {
       />
 
       {/* ── Layer 4: Hero Content ── */}
-      <div className="relative z-10 w-full min-h-[100dvh] py-20 sm:py-24 flex flex-col items-center justify-center text-center px-4 sm:px-10 max-w-5xl mx-auto">
+      <div className="relative z-10 w-full min-h-[100dvh] py-20 sm:py-24 flex flex-col items-center justify-center text-center px-6 sm:px-16 lg:px-24">
 
         {/* 1. Category Eyebrow Badge */}
-        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#dfcba9]/10 border border-[#dfcba9]/25 mb-4 sm:mb-5 shadow-[0_0_20px_rgba(223,203,169,0.08)]">
+        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#dfcba9]/10 border border-[#dfcba9]/25 mb-4 sm:mb-6 shadow-[0_0_20px_rgba(223,203,169,0.08)]">
           <IconSparkles className="size-3.5 text-[#dfcba9]" />
           <span className="text-[11px] sm:text-xs font-bold text-[#dfcba9] uppercase tracking-wider">
             {isAr ? "حلول برمجية وأنظمة تقنية للمؤسسات" : "Enterprise Software & Systems Engineering"}
           </span>
         </div>
 
-        {/* 2. Main Brand Headline */}
+        {/* 2. Main Brand Headline — Cinematic scale on desktop */}
         <h1
           dir={isAr ? "rtl" : "ltr"}
-          className="text-3xl sm:text-4xl md:text-5xl lg:text-[4rem] font-black tracking-tight text-white leading-tight mb-3 sm:mb-4 drop-shadow-[0_2px_24px_rgba(0,0,0,0.9)]"
+          className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-[6.5rem] font-black tracking-tight text-white leading-[0.95] mb-4 sm:mb-5 drop-shadow-[0_2px_32px_rgba(0,0,0,0.9)]"
         >
           {isAr ? "تَـمّ للأنظمة" : "TAM Systems"}
         </h1>
@@ -106,17 +106,17 @@ export function ParallaxComponent() {
         {/* 3. Emotional Slogan Subtitle */}
         <p
           dir={isAr ? "rtl" : "ltr"}
-          className="text-sm sm:text-lg md:text-xl font-light italic text-[#dfcba9] mb-4 sm:mb-5 tracking-wide drop-shadow-[0_2px_12px_rgba(0,0,0,0.8)] px-2"
+          className="text-base sm:text-xl md:text-2xl font-light italic text-[#dfcba9] mb-5 sm:mb-6 tracking-wide drop-shadow-[0_2px_12px_rgba(0,0,0,0.8)]"
         >
           {isAr
             ? "أنظمة تُبنى لتدوم، ورؤية تتحقق بالتنفيذ."
             : "Systems Delivered. Vision Realized."}
         </p>
 
-        {/* 4. Single Unified Description (100% Native, Clean Arabic) */}
+        {/* 4. Description */}
         <p
           dir={isAr ? "rtl" : "ltr"}
-          className="text-xs sm:text-sm md:text-[15px] text-zinc-100 font-medium max-w-lg sm:max-w-xl leading-[1.85] mb-6 sm:mb-8 px-2 drop-shadow-sm"
+          className="text-sm sm:text-base md:text-lg text-zinc-300 font-normal max-w-xl sm:max-w-2xl leading-[1.85] mb-7 sm:mb-9 drop-shadow-sm"
         >
           {isAr
             ? "نصمم منصات رقمية متكاملة وأنظمة تقنية حكومية، وندمج حلول الذكاء الاصطناعي في أعمال الشركات والمؤسسات بالسعودية والخليج."
@@ -126,15 +126,15 @@ export function ParallaxComponent() {
         {/* 5. Minimal Social Proof Strip */}
         <div
           dir={isAr ? "rtl" : "ltr"}
-          className="flex flex-wrap items-center justify-center gap-2.5 sm:gap-6 mb-6 sm:mb-8 text-xs max-w-lg mx-auto"
+          className="flex flex-wrap items-center justify-center gap-3 sm:gap-8 mb-7 sm:mb-9 text-xs"
         >
           {stats.map((stat, i) => (
             <React.Fragment key={stat.labelEn}>
               <div className="flex items-center gap-1.5 whitespace-nowrap">
-                <span dir="ltr" className="text-[#dfcba9] font-black text-sm sm:text-base font-sans">
+                <span dir="ltr" className="text-[#dfcba9] font-black text-base sm:text-xl font-sans">
                   <AnimatedCounter value={stat.value} suffix={stat.suffix} duration={1.6} />
                 </span>
-                <span className="text-zinc-200 font-semibold text-[11px] sm:text-xs">
+                <span className="text-zinc-200 font-semibold text-xs sm:text-sm">
                   {isAr ? stat.labelAr : stat.labelEn}
                 </span>
               </div>

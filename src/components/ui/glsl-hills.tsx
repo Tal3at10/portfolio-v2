@@ -135,7 +135,11 @@ export function GLSLHills({
 
     // ── Fragment Shader ───────────────────────────────────────────────────
     const fragmentShader = /* glsl */ `
+      #ifdef GL_FRAGMENT_PRECISION_HIGH
       precision highp float;
+      #else
+      precision mediump float;
+      #endif
       #define GLSLIFY 1
       varying vec3 vPosition;
 
@@ -147,8 +151,18 @@ export function GLSLHills({
     `;
 
     // ── Three.js Scene Setup ──────────────────────────────────────────────
-    const renderer = new THREE.WebGLRenderer({ canvas, antialias: false, alpha: true, powerPreference: "high-performance" });
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    let renderer: THREE.WebGLRenderer;
+    try {
+      renderer = new THREE.WebGLRenderer({
+        canvas,
+        antialias: false,
+        alpha: true,
+        powerPreference: "default",
+      });
+    } catch {
+      return;
+    }
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
     renderer.setSize(window.innerWidth, window.innerHeight);
     renderer.setClearColor(0x000000, 0);
 
@@ -181,7 +195,7 @@ export function GLSLHills({
     const handleResize = () => {
       camera.aspect = window.innerWidth / window.innerHeight;
       camera.updateProjectionMatrix();
-      renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+      renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
       renderer.setSize(window.innerWidth, window.innerHeight);
     };
     window.addEventListener("resize", handleResize);
@@ -209,19 +223,16 @@ export function GLSLHills({
     };
     loop();
 
-    // ── Pause when not visible (IntersectionObserver) ─────────────────────
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        isVisible = entry.isIntersecting;
-      },
-      { threshold: 0 }
-    );
-    observer.observe(canvas);
+    // ── Pause when scrolled far out of view ─────────────────────────────────
+    const handleScroll = () => {
+      isVisible = window.scrollY < window.innerHeight * 1.5;
+    };
+    window.addEventListener("scroll", handleScroll, { passive: true });
 
     // ── Cleanup ───────────────────────────────────────────────────────────
     return () => {
       cancelAnimationFrame(animFrameId);
-      observer.disconnect();
+      window.removeEventListener("scroll", handleScroll);
       canvas.removeEventListener("webglcontextlost", handleContextLost);
       canvas.removeEventListener("webglcontextrestored", handleContextRestored);
       window.removeEventListener("resize", handleResize);

@@ -43,7 +43,7 @@ export function LetsWorkTogether() {
   };
 
   return (
-    <footer id="contact" role="contentinfo" className="relative z-20 bg-[#09090b] text-white min-h-[85vh] flex flex-col justify-between pt-16 sm:pt-28 pb-12 px-4 sm:px-6 border-t border-white/[0.08] overflow-hidden">
+    <footer id="contact" role="contentinfo" className="relative z-20 bg-[#09090b] text-white min-h-[85vh] flex flex-col justify-between pt-16 sm:pt-28 pb-12 px-4 sm:px-6 border-t border-white/[0.08]">
       
       {/* Main Interactive Center Area */}
       <div className="relative flex flex-col items-center justify-center flex-1 max-w-4xl mx-auto w-full my-auto min-h-[380px] sm:min-h-[420px]">

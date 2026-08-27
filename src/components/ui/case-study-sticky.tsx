@@ -166,7 +166,7 @@ export function CaseStudySticky() {
         <p className="text-[10px] sm:text-xs font-mono uppercase tracking-[0.25em] text-[#dfcba9] mb-4 font-medium">
           {isAr ? "أعمق الحالات المعمارية" : "Deep-Dive Case Studies"}
         </p>
-        <h2 className="text-3xl sm:text-5xl font-black tracking-tight text-white">
+        <h2 className="text-3xl sm:text-5xl font-black tracking-tight text-white px-4 [text-wrap:balance]">
           {isAr ? "دراسات الحالة المعمارية" : "Architectural Case Studies"}
         </h2>
         <p className="text-sm sm:text-base text-zinc-300 mt-3 max-w-2xl mx-auto font-normal leading-relaxed">
@@ -193,32 +193,55 @@ function ProjectStickySection({ project, isAr }: { project: ProjectCase; isAr: b
   const stepRefs = useRef<(HTMLDivElement | null)[]>([]);
   const locale = useLocale();
 
-  // Robust IntersectionObserver for active step synchronization across all browsers including iOS Safari
+  // Dual-strategy: IntersectionObserver + scroll fallback
+  // The scroll fallback ensures step activation on old iOS Chrome where IO is unreliable
   useEffect(() => {
     const observers: IntersectionObserver[] = [];
+    let ioFired = false;
 
+    // Strategy 1: IntersectionObserver
     stepRefs.current.forEach((el, index) => {
       if (!el) return;
       const observer = new IntersectionObserver(
         ([entry]) => {
           if (entry.isIntersecting) {
+            ioFired = true;
             setActiveStep(index);
           }
         },
-        {
-          root: null,
-          // Less aggressive rootMargin — iOS Safari dynamic address bar shrinks viewport
-          // during scroll, making -40% bottom margin kill triggers for lower steps
-          rootMargin: "0px 0px -15% 0px",
-          threshold: 0.1,
-        }
+        { root: null, rootMargin: "0px 0px -15% 0px", threshold: 0.1 }
       );
       observer.observe(el);
       observers.push(observer);
     });
 
+    // Strategy 2: Scroll-based fallback — activates step whose center is closest to viewport center
+    const handleScroll = () => {
+      const viewportCenter = window.scrollY + window.innerHeight / 2;
+      let closest = 0;
+      let closestDist = Infinity;
+      stepRefs.current.forEach((el, index) => {
+        if (!el) return;
+        const rect = el.getBoundingClientRect();
+        const elCenter = window.scrollY + rect.top + rect.height / 2;
+        const dist = Math.abs(elCenter - viewportCenter);
+        if (dist < closestDist) {
+          closestDist = dist;
+          closest = index;
+        }
+      });
+      setActiveStep(closest);
+    };
+
+    // Start scroll listener after a short delay to let IO fire first
+    const scrollTimer = setTimeout(() => {
+      window.addEventListener("scroll", handleScroll, { passive: true });
+    }, 800);
+
     return () => {
+      clearTimeout(scrollTimer);
       observers.forEach((obs) => obs.disconnect());
+      window.removeEventListener("scroll", handleScroll);
     };
   }, [project.steps.length]);
 

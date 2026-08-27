@@ -223,7 +223,7 @@ function ProjectCard({
               src={project.imageSrc}
               alt={isAr ? project.nameAr : project.nameEn}
               fill
-              unoptimized={project.imageSrc.endsWith(".svg")}
+              unoptimized={true}
               className="object-cover object-top transition-transform duration-700 ease-[cubic-bezier(0.25,1,0.5,1)] group-hover:scale-[1.04]"
               sizes="(max-width: 768px) 100vw, 50vw"
             />

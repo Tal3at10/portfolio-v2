@@ -136,7 +136,7 @@ export const ConnoisseurStackInteractor = ({
     <div
       ref={containerRef}
       className={cn(
-        "flex flex-col lg:flex-row items-center justify-between w-full py-12 px-6 sm:px-12 max-w-6xl mx-auto overflow-hidden",
+        "flex flex-col lg:flex-row items-center justify-between w-full py-12 px-6 sm:px-12 max-w-6xl mx-auto",
         className
       )}
     >

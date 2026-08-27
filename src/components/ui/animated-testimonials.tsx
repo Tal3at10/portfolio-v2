@@ -65,8 +65,8 @@ export const AnimatedTestimonials = ({
                 <motion.div
                   key={testimonial.src}
                   initial={{
-                    opacity: 0,
-                    scale: 0.9,
+                    opacity: 0.6,
+                    scale: 0.95,
                     z: -100,
                     rotate: getRotation(index),
                   }}
@@ -140,8 +140,8 @@ export const AnimatedTestimonials = ({
               <motion.div
                 key={active}
                 initial={{
-                  y: 20,
-                  opacity: 0,
+                  y: 8,
+                  opacity: 1,
                 }}
                 animate={{
                   y: 0,
