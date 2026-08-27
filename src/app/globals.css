@@ -39,6 +39,22 @@
     line-height: 1.35;
     letter-spacing: normal;
   }
+
+  /* iOS Safari: eliminate 300ms tap delay on all interactive elements */
+  a,
+  button,
+  [role="button"],
+  input,
+  select,
+  textarea,
+  label {
+    touch-action: manipulation;
+  }
+
+  /* Ensure cursor:pointer works consistently across iOS */
+  button {
+    cursor: pointer;
+  }
 }
 
 @keyframes spin-around {

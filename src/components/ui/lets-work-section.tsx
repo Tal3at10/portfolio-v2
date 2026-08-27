@@ -21,7 +21,7 @@ export function LetsWorkTogether() {
   const locale = useLocale();
   const isAr = locale === "ar";
 
-  const handleClick = (e: React.MouseEvent<HTMLDivElement>) => {
+  const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
     setIsClicked(true);
 
@@ -125,13 +125,15 @@ export function LetsWorkTogether() {
         </div>
 
         {/* Big Interactive "Let's work together" Text */}
-        <div
-          className="group relative cursor-pointer select-none"
+        <button
+          type="button"
+          className="group relative cursor-pointer select-none bg-transparent border-0 p-0 w-full"
           onMouseEnter={() => setIsHovered(true)}
           onMouseLeave={() => setIsHovered(false)}
           onClick={handleClick}
           style={{
             pointerEvents: isClicked ? "none" : "auto",
+            touchAction: "manipulation",
           }}
         >
           <div className="flex flex-col items-center gap-6">
@@ -213,7 +215,7 @@ export function LetsWorkTogether() {
               }}
             />
           </div>
-        </div>
+        </button>
 
         {/* Bottom Subtext Before Click */}
         <div

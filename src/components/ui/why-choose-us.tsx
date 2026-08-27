@@ -2,7 +2,6 @@
 
 import React, { useState } from "react";
 import { useLocale } from "next-intl";
-import { motion } from "framer-motion";
 import {
   IconSparkles,
   IconBolt,
@@ -112,7 +111,7 @@ export function WhyChooseUs() {
           </div>
 
           {/* Main Headline — Wide max-w and balanced font-size so it stays on a single line */}
-          <h2 className="text-xl sm:text-3xl md:text-4xl lg:text-[2.65rem] font-extrabold text-white tracking-tight leading-normal mb-3 sm:mb-4 max-w-5xl mx-auto px-2">
+          <h2 className="text-xl sm:text-3xl md:text-4xl lg:text-[2.65rem] font-extrabold text-white tracking-tight leading-normal mb-3 sm:mb-4 max-w-5xl mx-auto px-2 [text-wrap:balance]">
             {isAr ? (
               <>
                 ليه تختارنا{" "}
@@ -137,12 +136,8 @@ export function WhyChooseUs() {
         {/* Cards Grid — Unified Gold/Zinc Luxury Palette */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 mb-12 sm:mb-14">
           {cards.map((card, index) => (
-            <motion.div
+            <div
               key={index}
-              initial={{ opacity: 0, y: 16 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "0px", amount: 0.1 }}
-              transition={{ duration: 0.4, delay: index * 0.06 }}
               onMouseEnter={() => setHoveredIndex(index)}
               onMouseLeave={() => setHoveredIndex(null)}
               className="relative group p-6 sm:p-7 rounded-2xl bg-white/[0.02] border border-white/[0.08] hover:border-[#dfcba9]/30 backdrop-blur-sm transition-all duration-300 cursor-default overflow-hidden"
@@ -189,7 +184,7 @@ export function WhyChooseUs() {
                   {isAr ? card.clientAr : card.clientEn}
                 </p>
               </blockquote>
-            </motion.div>
+            </div>
           ))}
         </div>
 

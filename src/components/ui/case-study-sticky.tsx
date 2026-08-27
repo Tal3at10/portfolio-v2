@@ -193,7 +193,7 @@ function ProjectStickySection({ project, isAr }: { project: ProjectCase; isAr: b
   const stepRefs = useRef<(HTMLDivElement | null)[]>([]);
   const locale = useLocale();
 
-  // Robust IntersectionObserver for active step synchronization across all browsers
+  // Robust IntersectionObserver for active step synchronization across all browsers including iOS Safari
   useEffect(() => {
     const observers: IntersectionObserver[] = [];
 
@@ -207,8 +207,10 @@ function ProjectStickySection({ project, isAr }: { project: ProjectCase; isAr: b
         },
         {
           root: null,
-          rootMargin: "-20% 0px -40% 0px",
-          threshold: 0.2,
+          // Less aggressive rootMargin — iOS Safari dynamic address bar shrinks viewport
+          // during scroll, making -40% bottom margin kill triggers for lower steps
+          rootMargin: "0px 0px -15% 0px",
+          threshold: 0.1,
         }
       );
       observer.observe(el);
@@ -290,7 +292,7 @@ function ProjectStickySection({ project, isAr }: { project: ProjectCase; isAr: b
                 ref={(el) => {
                   stepRefs.current[idx] = el;
                 }}
-                className={`min-h-[45vh] sm:min-h-[50vh] flex flex-col justify-center transition-all duration-300 ${
+                className={`min-h-[55vh] sm:min-h-[50vh] py-8 flex flex-col justify-center transition-all duration-300 ${
                   isActive ? "opacity-100" : "opacity-40"
                 }`}
               >

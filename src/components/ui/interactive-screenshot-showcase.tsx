@@ -148,12 +148,8 @@ export function InteractiveScreenshotShowcase({
         {/* Screenshots Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8">
           {filteredItems.map((item, index) => (
-            <motion.div
+            <div
               key={`${item.image}-${index}`}
-              initial={{ opacity: 0, y: 15 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.4, delay: index * 0.04 }}
               className="group relative flex flex-col rounded-2xl sm:rounded-3xl bg-zinc-950 border border-white/10 overflow-hidden hover:border-[#dfcba9]/40 transition-all duration-300 shadow-2xl"
             >
               {/* macOS-style Browser Frame Header */}
@@ -241,7 +237,7 @@ export function InteractiveScreenshotShowcase({
                   </div>
                 )}
               </div>
-            </motion.div>
+            </div>
           ))}
         </div>
       </div>
