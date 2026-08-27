@@ -30,13 +30,20 @@ export function GLSLHills({
 
     let animFrameId: number;
 
-    // ── Uniforms ──────────────────────────────────────────────────────────
+    // Uniforms
     const uniforms: { time: THREE.IUniform<number> } = {
       time: { value: 0 },
     };
 
-    // ── Vertex Shader (Perlin noise hills) ───────────────────────────────
-    const vertexShader = /* glsl */ `
+    // Vertex Shader
+    const vertexShader = `
+      #ifdef GL_FRAGMENT_PRECISION_HIGH
+      precision highp float;
+      precision highp int;
+      #else
+      precision mediump float;
+      precision mediump int;
+      #endif
       #define GLSLIFY 1
       attribute vec3 position;
       uniform mat4 projectionMatrix;
@@ -70,9 +77,11 @@ export function GLSLHills({
         vec4 iy = vec4(Pi0.yy, Pi1.yy);
         vec4 iz0 = Pi0.zzzz;
         vec4 iz1 = Pi1.zzzz;
-        vec4 ixy  = permute(permute(ix) + iy);
+
+        vec4 ixy = permute(permute(ix) + iy);
         vec4 ixy0 = permute(ixy + iz0);
         vec4 ixy1 = permute(ixy + iz1);
+
         vec4 gx0 = ixy0 * (1.0 / 7.0);
         vec4 gy0 = fract(floor(gx0) * (1.0 / 7.0)) - 0.5;
         gx0 = fract(gx0);
@@ -133,12 +142,14 @@ export function GLSLHills({
       }
     `;
 
-    // ── Fragment Shader ───────────────────────────────────────────────────
-    const fragmentShader = /* glsl */ `
+    // Fragment Shader
+    const fragmentShader = `
       #ifdef GL_FRAGMENT_PRECISION_HIGH
       precision highp float;
+      precision highp int;
       #else
       precision mediump float;
+      precision mediump int;
       #endif
       #define GLSLIFY 1
       varying vec3 vPosition;
@@ -150,7 +161,7 @@ export function GLSLHills({
       }
     `;
 
-    // ── Three.js Scene Setup ──────────────────────────────────────────────
+    // Three.js Scene Setup
     let renderer: THREE.WebGLRenderer;
     try {
       renderer = new THREE.WebGLRenderer({
@@ -162,20 +173,24 @@ export function GLSLHills({
     } catch {
       return;
     }
+
+    const widthVal = canvas.parentElement?.clientWidth || window.innerWidth;
+    const heightVal = canvas.parentElement?.clientHeight || window.innerHeight;
+
     renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
-    renderer.setSize(window.innerWidth, window.innerHeight);
+    renderer.setSize(widthVal, heightVal);
     renderer.setClearColor(0x000000, 0);
 
     const scene = new THREE.Scene();
     const camera = new THREE.PerspectiveCamera(
       45,
-      window.innerWidth / window.innerHeight,
+      widthVal / heightVal,
       1,
       10000
     );
     const clock = new THREE.Clock();
 
-    const isMobile = window.innerWidth < 768;
+    const isMobile = widthVal < 768;
     const effectiveResolution = isMobile ? Math.min(planeSize, 96) : planeSize;
 
     const geometry = new THREE.PlaneGeometry(planeSize, planeSize, effectiveResolution, effectiveResolution);
@@ -184,6 +199,7 @@ export function GLSLHills({
       vertexShader,
       fragmentShader,
       transparent: true,
+      wireframe: true,
     });
     const mesh = new THREE.Mesh(geometry, material);
 
@@ -191,16 +207,18 @@ export function GLSLHills({
     camera.lookAt(new THREE.Vector3(0, lookAtY, 0));
     scene.add(mesh);
 
-    // ── Resize Handler ────────────────────────────────────────────────────
+    // Resize Handler
     const handleResize = () => {
-      camera.aspect = window.innerWidth / window.innerHeight;
+      const w = canvas.parentElement?.clientWidth || window.innerWidth;
+      const h = canvas.parentElement?.clientHeight || window.innerHeight;
+      camera.aspect = w / h;
       camera.updateProjectionMatrix();
       renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
-      renderer.setSize(window.innerWidth, window.innerHeight);
+      renderer.setSize(w, h);
     };
     window.addEventListener("resize", handleResize);
 
-    // ── WebGL Context Loss Handler ─────────────────────────────────────────
+    // WebGL Context Loss Handler
     let contextLost = false;
     const handleContextLost = (event: Event) => {
       event.preventDefault();
@@ -212,7 +230,7 @@ export function GLSLHills({
     canvas.addEventListener("webglcontextlost", handleContextLost, false);
     canvas.addEventListener("webglcontextrestored", handleContextRestored, false);
 
-    // ── Render Loop ───────────────────────────────────────────────────────
+    // Render Loop
     let isVisible = true;
     const loop = () => {
       if (isVisible && !contextLost) {
@@ -223,13 +241,13 @@ export function GLSLHills({
     };
     loop();
 
-    // ── Pause when scrolled far out of view ─────────────────────────────────
+    // Pause when scrolled far out of view
     const handleScroll = () => {
       isVisible = window.scrollY < window.innerHeight * 1.5;
     };
     window.addEventListener("scroll", handleScroll, { passive: true });
 
-    // ── Cleanup ───────────────────────────────────────────────────────────
+    // Cleanup
     return () => {
       cancelAnimationFrame(animFrameId);
       window.removeEventListener("scroll", handleScroll);
