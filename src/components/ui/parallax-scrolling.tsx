@@ -63,7 +63,7 @@ export function ParallaxComponent() {
 
       {/* ── Layer 1: GLSL Hills WebGL Background ── */}
       <div className="absolute inset-0 z-0 pointer-events-none">
-        <GLSLHills width="100%" height="100%" speed={0.38} cameraZ={100} cameraY={5} lookAtY={8} />
+        <GLSLHills width="100%" height="100%" />
       </div>
 
       {/* ── Layer 2: Subtle Ambient Warm Glow behind name & anchor ── */}

@@ -142,7 +142,7 @@ export function GLSLHills({
       }
     `;
 
-    // Fragment Shader - Crisp warm glow for mobile & desktop
+    // Fragment Shader - Restored to original subtle gray/white
     const fragmentShader = `
       #ifdef GL_FRAGMENT_PRECISION_HIGH
       precision highp float;
@@ -155,8 +155,8 @@ export function GLSLHills({
       varying vec3 vPosition;
 
       void main(void) {
-        float opacity = clamp((120.0 - length(vPosition)) / 220.0 * 1.15, 0.0, 0.85);
-        vec3 color = vec3(0.87, 0.80, 0.67);
+        float opacity = (96.0 - length(vPosition)) / 256.0 * 0.92;
+        vec3 color = vec3(0.6);
         gl_FragColor = vec4(color, opacity);
       }
     `;
@@ -174,23 +174,23 @@ export function GLSLHills({
       return;
     }
 
-    const isMobile = window.innerWidth < 768;
-    const w = window.innerWidth;
-    const h = window.innerHeight;
+    const widthVal = canvas.parentElement?.clientWidth || window.innerWidth;
+    const heightVal = canvas.parentElement?.clientHeight || window.innerHeight;
 
     renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
-    renderer.setSize(w, h, false);
+    renderer.setSize(widthVal, heightVal);
     renderer.setClearColor(0x000000, 0);
 
     const scene = new THREE.Scene();
     const camera = new THREE.PerspectiveCamera(
-      isMobile ? 55 : 45,
-      w / h,
+      45,
+      widthVal / heightVal,
       1,
       10000
     );
     const clock = new THREE.Clock();
 
+    const isMobile = widthVal < 768;
     const effectiveResolution = isMobile ? Math.min(planeSize, 96) : planeSize;
 
     const geometry = new THREE.PlaneGeometry(planeSize, planeSize, effectiveResolution, effectiveResolution);
@@ -199,19 +199,11 @@ export function GLSLHills({
       vertexShader,
       fragmentShader,
       transparent: true,
-      wireframe: true,
     });
     const mesh = new THREE.Mesh(geometry, material);
 
-    // Adjusted camera coordinates for mobile portrait vs desktop landscape
-    if (isMobile) {
-      camera.position.set(0, 10, 150);
-      camera.lookAt(new THREE.Vector3(0, 14, 0));
-    } else {
-      camera.position.set(0, cameraY, cameraZ);
-      camera.lookAt(new THREE.Vector3(0, lookAtY, 0));
-    }
-
+    camera.position.set(0, cameraY, cameraZ);
+    camera.lookAt(new THREE.Vector3(0, lookAtY, 0));
     scene.add(mesh);
 
     // Resize Handler
