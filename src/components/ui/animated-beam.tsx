@@ -32,7 +32,7 @@ export const AnimatedBeam: React.FC<AnimatedBeamProps> = ({
   toRef,
   curvature = 0,
   reverse = false,
-  duration = Math.random() * 3 + 4,
+  duration = 5,
   delay = 0,
   pathColor = "rgba(255, 255, 255, 0.15)",
   pathWidth = 2,

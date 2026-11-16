@@ -4,6 +4,8 @@ import { notFound } from "next/navigation";
 import { routing } from "@/i18n/routing";
 import { Tajawal, Plus_Jakarta_Sans, JetBrains_Mono } from "next/font/google";
 import type { Metadata, Viewport } from "next";
+import { FloatingWhatsApp } from "@/components/ui/floating-whatsapp";
+import { siteConfig } from "@/lib/site-config";
 
 export const viewport: Viewport = {
   width: "device-width",
@@ -98,7 +100,7 @@ export default async function LocaleLayout({
 }) {
   const { locale } = await params;
 
-  if (!routing.locales.includes(locale as any)) {
+  if (!routing.locales.includes(locale as (typeof routing.locales)[number])) {
     notFound();
   }
 
@@ -138,8 +140,8 @@ export default async function LocaleLayout({
       "Flutter",
     ],
     sameAs: [
-      "https://github.com/MahmoudTalaat4",
-      "https://www.linkedin.com/in/mahmoud-talaat-dev/",
+      siteConfig.github,
+      siteConfig.linkedin,
     ],
   };
 
@@ -166,6 +168,7 @@ export default async function LocaleLayout({
       <body className={`bg-[#09090b] text-[#f4f4f5] antialiased selection:bg-[#dfcba9] selection:text-black ${isRtl ? "leading-[1.85]" : "leading-relaxed"}`}>
         <NextIntlClientProvider messages={messages}>
           {children}
+          <FloatingWhatsApp />
         </NextIntlClientProvider>
       </body>
     </html>
