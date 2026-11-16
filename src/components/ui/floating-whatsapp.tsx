@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React from "react";
 import { IconBrandWhatsapp } from "@tabler/icons-react";
 import { useLocale } from "next-intl";
 import { siteConfig } from "@/lib/site-config";
@@ -8,7 +8,6 @@ import { siteConfig } from "@/lib/site-config";
 export function FloatingWhatsApp() {
   const locale = useLocale();
   const isAr = locale === "ar";
-  const [isHovered, setIsHovered] = useState(false);
 
   const message = isAr
     ? siteConfig.whatsappMessages.consultationAr
@@ -25,39 +24,30 @@ export function FloatingWhatsApp() {
         href={whatsappHref}
         target="_blank"
         rel="noopener noreferrer"
-        onMouseEnter={() => setIsHovered(true)}
-        onMouseLeave={() => setIsHovered(false)}
         aria-label={isAr ? "تواصل مباشرة عبر واتساب" : "Chat on WhatsApp"}
-        className="group relative flex items-center gap-2.5 p-3.5 sm:p-4 rounded-full bg-gradient-to-br from-[#dfcba9] via-[#d4be95] to-[#c2a675] text-[#09090b] shadow-[0_8px_30px_rgba(223,203,169,0.35)] hover:shadow-[0_12px_40px_rgba(223,203,169,0.6)] border border-[#f5e8d0]/60 transition-all duration-300 hover:scale-105 active:scale-95 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#dfcba9] focus-visible:ring-offset-2 focus-visible:ring-offset-[#09090b]"
+        className="group relative flex items-center gap-2 sm:gap-2.5 px-3 sm:px-4 h-10 sm:h-11 rounded-full bg-[#0a0a0d]/90 hover:bg-[#141419] backdrop-blur-2xl border border-[#dfcba9]/30 hover:border-[#dfcba9]/80 text-[#dfcba9] shadow-[0_12px_32px_rgba(0,0,0,0.65),inset_0_1px_0_0_rgba(255,255,255,0.1),0_0_20px_rgba(223,203,169,0.08)] hover:shadow-[0_16px_40px_rgba(0,0,0,0.85),inset_0_1px_0_0_rgba(255,255,255,0.2),0_0_28px_rgba(223,203,169,0.25)] transition-all duration-300 hover:scale-[1.04] active:scale-95 focus:outline-none"
       >
-        {/* Pulsing subtle ambient gold aura */}
+        {/* Subtle Ambient Glow on Hover */}
         <span
-          className="absolute inset-0 rounded-full bg-[#dfcba9] animate-ping opacity-25 pointer-events-none"
+          className="absolute inset-0 rounded-full bg-[#dfcba9]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"
           aria-hidden="true"
         />
-
-        {/* WhatsApp Icon */}
-        <IconBrandWhatsapp
-          className="w-6 h-6 sm:w-7 sm:h-7 text-[#09090b] shrink-0 transition-transform duration-300 group-hover:rotate-6"
-          strokeWidth={2.2}
-        />
-
-        {/* Desktop Expandable Tooltip / Label */}
-        <span
-          className={`hidden md:inline-block overflow-hidden whitespace-nowrap text-xs font-bold tracking-tight text-[#09090b] transition-all duration-300 ease-out ${
-            isHovered ? "max-w-[140px] opacity-100 pe-1" : "max-w-0 opacity-0"
-          }`}
-        >
-          {isAr ? "تواصل عبر واتساب" : "Chat on WhatsApp"}
-        </span>
 
         {/* Live Status indicator dot */}
-        <span
-          className="absolute -top-1 -end-1 flex size-3"
-          aria-hidden="true"
-        >
-          <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75" />
-          <span className="relative inline-flex size-3 rounded-full bg-emerald-500 border-2 border-[#09090b]" />
+        <span className="relative flex size-2 shrink-0" aria-hidden="true">
+          <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-60" />
+          <span className="relative inline-flex size-2 rounded-full bg-emerald-500" />
+        </span>
+
+        {/* WhatsApp Icon in Signature Champagne Gold */}
+        <IconBrandWhatsapp
+          className="w-4 h-4 sm:w-5 sm:h-5 text-[#dfcba9] shrink-0 transition-transform duration-300 group-hover:rotate-6 group-hover:scale-110"
+          strokeWidth={2}
+        />
+
+        {/* Sleek Label */}
+        <span className="font-sans text-[11px] sm:text-xs font-semibold tracking-wide text-zinc-200 group-hover:text-white transition-colors duration-200 whitespace-nowrap">
+          {isAr ? "محادثة فورية" : "WhatsApp"}
         </span>
       </a>
     </aside>
