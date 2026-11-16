@@ -196,7 +196,6 @@ function ProjectCard({
 
   return (
     <motion.div
-      layout
       animate={{ opacity: 1, scale: 1 }}
       exit={{ opacity: 0, scale: 0.96 }}
       transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
@@ -363,7 +362,7 @@ export function SystemsBento() {
         </div>
 
         {/* ── 2-Column Responsive Project Grid with AnimatePresence ── */}
-        <motion.div layout className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <AnimatePresence mode="popLayout">
             {filteredProjects.map((project, index) => (
               <ProjectCard
@@ -375,7 +374,7 @@ export function SystemsBento() {
               />
             ))}
           </AnimatePresence>
-        </motion.div>
+        </div>
 
         {/* ── Footer note ── */}
         <p className="text-center text-[10px] font-mono text-zinc-600 mt-14 tracking-widest uppercase">

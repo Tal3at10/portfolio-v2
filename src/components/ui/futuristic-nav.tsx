@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   IconHome,
   IconLayersIntersect,
@@ -39,6 +39,26 @@ export const LumaBar = () => {
     { id: 6, icon: <IconWorld size={19} strokeWidth={1.8} />, labelAr: "English", labelEn: "عربي", isLocaleSwitch: true },
   ];
 
+  // ScrollSpy to highlight active section as user scrolls
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollPos = window.scrollY + 220;
+      for (let i = items.length - 1; i >= 0; i--) {
+        const item = items[i];
+        if (item.targetId) {
+          const el = document.getElementById(item.targetId);
+          if (el && el.offsetTop <= scrollPos) {
+            setActive(i);
+            break;
+          }
+        }
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   const handleClick = (item: NavItem, index: number) => {
     if (item.isLocaleSwitch) {
       const nextLocale = locale === "ar" ? "en" : "ar";
@@ -49,7 +69,11 @@ export const LumaBar = () => {
     if (item.targetId) {
       const el = document.getElementById(item.targetId);
       if (el) {
-        el.scrollIntoView({ behavior: "smooth" });
+        // Calculate offset and use standard window.scrollTo for 100% mobile browser compatibility
+        const isMobile = window.innerWidth < 768;
+        const offset = isMobile ? 16 : 30;
+        const targetY = Math.max(0, el.getBoundingClientRect().top + window.pageYOffset - offset);
+        window.scrollTo({ top: targetY, behavior: "smooth" });
       }
     }
   };

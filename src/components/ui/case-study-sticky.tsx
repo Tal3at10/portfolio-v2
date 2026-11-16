@@ -191,14 +191,14 @@ export function CaseStudySticky() {
 function ProjectStickySection({ project, isAr }: { project: ProjectCase; isAr: boolean }) {
   const [activeStep, setActiveStep] = useState(0);
   const stepRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const touchStartPos = useRef<{ x: number; y: number } | null>(null);
   const locale = useLocale();
 
-  // Dual-strategy: Immediate scroll tracking + IntersectionObserver
+  // Scroll tracking to sync text with sticky card
   useEffect(() => {
     const handleScroll = () => {
       const isMobile = window.innerWidth < 1024;
-      // On mobile with sticky image at top, the text active trigger line is around 60% of viewport
-      const targetY = isMobile ? window.innerHeight * 0.6 : window.innerHeight * 0.5;
+      const targetY = isMobile ? window.innerHeight * 0.55 : window.innerHeight * 0.5;
 
       let closest = 0;
       let minDistance = Infinity;
@@ -217,12 +217,54 @@ function ProjectStickySection({ project, isAr }: { project: ProjectCase; isAr: b
     };
 
     window.addEventListener("scroll", handleScroll, { passive: true });
-    handleScroll(); // run once on mount
+    handleScroll();
 
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, [project.steps.length]);
+
+  const handleStepSelect = (idx: number) => {
+    setActiveStep(idx);
+    const targetEl = stepRefs.current[idx];
+    if (targetEl) {
+      const isMobile = window.innerWidth < 1024;
+      const offset = isMobile ? 320 : 120;
+      const topPos = targetEl.getBoundingClientRect().top + window.pageYOffset - offset;
+      window.scrollTo({ top: topPos, behavior: "smooth" });
+    }
+  };
+
+  const handleNextStep = () => {
+    handleStepSelect((activeStep + 1) % project.steps.length);
+  };
+
+  const handlePrevStep = () => {
+    handleStepSelect((activeStep - 1 + project.steps.length) % project.steps.length);
+  };
+
+  // Image Card Touch Swipe Handlers
+  const handleTouchStart = (e: React.TouchEvent) => {
+    const touch = e.touches[0];
+    touchStartPos.current = { x: touch.clientX, y: touch.clientY };
+  };
+
+  const handleTouchEnd = (e: React.TouchEvent) => {
+    if (!touchStartPos.current) return;
+    const touch = e.changedTouches[0];
+    const diffX = touchStartPos.current.x - touch.clientX;
+    const diffY = touchStartPos.current.y - touch.clientY;
+
+    // Only swipe if horizontal movement is greater than vertical movement
+    if (Math.abs(diffX) > 40 && Math.abs(diffX) > Math.abs(diffY)) {
+      if (diffX > 0) {
+        handleNextStep();
+      } else {
+        handlePrevStep();
+      }
+    }
+    touchStartPos.current = null;
+  };
 
   return (
     <div className="relative">
@@ -253,17 +295,25 @@ function ProjectStickySection({ project, isAr }: { project: ProjectCase; isAr: b
         </Link>
       </div>
 
-      {/* Main Sticky Grid (Unified layout with full animation on all screens) */}
+      {/* Main Sticky Grid */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-start relative">
         
-        {/* Sticky Pinned Image Card */}
+        {/* Sticky Pinned Image Card with Touch Swipe and Step Controls */}
         <div className="lg:order-2 lg:col-span-7 w-full sticky top-16 sm:top-20 lg:top-[20vh] z-20 mb-6 lg:mb-0">
-          <div className="relative w-full aspect-[16/10] min-h-[220px] sm:min-h-[300px] rounded-2xl overflow-hidden border border-white/15 bg-zinc-950 shadow-[0_20px_60px_rgba(0,0,0,0.9)] backdrop-blur-md">
+          <div
+            onTouchStart={handleTouchStart}
+            onTouchEnd={handleTouchEnd}
+            style={{ touchAction: "pan-y" }}
+            className="group relative w-full aspect-[16/10] min-h-[220px] sm:min-h-[300px] rounded-2xl overflow-hidden border border-white/15 bg-zinc-950 shadow-[0_20px_60px_rgba(0,0,0,0.9)] backdrop-blur-md select-none"
+          >
+            {/* Crossfading Step Images */}
             {project.steps.map((step, idx) => (
               <div
                 key={step.imageSrc}
-                className={`absolute inset-0 w-full h-full transition-opacity duration-500 ease-in-out ${
-                  activeStep === idx ? "opacity-100 z-10" : "opacity-0 z-0 pointer-events-none"
+                className={`absolute inset-0 w-full h-full transition-all duration-500 ease-in-out ${
+                  activeStep === idx
+                    ? "opacity-100 scale-100 z-10"
+                    : "opacity-0 scale-105 z-0 pointer-events-none"
                 }`}
               >
                 <Image
@@ -271,16 +321,72 @@ function ProjectStickySection({ project, isAr }: { project: ProjectCase; isAr: b
                   alt={step.imageAlt}
                   fill
                   unoptimized={true}
-                  className="object-cover object-top"
+                  className="object-cover object-top select-none pointer-events-none"
                   sizes="(max-width: 1024px) 100vw, 60vw"
                   priority={idx === 0}
                 />
               </div>
             ))}
+
+            {/* Top Interactive Step Pill Badges on the Image */}
+            <div className="absolute top-3 inset-x-3 sm:top-4 sm:inset-x-4 flex items-center justify-between z-20 pointer-events-auto">
+              <div className="flex items-center gap-1.5 p-1 rounded-full bg-black/75 backdrop-blur-md border border-white/15 shadow-xl">
+                {project.steps.map((_, idx) => (
+                  <button
+                    key={idx}
+                    type="button"
+                    onClick={() => handleStepSelect(idx)}
+                    style={{ touchAction: "manipulation" }}
+                    className={`px-2.5 py-1 rounded-full text-[10px] sm:text-xs font-mono font-bold transition-all duration-300 cursor-pointer active:scale-95 ${
+                      activeStep === idx
+                        ? "bg-[#dfcba9] text-black shadow-md"
+                        : "text-zinc-400 hover:text-white"
+                    }`}
+                  >
+                    0{idx + 1}
+                  </button>
+                ))}
+              </div>
+
+              {/* Mobile Swipe Hint Pill */}
+              <span className="text-[10px] font-mono text-zinc-300 px-2.5 py-1 rounded-full bg-black/60 backdrop-blur-md border border-white/10 hidden sm:inline-block">
+                {isAr ? "اسحب للتنقل • Swipe" : "Swipe to explore"}
+              </span>
+            </div>
+
+            {/* Bottom Quick-Step Title Overlay on Image */}
+            <div className="absolute bottom-3 inset-x-3 sm:bottom-4 sm:inset-x-4 flex items-center justify-between z-20 pointer-events-auto p-2 sm:p-3 rounded-xl bg-black/80 backdrop-blur-md border border-white/10">
+              <p className="text-xs sm:text-sm font-bold text-white truncate max-w-[70%]">
+                {isAr ? project.steps[activeStep].titleAr : project.steps[activeStep].titleEn}
+              </p>
+
+              {/* Prev / Next Arrows on Image Card */}
+              <div className="flex items-center gap-1.5 shrink-0">
+                <button
+                  type="button"
+                  onClick={handlePrevStep}
+                  aria-label="Previous step"
+                  style={{ touchAction: "manipulation" }}
+                  className="size-7 sm:size-8 rounded-full bg-white/10 hover:bg-[#dfcba9] hover:text-black text-white flex items-center justify-center transition-all cursor-pointer active:scale-95"
+                >
+                  <span className="font-bold text-xs">{isAr ? "→" : "←"}</span>
+                </button>
+                <button
+                  type="button"
+                  onClick={handleNextStep}
+                  aria-label="Next step"
+                  style={{ touchAction: "manipulation" }}
+                  className="size-7 sm:size-8 rounded-full bg-white/10 hover:bg-[#dfcba9] hover:text-black text-white flex items-center justify-center transition-all cursor-pointer active:scale-95"
+                >
+                  <span className="font-bold text-xs">{isAr ? "←" : "→"}</span>
+                </button>
+              </div>
+            </div>
+
           </div>
         </div>
 
-        {/* Text Steps Column */}
+        {/* Text Steps Column with Clickable Activation */}
         <div className="lg:order-1 lg:col-span-5 space-y-8 lg:space-y-4">
           {project.steps.map((step, idx) => {
             const isActive = activeStep === idx;
@@ -290,12 +396,14 @@ function ProjectStickySection({ project, isAr }: { project: ProjectCase; isAr: b
                 ref={(el) => {
                   stepRefs.current[idx] = el;
                 }}
-                className={`min-h-[55vh] sm:min-h-[50vh] py-8 flex flex-col justify-center transition-all duration-300 ${
-                  isActive ? "opacity-100" : "opacity-40"
+                onClick={() => handleStepSelect(idx)}
+                style={{ touchAction: "manipulation" }}
+                className={`min-h-[45vh] sm:min-h-[50vh] py-6 sm:py-8 flex flex-col justify-center transition-all duration-300 cursor-pointer group ${
+                  isActive ? "opacity-100" : "opacity-40 hover:opacity-75"
                 }`}
               >
                 <div className="inline-flex items-center gap-2 text-xs font-mono mb-2">
-                  <span className={`w-2 h-2 rounded-full ${idx === 2 ? "bg-emerald-400 animate-pulse" : "bg-[#dfcba9]"}`} />
+                  <span className={`w-2.5 h-2.5 rounded-full transition-transform duration-300 ${isActive ? "scale-125" : "scale-100"} ${idx === 2 ? "bg-emerald-400 animate-pulse" : "bg-[#dfcba9]"}`} />
                   <span className={idx === 2 ? "text-emerald-400 font-bold" : "text-[#dfcba9] font-medium"}>
                     {idx === 0
                       ? isAr
@@ -310,7 +418,7 @@ function ProjectStickySection({ project, isAr }: { project: ProjectCase; isAr: b
                       : "03. The Business Outcome"}
                   </span>
                 </div>
-                <h4 className="text-lg sm:text-xl font-bold text-white tracking-tight leading-snug mb-3">
+                <h4 className="text-lg sm:text-xl font-bold text-white tracking-tight leading-snug mb-3 group-hover:text-[#dfcba9] transition-colors">
                   {isAr ? step.titleAr : step.titleEn}
                 </h4>
                 <p dir="auto" className="text-xs sm:text-base text-zinc-300 leading-[1.85] font-normal max-w-xl">

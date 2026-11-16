@@ -12,7 +12,7 @@ import LumaBar from "@/components/ui/futuristic-nav";
 
 export default function LocalePage() {
   return (
-    <main className="min-h-screen bg-[#09090b] relative selection:bg-[#dfcba9] selection:text-black">
+    <main className="min-h-screen bg-[#09090b] relative selection:bg-[#dfcba9] selection:text-black pb-28 sm:pb-16">
       {/* 1. Hero Layered Parallax */}
       <ParallaxComponent />
 

@@ -152,7 +152,6 @@ export const ConnoisseurStackInteractor = ({
                   role="button"
                   tabIndex={0}
                   onClick={() => handleItemHover(index)}
-                  onTouchStart={() => handleItemHover(index)}
                   onKeyDown={(e) => {
                     if (e.key === "Enter" || e.key === " ") {
                       e.preventDefault();
@@ -160,7 +159,7 @@ export const ConnoisseurStackInteractor = ({
                     }
                   }}
                   onMouseEnter={() => handleItemHover(index)}
-                  className="group cursor-pointer transition-all duration-300 select-none"
+                  className="group cursor-pointer transition-all duration-300 select-none p-3 -mx-3 rounded-2xl hover:bg-white/[0.02]"
                 >
                   <div className="flex items-start gap-4 sm:gap-6">
                     {/* Number */}

@@ -46,20 +46,31 @@ export function ParallaxComponent() {
 
   // ── Scroll Helpers ──────────────────────────────────────────────────────
   const scrollToCaseStudies = () => {
-    window.scrollTo({ top: window.innerHeight * 0.95, behavior: "smooth" });
+    const el = document.getElementById("case-studies");
+    if (el) {
+      const isMobile = window.innerWidth < 768;
+      const offset = isMobile ? 16 : 30;
+      const targetY = Math.max(0, el.getBoundingClientRect().top + window.pageYOffset - offset);
+      window.scrollTo({ top: targetY, behavior: "smooth" });
+    } else {
+      window.scrollTo({ top: window.innerHeight * 0.95, behavior: "smooth" });
+    }
   };
 
   const scrollToContact = () => {
     const el = document.getElementById("contact") || document.querySelector("footer");
     if (el) {
-      el.scrollIntoView({ behavior: "smooth" });
+      const isMobile = window.innerWidth < 768;
+      const offset = isMobile ? 16 : 30;
+      const targetY = Math.max(0, el.getBoundingClientRect().top + window.pageYOffset - offset);
+      window.scrollTo({ top: targetY, behavior: "smooth" });
     } else {
       window.scrollTo({ top: document.body.scrollHeight, behavior: "smooth" });
     }
   };
 
   return (
-    <div id="hero" className="relative w-full min-h-screen h-auto bg-[#09090b] bg-[radial-gradient(ellipse_at_top,rgba(223,203,169,0.12)_0%,transparent_60%)] overflow-hidden flex flex-col justify-center">
+    <div id="hero" className="relative w-full min-h-screen h-auto bg-[#09090b] bg-[radial-gradient(ellipse_at_top,rgba(223,203,169,0.12)_0%,transparent_60%)] overflow-clip flex flex-col justify-center">
 
       {/* ── Layer 1: GLSL Hills WebGL Background ── */}
       <div className="absolute inset-0 z-0 pointer-events-none">

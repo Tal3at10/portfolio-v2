@@ -40,18 +40,29 @@
     letter-spacing: normal;
   }
 
-  /* iOS Safari: eliminate 300ms tap delay on all interactive elements */
+  /* Smooth native scroll & tap optimizations */
+  html {
+    scroll-behavior: smooth;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  body {
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* Eliminate tap delay on all interactive elements */
   a,
   button,
   [role="button"],
+  [role="tab"],
   input,
   select,
   textarea,
   label {
     touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
   }
 
-  /* Ensure cursor:pointer works consistently across iOS */
   button {
     cursor: pointer;
   }

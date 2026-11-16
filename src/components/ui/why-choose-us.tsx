@@ -86,7 +86,10 @@ export function WhyChooseUs() {
   const scrollToTestimonials = () => {
     const el = document.getElementById("testimonials");
     if (el) {
-      el.scrollIntoView({ behavior: "smooth" });
+      const isMobile = window.innerWidth < 768;
+      const offset = isMobile ? 16 : 30;
+      const targetY = Math.max(0, el.getBoundingClientRect().top + window.pageYOffset - offset);
+      window.scrollTo({ top: targetY, behavior: "smooth" });
     }
   };
 
