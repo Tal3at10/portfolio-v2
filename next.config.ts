@@ -4,6 +4,15 @@ import createNextIntlPlugin from 'next-intl/plugin';
 const withNextIntl = createNextIntlPlugin('./src/i18n/request.ts');
 
 const nextConfig: NextConfig = {
+  transpilePackages: [
+    'three',
+    'framer-motion',
+    'lenis',
+    'gsap',
+    'next-intl',
+    'lucide-react',
+    '@tabler/icons-react',
+  ],
   images: {
     formats: ['image/avif', 'image/webp'],
     dangerouslyAllowSVG: true,
