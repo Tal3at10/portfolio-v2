@@ -1,8 +1,9 @@
 "use client";
 
 import { cn } from "@/lib/utils";
-import { useRef, useState, useLayoutEffect } from "react";
-import gsap from "gsap";
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import Image from "next/image";
 import { useLocale } from "next-intl";
 
 export interface ProcessItem {
@@ -70,80 +71,28 @@ export const ConnoisseurStackInteractor = ({
   className?: string;
 }) => {
   const [activeIndex, setActiveIndex] = useState(0);
-  const containerRef = useRef<HTMLDivElement>(null);
-  const imageRef = useRef<SVGImageElement>(null);
-  const mainGroupRef = useRef<SVGGElement>(null);
-  const masterTl = useRef<gsap.core.Timeline | null>(null);
 
   const locale = useLocale();
   const isAr = locale === "ar";
 
-  const createLoop = (index: number) => {
-    const item = items[index];
-    const selector = `#${item.clipId} .path`;
-
-    if (masterTl.current) masterTl.current.kill();
-
-    if (imageRef.current) imageRef.current.setAttribute("href", item.image);
-    if (mainGroupRef.current)
-      mainGroupRef.current.setAttribute("clip-path", `url(#${item.clipId})`);
-
-    gsap.set(selector, { scale: 0, transformOrigin: "50% 50%" });
-
-    const tl = gsap.timeline({ repeat: -1, repeatDelay: 1.2 });
-
-    // 1. IN (Expo Out)
-    tl.to(selector, {
-      scale: 1,
-      duration: 0.8,
-      stagger: { amount: 0.35, from: "random" },
-      ease: "expo.out",
-    })
-      // 2. IDLE (Sine Breath)
-      .to(selector, {
-        scale: 1.04,
-        duration: 1.4,
-        yoyo: true,
-        repeat: 1,
-        ease: "sine.inOut",
-        stagger: { amount: 0.2, from: "center" },
-      })
-      // 3. OUT (Expo In)
-      .to(selector, {
-        scale: 0,
-        duration: 0.6,
-        stagger: { amount: 0.25, from: "edges" },
-        ease: "expo.in",
-      });
-
-    masterTl.current = tl;
-  };
-
-  useLayoutEffect(() => {
-    const ctx = gsap.context(() => {
-      createLoop(0);
-    }, containerRef);
-    return () => ctx.revert();
-  }, []);
-
-  const handleItemHover = (index: number) => {
+  const handleItemSelect = (index: number) => {
     if (index === activeIndex) return;
     setActiveIndex(index);
-    createLoop(index);
   };
+
+  const currentItem = items[activeIndex] || items[0];
 
   return (
     <div
-      ref={containerRef}
       className={cn(
-        "flex flex-col lg:flex-row items-center justify-between w-full py-12 px-6 sm:px-12 max-w-6xl mx-auto",
+        "flex flex-col-reverse lg:flex-row items-center justify-between gap-10 lg:gap-12 w-full py-6 sm:py-12 px-2 sm:px-8 max-w-6xl mx-auto",
         className
       )}
     >
       {/* LEFT SIDE: Architectural Steps */}
       <div className="z-20 w-full lg:w-1/2">
-        <nav>
-          <ul className="flex flex-col gap-10">
+        <nav aria-label={isAr ? "مراحل المنهجية" : "Methodology steps"}>
+          <ul className="flex flex-col gap-5 sm:gap-8">
             {items.map((item, index) => {
               const isActive = activeIndex === index;
               return (
@@ -151,24 +100,30 @@ export const ConnoisseurStackInteractor = ({
                   key={item.num}
                   role="button"
                   tabIndex={0}
-                  onClick={() => handleItemHover(index)}
+                  onClick={() => handleItemSelect(index)}
                   onKeyDown={(e) => {
                     if (e.key === "Enter" || e.key === " ") {
                       e.preventDefault();
-                      handleItemHover(index);
+                      handleItemSelect(index);
                     }
                   }}
-                  onMouseEnter={() => handleItemHover(index)}
-                  className="group cursor-pointer transition-all duration-300 select-none p-3 -mx-3 rounded-2xl hover:bg-white/[0.02]"
+                  onMouseEnter={() => handleItemSelect(index)}
+                  style={{ touchAction: "manipulation" }}
+                  className={cn(
+                    "group cursor-pointer transition-all duration-300 select-none p-4 rounded-2xl border",
+                    isActive
+                      ? "bg-white/[0.04] border-[#dfcba9]/35 shadow-[0_8px_30px_rgba(223,203,169,0.08)]"
+                      : "bg-transparent border-white/[0.05] hover:bg-white/[0.02] hover:border-white/15"
+                  )}
                 >
                   <div className="flex items-start gap-4 sm:gap-6">
                     {/* Number */}
                     <span
                       className={cn(
-                        "text-2xl sm:text-3xl font-mono font-bold transition-all duration-500 mt-1 shrink-0",
+                        "text-xl sm:text-3xl font-mono font-bold transition-all duration-300 mt-0.5 shrink-0",
                         isActive
                           ? "text-[#dfcba9] scale-110"
-                          : "text-zinc-700 dark:text-zinc-700"
+                          : "text-zinc-600"
                       )}
                     >
                       {item.num}
@@ -178,26 +133,26 @@ export const ConnoisseurStackInteractor = ({
                     <div className="flex flex-col">
                       <h3
                         className={cn(
-                          `text-lg sm:text-2xl font-black leading-[1.15] transition-all duration-500 ${isAr ? "tracking-normal" : "uppercase tracking-tight"}`, 
+                          `text-base sm:text-2xl font-black leading-[1.2] transition-all duration-300 ${isAr ? "tracking-normal" : "uppercase tracking-tight"}`,
                           isActive
-                            ? "text-white opacity-100 rtl:-translate-x-1 sm:rtl:-translate-x-2 ltr:translate-x-1 sm:ltr:translate-x-2"
-                            : "text-zinc-500 sm:text-zinc-600 opacity-60 sm:opacity-40 translate-x-0"
+                            ? "text-white opacity-100"
+                            : "text-zinc-400 opacity-75 group-hover:opacity-100"
                         )}
                       >
-                        {isAr ? item.titleAr : item.titleEn}
-                        <br />
+                        {isAr ? item.titleAr : item.titleEn}{" "}
                         <span className="text-[#dfcba9] font-bold">
                           {isAr ? item.subtitleAr : item.subtitleEn}
                         </span>
                       </h3>
 
                       {/* Description that expands smoothly for active item */}
-                      <p dir="auto"
+                      <p
+                        dir="auto"
                         className={cn(
-                          "text-xs sm:text-sm text-zinc-300 leading-relaxed max-w-xl mt-3 sm:mt-4 transition-all duration-500",
+                          "text-xs sm:text-sm text-zinc-300 leading-relaxed max-w-xl transition-all duration-300",
                           isActive
-                            ? "opacity-100 max-h-96 rtl:-translate-x-1 sm:rtl:-translate-x-2 ltr:translate-x-1 sm:ltr:translate-x-2"
-                            : "opacity-0 max-h-0 overflow-hidden"
+                            ? "opacity-100 max-h-96 mt-2.5 sm:mt-3"
+                            : "opacity-0 max-h-0 overflow-hidden mt-0"
                         )}
                       >
                         {isAr ? item.descriptionAr : item.descriptionEn}
@@ -211,102 +166,70 @@ export const ConnoisseurStackInteractor = ({
         </nav>
       </div>
 
-      {/* RIGHT SIDE: Animated GSAP SVG Grid Mosaic */}
-      <div className="relative w-full lg:w-1/2 flex justify-center items-center mt-12 lg:mt-0">
-        <div className="absolute w-[110%] h-[110%] bg-[#dfcba9]/5 blur-[100px] rounded-full pointer-events-none" />
+      {/* RIGHT SIDE (TOP ON MOBILE): Cross-browser Animated Architectural Visual */}
+      <div className="relative w-full lg:w-1/2 flex flex-col items-center justify-center">
+        <div className="absolute w-[95%] h-[95%] bg-[#dfcba9]/10 blur-[80px] rounded-full pointer-events-none" />
 
-        <svg
-          viewBox="0 0 500 500"
-          className="w-full max-w-[460px] h-auto z-10 drop-shadow-[0_0_50px_rgba(0,0,0,0.9)]"
-        >
-          <defs>
-            {/* 1. Original Multi-Slice Mask */}
-            <clipPath id="clip-original">
-              <rect className="path" x="20" y="25" width="460" height="75" rx="12" />
-              <rect className="path" x="20" y="120" width="460" height="75" rx="12" />
-              <rect className="path" x="20" y="215" width="460" height="75" rx="12" />
-              <rect className="path" x="20" y="310" width="460" height="75" rx="12" />
-              <rect className="path" x="20" y="405" width="460" height="75" rx="12" />
-            </clipPath>
+        <div className="relative w-full max-w-[440px] aspect-square min-h-[260px] rounded-3xl overflow-hidden border border-white/15 bg-zinc-950 shadow-[0_20px_60px_rgba(0,0,0,0.85)]">
+          <AnimatePresence mode="wait" initial={false}>
+            <motion.div
+              key={currentItem.num}
+              initial={{ opacity: 0, scale: 1.06 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.96 }}
+              transition={{ duration: 0.45, ease: [0.16, 1, 0.3, 1] }}
+              className="relative w-full h-full"
+            >
+              <Image
+                src={currentItem.image}
+                alt={isAr ? currentItem.titleAr : currentItem.titleEn}
+                fill
+                unoptimized={true}
+                className="object-cover object-center select-none pointer-events-none"
+                sizes="(max-width: 1024px) 100vw, 440px"
+                priority
+              />
 
-            {/* 2. Hexagons / Bento Geometric Slices */}
-            <clipPath id="clip-hexagons">
-              <rect
-                className="path"
-                x="20"
-                y="20"
-                width="200"
-                height="280"
-                rx="14"
+              {/* Subtle Geometric Grid Overlay */}
+              <div
+                className="absolute inset-0 pointer-events-none opacity-25"
+                style={{
+                  backgroundImage:
+                    "linear-gradient(to right, rgba(223,203,169,0.18) 1px, transparent 1px), linear-gradient(to bottom, rgba(223,203,169,0.18) 1px, transparent 1px)",
+                  backgroundSize: "33.333% 33.333%",
+                }}
               />
-              <rect
-                className="path"
-                x="20"
-                y="320"
-                width="200"
-                height="160"
-                rx="14"
-              />
-              <rect
-                className="path"
-                x="240"
-                y="20"
-                width="240"
-                height="140"
-                rx="14"
-              />
-              <rect
-                className="path"
-                x="240"
-                y="180"
-                width="110"
-                height="160"
-                rx="14"
-              />
-              <rect
-                className="path"
-                x="370"
-                y="180"
-                width="110"
-                height="160"
-                rx="14"
-              />
-              <rect
-                className="path"
-                x="240"
-                y="360"
-                width="240"
-                height="120"
-                rx="14"
-              />
-            </clipPath>
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/15 to-transparent pointer-events-none" />
+            </motion.div>
+          </AnimatePresence>
 
-            {/* 3. 9-Square Grid Mosaic */}
-            <clipPath id="clip-pixels">
-              {Array.from({ length: 9 }).map((_, i) => (
-                <rect
-                  key={i}
-                  className="path"
-                  x={(i % 3) * 160 + 20}
-                  y={Math.floor(i / 3) * 160 + 20}
-                  width="140"
-                  height="140"
-                  rx="10"
+          {/* Bottom Live Step Indicator on Visual Card */}
+          <div className="absolute bottom-3 inset-x-3 sm:bottom-4 sm:inset-x-4 z-20 flex items-center justify-between gap-2 px-3.5 py-2.5 rounded-2xl bg-black/75 backdrop-blur-md border border-white/15">
+            <div className="flex items-center gap-2 min-w-0">
+              <span className="text-xs font-mono font-bold text-[#dfcba9] shrink-0">
+                {currentItem.num}
+              </span>
+              <span className="text-xs sm:text-sm font-bold text-white truncate">
+                {isAr ? currentItem.titleAr : currentItem.titleEn}
+              </span>
+            </div>
+            <div className="flex items-center gap-1.5 shrink-0">
+              {items.map((it, idx) => (
+                <button
+                  key={it.num}
+                  type="button"
+                  onClick={() => handleItemSelect(idx)}
+                  aria-label={`Step ${it.num}`}
+                  style={{ touchAction: "manipulation" }}
+                  className={cn(
+                    "h-2 rounded-full transition-all duration-300 cursor-pointer",
+                    activeIndex === idx ? "w-5 bg-[#dfcba9]" : "w-2 bg-white/30"
+                  )}
                 />
               ))}
-            </clipPath>
-          </defs>
-
-          <g ref={mainGroupRef} clipPath={`url(#${items[0].clipId})`}>
-            <image
-              ref={imageRef}
-              href={items[0].image}
-              width="500"
-              height="500"
-              preserveAspectRatio="xMidYMid slice"
-            />
-          </g>
-        </svg>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );

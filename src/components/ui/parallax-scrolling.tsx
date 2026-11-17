@@ -70,7 +70,7 @@ export function ParallaxComponent() {
   };
 
   return (
-    <div id="hero" className="relative w-full min-h-screen h-auto bg-[#09090b] bg-[radial-gradient(ellipse_at_top,rgba(223,203,169,0.12)_0%,transparent_60%)] overflow-clip flex flex-col justify-center">
+    <div id="hero" className="relative w-full min-h-screen h-auto bg-[#09090b] bg-[radial-gradient(ellipse_at_top,rgba(223,203,169,0.12)_0%,transparent_60%)] overflow-hidden flex flex-col justify-center">
 
       {/* ── Layer 1: GLSL Hills WebGL Background ── */}
       <div className="absolute inset-0 z-0 pointer-events-none">

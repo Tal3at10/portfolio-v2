@@ -172,44 +172,42 @@ export function ProjectScreenshotGallery({
       </div>
 
       {/* Responsive Grid */}
-      <motion.div
-        layout
-        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
-      >
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         <AnimatePresence>
           {filteredItems.map((item, index) => (
             <motion.div
-              layout
               key={item.id}
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.95 }}
               transition={{ duration: 0.35 }}
               onClick={() => handleOpenLightbox(index)}
+              style={{ touchAction: "manipulation" }}
               className="group relative rounded-2xl overflow-hidden bg-[#09090d] border border-white/[0.08] hover:border-[#dfcba9]/50 transition-all duration-300 cursor-pointer shadow-xl"
             >
               {/* Image Container */}
-              <div className="relative w-full aspect-[16/10] overflow-hidden bg-zinc-950">
+              <div className="relative w-full aspect-[16/10] min-h-[190px] overflow-hidden bg-zinc-950">
                 <Image
                   src={item.image}
                   alt={isAr ? item.titleAr : item.titleEn}
                   fill
-                  className="object-cover object-top transition-transform duration-500 group-hover:scale-105"
+                  unoptimized={true}
+                  className="object-cover object-top transition-transform duration-500 group-hover:scale-105 select-none pointer-events-none"
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                 />
 
                 {/* Subtle Gradient Overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-60 group-hover:opacity-40 transition-opacity duration-300" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-60 group-hover:opacity-40 transition-opacity duration-300 pointer-events-none" />
 
                 {/* Top Category Badge */}
-                <div className="absolute top-3 start-3">
+                <div className="absolute top-3 start-3 pointer-events-none">
                   <span className="px-2.5 py-1 rounded-md text-[10px] font-mono uppercase tracking-wider bg-black/70 backdrop-blur-md text-[#dfcba9] border border-white/10">
                     {isAr ? item.categoryAr : item.categoryEn}
                   </span>
                 </div>
 
                 {/* Hover Maximize Icon */}
-                <div className="absolute top-3 end-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <div className="absolute top-3 end-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
                   <div className="w-8 h-8 rounded-full bg-black/70 backdrop-blur-md border border-white/20 flex items-center justify-center text-white">
                     <IconMaximize className="w-4 h-4" />
                   </div>
@@ -230,7 +228,7 @@ export function ProjectScreenshotGallery({
             </motion.div>
           ))}
         </AnimatePresence>
-      </motion.div>
+      </div>
 
       {/* Full-Screen Lightbox Modal */}
       <AnimatePresence>
